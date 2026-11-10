@@ -6,7 +6,8 @@ import threading
 from pathlib import Path
 from typing import Any, Callable
 
-from app.db import DATA_DIR, get_job, update_job
+from app.db import get_job, update_job
+from app.paths import job_dir
 from transcribe.engine import transcribe_file
 from transcribe.media import prepare_audio
 
@@ -79,15 +80,14 @@ class JobWorker:
         if job["status"] == "cancelled":
             return
 
-        job_dir = DATA_DIR / "jobs" / job_id
-        job_dir.mkdir(parents=True, exist_ok=True)
+        folder = job_dir(job_id)
+        folder.mkdir(parents=True, exist_ok=True)
         source = Path(job["source_path"])
 
         update_job(job_id, status="preparing")
         self._emit(job_id, {"event": "preparing"})
 
-        # Keep a copy of the original upload name under job dir if needed
-        source_copy = job_dir / "source" / source.name
+        source_copy = folder / "source" / source.name
         source_copy.parent.mkdir(parents=True, exist_ok=True)
         if source.resolve() != source_copy.resolve():
             shutil.copy2(source, source_copy)
@@ -95,7 +95,7 @@ class JobWorker:
         if job_id in self._cancel:
             return
 
-        audio_path = prepare_audio(source_copy, job_dir / "work")
+        audio_path = prepare_audio(source_copy, folder / "work")
         update_job(job_id, status="running", progress_json={"event": "audio_ready"})
         self._emit(job_id, {"event": "audio_ready", "audio": audio_path.name})
 
@@ -106,9 +106,10 @@ class JobWorker:
             self._emit(job_id, payload)
 
         lang = job.get("language") or "es"
+        # Write transcripts flat in the job folder (no nested out/)
         result = transcribe_file(
             audio_path,
-            out_dir=job_dir / "out",
+            out_dir=folder,
             title=job["title"],
             language=None if lang == "auto" else lang,
             initial_prompt=job.get("initial_prompt"),

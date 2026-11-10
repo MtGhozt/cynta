@@ -27,8 +27,10 @@
 
     <main class="stage">
       <section class="deck" aria-labelledby="deck-title">
-        <h1 id="deck-title">Meter archivo</h1>
-        <p class="deck-help">Audio o video. Si es video, se saca el audio con ffmpeg y se transcribe acá.</p>
+        <div class="deck-head">
+          <h1 id="deck-title">Meter archivo</h1>
+          <p class="deck-help">Audio o video · si es video, ffmpeg saca el audio y se transcribe acá.</p>
+        </div>
 
         <div
           class="platter"
@@ -37,8 +39,11 @@
           role="button"
           aria-label="Elegir o soltar archivo de audio o video"
         >
-          <p class="platter-main">Soltá el archivo</p>
-          <p class="platter-sub">m4a / mp3 / wav / mp4 / mkv / webm</p>
+          <span class="rail" aria-hidden="true">IN</span>
+          <div class="platter-copy">
+            <p class="platter-main">Soltá el archivo</p>
+            <p class="platter-sub">m4a / mp3 / wav / mp4 / mkv / webm</p>
+          </div>
         </div>
         <input id="fileInput" type="file" hidden accept="audio/*,video/*,.m4a,.mp3,.wav,.flac,.ogg,.mp4,.mkv,.webm,.mov,.avi" />
         <p class="loaded" id="fileChip" hidden></p>
@@ -71,7 +76,16 @@
 
           <div class="field wide" id="customPromptWrap" hidden>
             <label for="custom_prompt">Prompt</label>
-            <textarea id="custom_prompt" name="custom_prompt" rows="3" placeholder="Términos propios de la materia"></textarea>
+            <textarea id="custom_prompt" name="custom_prompt" rows="2" placeholder="Términos propios de la materia"></textarea>
+          </div>
+
+          <div class="field wide">
+            <label for="outputDir">Guardar en</label>
+            <div class="path-row">
+              <input id="outputDir" name="output_dir" spellcheck="false" />
+              <button type="button" class="quiet" id="savePathBtn">Usar</button>
+            </div>
+            <p class="hint">Carpeta base. Cada job va en <code>…/jobs/&lt;id&gt;/</code> con el MD/JSON/SRT a la vista.</p>
           </div>
 
           <div class="run-row">
@@ -83,8 +97,11 @@
 
       <section class="log" aria-labelledby="log-title">
         <div class="log-head">
-          <h2 id="log-title">Cola</h2>
-          <p class="log-note">Archivos en <code id="outPath">data/jobs/</code></p>
+          <div>
+            <h2 id="log-title">Cola</h2>
+            <p class="log-note">Archivos en <code id="outPath">…</code></p>
+          </div>
+          <button type="button" class="quiet" id="clearBtn" title="Borra jobs terminados de la lista y del disco">Limpiar cola</button>
         </div>
         <div class="jobs" id="jobs"></div>
 

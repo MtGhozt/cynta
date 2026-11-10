@@ -347,11 +347,50 @@ function wireTheme() {
   });
 }
 
+async function loadSettings() {
+  const res = await fetch("/api/settings");
+  const data = await res.json();
+  $("outputDir").value = data.output_dir || "";
+  $("outPath").textContent = data.jobs_dir || data.output_dir || "";
+}
+
+async function saveOutputDir() {
+  const path = $("outputDir").value.trim();
+  if (!path) return;
+  const res = await fetch("/api/settings/output-dir", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    alert(err.detail || "No se pudo guardar la ruta");
+    return;
+  }
+  const data = await res.json();
+  $("outputDir").value = data.output_dir;
+  $("outPath").textContent = data.jobs_dir;
+}
+
+async function clearQueue() {
+  if (!confirm("¿Limpiar jobs terminados (done/error/cancelados) de la lista y del disco?")) {
+    return;
+  }
+  const res = await fetch("/api/jobs/clear", { method: "POST" });
+  const data = await res.json();
+  await refreshJobs();
+  if (data.removed === 0) {
+    alert("No había jobs terminados para limpiar.");
+  }
+}
+
 async function boot() {
   wireTheme();
   wireDrop();
   $("jobForm").addEventListener("submit", submitJob);
   $("refreshBtn").addEventListener("click", refreshJobs);
+  $("clearBtn").addEventListener("click", clearQueue);
+  $("savePathBtn").addEventListener("click", saveOutputDir);
   $("jobs").addEventListener("click", onJobAction);
   $("searchBox").addEventListener("input", applySearch);
   $("prompt_template").addEventListener("change", () => {
@@ -359,11 +398,9 @@ async function boot() {
   });
 
   try {
-    const health = await fetch("/api/health").then((r) => r.json());
+    await fetch("/api/health").then((r) => r.json());
     setHealth("ok", "local");
-    if (health.data_dir) {
-      $("outPath").textContent = `${health.data_dir}\\jobs`;
-    }
+    await loadSettings();
   } catch {
     setHealth("bad", "offline");
   }

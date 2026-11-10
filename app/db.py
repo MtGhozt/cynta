@@ -7,9 +7,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = ROOT / "data"
-DB_PATH = DATA_DIR / "jobs.sqlite3"
+from app.settings import DEFAULT_DATA_DIR
+
+DB_PATH = DEFAULT_DATA_DIR / "jobs.sqlite3"
 
 _LOCK = threading.Lock()
 
@@ -19,7 +19,7 @@ def _utc_now() -> str:
 
 
 def connect() -> sqlite3.Connection:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    DEFAULT_DATA_DIR.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     return conn
@@ -137,6 +137,43 @@ def list_jobs(limit: int = 100) -> list[dict[str, Any]]:
         finally:
             conn.close()
     return [_row_to_dict(r) for r in rows]
+
+
+def delete_jobs(statuses: list[str] | None = None, delete_files: bool = True) -> int:
+    """Delete jobs. If statuses is None, delete all non-active. Returns count."""
+    from app.settings import jobs_dir
+
+    with _LOCK:
+        conn = connect()
+        try:
+            if statuses:
+                placeholders = ",".join("?" * len(statuses))
+                rows = conn.execute(
+                    f"SELECT id FROM jobs WHERE status IN ({placeholders})",
+                    statuses,
+                ).fetchall()
+            else:
+                rows = conn.execute(
+                    "SELECT id FROM jobs WHERE status NOT IN ('queued','preparing','running')"
+                ).fetchall()
+            ids = [r["id"] for r in rows]
+            if not ids:
+                return 0
+            placeholders = ",".join("?" * len(ids))
+            conn.execute(f"DELETE FROM jobs WHERE id IN ({placeholders})", ids)
+            conn.commit()
+        finally:
+            conn.close()
+
+    if delete_files:
+        import shutil
+
+        root = jobs_dir()
+        for job_id in ids:
+            folder = root / job_id
+            if folder.is_dir():
+                shutil.rmtree(folder, ignore_errors=True)
+    return len(ids)
 
 
 def _row_to_dict(row: sqlite3.Row) -> dict[str, Any]:

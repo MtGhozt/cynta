@@ -11,26 +11,34 @@ from typing import Any
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from app.db import DATA_DIR, create_job, get_job, init_db, list_jobs, update_job
+from app.db import create_job, delete_jobs, get_job, init_db, list_jobs, update_job
+from app.paths import artifact_path, job_dir, openable_folder
 from app.prompts import PROMPT_TEMPLATES
+from app.settings import get_output_dir, set_output_dir
 from app.worker import WORKER
 from transcribe import config
 from transcribe.media import AUDIO_EXTENSIONS, VIDEO_EXTENSIONS
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 
-app = FastAPI(title="Transcriptor Local", version="0.1.0")
+app = FastAPI(title="Cynta", version="0.2.0")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+
+class OutputDirBody(BaseModel):
+    path: str
 
 
 @app.on_event("startup")
 def _startup() -> None:
     init_db()
+    get_output_dir()
     WORKER.start()
 
 
@@ -46,7 +54,27 @@ def index() -> HTMLResponse:
 
 @app.get("/api/health")
 def health() -> dict[str, Any]:
-    return {"ok": True, "data_dir": str(DATA_DIR)}
+    out = get_output_dir()
+    return {
+        "ok": True,
+        "output_dir": str(out),
+        "jobs_dir": str(out / "jobs"),
+    }
+
+
+@app.get("/api/settings")
+def api_get_settings() -> dict[str, Any]:
+    out = get_output_dir()
+    return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
+
+
+@app.post("/api/settings/output-dir")
+def api_set_output_dir(body: OutputDirBody) -> dict[str, Any]:
+    path = body.path.strip()
+    if not path:
+        raise HTTPException(400, "Path vacío")
+    out = set_output_dir(path)
+    return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
 
 
 @app.get("/api/meta")
@@ -104,8 +132,8 @@ async def api_create_job(
         )
 
     job_id = uuid.uuid4().hex[:12]
-    job_dir = DATA_DIR / "jobs" / job_id
-    upload_dir = job_dir / "upload"
+    folder = job_dir(job_id)
+    upload_dir = folder / "upload"
     upload_dir.mkdir(parents=True, exist_ok=True)
     dest = upload_dir / Path(file.filename).name
 
@@ -137,6 +165,13 @@ async def api_create_job(
     return job
 
 
+@app.post("/api/jobs/clear")
+def api_clear_jobs() -> dict[str, Any]:
+    """Remove finished jobs from the queue (keeps ones still running)."""
+    removed = delete_jobs(statuses=["done", "error", "cancelled"], delete_files=True)
+    return {"removed": removed}
+
+
 @app.post("/api/jobs/{job_id}/cancel")
 def api_cancel(job_id: str) -> dict[str, str]:
     if not get_job(job_id):
@@ -166,8 +201,8 @@ def api_download(job_id: str, kind: str) -> FileResponse:
     }
     if kind not in mapping:
         raise HTTPException(400, "kind debe ser md|json|srt")
-    path = DATA_DIR / "jobs" / job_id / "out" / mapping[kind]
-    if not path.is_file():
+    path = artifact_path(job_id, mapping[kind])
+    if not path:
         raise HTTPException(404, "Archivo no listo")
     media = {
         "md": "text/markdown; charset=utf-8",
@@ -179,15 +214,15 @@ def api_download(job_id: str, kind: str) -> FileResponse:
 
 @app.get("/api/jobs/{job_id}/transcript")
 def api_transcript(job_id: str) -> dict[str, str]:
-    path = DATA_DIR / "jobs" / job_id / "out" / "transcripcion.md"
-    if not path.is_file():
+    path = artifact_path(job_id, "transcripcion.md")
+    if not path:
         raise HTTPException(404, "Transcripción no lista")
     return {"markdown": path.read_text(encoding="utf-8")}
 
 
 @app.post("/api/jobs/{job_id}/open-folder")
 def api_open_folder(job_id: str) -> dict[str, str]:
-    folder = DATA_DIR / "jobs" / job_id
+    folder = openable_folder(job_id)
     if not folder.is_dir():
         raise HTTPException(404, "Carpeta no existe")
     if sys.platform == "win32":
@@ -222,7 +257,6 @@ async def ws_job(websocket: WebSocket, job_id: str) -> None:
                 if payload.get("event") in {"done", "error", "cancelled"}:
                     break
             except asyncio.TimeoutError:
-                # keepalive + refresh snapshot
                 job = get_job(job_id)
                 await websocket.send_json({"event": "ping", "job": job})
                 if job and job["status"] in {"done", "error", "cancelled"}:
