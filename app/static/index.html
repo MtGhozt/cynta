@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cinta · transcriptor local</title>
+  <title>Cynta · transcriptor local</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -13,11 +13,11 @@
   <div class="shell">
     <header class="top">
       <div class="top-left">
-        <p class="mark">Cinta</p>
+        <p class="mark">Cynta</p>
         <p class="mark-sub">transcriptor local. Whisper en tu máquina.</p>
       </div>
       <div class="top-right">
-        <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false">Modo oscuro</button>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" title="Cambiar tema">Oscuro</button>
         <div class="live" id="healthBadge" title="Estado del servidor">
           <span class="led" aria-hidden="true"></span>
           <span class="live-text">…</span>
@@ -56,14 +56,17 @@
           <div class="field">
             <label for="model">Modelo</label>
             <select id="model" name="model"></select>
+            <p class="hint">Más grande = mejor y más lento. large-v3 para clases; tiny para probar.</p>
           </div>
           <div class="field">
             <label for="device">Device</label>
             <select id="device" name="device"></select>
+            <p class="hint">cuda = GPU NVIDIA. cpu = sin gráfica, más lento. auto intenta GPU.</p>
           </div>
           <div class="field">
             <label for="prompt_template">Dominio</label>
             <select id="prompt_template" name="prompt_template"></select>
+            <p class="hint">Vocabulario de la materia. Custom deja escribir términos vos.</p>
           </div>
 
           <div class="field wide" id="customPromptWrap" hidden>

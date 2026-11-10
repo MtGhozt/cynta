@@ -326,17 +326,19 @@ function wireDrop() {
 function applyTheme(theme) {
   const next = theme === "dark" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("cinta-theme", next);
+  localStorage.setItem("cynta-theme", next);
+  // migrate old key
+  localStorage.removeItem("cinta-theme");
   const btn = $("themeToggle");
   if (btn) {
     const dark = next === "dark";
     btn.setAttribute("aria-pressed", dark ? "true" : "false");
-    btn.textContent = dark ? "Modo claro" : "Modo oscuro";
+    btn.textContent = dark ? "Claro" : "Oscuro";
   }
 }
 
 function wireTheme() {
-  const saved = localStorage.getItem("cinta-theme");
+  const saved = localStorage.getItem("cynta-theme") || localStorage.getItem("cinta-theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   applyTheme(saved || (prefersDark ? "dark" : "light"));
   $("themeToggle").addEventListener("click", () => {
