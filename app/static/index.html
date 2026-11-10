@@ -3,91 +3,94 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Transcriptor Local</title>
+  <title>Cinta · transcriptor local</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-  <div class="app">
-    <header class="hero">
-      <div>
-        <p class="brand">Transcriptor Local</p>
-        <h1>Arrastrá audio o video. Sacá la transcripción.</h1>
-        <p class="subtitle">
-          Corre en tu PC con Whisper (GPU si hay). Ideal para clases, Zoom grabado
-          o cualquier archivo. Exporta Markdown, JSON y SRT.
-        </p>
+  <div class="shell">
+    <header class="top">
+      <div class="top-left">
+        <p class="mark">Cinta</p>
+        <p class="mark-sub">transcriptor local. Whisper en tu máquina.</p>
       </div>
-      <div class="badge" id="healthBadge">conectando…</div>
+      <div class="live" id="healthBadge" title="Estado del servidor">
+        <span class="led" aria-hidden="true"></span>
+        <span class="live-text">…</span>
+      </div>
     </header>
 
-    <div class="grid">
-      <section class="panel">
-        <div class="panel-hd"><h2>Nuevo job</h2></div>
-        <div class="panel-bd">
-          <div class="drop" id="dropzone" tabindex="0">
-            <strong>Soltá un archivo acá</strong>
-            <span>Audio (m4a, mp3, wav…) o video (mp4, mkv, webm…)</span>
-          </div>
-          <input id="fileInput" type="file" hidden />
-          <div class="file-chip" id="fileChip"></div>
+    <main class="stage">
+      <section class="deck" aria-labelledby="deck-title">
+        <h1 id="deck-title">Meter archivo</h1>
+        <p class="deck-help">Audio o video. Si es video, se saca el audio con ffmpeg y se transcribe acá.</p>
 
-          <form class="form" id="jobForm">
-            <label>
-              Título
-              <input id="title" name="title" placeholder="Ej. Clase 8 — resolución" />
-            </label>
-            <div class="row">
-              <label>
-                Idioma
-                <select id="language" name="language"></select>
-              </label>
-              <label>
-                Modelo
-                <select id="model" name="model"></select>
-              </label>
-            </div>
-            <div class="row">
-              <label>
-                Device
-                <select id="device" name="device"></select>
-              </label>
-              <label>
-                Prompt de dominio
-                <select id="prompt_template" name="prompt_template"></select>
-              </label>
-            </div>
-            <label id="customPromptWrap" style="display:none">
-              Prompt custom
-              <textarea id="custom_prompt" name="custom_prompt" placeholder="Términos técnicos, nombres, etc."></textarea>
-            </label>
-            <div class="actions">
-              <button class="btn-primary" id="submitBtn" type="submit" disabled>Transcribir</button>
-              <button class="btn-ghost" type="button" id="refreshBtn">Actualizar lista</button>
-            </div>
-          </form>
-          <p class="footer-note">
-            Los archivos quedan en <code>data/jobs/</code>. Videos: se extrae el audio con ffmpeg.
-            Roadmap: realtime (mic/loopback), slides OCR, multi-user.
-          </p>
+        <div
+          class="platter"
+          id="dropzone"
+          tabindex="0"
+          role="button"
+          aria-label="Elegir o soltar archivo de audio o video"
+        >
+          <p class="platter-main">Soltá el archivo</p>
+          <p class="platter-sub">m4a / mp3 / wav / mp4 / mkv / webm</p>
         </div>
+        <input id="fileInput" type="file" hidden accept="audio/*,video/*,.m4a,.mp3,.wav,.flac,.ogg,.mp4,.mkv,.webm,.mov,.avi" />
+        <p class="loaded" id="fileChip" hidden></p>
+
+        <form class="controls" id="jobForm">
+          <div class="field wide">
+            <label for="title">Nombre</label>
+            <input id="title" name="title" autocomplete="off" placeholder="Clase 8 resolución" />
+          </div>
+
+          <div class="field">
+            <label for="language">Idioma</label>
+            <select id="language" name="language"></select>
+          </div>
+          <div class="field">
+            <label for="model">Modelo</label>
+            <select id="model" name="model"></select>
+          </div>
+          <div class="field">
+            <label for="device">Device</label>
+            <select id="device" name="device"></select>
+          </div>
+          <div class="field">
+            <label for="prompt_template">Dominio</label>
+            <select id="prompt_template" name="prompt_template"></select>
+          </div>
+
+          <div class="field wide" id="customPromptWrap" hidden>
+            <label for="custom_prompt">Prompt</label>
+            <textarea id="custom_prompt" name="custom_prompt" rows="3" placeholder="Términos propios de la materia"></textarea>
+          </div>
+
+          <div class="run-row">
+            <button class="go" id="submitBtn" type="submit" disabled>Transcribir</button>
+            <button class="quiet" type="button" id="refreshBtn">Refrescar cola</button>
+          </div>
+        </form>
       </section>
 
-      <section class="panel">
-        <div class="panel-hd">
-          <h2>Cola e historial</h2>
+      <section class="log" aria-labelledby="log-title">
+        <div class="log-head">
+          <h2 id="log-title">Cola</h2>
+          <p class="log-note">Salida en <code>data/jobs/</code></p>
         </div>
-        <div class="panel-bd">
-          <div class="jobs" id="jobs"></div>
-          <div class="preview" id="previewWrap" hidden>
-            <label class="search">
-              Buscar en transcript
-              <input id="searchBox" placeholder="palabra o frase…" />
-            </label>
-            <pre id="preview"></pre>
+        <div class="jobs" id="jobs"></div>
+
+        <div class="reader" id="previewWrap" hidden>
+          <div class="reader-bar">
+            <label for="searchBox">Buscar</label>
+            <input id="searchBox" type="search" placeholder="texto en la transcripción" />
           </div>
+          <pre id="preview"></pre>
         </div>
       </section>
-    </div>
+    </main>
   </div>
   <script src="/static/app.js"></script>
 </body>

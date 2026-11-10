@@ -34,17 +34,31 @@ function progressPct(job) {
   return 0;
 }
 
+function setHealth(kind, text) {
+  const el = $("healthBadge");
+  el.classList.remove("ok", "bad", "busy");
+  el.classList.add(kind);
+  el.querySelector(".live-text").textContent = text;
+  const busy = state.jobs.some((j) =>
+    ["queued", "preparing", "running"].includes(j.status)
+  );
+  if (busy && kind === "ok") {
+    el.classList.remove("ok");
+    el.classList.add("busy");
+  }
+}
+
 function setFile(file) {
   state.file = file;
   const chip = $("fileChip");
   if (!file) {
-    chip.classList.remove("show");
+    chip.hidden = true;
     chip.textContent = "";
     $("submitBtn").disabled = true;
     return;
   }
-  chip.classList.add("show");
-  chip.textContent = `${file.name} · ${fmtBytes(file.size)}`;
+  chip.hidden = false;
+  chip.textContent = `${file.name}  ${fmtBytes(file.size)}`;
   $("submitBtn").disabled = false;
   if (!$("title").value) {
     $("title").value = file.name.replace(/\.[^.]+$/, "");
@@ -58,7 +72,7 @@ async function loadMeta() {
   fillSelect($("model"), state.meta.models, state.meta.defaults.model);
   fillSelect($("device"), state.meta.devices, state.meta.defaults.device);
   const prompts = Object.entries(state.meta.prompt_templates).map(([k, v]) => [k, v.label]);
-  prompts.push(["custom", "Custom…"]);
+  prompts.push(["custom", "Custom"]);
   fillSelectPairs($("prompt_template"), prompts, state.meta.defaults.prompt_template);
 }
 
@@ -78,6 +92,7 @@ async function refreshJobs() {
   const res = await fetch("/api/jobs");
   state.jobs = await res.json();
   renderJobs();
+  setHealth("ok", "local");
   state.jobs.forEach((j) => {
     if (["queued", "preparing", "running"].includes(j.status)) watchJob(j.id);
   });
@@ -86,7 +101,7 @@ async function refreshJobs() {
 function renderJobs() {
   const root = $("jobs");
   if (!state.jobs.length) {
-    root.innerHTML = `<div class="empty">Todavía no hay jobs. Arrastrá un archivo para empezar.</div>`;
+    root.innerHTML = `<p class="empty">Nada en cola. Soltá un archivo a la izquierda.</p>`;
     return;
   }
   root.innerHTML = state.jobs
@@ -103,11 +118,16 @@ function renderJobs() {
         job.model,
         job.device,
         segs != null ? `${segs} segs` : null,
-        audioMin ? `${audioMin} min audio` : null,
-        job.error ? job.error : null,
+        audioMin ? `${audioMin} min` : null,
+        job.error || null,
       ]
         .filter(Boolean)
-        .join(" · ");
+        .join(" / ");
+      const barClass = ["running", "preparing"].includes(job.status)
+        ? "running"
+        : job.status === "done"
+          ? "done"
+          : "";
       return `
         <article class="job" data-id="${job.id}">
           <div class="job-top">
@@ -117,28 +137,28 @@ function renderJobs() {
             </div>
             <span class="status ${job.status}">${job.status}</span>
           </div>
-          <div class="progress"><i style="width:${pct}%"></i></div>
+          <div class="progress ${barClass}"><i style="width:${pct}%"></i></div>
           <div class="job-actions">
             ${
               job.status === "done"
                 ? `
-              <button data-act="preview" data-id="${job.id}">Ver</button>
-              <button data-act="md" data-id="${job.id}">MD</button>
-              <button data-act="json" data-id="${job.id}">JSON</button>
-              <button data-act="srt" data-id="${job.id}">SRT</button>
-              <button data-act="folder" data-id="${job.id}">Carpeta</button>
-              <button data-act="retry" data-id="${job.id}">Rehacer</button>
+              <button type="button" data-act="preview" data-id="${job.id}">Ver</button>
+              <button type="button" data-act="md" data-id="${job.id}">MD</button>
+              <button type="button" data-act="json" data-id="${job.id}">JSON</button>
+              <button type="button" data-act="srt" data-id="${job.id}">SRT</button>
+              <button type="button" data-act="folder" data-id="${job.id}">Carpeta</button>
+              <button type="button" data-act="retry" data-id="${job.id}">Rehacer</button>
             `
                 : ""
             }
             ${
               ["queued", "preparing", "running"].includes(job.status)
-                ? `<button data-act="cancel" data-id="${job.id}">Cancelar</button>`
+                ? `<button type="button" data-act="cancel" data-id="${job.id}">Cancelar</button>`
                 : ""
             }
             ${
               ["error", "cancelled"].includes(job.status)
-                ? `<button data-act="retry" data-id="${job.id}">Reintentar</button>`
+                ? `<button type="button" data-act="retry" data-id="${job.id}">Reintentar</button>`
                 : ""
             }
           </div>
@@ -173,12 +193,14 @@ function watchJob(jobId) {
       job.progress = msg;
       if (msg.event !== "progress") job.status = job.status === "queued" ? "running" : job.status;
       renderJobs();
+      setHealth("ok", "local");
     }
     if (msg.event === "done") {
       job.status = "done";
       job.result = msg.result || msg;
       job.progress = { event: "done" };
       renderJobs();
+      setHealth("ok", "local");
       ws.close();
       state.sockets.delete(jobId);
     }
@@ -186,6 +208,7 @@ function watchJob(jobId) {
       job.status = msg.event === "error" ? "error" : "cancelled";
       job.error = msg.error || job.error;
       renderJobs();
+      setHealth("ok", "local");
       ws.close();
       state.sockets.delete(jobId);
     }
@@ -199,6 +222,7 @@ function upsertJob(job) {
   if (i >= 0) state.jobs[i] = job;
   else state.jobs.unshift(job);
   renderJobs();
+  setHealth("ok", "local");
 }
 
 async function submitJob(e) {
@@ -219,7 +243,7 @@ async function submitJob(e) {
     const res = await fetch("/api/jobs", { method: "POST", body: fd });
     if (!res.ok) {
       const err = await res.json().catch(() => ({ detail: res.statusText }));
-      alert(err.detail || "Error al crear job");
+      alert(typeof err.detail === "string" ? err.detail : "No se pudo crear el job");
       return;
     }
     const job = await res.json();
@@ -228,6 +252,7 @@ async function submitJob(e) {
     watchJob(job.id);
     setFile(null);
     $("title").value = "";
+    setHealth("ok", "local");
   } finally {
     $("submitBtn").disabled = !state.file;
   }
@@ -274,7 +299,10 @@ function wireDrop() {
   const input = $("fileInput");
   drop.addEventListener("click", () => input.click());
   drop.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") input.click();
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      input.click();
+    }
   });
   input.addEventListener("change", () => setFile(input.files?.[0] || null));
   ["dragenter", "dragover"].forEach((ev) => {
@@ -302,15 +330,14 @@ async function boot() {
   $("jobs").addEventListener("click", onJobAction);
   $("searchBox").addEventListener("input", applySearch);
   $("prompt_template").addEventListener("change", () => {
-    $("customPromptWrap").style.display =
-      $("prompt_template").value === "custom" ? "grid" : "none";
+    $("customPromptWrap").hidden = $("prompt_template").value !== "custom";
   });
 
   try {
     await fetch("/api/health");
-    $("healthBadge").textContent = "local · ok";
+    setHealth("ok", "local");
   } catch {
-    $("healthBadge").textContent = "sin conexión";
+    setHealth("bad", "offline");
   }
   await loadMeta();
   await refreshJobs();
