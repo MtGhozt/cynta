@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transcriptor Local</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div>
+        <p class="brand">Transcriptor Local</p>
+        <h1>Arrastrá audio o video. Sacá la transcripción.</h1>
+        <p class="subtitle">
+          Corre en tu PC con Whisper (GPU si hay). Ideal para clases, Zoom grabado
+          o cualquier archivo. Exporta Markdown, JSON y SRT.
+        </p>
+      </div>
+      <div class="badge" id="healthBadge">conectando…</div>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="panel-hd"><h2>Nuevo job</h2></div>
+        <div class="panel-bd">
+          <div class="drop" id="dropzone" tabindex="0">
+            <strong>Soltá un archivo acá</strong>
+            <span>Audio (m4a, mp3, wav…) o video (mp4, mkv, webm…)</span>
+          </div>
+          <input id="fileInput" type="file" hidden />
+          <div class="file-chip" id="fileChip"></div>
+
+          <form class="form" id="jobForm">
+            <label>
+              Título
+              <input id="title" name="title" placeholder="Ej. Clase 8 — resolución" />
+            </label>
+            <div class="row">
+              <label>
+                Idioma
+                <select id="language" name="language"></select>
+              </label>
+              <label>
+                Modelo
+                <select id="model" name="model"></select>
+              </label>
+            </div>
+            <div class="row">
+              <label>
+                Device
+                <select id="device" name="device"></select>
+              </label>
+              <label>
+                Prompt de dominio
+                <select id="prompt_template" name="prompt_template"></select>
+              </label>
+            </div>
+            <label id="customPromptWrap" style="display:none">
+              Prompt custom
+              <textarea id="custom_prompt" name="custom_prompt" placeholder="Términos técnicos, nombres, etc."></textarea>
+            </label>
+            <div class="actions">
+              <button class="btn-primary" id="submitBtn" type="submit" disabled>Transcribir</button>
+              <button class="btn-ghost" type="button" id="refreshBtn">Actualizar lista</button>
+            </div>
+          </form>
+          <p class="footer-note">
+            Los archivos quedan en <code>data/jobs/</code>. Videos: se extrae el audio con ffmpeg.
+            Roadmap: realtime (mic/loopback), slides OCR, multi-user.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-hd">
+          <h2>Cola e historial</h2>
+        </div>
+        <div class="panel-bd">
+          <div class="jobs" id="jobs"></div>
+          <div class="preview" id="previewWrap" hidden>
+            <label class="search">
+              Buscar en transcript
+              <input id="searchBox" placeholder="palabra o frase…" />
+            </label>
+            <pre id="preview"></pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

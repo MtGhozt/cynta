@@ -2,46 +2,21 @@
 from __future__ import annotations
 
 import argparse
-import os
 import sys
 import time
 from pathlib import Path
 from typing import Any
 
+from transcribe.cuda_path import ensure_cuda_dll_path
 
-def _ensure_cuda_dll_path() -> None:
-    """Add pip-installed NVIDIA CUDA bin dirs to PATH (Windows)."""
-    if sys.platform != "win32":
-        return
-    try:
-        import nvidia  # type: ignore
-    except ImportError:
-        return
-
-    nvidia_root = Path(nvidia.__path__[0])
-    bin_dirs = [
-        nvidia_root / "cublas" / "bin",
-        nvidia_root / "cudnn" / "bin",
-        nvidia_root / "cuda_runtime" / "bin",
-        nvidia_root / "cuda_nvrtc" / "bin",
-    ]
-    existing = [str(p) for p in bin_dirs if p.is_dir()]
-    if not existing:
-        return
-
-    # Prefer add_dll_directory when available; also extend PATH for ctranslate2.
-    if hasattr(os, "add_dll_directory"):
-        for path in existing:
-            os.add_dll_directory(path)
-    os.environ["PATH"] = os.pathsep.join(existing + [os.environ.get("PATH", "")])
-
-
-_ensure_cuda_dll_path()
+ensure_cuda_dll_path()
 
 from transcribe.config import (
     BEAM_SIZE,
     COMPRESSION_RATIO_THRESHOLD,
     CONDITION_ON_PREVIOUS_TEXT,
+    COURSE_NAME,
+    COURSE_TOPICS,
     DEFAULT_COMPUTE_TYPE,
     DEFAULT_DEVICE,
     DEFAULT_LANGUAGE,
@@ -229,6 +204,8 @@ def transcribe_one(
         language=language,
         duration=duration or None,
         segments=segments,
+        curso=COURSE_NAME,
+        temas=list(COURSE_TOPICS),
     )
     write_markdown(
         paths["md"],
@@ -238,6 +215,8 @@ def transcribe_one(
         language=language,
         duration=duration or None,
         segments=segments,
+        curso=COURSE_NAME,
+        temas=list(COURSE_TOPICS),
     )
     if write_subs:
         write_srt(paths["srt"], segments)

@@ -87,12 +87,14 @@ def write_json(
     language: str,
     duration: float | None,
     segments: list[dict[str, Any]],
+    curso: str | None = None,
+    temas: list[str] | None = None,
 ) -> None:
     clean = filter_segments(segments)
     payload = {
         "clase": clase,
-        "curso": "Lenguajes de programación",
-        "temas": ["paradigma lógico", "orientado a objetos"],
+        "curso": curso,
+        "temas": temas or [],
         "source": source,
         "model": model,
         "language": language,
@@ -115,18 +117,27 @@ def write_markdown(
     language: str,
     duration: float | None,
     segments: list[dict[str, Any]],
+    curso: str | None = None,
+    temas: list[str] | None = None,
 ) -> None:
     groups = merge_segments_for_markdown(filter_segments(segments))
 
     front = [
         "---",
         f'clase: "{clase}"',
-        'curso: "Lenguajes de programación"',
-        'temas: ["paradigma lógico", "orientado a objetos"]',
-        f"fuente: {source}",
-        f"modelo: {model}",
-        f"idioma: {language}",
     ]
+    if curso:
+        front.append(f'curso: "{curso}"')
+    if temas:
+        temas_literal = ", ".join(f'"{t}"' for t in temas)
+        front.append(f"temas: [{temas_literal}]")
+    front.extend(
+        [
+            f"fuente: {source}",
+            f"modelo: {model}",
+            f"idioma: {language}",
+        ]
+    )
     if duration is not None:
         front.append(f"duration_sec: {round(duration, 1)}")
     front.extend(["---", ""])
