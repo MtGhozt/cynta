@@ -323,7 +323,30 @@ function wireDrop() {
   });
 }
 
+function applyTheme(theme) {
+  const next = theme === "dark" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("cinta-theme", next);
+  const btn = $("themeToggle");
+  if (btn) {
+    const dark = next === "dark";
+    btn.setAttribute("aria-pressed", dark ? "true" : "false");
+    btn.textContent = dark ? "Modo claro" : "Modo oscuro";
+  }
+}
+
+function wireTheme() {
+  const saved = localStorage.getItem("cinta-theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (prefersDark ? "dark" : "light"));
+  $("themeToggle").addEventListener("click", () => {
+    const cur = document.documentElement.getAttribute("data-theme");
+    applyTheme(cur === "dark" ? "light" : "dark");
+  });
+}
+
 async function boot() {
+  wireTheme();
   wireDrop();
   $("jobForm").addEventListener("submit", submitJob);
   $("refreshBtn").addEventListener("click", refreshJobs);
@@ -334,8 +357,11 @@ async function boot() {
   });
 
   try {
-    await fetch("/api/health");
+    const health = await fetch("/api/health").then((r) => r.json());
     setHealth("ok", "local");
+    if (health.data_dir) {
+      $("outPath").textContent = `${health.data_dir}\\jobs`;
+    }
   } catch {
     setHealth("bad", "offline");
   }

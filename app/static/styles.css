@@ -9,7 +9,11 @@
   --warn: #9a6b12;
   --surface: #f7f8f9;
   --platter: #fbfbfc;
+  --platter-grad-top: #ffffff;
+  --rail-fg: #eceef1;
   --focus: #2457c5;
+  --grid-line: rgba(23, 25, 28, 0.035);
+  --go-fg: #eceef1;
 
   --display: "Bricolage Grotesque", system-ui, sans-serif;
   --body: "Source Sans 3", system-ui, sans-serif;
@@ -20,6 +24,26 @@
   --space-3: 1.15rem;
   --space-4: 1.85rem;
   --space-5: 2.75rem;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --paper: #12151a;
+  --paper-2: #1a1f27;
+  --ink: #e8eef4;
+  --muted: #9aa6b2;
+  --line: #3a4450;
+  --rec: #e24a2f;
+  --ok: #3dba7a;
+  --warn: #d4a017;
+  --surface: #181d24;
+  --platter: #1c222b;
+  --platter-grad-top: #232a34;
+  --rail-fg: #e8eef4;
+  --focus: #6b9bff;
+  --grid-line: rgba(232, 238, 244, 0.05);
+  --go-fg: #12151a;
+  color-scheme: dark;
 }
 
 *,
@@ -32,7 +56,7 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(90deg, transparent 63px, rgba(23, 25, 28, 0.035) 63px, rgba(23, 25, 28, 0.035) 64px, transparent 64px),
+    linear-gradient(90deg, transparent 63px, var(--grid-line) 63px, var(--grid-line) 64px, transparent 64px),
     var(--paper);
   background-size: 64px 100%, auto;
   font-family: var(--body);
@@ -88,11 +112,34 @@ textarea {
   font-size: 0.95rem;
 }
 
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid var(--ink);
+  border-radius: 0;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink);
+}
+
+.theme-toggle:hover {
+  color: var(--rec);
+  border-bottom-color: var(--rec);
+}
+
 .live {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  margin-top: 0.35rem;
   font-family: var(--mono);
   font-size: 0.78rem;
   color: var(--muted);
@@ -169,7 +216,7 @@ textarea {
   text-align: left;
   padding: var(--space-4) var(--space-4) var(--space-4) 4.25rem;
   background:
-    linear-gradient(180deg, #ffffff 0%, var(--platter) 100%);
+    linear-gradient(180deg, var(--platter-grad-top) 0%, var(--platter) 100%);
   border: 2px solid var(--ink);
   cursor: pointer;
   transition: background 0.12s ease, border-color 0.12s ease;
@@ -185,7 +232,7 @@ textarea {
   display: grid;
   place-content: center;
   background: var(--ink);
-  color: var(--paper);
+  color: var(--rail-fg);
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -193,7 +240,7 @@ textarea {
 
 .platter:hover,
 .platter.dragover {
-  background: #fff;
+  background: var(--platter-grad-top);
   border-color: var(--rec);
 }
 
@@ -281,14 +328,14 @@ textarea {
 
 .go {
   background: var(--ink);
-  color: var(--paper);
+  color: var(--go-fg);
   padding: 0.7rem 1.2rem;
   font-family: var(--display);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.go:hover { background: #000; }
+.go:hover { filter: brightness(1.08); }
 .go:disabled {
   opacity: 0.35;
   cursor: not-allowed;

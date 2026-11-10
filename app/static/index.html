@@ -16,9 +16,12 @@
         <p class="mark">Cinta</p>
         <p class="mark-sub">transcriptor local. Whisper en tu máquina.</p>
       </div>
-      <div class="live" id="healthBadge" title="Estado del servidor">
-        <span class="led" aria-hidden="true"></span>
-        <span class="live-text">…</span>
+      <div class="top-right">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false">Modo oscuro</button>
+        <div class="live" id="healthBadge" title="Estado del servidor">
+          <span class="led" aria-hidden="true"></span>
+          <span class="live-text">…</span>
+        </div>
       </div>
     </header>
 
@@ -70,7 +73,7 @@
 
           <div class="run-row">
             <button class="go" id="submitBtn" type="submit" disabled>Transcribir</button>
-            <button class="quiet" type="button" id="refreshBtn">Refrescar cola</button>
+            <button class="quiet" type="button" id="refreshBtn">Actualizar lista</button>
           </div>
         </form>
       </section>
@@ -78,7 +81,7 @@
       <section class="log" aria-labelledby="log-title">
         <div class="log-head">
           <h2 id="log-title">Cola</h2>
-          <p class="log-note">Salida en <code>data/jobs/</code></p>
+          <p class="log-note">Archivos en <code id="outPath">data/jobs/</code></p>
         </div>
         <div class="jobs" id="jobs"></div>
 
