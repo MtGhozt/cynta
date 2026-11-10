@@ -1,0 +1,8504 @@
+{
+  "clase": "Clase 3",
+  "curso": "Lenguajes de programación",
+  "temas": [
+    "paradigma lógico",
+    "orientado a objetos"
+  ],
+  "source": "audio1411551452.m4a",
+  "model": "large-v3",
+  "language": "es",
+  "duration_sec": 6222.9546875,
+  "segments": [
+    {
+      "start": 2.1,
+      "end": 13.68,
+      "text": "La vez pasada les decía que el en el paradigma lógico"
+    },
+    {
+      "start": 13.68,
+      "end": 19.74,
+      "text": "todo lo tratamos de describir con sentencias lógicas"
+    },
+    {
+      "start": 19.74,
+      "end": 30.14,
+      "text": "y en lugar de ejecutar cosas o de evaluar o sea de ejecutar instrucciones de"
+    },
+    {
+      "start": 30.14,
+      "end": 44.12,
+      "text": "evaluar funciones demostramos sentencias ok para hacer eso yo les decía"
+    },
+    {
+      "start": 44.26,
+      "end": 45.36,
+      "text": "hay varios requisitos."
+    },
+    {
+      "start": 46.72,
+      "end": 47.68,
+      "text": "O sea, consta una cosa,"
+    },
+    {
+      "start": 47.82,
+      "end": 49.62,
+      "text": "nos estamos acercando a la programación"
+    },
+    {
+      "start": 49.62,
+      "end": 51.78,
+      "text": "de lógica desde un punto de vista muy formal."
+    },
+    {
+      "start": 54.26,
+      "end": 54.82,
+      "text": "Entonces,"
+    },
+    {
+      "start": 55.18,
+      "end": 57.34,
+      "text": "es una forma bastante difícil"
+    },
+    {
+      "start": 57.34,
+      "end": 59.48,
+      "text": "de entender"
+    },
+    {
+      "start": 59.48,
+      "end": 61.52,
+      "text": "este paradigma, para ser honestos."
+    },
+    {
+      "start": 62.26,
+      "end": 63.22,
+      "text": "La mayor parte"
+    },
+    {
+      "start": 63.22,
+      "end": 65.38,
+      "text": "de la gente entra más bien por otro lado,"
+    },
+    {
+      "start": 65.38,
+      "end": 66.0,
+      "text": "a saber,"
+    },
+    {
+      "start": 66.8,
+      "end": 69.08,
+      "text": "les enseñamos un"
+    },
+    {
+      "start": 69.08,
+      "end": 70.28,
+      "text": "lenguaje lógico"
+    },
+    {
+      "start": 70.28,
+      "end": 73.18,
+      "text": "como prologue."
+    },
+    {
+      "start": 73.18,
+      "end": 75.38,
+      "text": "Y, este..."
+    },
+    {
+      "start": 75.86,
+      "end": 78.2,
+      "text": "medio les enseñamos cómo programar en Prolog"
+    },
+    {
+      "start": 78.2,
+      "end": 82.88,
+      "text": "y de ahí vamos hacia atrás."
+    },
+    {
+      "start": 83.56,
+      "end": 86.56,
+      "text": "Pero como estamos hablando de los paradigmas y no de los lenguajes,"
+    },
+    {
+      "start": 88.14,
+      "end": 91.32,
+      "text": "entonces, y además, Prolog no es el único lenguaje lógico."
+    },
+    {
+      "start": 92.88,
+      "end": 97.1,
+      "text": "Y para ser honestos con ustedes, hasta cierto punto,"
+    },
+    {
+      "start": 97.1,
+      "end": 102.1,
+      "text": "el paradigma lógico es un poquitito menos,"
+    },
+    {
+      "start": 102.84,
+      "end": 105.06,
+      "text": "podríamos decir, consolidado,"
+    },
+    {
+      "start": 105.06,
+      "end": 107.26,
+      "text": "que los otros paradigmas"
+    },
+    {
+      "start": 107.26,
+      "end": 111.68,
+      "text": "yo les explico"
+    },
+    {
+      "start": 111.68,
+      "end": 113.38,
+      "text": "si no en esta sesión"
+    },
+    {
+      "start": 113.38,
+      "end": 115.3,
+      "text": "en la próxima en que consiste"
+    },
+    {
+      "start": 115.3,
+      "end": 116.72,
+      "text": "esa sentencia que acabo de decir"
+    },
+    {
+      "start": 116.72,
+      "end": 118.7,
+      "text": "pero en todo caso"
+    },
+    {
+      "start": 118.7,
+      "end": 122.38,
+      "text": "decíamos que"
+    },
+    {
+      "start": 122.38,
+      "end": 127.26,
+      "text": "el paradigma lógico se fundamenta"
+    },
+    {
+      "start": 127.26,
+      "end": 128.34,
+      "text": "entonces en"
+    },
+    {
+      "start": 128.34,
+      "end": 131.04,
+      "text": "el cálculo de predicados del primer ángulo"
+    },
+    {
+      "start": 131.04,
+      "end": 132.26,
+      "text": "entonces"
+    },
+    {
+      "start": 132.26,
+      "end": 134.66,
+      "text": "la vez pasada"
+    },
+    {
+      "start": 134.66,
+      "end": 136.68,
+      "text": "lo que yo quería era"
+    },
+    {
+      "start": 136.68,
+      "end": 139.82,
+      "text": "traer a su mente"
+    },
+    {
+      "start": 139.82,
+      "end": 143.44,
+      "text": "lo que suponía yo que debieron haber"
+    },
+    {
+      "start": 143.44,
+      "end": 145.52,
+      "text": "aprendido debieron haberles enseñado"
+    },
+    {
+      "start": 145.52,
+      "end": 148.88,
+      "text": "más bien no me corrijo debieron haberles"
+    },
+    {
+      "start": 148.88,
+      "end": 151.3,
+      "text": "enseñado en el curso de"
+    },
+    {
+      "start": 151.3,
+      "end": 158.24,
+      "text": "este estructuras discretas a saber"
+    },
+    {
+      "start": 158.24,
+      "end": 161.94,
+      "text": "el lenguaje del cálculo de predicados de"
+    },
+    {
+      "start": 161.94,
+      "end": 162.52,
+      "text": "primer orden"
+    },
+    {
+      "start": 162.52,
+      "end": 178.82,
+      "text": "la destreza de simbolizar, o sea, de traducir oraciones de un lenguaje natural"
+    },
+    {
+      "start": 178.82,
+      "end": 184.04,
+      "text": "a el lenguaje del cálculo de predicados de primer orden"
+    },
+    {
+      "start": 184.04,
+      "end": 215.3,
+      "text": "Y después, asumiendo que ustedes conocen las reglas de inferencia, entonces pueden llevar a cabo demostraciones."
+    },
+    {
+      "start": 215.3,
+      "end": 260.55,
+      "text": "Donde en este curso, por reglas de inferencia, estamos entendiendo el conjunto de veintitantas reglas de inferencia que dejó escritas Irving Coppe"
+    },
+    {
+      "start": 260.55,
+      "end": 264.07,
+      "text": "en su famosísimo libro de lógica simbólica"
+    },
+    {
+      "start": 264.07,
+      "end": 271.0,
+      "text": "donde este conjunto que están viendo"
+    },
+    {
+      "start": 271.0,
+      "end": 279.23,
+      "text": "es apenas el conjunto de las nueve reglas"
+    },
+    {
+      "start": 279.23,
+      "end": 282.57,
+      "text": "las que ya propiamente son reglas de inferencia"
+    },
+    {
+      "start": 282.57,
+      "end": 287.23,
+      "text": "las nueve reglas de inferencia"
+    },
+    {
+      "start": 287.23,
+      "end": 295.35,
+      "text": "las diez reglas de reemplazo o de sustitución"
+    },
+    {
+      "start": 295.35,
+      "end": 300.02,
+      "text": "a las cuales entonces aquí ya tenemos 19"
+    },
+    {
+      "start": 300.02,
+      "end": 304.32,
+      "text": "tenemos que sumarle las cuatro reglas de cuantificación"
+    },
+    {
+      "start": 304.32,
+      "end": 308.66,
+      "text": "y con eso ya tenemos 23"
+    },
+    {
+      "start": 308.66,
+      "end": 315.38,
+      "text": "más las dos reglas de negación del cuantificador"
+    },
+    {
+      "start": 315.38,
+      "end": 319.21,
+      "text": "ya tenemos ahí 25"
+    },
+    {
+      "start": 319.21,
+      "end": 323.63,
+      "text": "y podríamos agregar como hace copy"
+    },
+    {
+      "start": 323.63,
+      "end": 327.67,
+      "text": "estar agregando cuatro reglas adicionales"
+    },
+    {
+      "start": 327.67,
+      "end": 329.79,
+      "text": "para el manejo de la relación identidad"
+    },
+    {
+      "start": 329.79,
+      "end": 332.25,
+      "text": "o sea"
+    },
+    {
+      "start": 332.25,
+      "end": 334.27,
+      "text": "29 reglas en total"
+    },
+    {
+      "start": 334.27,
+      "end": 341.62,
+      "text": "ok"
+    },
+    {
+      "start": 341.62,
+      "end": 344.88,
+      "text": "también la vez pasada hicimos un par"
+    },
+    {
+      "start": 344.88,
+      "end": 346.5,
+      "text": "de ejercicios de simbolización"
+    },
+    {
+      "start": 346.5,
+      "end": 348.88,
+      "text": "para refrescar todos estos conceptos"
+    },
+    {
+      "start": 349.48,
+      "end": 354.7,
+      "text": "hoy les voy a proponer uno más"
+    },
+    {
+      "start": 354.7,
+      "end": 362.06,
+      "text": "que ya nos"
+    },
+    {
+      "start": 362.06,
+      "end": 364.06,
+      "text": "mete ya en materia"
+    },
+    {
+      "start": 364.06,
+      "end": 367.38,
+      "text": "y"
+    },
+    {
+      "start": 367.38,
+      "end": 374.73,
+      "text": "disculpen voy a"
+    },
+    {
+      "start": 374.73,
+      "end": 376.25,
+      "text": "creo que me equivoqué de"
+    },
+    {
+      "start": 376.25,
+      "end": 378.03,
+      "text": "archivo"
+    },
+    {
+      "start": 378.03,
+      "end": 379.47,
+      "text": "con lo que quería enseñarles"
+    },
+    {
+      "start": 379.47,
+      "end": 419.26,
+      "text": "creo que estoy aquí"
+    },
+    {
+      "start": 419.26,
+      "end": 450.87,
+      "text": "ok"
+    },
+    {
+      "start": 450.87,
+      "end": 454.88,
+      "text": "para mantener"
+    },
+    {
+      "start": 454.88,
+      "end": 457.78,
+      "text": "un punto"
+    },
+    {
+      "start": 457.78,
+      "end": 459.1,
+      "text": "de referencia constante"
+    },
+    {
+      "start": 459.1,
+      "end": 462.06,
+      "text": "bueno, un punto de referencia"
+    },
+    {
+      "start": 462.06,
+      "end": 463.88,
+      "text": "si no fuera constante no sería punto"
+    },
+    {
+      "start": 463.88,
+      "end": 465.86,
+      "text": "de referencia, para mantener un punto"
+    },
+    {
+      "start": 465.86,
+      "end": 467.96,
+      "text": "de referencia vamos a trabajar otra vez"
+    },
+    {
+      "start": 467.96,
+      "end": 469.4,
+      "text": "más con"
+    },
+    {
+      "start": 469.4,
+      "end": 470.78,
+      "text": "nuestro"
+    },
+    {
+      "start": 470.78,
+      "end": 473.94,
+      "text": "sencillo, muy sencillo ejemplo"
+    },
+    {
+      "start": 473.94,
+      "end": 475.72,
+      "text": "del mínimo común múltiplo"
+    },
+    {
+      "start": 475.72,
+      "end": 492.58,
+      "text": "¿Cómo se vería en el paradigma lógico el cálculo del mínimo común múltiplo?"
+    },
+    {
+      "start": 503.92,
+      "end": 513.28,
+      "text": "Recordemos que el mínimo común múltiplo tenemos que calcularlo con, dados dos números enteros a y b,"
+    },
+    {
+      "start": 513.28,
+      "end": 516.06,
+      "text": "el mínimo como múltiplo"
+    },
+    {
+      "start": 516.06,
+      "end": 517.42,
+      "text": "lo estamos calculando como"
+    },
+    {
+      "start": 517.42,
+      "end": 519.8,
+      "text": "el producto de esos"
+    },
+    {
+      "start": 519.8,
+      "end": 521.8,
+      "text": "parámetros dividido"
+    },
+    {
+      "start": 521.8,
+      "end": 523.76,
+      "text": "entre el máximo común divisor"
+    },
+    {
+      "start": 523.76,
+      "end": 524.56,
+      "text": "de esos parámetros"
+    },
+    {
+      "start": 524.56,
+      "end": 526.76,
+      "text": "so far"
+    },
+    {
+      "start": 526.76,
+      "end": 528.02,
+      "text": "so good"
+    },
+    {
+      "start": 528.02,
+      "end": 533.44,
+      "text": "partíamos de aquí para"
+    },
+    {
+      "start": 533.44,
+      "end": 535.78,
+      "text": "ver en el paradigma imperativo"
+    },
+    {
+      "start": 535.78,
+      "end": 539.48,
+      "text": "hicimos tres versiones"
+    },
+    {
+      "start": 539.48,
+      "end": 541.46,
+      "text": "de este proceso"
+    },
+    {
+      "start": 541.46,
+      "end": 543.76,
+      "text": "de este cálculo"
+    },
+    {
+      "start": 543.76,
+      "end": 546.7,
+      "text": "una en Pascal"
+    },
+    {
+      "start": 546.7,
+      "end": 549.73,
+      "text": "otra en C"
+    },
+    {
+      "start": 549.73,
+      "end": 553.74,
+      "text": "y una más en COBOL"
+    },
+    {
+      "start": 553.74,
+      "end": 555.18,
+      "text": "pero"
+    },
+    {
+      "start": 555.18,
+      "end": 558.16,
+      "text": "lo que queríamos señalar"
+    },
+    {
+      "start": 558.16,
+      "end": 559.32,
+      "text": "en esta"
+    },
+    {
+      "start": 559.32,
+      "end": 561.94,
+      "text": "comparación de lenguajes"
+    },
+    {
+      "start": 561.94,
+      "end": 563.96,
+      "text": "no es tanto"
+    },
+    {
+      "start": 563.96,
+      "end": 566.0,
+      "text": "en lo mucho que se diferencian"
+    },
+    {
+      "start": 566.0,
+      "end": 567.72,
+      "text": "los lenguajes que tenemos aquí"
+    },
+    {
+      "start": 567.72,
+      "end": 570.04,
+      "text": "bueno Pascal y C"
+    },
+    {
+      "start": 570.04,
+      "end": 571.2,
+      "text": "no se diferencian tanto"
+    },
+    {
+      "start": 571.2,
+      "end": 573.52,
+      "text": "COBOL si se sale del canasto"
+    },
+    {
+      "start": 573.52,
+      "end": 576.3,
+      "text": "más bien lo que queríamos poner énfasis"
+    },
+    {
+      "start": 576.3,
+      "end": 578.06,
+      "text": "recordemos es en lo que se parecen"
+    },
+    {
+      "start": 578.06,
+      "end": 580.42,
+      "text": "en cómo"
+    },
+    {
+      "start": 580.42,
+      "end": 583.02,
+      "text": "hacemos la división"
+    },
+    {
+      "start": 583.02,
+      "end": 583.7,
+      "text": "en módulos"
+    },
+    {
+      "start": 583.7,
+      "end": 587.04,
+      "text": "y cada módulo"
+    },
+    {
+      "start": 587.04,
+      "end": 589.02,
+      "text": "es"
+    },
+    {
+      "start": 589.02,
+      "end": 590.2,
+      "text": "perfectamente"
+    },
+    {
+      "start": 590.2,
+      "end": 592.7,
+      "text": "programable en cualquiera"
+    },
+    {
+      "start": 592.7,
+      "end": 593.26,
+      "text": "de los tres"
+    },
+    {
+      "start": 593.26,
+      "end": 596.44,
+      "text": "y utilizando el mismo"
+    },
+    {
+      "start": 596.44,
+      "end": 597.62,
+      "text": "diseño"
+    },
+    {
+      "start": 597.62,
+      "end": 600.22,
+      "text": "y eso es lo que yo quiero recalcar"
+    },
+    {
+      "start": 600.22,
+      "end": 604.3,
+      "text": "utilizando el mismo diseño"
+    },
+    {
+      "start": 604.3,
+      "end": 606.5,
+      "text": "porque pertenecen al mismo paradigma"
+    },
+    {
+      "start": 606.5,
+      "end": 609.37,
+      "text": "bueno"
+    },
+    {
+      "start": 609.37,
+      "end": 612.15,
+      "text": "en el paradigma"
+    },
+    {
+      "start": 612.15,
+      "end": 617.01,
+      "text": "funcional tenemos que"
+    },
+    {
+      "start": 617.01,
+      "end": 617.75,
+      "text": "definir"
+    },
+    {
+      "start": 617.75,
+      "end": 620.75,
+      "text": "bueno"
+    },
+    {
+      "start": 620.75,
+      "end": 622.71,
+      "text": "definimos un máximo como un divisor"
+    },
+    {
+      "start": 622.71,
+      "end": 623.59,
+      "text": "de esta forma"
+    },
+    {
+      "start": 623.59,
+      "end": 629.4,
+      "text": "y ustedes saben que yo no tengo la menor idea"
+    },
+    {
+      "start": 629.4,
+      "end": 631.6,
+      "text": "de por qué no definir el mínimo"
+    },
+    {
+      "start": 631.6,
+      "end": 633.6,
+      "text": "como un múltiplo también como"
+    },
+    {
+      "start": 633.6,
+      "end": 635.56,
+      "text": "una función, bueno es que se parece"
+    },
+    {
+      "start": 635.56,
+      "end": 637.28,
+      "text": "al que habíamos visto"
+    },
+    {
+      "start": 637.28,
+      "end": 639.52,
+      "text": "antes"
+    },
+    {
+      "start": 639.52,
+      "end": 641.34,
+      "text": "pero bueno"
+    },
+    {
+      "start": 641.76,
+      "end": 644.28,
+      "text": "pongámoslo para hacer esto más completo"
+    },
+    {
+      "start": 644.28,
+      "end": 656.1,
+      "text": "aunque ya estaba"
+    },
+    {
+      "start": 656.1,
+      "end": 657.5,
+      "text": "en la forma de función más arriba"
+    },
+    {
+      "start": 657.5,
+      "end": 663.63,
+      "text": "esto recalca"
+    },
+    {
+      "start": 663.63,
+      "end": 665.25,
+      "text": "su carácter aquí"
+    },
+    {
+      "start": 665.25,
+      "end": 667.13,
+      "text": "ya de que estoy diseñando"
+    },
+    {
+      "start": 667.13,
+      "end": 669.05,
+      "text": "como una función"
+    },
+    {
+      "start": 669.05,
+      "end": 670.93,
+      "text": "este"
+    },
+    {
+      "start": 670.93,
+      "end": 677.28,
+      "text": "programa, bueno"
+    },
+    {
+      "start": 677.28,
+      "end": 678.84,
+      "text": "este algoritmo"
+    },
+    {
+      "start": 678.84,
+      "end": 682.79,
+      "text": "aunque esto es idéntico que"
+    },
+    {
+      "start": 682.79,
+      "end": 685.71,
+      "text": "teníamos arriba, no importa"
+    },
+    {
+      "start": 685.71,
+      "end": 687.77,
+      "text": "porque si no queda muy raro"
+    },
+    {
+      "start": 687.77,
+      "end": 689.65,
+      "text": "de esta función"
+    },
+    {
+      "start": 689.65,
+      "end": 691.71,
+      "text": "aquí sonta"
+    },
+    {
+      "start": 691.71,
+      "end": 698.79,
+      "text": "donde ahora el diseño"
+    },
+    {
+      "start": 698.79,
+      "end": 700.77,
+      "text": "de máximo común divisor"
+    },
+    {
+      "start": 700.77,
+      "end": 701.83,
+      "text": "lo hacemos como una función"
+    },
+    {
+      "start": 701.83,
+      "end": 708.79,
+      "text": "y me interesa que veamos esto"
+    },
+    {
+      "start": 708.79,
+      "end": 713.93,
+      "text": "porque, ¿cómo describimos"
+    },
+    {
+      "start": 713.93,
+      "end": 715.41,
+      "text": "esto usando lógica?"
+    },
+    {
+      "start": 717.07,
+      "end": 718.21,
+      "text": "¿cómo describimos"
+    },
+    {
+      "start": 718.21,
+      "end": 720.33,
+      "text": "estas funciones"
+    },
+    {
+      "start": 720.33,
+      "end": 721.91,
+      "text": "usando cálculo de predicados"
+    },
+    {
+      "start": 721.91,
+      "end": 723.63,
+      "text": "del primer orden? es por ahí"
+    },
+    {
+      "start": 723.63,
+      "end": 724.83,
+      "text": "por donde tenemos que empezar"
+    },
+    {
+      "start": 724.83,
+      "end": 732.68,
+      "text": "este"
+    },
+    {
+      "start": 732.68,
+      "end": 734.96,
+      "text": "en este paradigma"
+    },
+    {
+      "start": 734.96,
+      "end": 742.27,
+      "text": "tenemos que empezar"
+    },
+    {
+      "start": 742.27,
+      "end": 752.88,
+      "text": "describiendo"
+    },
+    {
+      "start": 752.88,
+      "end": 757.06,
+      "text": "si ustedes quieren"
+    },
+    {
+      "start": 757.06,
+      "end": 758.44,
+      "text": "podemos verlo de esta forma"
+    },
+    {
+      "start": 758.44,
+      "end": 760.4,
+      "text": "en este caso que tenemos"
+    },
+    {
+      "start": 760.4,
+      "end": 762.8,
+      "text": "que evaluar una función"
+    },
+    {
+      "start": 762.8,
+      "end": 764.22,
+      "text": "en este caso"
+    },
+    {
+      "start": 764.22,
+      "end": 766.68,
+      "text": "entonces"
+    },
+    {
+      "start": 766.68,
+      "end": 775.5,
+      "text": "necesitamos describir la función"
+    },
+    {
+      "start": 775.5,
+      "end": 776.52,
+      "text": "que debemos evaluar"
+    },
+    {
+      "start": 776.52,
+      "end": 784.46,
+      "text": "mediante cálculo de predicados"
+    },
+    {
+      "start": 785.0,
+      "end": 796.06,
+      "text": "pongo entre paréntesis"
+    },
+    {
+      "start": 796.74,
+      "end": 798.3,
+      "text": "el que sea de primer orden"
+    },
+    {
+      "start": 798.3,
+      "end": 799.08,
+      "text": "porque"
+    },
+    {
+      "start": 799.08,
+      "end": 803.1,
+      "text": "en realidad diseñar un prolog de una"
+    },
+    {
+      "start": 803.1,
+      "end": 803.46,
+      "text": "manera"
+    },
+    {
+      "start": 803.46,
+      "end": 806.5,
+      "text": "como un lenguaje muy poderoso"
+    },
+    {
+      "start": 806.5,
+      "end": 810.36,
+      "text": "porque prolog puede manejar el cálculo"
+    },
+    {
+      "start": 810.36,
+      "end": 811.86,
+      "text": "de predicados de segundo orden"
+    },
+    {
+      "start": 811.86,
+      "end": 816.67,
+      "text": "inclusive otros lenguajes lógicos no"
+    },
+    {
+      "start": 816.67,
+      "end": 819.37,
+      "text": "tienen tanto poder pero prolog sí"
+    },
+    {
+      "start": 819.37,
+      "end": 826.31,
+      "text": "entonces por eso los paréntesis muy"
+    },
+    {
+      "start": 826.31,
+      "end": 829.25,
+      "text": "bien entonces por dónde tenemos que"
+    },
+    {
+      "start": 829.25,
+      "end": 829.61,
+      "text": "empezar"
+    },
+    {
+      "start": 829.61,
+      "end": 836.67,
+      "text": "hagámoslo de una manera similar a"
+    },
+    {
+      "start": 836.67,
+      "end": 842.95,
+      "text": "cómo estábamos simbolizando sentencias en lenguaje natural."
+    },
+    {
+      "start": 844.23,
+      "end": 848.23,
+      "text": "¿Cuál es el primer paso para simbolizar?"
+    },
+    {
+      "start": 848.55,
+      "end": 866.2,
+      "text": "Que dicho sea de paso, este es un paso, por así decirlo,"
+    },
+    {
+      "start": 866.32,
+      "end": 873.48,
+      "text": "que pertenece a un área muy específica de la lógica que se llama teoría de modelos."
+    },
+    {
+      "start": 876.35,
+      "end": 878.53,
+      "text": "Hasta ahí vamos a ver de ese punto."
+    },
+    {
+      "start": 878.53,
+      "end": 910.77,
+      "text": "¿Por dónde empezamos? Por simbolizar, por encontrar, o sea, por simbolizar, no, disculpen, por encontrar una interpretación, por darnos una interpretación. Entonces, en primer lugar, debemos formular una interpretación."
+    },
+    {
+      "start": 910.77,
+      "end": 942.43,
+      "text": "O sea, un conjunto de letras utilizando las convenciones del cálculo de predicados de primer orden que tienen una relación funcional con los objetos y situaciones del mundo que queremos describir."
+    },
+    {
+      "start": 942.43,
+      "end": 945.41,
+      "text": "o con esta situación del mundo"
+    },
+    {
+      "start": 945.41,
+      "end": 946.49,
+      "text": "que queremos describir"
+    },
+    {
+      "start": 946.49,
+      "end": 949.09,
+      "text": "ok, nuestro mundo"
+    },
+    {
+      "start": 949.09,
+      "end": 951.49,
+      "text": "en este momento es la teoría de números"
+    },
+    {
+      "start": 951.49,
+      "end": 952.85,
+      "text": "o sea"
+    },
+    {
+      "start": 952.85,
+      "end": 955.19,
+      "text": "el ámbito de las sentencias matemáticas"
+    },
+    {
+      "start": 955.19,
+      "end": 956.83,
+      "text": "que podemos decir sobre el conjunto"
+    },
+    {
+      "start": 956.83,
+      "end": 957.87,
+      "text": "de los números enteros"
+    },
+    {
+      "start": 957.87,
+      "end": 963.9,
+      "text": "ok"
+    },
+    {
+      "start": 963.9,
+      "end": 964.04,
+      "text": "ok"
+    },
+    {
+      "start": 964.04,
+      "end": 977.18,
+      "text": "¿qué deberíamos decir?"
+    },
+    {
+      "start": 987.28,
+      "end": 987.92,
+      "text": "¿en qué sentido?"
+    },
+    {
+      "start": 989.04,
+      "end": 990.06,
+      "text": "¿cuál sería nuestra"
+    },
+    {
+      "start": 990.06,
+      "end": 991.2,
+      "text": "interpretación?"
+    },
+    {
+      "start": 991.2,
+      "end": 1002.69,
+      "text": "Bueno, voy a empezar yo para darles un empujón."
+    },
+    {
+      "start": 1004.71,
+      "end": 1014.95,
+      "text": "En este punto voy a ponerme muy estricto para acercarme más a la matemática que a la programación, para ser honesto con ustedes."
+    },
+    {
+      "start": 1015.77,
+      "end": 1021.65,
+      "text": "Después vamos a poder tomarnos unas pequeñas libertades, pero por ahora vamos a ponernos estrictos."
+    },
+    {
+      "start": 1021.65,
+      "end": 1025.47,
+      "text": "ZX"
+    },
+    {
+      "start": 1025.47,
+      "end": 1028.01,
+      "text": "significa"
+    },
+    {
+      "start": 1028.01,
+      "end": 1030.01,
+      "text": "X es"
+    },
+    {
+      "start": 1030.01,
+      "end": 1031.49,
+      "text": "un número entero"
+    },
+    {
+      "start": 1031.49,
+      "end": 1045.92,
+      "text": "ok, ¿qué más necesitamos?"
+    },
+    {
+      "start": 1057.89,
+      "end": 1058.89,
+      "text": "recuerden que"
+    },
+    {
+      "start": 1058.89,
+      "end": 1061.13,
+      "text": "lo que estamos tratando de simbolizar"
+    },
+    {
+      "start": 1061.13,
+      "end": 1062.53,
+      "text": "es esto"
+    },
+    {
+      "start": 1062.53,
+      "end": 1066.55,
+      "text": "entonces"
+    },
+    {
+      "start": 1066.55,
+      "end": 1069.59,
+      "text": "¿cómo describiríamos"
+    },
+    {
+      "start": 1069.59,
+      "end": 1071.57,
+      "text": "con predicados"
+    },
+    {
+      "start": 1071.57,
+      "end": 1072.83,
+      "text": "esto?"
+    },
+    {
+      "start": 1073.49,
+      "end": 1075.19,
+      "text": "o bueno, los elementos"
+    },
+    {
+      "start": 1075.19,
+      "end": 1077.23,
+      "text": "importantes de estas"
+    },
+    {
+      "start": 1077.23,
+      "end": 1077.75,
+      "text": "sentencias"
+    },
+    {
+      "start": 1077.75,
+      "end": 1089.19,
+      "text": "Tenemos que definir MCD"
+    },
+    {
+      "start": 1089.19,
+      "end": 1090.27,
+      "text": "Calculo yo"
+    },
+    {
+      "start": 1090.27,
+      "end": 1091.91,
+      "text": "Tenemos que qué perdón"
+    },
+    {
+      "start": 1091.91,
+      "end": 1093.97,
+      "text": "Definir MCD"
+    },
+    {
+      "start": 1093.97,
+      "end": 1096.67,
+      "text": "Sí, cómo haríamos eso"
+    },
+    {
+      "start": 1096.67,
+      "end": 1103.74,
+      "text": "Bueno, es muy sencillo en realidad"
+    },
+    {
+      "start": 1103.74,
+      "end": 1105.46,
+      "text": "Este"
+    },
+    {
+      "start": 1105.46,
+      "end": 1107.86,
+      "text": "A mí se me ocurrió esta simbolización"
+    },
+    {
+      "start": 1107.86,
+      "end": 1110.08,
+      "text": "Bueno, esta interpretación"
+    },
+    {
+      "start": 1110.08,
+      "end": 1115.76,
+      "text": "MDXYZ"
+    },
+    {
+      "start": 1115.76,
+      "end": 1117.24,
+      "text": "Significa"
+    },
+    {
+      "start": 1117.24,
+      "end": 1119.2,
+      "text": "X"
+    },
+    {
+      "start": 1119.2,
+      "end": 1121.0,
+      "text": "Es el"
+    },
+    {
+      "start": 1121.0,
+      "end": 1124.62,
+      "text": "Este mínimo"
+    },
+    {
+      "start": 1124.62,
+      "end": 1134.9,
+      "text": "como un múltiplo de Y."
+    },
+    {
+      "start": 1137.94,
+      "end": 1148.88,
+      "text": "Ya voy a poner esto para que se vea un poco más distinto."
+    },
+    {
+      "start": 1153.05,
+      "end": 1155.87,
+      "text": "Tal vez así, para que se distinga un poquitito más."
+    },
+    {
+      "start": 1164.59,
+      "end": 1165.49,
+      "text": "No se vea tan raro."
+    },
+    {
+      "start": 1171.84,
+      "end": 1178.22,
+      "text": "Para distinguir la Y de la variable de la Y de la conjunción."
+    },
+    {
+      "start": 1178.22,
+      "end": 1218.44,
+      "text": "Ok, entonces, ahora sí, creo que ustedes han llegado a la conclusión de que entonces el siguiente sería dyz, para decir que dx, yz, voy a darme esto para tanto, traerme todas las cosas que hay aquí, x es el máximo común divisor de yz."
+    },
+    {
+      "start": 1218.44,
+      "end": 1225.62,
+      "text": "Ok, bueno, creo que ya tenemos todo lo necesario para nuestra interpretación"
+    },
+    {
+      "start": 1225.62,
+      "end": 1236.22,
+      "text": "Porque el cálculo de predicados de primer orden es un lenguaje que contempla funciones"
+    },
+    {
+      "start": 1236.22,
+      "end": 1242.8,
+      "text": "O sea, yo puedo tener funciones en el cálculo de predicados"
+    },
+    {
+      "start": 1242.8,
+      "end": 1246.17,
+      "text": "entonces"
+    },
+    {
+      "start": 1246.17,
+      "end": 1250.67,
+      "text": "las operaciones fundamentales"
+    },
+    {
+      "start": 1250.67,
+      "end": 1253.77,
+      "text": "suma, resta, multiplicación, división"
+    },
+    {
+      "start": 1253.77,
+      "end": 1255.81,
+      "text": "son funciones"
+    },
+    {
+      "start": 1255.81,
+      "end": 1257.81,
+      "text": "perdón"
+    },
+    {
+      "start": 1257.81,
+      "end": 1260.33,
+      "text": "y por lo tanto"
+    },
+    {
+      "start": 1260.33,
+      "end": 1264.45,
+      "text": "vamos a usarlos con los símbolos canónicos"
+    },
+    {
+      "start": 1264.45,
+      "end": 1268.33,
+      "text": "o sea la X para el producto"
+    },
+    {
+      "start": 1268.33,
+      "end": 1271.23,
+      "text": "la raya horizontal para la división"
+    },
+    {
+      "start": 1271.23,
+      "end": 1276.93,
+      "text": "vamos a ocupar un predicado especial"
+    },
+    {
+      "start": 1276.93,
+      "end": 1279.27,
+      "text": "vamos a ocupar el predicado de igualdad"
+    },
+    {
+      "start": 1279.27,
+      "end": 1282.97,
+      "text": "en su característica de que"
+    },
+    {
+      "start": 1282.97,
+      "end": 1287.51,
+      "text": "es verdad que estos dos objetos son idénticos"
+    },
+    {
+      "start": 1287.51,
+      "end": 1294.02,
+      "text": "pero ese es un predicado que ya podemos dar por estándar"
+    },
+    {
+      "start": 1294.02,
+      "end": 1297.96,
+      "text": "o sea, estamos usando el sistema extendido de copy"
+    },
+    {
+      "start": 1297.96,
+      "end": 1301.76,
+      "text": "entonces, dado eso"
+    },
+    {
+      "start": 1301.76,
+      "end": 1311.11,
+      "text": "no necesitamos más, muy bien, así que"
+    },
+    {
+      "start": 1311.11,
+      "end": 1316.64,
+      "text": "bueno, técnicamente ya podemos empezar"
+    },
+    {
+      "start": 1316.64,
+      "end": 1337.06,
+      "text": "¿por dónde empezamos a describir"
+    },
+    {
+      "start": 1337.06,
+      "end": 1338.84,
+      "text": "lógicamente esto? bueno, aquí hay un"
+    },
+    {
+      "start": 1338.84,
+      "end": 1342.4,
+      "text": "detalle que ustedes no conocen y este"
+    },
+    {
+      "start": 1342.4,
+      "end": 1344.12,
+      "text": "bueno, es parte de su educación"
+    },
+    {
+      "start": 1344.12,
+      "end": 1349.52,
+      "text": "en el paradigma lógico y es una cosa, si"
+    },
+    {
+      "start": 1349.52,
+      "end": 1355.47,
+      "text": "el, si aquí se trata de demostrar"
+    },
+    {
+      "start": 1355.47,
+      "end": 1360.81,
+      "text": "cosas como hago para calcular algo"
+    },
+    {
+      "start": 1360.81,
+      "end": 1366.09,
+      "text": "verdad porque se supone que cuando yo"
+    },
+    {
+      "start": 1366.09,
+      "end": 1371.2,
+      "text": "demuestro algo es para saber si una"
+    },
+    {
+      "start": 1371.2,
+      "end": 1374.14,
+      "text": "sentencia que en la conclusión a donde"
+    },
+    {
+      "start": 1374.14,
+      "end": 1376.36,
+      "text": "yo quiero llegar es verdadera"
+    },
+    {
+      "start": 1376.36,
+      "end": 1379.04,
+      "text": "precisamente construyendo la"
+    },
+    {
+      "start": 1379.04,
+      "end": 1379.68,
+      "text": "demostración"
+    },
+    {
+      "start": 1379.68,
+      "end": 1383.8,
+      "text": "permítame por favor aclarar este punto"
+    },
+    {
+      "start": 1383.8,
+      "end": 1385.02,
+      "text": "que es muy muy importante"
+    },
+    {
+      "start": 1385.02,
+      "end": 1411.39,
+      "text": "El fundamento de la lógica y lo que nos ha permitido tener ciencia, tener tecnología, es un principio que se puede enunciar de una manera muy sencilla."
+    },
+    {
+      "start": 1411.39,
+      "end": 1442.87,
+      "text": "Y por eso es impresionante que si este principio es tan sencillo, nos pueda dar un poder tan inmenso. Disculpen en esto, por favor, pero es que yo no puedo cansarme de admirarle y mostrarle mi admiración al hecho de que piénsenlo de esta forma."
+    },
+    {
+      "start": 1442.87,
+      "end": 1465.59,
+      "text": "Piensen, en este momento hay tres telescopios, cada cual en grado que siente de poder, lanzados al espacio y de los cuales recibimos imágenes del espacio, del espacio profundo."
+    },
+    {
+      "start": 1465.59,
+      "end": 1468.53,
+      "text": "el primero fue"
+    },
+    {
+      "start": 1468.53,
+      "end": 1469.09,
+      "text": "este"
+    },
+    {
+      "start": 1469.09,
+      "end": 1474.35,
+      "text": "ahí se me olvida el primero"
+    },
+    {
+      "start": 1474.35,
+      "end": 1476.27,
+      "text": "el que se lanzó"
+    },
+    {
+      "start": 1476.27,
+      "end": 1478.25,
+      "text": "el que en este momento"
+    },
+    {
+      "start": 1478.25,
+      "end": 1480.29,
+      "text": "que está ocupando el segundo punto"
+    },
+    {
+      "start": 1480.29,
+      "end": 1480.91,
+      "text": "de la grange"
+    },
+    {
+      "start": 1480.91,
+      "end": 1483.91,
+      "text": "es el"
+    },
+    {
+      "start": 1483.91,
+      "end": 1485.05,
+      "text": "James Webb"
+    },
+    {
+      "start": 1485.05,
+      "end": 1487.75,
+      "text": "y se acaba de lanzar otro"
+    },
+    {
+      "start": 1487.75,
+      "end": 1489.15,
+      "text": "telescopio espacial"
+    },
+    {
+      "start": 1489.15,
+      "end": 1491.37,
+      "text": "que también creo que va a estar"
+    },
+    {
+      "start": 1491.37,
+      "end": 1493.37,
+      "text": "en un punto de la grange"
+    },
+    {
+      "start": 1493.37,
+      "end": 1497.57,
+      "text": "y estos telescopios"
+    },
+    {
+      "start": 1497.57,
+      "end": 1499.83,
+      "text": "primero la tecnología"
+    },
+    {
+      "start": 1499.83,
+      "end": 1501.61,
+      "text": "para crear estos telescopios"
+    },
+    {
+      "start": 1501.61,
+      "end": 1504.19,
+      "text": "es extraordinariamente"
+    },
+    {
+      "start": 1504.19,
+      "end": 1505.05,
+      "text": "si este"
+    },
+    {
+      "start": 1505.05,
+      "end": 1507.53,
+      "text": "extraordinariamente sofisticada"
+    },
+    {
+      "start": 1507.53,
+      "end": 1513.51,
+      "text": "y no solo eso sino que estamos"
+    },
+    {
+      "start": 1513.51,
+      "end": 1515.73,
+      "text": "lanzando estos telescopios al espacio"
+    },
+    {
+      "start": 1515.73,
+      "end": 1519.43,
+      "text": "para darnos imágenes"
+    },
+    {
+      "start": 1519.43,
+      "end": 1520.21,
+      "text": "de"
+    },
+    {
+      "start": 1520.21,
+      "end": 1520.59,
+      "text": "de"
+    },
+    {
+      "start": 1520.59,
+      "end": 1524.59,
+      "text": "de"
+    },
+    {
+      "start": 1524.59,
+      "end": 1527.65,
+      "text": "objetos espaciales"
+    },
+    {
+      "start": 1527.65,
+      "end": 1529.31,
+      "text": "ah"
+    },
+    {
+      "start": 1529.31,
+      "end": 1529.97,
+      "text": "el Hubble"
+    },
+    {
+      "start": 1529.97,
+      "end": 1532.67,
+      "text": "el telescopio Hubble fue el primero"
+    },
+    {
+      "start": 1532.67,
+      "end": 1538.59,
+      "text": "y el que acaban de lanzar"
+    },
+    {
+      "start": 1538.59,
+      "end": 1540.47,
+      "text": "es el Nancy Grace"
+    },
+    {
+      "start": 1540.47,
+      "end": 1540.87,
+      "text": "Roman"
+    },
+    {
+      "start": 1540.87,
+      "end": 1549.54,
+      "text": "permítanme presentárselos"
+    },
+    {
+      "start": 1549.54,
+      "end": 1550.14,
+      "text": "de esta forma"
+    },
+    {
+      "start": 1550.14,
+      "end": 1552.52,
+      "text": "este"
+    },
+    {
+      "start": 1552.52,
+      "end": 1555.22,
+      "text": "¿alguno de ustedes vio la película"
+    },
+    {
+      "start": 1555.22,
+      "end": 1556.1,
+      "text": "Interstellar?"
+    },
+    {
+      "start": 1560.86,
+      "end": 1561.78,
+      "text": "sí profe"
+    },
+    {
+      "start": 1561.78,
+      "end": 1563.58,
+      "text": "ok, gracias Matías"
+    },
+    {
+      "start": 1563.58,
+      "end": 1565.76,
+      "text": "bueno, no sé si lo sabes"
+    },
+    {
+      "start": 1565.76,
+      "end": 1567.8,
+      "text": "pero la imagen"
+    },
+    {
+      "start": 1567.8,
+      "end": 1569.64,
+      "text": "que se ve ahí en esa película"
+    },
+    {
+      "start": 1569.64,
+      "end": 1572.4,
+      "text": "del agujero"
+    },
+    {
+      "start": 1572.4,
+      "end": 1572.8,
+      "text": "negro"
+    },
+    {
+      "start": 1572.8,
+      "end": 1575.98,
+      "text": "sí, sí, Manuel, muy buena"
+    },
+    {
+      "start": 1575.98,
+      "end": 1578.44,
+      "text": "bueno, Andrés"
+    },
+    {
+      "start": 1578.44,
+      "end": 1579.9,
+      "text": "espero que esto no sea un spoiler"
+    },
+    {
+      "start": 1579.9,
+      "end": 1581.16,
+      "text": "muy feo"
+    },
+    {
+      "start": 1581.16,
+      "end": 1584.44,
+      "text": "la imagen del agujero negro"
+    },
+    {
+      "start": 1584.44,
+      "end": 1586.26,
+      "text": "que en la película le llaman Gargantúa"
+    },
+    {
+      "start": 1586.26,
+      "end": 1588.76,
+      "text": "este"
+    },
+    {
+      "start": 1588.76,
+      "end": 1591.52,
+      "text": "ellos"
+    },
+    {
+      "start": 1591.52,
+      "end": 1594.28,
+      "text": "creo que fue James Nolan"
+    },
+    {
+      "start": 1594.28,
+      "end": 1597.26,
+      "text": "Christopher Nolan"
+    },
+    {
+      "start": 1597.26,
+      "end": 1598.9,
+      "text": "Christopher Nolan"
+    },
+    {
+      "start": 1598.9,
+      "end": 1599.52,
+      "text": "muchas gracias"
+    },
+    {
+      "start": 1599.52,
+      "end": 1603.98,
+      "text": "te agradezco que me corrigieras"
+    },
+    {
+      "start": 1603.98,
+      "end": 1606.86,
+      "text": "creo que fue el director"
+    },
+    {
+      "start": 1606.86,
+      "end": 1608.2,
+      "text": "y"
+    },
+    {
+      "start": 1608.2,
+      "end": 1612.4,
+      "text": "como se ve un agujero negro"
+    },
+    {
+      "start": 1612.4,
+      "end": 1615.0,
+      "text": "que es uno de los puntos esenciales"
+    },
+    {
+      "start": 1615.0,
+      "end": 1616.26,
+      "text": "del argumento"
+    },
+    {
+      "start": 1616.26,
+      "end": 1617.6,
+      "text": "le preguntaron"
+    },
+    {
+      "start": 1617.6,
+      "end": 1619.84,
+      "text": "a un físico"
+    },
+    {
+      "start": 1619.84,
+      "end": 1622.52,
+      "text": "ganador del premio Nobel de Física"
+    },
+    {
+      "start": 1622.52,
+      "end": 1626.28,
+      "text": "en determinados aspectos de astronomía"
+    },
+    {
+      "start": 1626.28,
+      "end": 1627.8,
+      "text": "¿cómo se vería"
+    },
+    {
+      "start": 1627.8,
+      "end": 1629.42,
+      "text": "según la teoría"
+    },
+    {
+      "start": 1629.42,
+      "end": 1632.72,
+      "text": "¿cómo se vería un agujero enéreo"
+    },
+    {
+      "start": 1632.72,
+      "end": 1634.64,
+      "text": "si fotografiamos alguno?"
+    },
+    {
+      "start": 1636.02,
+      "end": 1636.5,
+      "text": "ok"
+    },
+    {
+      "start": 1636.5,
+      "end": 1640.66,
+      "text": "el mage hizo sus cálculos"
+    },
+    {
+      "start": 1640.66,
+      "end": 1643.96,
+      "text": "por cierto, este sujeto salió en Big Bang Theory"
+    },
+    {
+      "start": 1643.96,
+      "end": 1649.1,
+      "text": "hizo un cameo en la serie"
+    },
+    {
+      "start": 1649.1,
+      "end": 1651.5,
+      "text": "y Christopher Nolan"
+    },
+    {
+      "start": 1651.5,
+      "end": 1653.78,
+      "text": "él fue el asesor científico"
+    },
+    {
+      "start": 1653.78,
+      "end": 1655.76,
+      "text": "bueno, se vería así"
+    },
+    {
+      "start": 1655.76,
+      "end": 1657.78,
+      "text": "¿y por qué se ve?"
+    },
+    {
+      "start": 1658.1,
+      "end": 1659.54,
+      "text": "¿qué es ese? ¿por qué"
+    },
+    {
+      "start": 1659.54,
+      "end": 1661.46,
+      "text": "si se ve? ¿por qué hay un círculo"
+    },
+    {
+      "start": 1661.46,
+      "end": 1663.88,
+      "text": "de tan brillante"
+    },
+    {
+      "start": 1663.88,
+      "end": 1665.4,
+      "text": "alrededor de él? Ah, no, es que ese es"
+    },
+    {
+      "start": 1665.4,
+      "end": 1667.52,
+      "text": "el anillo de"
+    },
+    {
+      "start": 1667.52,
+      "end": 1669.6,
+      "text": "acreción del agujero negro"
+    },
+    {
+      "start": 1669.6,
+      "end": 1671.64,
+      "text": "que debería tener, o sea, que cuando"
+    },
+    {
+      "start": 1671.64,
+      "end": 1673.14,
+      "text": "está capturando materia"
+    },
+    {
+      "start": 1673.14,
+      "end": 1675.72,
+      "text": "y está demasiado cerca, pero no está"
+    },
+    {
+      "start": 1675.72,
+      "end": 1677.92,
+      "text": "en el horizonte de eventos"
+    },
+    {
+      "start": 1677.92,
+      "end": 1696.0,
+      "text": "La teoría dice, o sea, según la teoría combinada de Einstein y Hawking, que entonces esa materia debería empezar a girar alrededor del agujero nereo a velocidades cercanas a la velocidad de la luz."
+    },
+    {
+      "start": 1696.0,
+      "end": 1697.66,
+      "text": "porque hay materia entonces no puede"
+    },
+    {
+      "start": 1697.66,
+      "end": 1699.74,
+      "text": "estar en la velocidad de la luz"
+    },
+    {
+      "start": 1699.74,
+      "end": 1702.22,
+      "text": "antes de que entonces la materia"
+    },
+    {
+      "start": 1702.22,
+      "end": 1703.14,
+      "text": "más cercana"
+    },
+    {
+      "start": 1703.14,
+      "end": 1705.48,
+      "text": "del anillo de acreción"
+    },
+    {
+      "start": 1705.48,
+      "end": 1708.08,
+      "text": "cuando se acerca"
+    },
+    {
+      "start": 1708.08,
+      "end": 1709.96,
+      "text": "al horizonte de eventos entonces ahora"
+    },
+    {
+      "start": 1709.96,
+      "end": 1711.78,
+      "text": "sí es atrapada por el agujero"
+    },
+    {
+      "start": 1711.78,
+      "end": 1712.8,
+      "text": "nervioso, es absorbida por él"
+    },
+    {
+      "start": 1712.8,
+      "end": 1716.04,
+      "text": "¿pero por qué se le ve una parte de arriba?"
+    },
+    {
+      "start": 1716.28,
+      "end": 1717.82,
+      "text": "ah no, es que es la que está detrás"
+    },
+    {
+      "start": 1717.82,
+      "end": 1720.04,
+      "text": "es la parte de atrás"
+    },
+    {
+      "start": 1720.04,
+      "end": 1721.78,
+      "text": "pero la luz"
+    },
+    {
+      "start": 1721.78,
+      "end": 1723.0,
+      "text": "que está emanando"
+    },
+    {
+      "start": 1723.0,
+      "end": 1725.72,
+      "text": "pues resulta que el agujero"
+    },
+    {
+      "start": 1725.72,
+      "end": 1727.16,
+      "text": "negro obviamente está creando"
+    },
+    {
+      "start": 1727.16,
+      "end": 1729.64,
+      "text": "una deformación del espacio-tiempo"
+    },
+    {
+      "start": 1729.64,
+      "end": 1731.3,
+      "text": "y la parte que"
+    },
+    {
+      "start": 1731.3,
+      "end": 1733.3,
+      "text": "lo que está detrás"
+    },
+    {
+      "start": 1733.3,
+      "end": 1735.72,
+      "text": "no lo tapa el agujero"
+    },
+    {
+      "start": 1735.72,
+      "end": 1737.48,
+      "text": "sino que esa luz se"
+    },
+    {
+      "start": 1737.48,
+      "end": 1739.72,
+      "text": "pasa por la curvatura"
+    },
+    {
+      "start": 1739.72,
+      "end": 1741.2,
+      "text": "de la deformación del espacio-tiempo"
+    },
+    {
+      "start": 1741.2,
+      "end": 1743.72,
+      "text": "entonces"
+    },
+    {
+      "start": 1743.72,
+      "end": 1744.86,
+      "text": "qué maravilla"
+    },
+    {
+      "start": 1744.86,
+      "end": 1746.44,
+      "text": "cuando"
+    },
+    {
+      "start": 1746.44,
+      "end": 1749.56,
+      "text": "al fin se le logró tomar una"
+    },
+    {
+      "start": 1749.56,
+      "end": 1751.82,
+      "text": "fotografía por así decirlo a un agujero"
+    },
+    {
+      "start": 1751.82,
+      "end": 1753.6,
+      "text": "negro y eso fue"
+    },
+    {
+      "start": 1753.6,
+      "end": 1754.68,
+      "text": "después de la película"
+    },
+    {
+      "start": 1754.68,
+      "end": 1761.1,
+      "text": "y se veía exactamente igual a como lo había descrito la teoría."
+    },
+    {
+      "start": 1762.86,
+      "end": 1763.96,
+      "text": "O sea, se ve como en la película."
+    },
+    {
+      "start": 1765.58,
+      "end": 1769.14,
+      "text": "Y a nadie le sorprendió, pero en realidad eso era sorprendente."
+    },
+    {
+      "start": 1770.6,
+      "end": 1776.26,
+      "text": "De que en realidad la película era solamente una teoría."
+    },
+    {
+      "start": 1776.26,
+      "end": 1778.26,
+      "text": "Era solamente una hipótesis."
+    },
+    {
+      "start": 1778.26,
+      "end": 1791.82,
+      "text": "Y resulta que la fotografía que al final se tomó, efectivamente confirmó la teoría."
+    },
+    {
+      "start": 1792.58,
+      "end": 1793.88,
+      "text": "¡Qué maravilla!"
+    },
+    {
+      "start": 1794.5,
+      "end": 1802.76,
+      "text": "Y todo eso basado en un principio, que es el principio del rock bottom de la lógica."
+    },
+    {
+      "start": 1802.76,
+      "end": 1821.12,
+      "text": "Y es este. Si mis premisas son verdaderas y mi razonamiento es válido, mi conclusión debe ser verdadera. Debe, obligatoriamente."
+    },
+    {
+      "start": 1821.12,
+      "end": 1842.58,
+      "text": "este principio une como pueden ver"
+    },
+    {
+      "start": 1842.58,
+      "end": 1844.66,
+      "text": "los dos aspectos"
+    },
+    {
+      "start": 1844.66,
+      "end": 1846.68,
+      "text": "importantísimos que obviamente ambos son"
+    },
+    {
+      "start": 1846.68,
+      "end": 1848.4,
+      "text": "fundamentales también para la lógica"
+    },
+    {
+      "start": 1848.4,
+      "end": 1849.36,
+      "text": "que es el de"
+    },
+    {
+      "start": 1849.36,
+      "end": 1850.8,
+      "text": "este"
+    },
+    {
+      "start": 1850.8,
+      "end": 1856.36,
+      "text": "veritativo"
+    },
+    {
+      "start": 1856.36,
+      "end": 1858.02,
+      "text": "el de ser veritativo"
+    },
+    {
+      "start": 1858.02,
+      "end": 1859.16,
+      "text": "el de ser verdadero más bien"
+    },
+    {
+      "start": 1859.16,
+      "end": 1862.86,
+      "text": "y el de ser válido"
+    },
+    {
+      "start": 1862.86,
+      "end": 1868.31,
+      "text": "entonces mi conclusión"
+    },
+    {
+      "start": 1868.31,
+      "end": 1880.54,
+      "text": "debe ser verdadera"
+    },
+    {
+      "start": 1880.54,
+      "end": 1882.14,
+      "text": "puse debe"
+    },
+    {
+      "start": 1882.14,
+      "end": 1883.16,
+      "text": "no porque esté gritando"
+    },
+    {
+      "start": 1883.16,
+      "end": 1885.62,
+      "text": "sino porque para ponerle"
+    },
+    {
+      "start": 1885.62,
+      "end": 1887.62,
+      "text": "énfasis, ya que no tengo negritas"
+    },
+    {
+      "start": 1887.62,
+      "end": 1889.64,
+      "text": "entonces sustituyo"
+    },
+    {
+      "start": 1889.64,
+      "end": 1891.08,
+      "text": "las negritas con las mayúsculas"
+    },
+    {
+      "start": 1891.08,
+      "end": 1896.57,
+      "text": "ese es el"
+    },
+    {
+      "start": 1896.57,
+      "end": 1905.34,
+      "text": "enorme poder de la lógica"
+    },
+    {
+      "start": 1905.34,
+      "end": 1906.5,
+      "text": "ok, este"
+    },
+    {
+      "start": 1906.5,
+      "end": 1909.44,
+      "text": "entonces volvamos"
+    },
+    {
+      "start": 1909.44,
+      "end": 1910.3,
+      "text": "a nuestro"
+    },
+    {
+      "start": 1910.3,
+      "end": 1911.88,
+      "text": "a nuestra tarea"
+    },
+    {
+      "start": 1911.88,
+      "end": 1917.29,
+      "text": "que es la de simbolizar"
+    },
+    {
+      "start": 1917.29,
+      "end": 1919.41,
+      "text": "algo tan sencillo y tan humilde"
+    },
+    {
+      "start": 1919.41,
+      "end": 1919.95,
+      "text": "como"
+    },
+    {
+      "start": 1919.95,
+      "end": 1923.63,
+      "text": "el cálculo"
+    },
+    {
+      "start": 1923.63,
+      "end": 1924.93,
+      "text": "del mínimo como múltiplo"
+    },
+    {
+      "start": 1924.93,
+      "end": 1948.76,
+      "text": "Ah, les decía, aquí parece que tenemos un pequeño primer problema y es si en lógica se trata de saber si algo es demostrable y eso se hace pues encontrando la demostración, usando las reglas de inferencia, ¿cómo calculo yo algo? ¿Cómo se ve un cálculo?"
+    },
+    {
+      "start": 1948.76,
+      "end": 1953.3,
+      "text": "parece raro, ¿verdad? porque calcular"
+    },
+    {
+      "start": 1953.3,
+      "end": 1955.3,
+      "text": "es simplemente, denme unos"
+    },
+    {
+      "start": 1955.3,
+      "end": 1956.24,
+      "text": "los parámetros"
+    },
+    {
+      "start": 1956.24,
+      "end": 1959.14,
+      "text": "yo hago operaciones matemáticas"
+    },
+    {
+      "start": 1959.14,
+      "end": 1960.48,
+      "text": "y salgo con un resultado"
+    },
+    {
+      "start": 1960.48,
+      "end": 1962.74,
+      "text": "¿y qué tiene eso que ver con lógica?"
+    },
+    {
+      "start": 1965.85,
+      "end": 1966.85,
+      "text": "¿a ustedes qué les parece?"
+    },
+    {
+      "start": 1967.53,
+      "end": 1969.45,
+      "text": "¿qué se les ocurre que podemos hacer para"
+    },
+    {
+      "start": 1969.45,
+      "end": 1971.33,
+      "text": "este"
+    },
+    {
+      "start": 1971.33,
+      "end": 1972.45,
+      "text": "transformar"
+    },
+    {
+      "start": 1972.45,
+      "end": 1975.75,
+      "text": "un cálculo en una demostración?"
+    },
+    {
+      "start": 1997.01,
+      "end": 1998.57,
+      "text": "con igualdades"
+    },
+    {
+      "start": 1998.57,
+      "end": 2000.37,
+      "text": "quizás ir modificando"
+    },
+    {
+      "start": 2000.37,
+      "end": 2002.13,
+      "text": "un número y que tenga que dar"
+    },
+    {
+      "start": 2002.13,
+      "end": 2002.99,
+      "text": "igual a algo"
+    },
+    {
+      "start": 2002.99,
+      "end": 2006.29,
+      "text": "y demostrar"
+    },
+    {
+      "start": 2006.29,
+      "end": 2008.13,
+      "text": "que esa igualdad es cierta"
+    },
+    {
+      "start": 2008.13,
+      "end": 2013.46,
+      "text": "ok"
+    },
+    {
+      "start": 2013.46,
+      "end": 2021.92,
+      "text": "en realidad"
+    },
+    {
+      "start": 2021.92,
+      "end": 2024.24,
+      "text": "tomamos por un camino ligeramente"
+    },
+    {
+      "start": 2024.24,
+      "end": 2026.16,
+      "text": "diferente que ese, si es cierto"
+    },
+    {
+      "start": 2026.16,
+      "end": 2027.56,
+      "text": "vamos a tener que usar igualdades"
+    },
+    {
+      "start": 2027.56,
+      "end": 2029.32,
+      "text": "pero"
+    },
+    {
+      "start": 2029.32,
+      "end": 2032.1,
+      "text": "al decir una igualdad es de alguien contra"
+    },
+    {
+      "start": 2032.1,
+      "end": 2032.58,
+      "text": "alguien"
+    },
+    {
+      "start": 2032.58,
+      "end": 2036.22,
+      "text": "y si yo tengo los parámetros"
+    },
+    {
+      "start": 2036.22,
+      "end": 2038.16,
+      "text": "y hago"
+    },
+    {
+      "start": 2038.16,
+      "end": 2039.52,
+      "text": "los cálculos con los parámetros"
+    },
+    {
+      "start": 2039.52,
+      "end": 2042.04,
+      "text": "de pronto surge precisamente"
+    },
+    {
+      "start": 2042.04,
+      "end": 2044.48,
+      "text": "el valor que yo quiero calcular"
+    },
+    {
+      "start": 2044.48,
+      "end": 2046.24,
+      "text": "pero como introduzco"
+    },
+    {
+      "start": 2046.24,
+      "end": 2047.82,
+      "text": "la noción de ese valor que yo"
+    },
+    {
+      "start": 2047.82,
+      "end": 2049.02,
+      "text": "quiero calcular"
+    },
+    {
+      "start": 2049.02,
+      "end": 2051.9,
+      "text": "pero si va un poco por donde lo estas diciendo"
+    },
+    {
+      "start": 2051.9,
+      "end": 2067.54,
+      "text": "yo recuerdo"
+    },
+    {
+      "start": 2067.54,
+      "end": 2069.68,
+      "text": "que nosotros en discreta"
+    },
+    {
+      "start": 2069.68,
+      "end": 2071.32,
+      "text": "habíamos visto una noción ahí"
+    },
+    {
+      "start": 2071.32,
+      "end": 2072.7,
+      "text": "de demostración pero"
+    },
+    {
+      "start": 2072.7,
+      "end": 2074.08,
+      "text": "de"
+    },
+    {
+      "start": 2074.08,
+      "end": 2076.02,
+      "text": "divisibilidad"
+    },
+    {
+      "start": 2076.02,
+      "end": 2079.14,
+      "text": "entonces tal vez como hay que"
+    },
+    {
+      "start": 2079.14,
+      "end": 2081.02,
+      "text": "dividir entre el mcd y demás"
+    },
+    {
+      "start": 2081.02,
+      "end": 2083.24,
+      "text": "hacerlo alguna cantidad"
+    },
+    {
+      "start": 2083.24,
+      "end": 2085.1,
+      "text": "de veces y con igualdad llegar a"
+    },
+    {
+      "start": 2085.1,
+      "end": 2087.34,
+      "text": "un punto para poder demostrar"
+    },
+    {
+      "start": 2087.34,
+      "end": 2088.76,
+      "text": "que sí existe ese K, digamos."
+    },
+    {
+      "start": 2089.9,
+      "end": 2091.34,
+      "text": "Un momentito, ¿qué fue lo último"
+    },
+    {
+      "start": 2091.34,
+      "end": 2092.04,
+      "text": "que dijiste?"
+    },
+    {
+      "start": 2094.88,
+      "end": 2095.52,
+      "text": "Realizar"
+    },
+    {
+      "start": 2095.52,
+      "end": 2096.52,
+      "text": "varias veces"
+    },
+    {
+      "start": 2096.52,
+      "end": 2098.96,
+      "text": "una secuencia de igualdades. No."
+    },
+    {
+      "start": 2099.76,
+      "end": 2101.08,
+      "text": "Lo siguiente que dijiste"
+    },
+    {
+      "start": 2101.08,
+      "end": 2103.52,
+      "text": "es la clave. Poder decir que sí existe"
+    },
+    {
+      "start": 2103.52,
+      "end": 2105.22,
+      "text": "el K. Exactamente."
+    },
+    {
+      "start": 2105.84,
+      "end": 2107.46,
+      "text": "Demostrar que existe"
+    },
+    {
+      "start": 2107.46,
+      "end": 2109.18,
+      "text": "el elemento que"
+    },
+    {
+      "start": 2109.18,
+      "end": 2110.64,
+      "text": "satisface esas relaciones."
+    },
+    {
+      "start": 2112.82,
+      "end": 2113.74,
+      "text": "Así es"
+    },
+    {
+      "start": 2113.74,
+      "end": 2114.2,
+      "text": "como se hace."
+    },
+    {
+      "start": 2115.1,
+      "end": 2130.46,
+      "text": "Para describir un cálculo mediante lógica, yo digo, bueno, hay que demostrar que existe un X que satisface estas relaciones."
+    },
+    {
+      "start": 2130.46,
+      "end": 2162.42,
+      "text": "O sea, lo que tenemos que decir es que tenemos que demostrar. La vez pasada no lo hice muy bien. Resulta que esto hay que escribirlo también entre paréntesis. Voy a ponerme muy estricto con el lenguaje lógico."
+    },
+    {
+      "start": 2162.42,
+      "end": 2169.07,
+      "text": "perdón, aquí voy a cambiar el nombre de mi variable"
+    },
+    {
+      "start": 2169.07,
+      "end": 2190.27,
+      "text": "para todo A y para todo B"
+    },
+    {
+      "start": 2190.27,
+      "end": 2205.92,
+      "text": "existe un X tal que"
+    },
+    {
+      "start": 2205.92,
+      "end": 2209.18,
+      "text": "bueno, es más, debería ser así en realidad"
+    },
+    {
+      "start": 2209.18,
+      "end": 2211.32,
+      "text": "para todo A y para todo B"
+    },
+    {
+      "start": 2211.32,
+      "end": 2224.73,
+      "text": "si A es un entero"
+    },
+    {
+      "start": 2224.73,
+      "end": 2230.85,
+      "text": "bueno, ahorita me pongo el otro símbolo"
+    },
+    {
+      "start": 2230.85,
+      "end": 2232.47,
+      "text": "y B es un entero"
+    },
+    {
+      "start": 2232.47,
+      "end": 2238.72,
+      "text": "están aquí, están acá"
+    },
+    {
+      "start": 2238.72,
+      "end": 2248.09,
+      "text": "eso implica"
+    },
+    {
+      "start": 2248.09,
+      "end": 2253.08,
+      "text": "pueden suponer, voy a usar la herradura"
+    },
+    {
+      "start": 2253.08,
+      "end": 2255.14,
+      "text": "eso implica"
+    },
+    {
+      "start": 2255.14,
+      "end": 2256.52,
+      "text": "que existe un x"
+    },
+    {
+      "start": 2256.52,
+      "end": 2259.36,
+      "text": "tal que"
+    },
+    {
+      "start": 2259.36,
+      "end": 2271.97,
+      "text": "x es el"
+    },
+    {
+      "start": 2271.97,
+      "end": 2274.37,
+      "text": "este"
+    },
+    {
+      "start": 2274.37,
+      "end": 2283.24,
+      "text": "x es el máximo"
+    },
+    {
+      "start": 2283.24,
+      "end": 2284.32,
+      "text": "común divisor de a y b"
+    },
+    {
+      "start": 2284.32,
+      "end": 2285.84,
+      "text": "eso es lo que tengo que demostrar"
+    },
+    {
+      "start": 2285.84,
+      "end": 2300.3,
+      "text": "ahora, de esta forma"
+    },
+    {
+      "start": 2300.3,
+      "end": 2302.26,
+      "text": "lo que tengo que hacer es"
+    },
+    {
+      "start": 2302.26,
+      "end": 2304.8,
+      "text": "una demostración constructiva"
+    },
+    {
+      "start": 2304.8,
+      "end": 2306.5,
+      "text": "o sea, ¿cómo demuestro yo"
+    },
+    {
+      "start": 2306.5,
+      "end": 2309.7,
+      "text": "que existe un x tal que cumple eso"
+    },
+    {
+      "start": 2309.7,
+      "end": 2310.7,
+      "text": "encuéntrelo"
+    },
+    {
+      "start": 2310.7,
+      "end": 2314.76,
+      "text": "encuentre por lo menos un x"
+    },
+    {
+      "start": 2314.76,
+      "end": 2315.8,
+      "text": "que satisface eso"
+    },
+    {
+      "start": 2315.8,
+      "end": 2318.68,
+      "text": "y"
+    },
+    {
+      "start": 2318.68,
+      "end": 2322.88,
+      "text": "estampeselo en la cara que le está preguntando"
+    },
+    {
+      "start": 2322.88,
+      "end": 2324.42,
+      "text": "por así decirlo"
+    },
+    {
+      "start": 2324.42,
+      "end": 2326.34,
+      "text": "y de esa forma lo demuestra"
+    },
+    {
+      "start": 2326.34,
+      "end": 2328.34,
+      "text": "eso se llama una demostración"
+    },
+    {
+      "start": 2328.34,
+      "end": 2329.06,
+      "text": "constructiva"
+    },
+    {
+      "start": 2329.06,
+      "end": 2332.22,
+      "text": "entonces los cálculos"
+    },
+    {
+      "start": 2332.22,
+      "end": 2334.3,
+      "text": "en los"
+    },
+    {
+      "start": 2334.3,
+      "end": 2335.34,
+      "text": "lenguajes lógicos"
+    },
+    {
+      "start": 2335.34,
+      "end": 2338.3,
+      "text": "se muestran o aparecen como"
+    },
+    {
+      "start": 2338.3,
+      "end": 2344.05,
+      "text": "demostraciones constructivas. Insisto en"
+    },
+    {
+      "start": 2344.05,
+      "end": 2347.81,
+      "text": "esto, y es que en el fondo, cuando uno"
+    },
+    {
+      "start": 2347.81,
+      "end": 2350.85,
+      "text": "está trabajando ya en lenguajes lógicos,"
+    },
+    {
+      "start": 2351.59,
+      "end": 2354.25,
+      "text": "uno no entra necesariamente por una"
+    },
+    {
+      "start": 2354.25,
+      "end": 2356.43,
+      "text": "forma, de una manera tan formal."
+    },
+    {
+      "start": 2357.41,
+      "end": 2359.97,
+      "text": "Sí la tiene en la mente, eso sí, uno sí"
+    },
+    {
+      "start": 2359.97,
+      "end": 2362.93,
+      "text": "está pensando en eso, pero no tiene que"
+    },
+    {
+      "start": 2362.93,
+      "end": 2365.53,
+      "text": "ponerla por escrito así, de una manera"
+    },
+    {
+      "start": 2365.53,
+      "end": 2367.29,
+      "text": "explícita siempre"
+    },
+    {
+      "start": 2367.29,
+      "end": 2372.69,
+      "text": "es igual que cuando uno tiene ya"
+    },
+    {
+      "start": 2372.69,
+      "end": 2374.67,
+      "text": "una cierta soltura en un lenguaje de programación"
+    },
+    {
+      "start": 2374.67,
+      "end": 2377.07,
+      "text": "hay muchas cosas que uno las hace"
+    },
+    {
+      "start": 2377.07,
+      "end": 2378.79,
+      "text": "sin necesariamente"
+    },
+    {
+      "start": 2378.79,
+      "end": 2380.89,
+      "text": "diseñarlas de una manera"
+    },
+    {
+      "start": 2380.89,
+      "end": 2382.87,
+      "text": "estricta, aunque debería"
+    },
+    {
+      "start": 2382.87,
+      "end": 2384.97,
+      "text": "entonces aquí estamos"
+    },
+    {
+      "start": 2384.97,
+      "end": 2386.65,
+      "text": "entrándole de la manera más"
+    },
+    {
+      "start": 2386.65,
+      "end": 2388.77,
+      "text": "primero"
+    },
+    {
+      "start": 2388.77,
+      "end": 2390.67,
+      "text": "más general, porque no estamos"
+    },
+    {
+      "start": 2390.67,
+      "end": 2392.65,
+      "text": "usando todavía ningún lenguaje lógico"
+    },
+    {
+      "start": 2392.65,
+      "end": 2395.55,
+      "text": "y segundo"
+    },
+    {
+      "start": 2395.55,
+      "end": 2398.67,
+      "text": "de una manera muy estricta, muy formal"
+    },
+    {
+      "start": 2398.67,
+      "end": 2400.45,
+      "text": "ok, eso es lo que hay que hacer"
+    },
+    {
+      "start": 2400.45,
+      "end": 2402.99,
+      "text": "ok"
+    },
+    {
+      "start": 2402.99,
+      "end": 2405.35,
+      "text": "entonces ahora la pregunta es"
+    },
+    {
+      "start": 2405.35,
+      "end": 2406.87,
+      "text": "¿cómo se define"
+    },
+    {
+      "start": 2406.87,
+      "end": 2409.15,
+      "text": "el mínimo común múltiplo"
+    },
+    {
+      "start": 2409.15,
+      "end": 2411.27,
+      "text": "de este"
+    },
+    {
+      "start": 2411.27,
+      "end": 2415.7,
+      "text": "de dos enteros?"
+    },
+    {
+      "start": 2420.84,
+      "end": 2421.38,
+      "text": "este"
+    },
+    {
+      "start": 2421.38,
+      "end": 2425.65,
+      "text": "muy bien, ¿cómo lo definirían ustedes?"
+    },
+    {
+      "start": 2425.87,
+      "end": 2426.95,
+      "text": "ya definimos que"
+    },
+    {
+      "start": 2426.95,
+      "end": 2429.53,
+      "text": "ya mostramos que es lo que hay que hacer"
+    },
+    {
+      "start": 2429.53,
+      "end": 2431.41,
+      "text": "entonces ahora"
+    },
+    {
+      "start": 2431.41,
+      "end": 2433.83,
+      "text": "Cómo describo"
+    },
+    {
+      "start": 2433.83,
+      "end": 2434.91,
+      "text": "Usando lógica"
+    },
+    {
+      "start": 2434.91,
+      "end": 2435.79,
+      "text": "Esto"
+    },
+    {
+      "start": 2435.79,
+      "end": 2459.58,
+      "text": "Bueno, a mí se me ocurrió esta forma"
+    },
+    {
+      "start": 2459.58,
+      "end": 2462.2,
+      "text": "Yo creería que es algo como"
+    },
+    {
+      "start": 2462.2,
+      "end": 2464.54,
+      "text": "Lo que habías denotado"
+    },
+    {
+      "start": 2464.54,
+      "end": 2465.5,
+      "text": "Como MCM"
+    },
+    {
+      "start": 2465.5,
+      "end": 2468.18,
+      "text": "Bueno, que tiene que existir un K"
+    },
+    {
+      "start": 2468.18,
+      "end": 2469.18,
+      "text": "Tal que"
+    },
+    {
+      "start": 2469.18,
+      "end": 2471.98,
+      "text": "El MCM"
+    },
+    {
+      "start": 2471.98,
+      "end": 2473.92,
+      "text": "Es igual a SK"
+    },
+    {
+      "start": 2473.92,
+      "end": 2475.24,
+      "text": "Por"
+    },
+    {
+      "start": 2475.24,
+      "end": 2479.24,
+      "text": "Lo que estaría a la par"
+    },
+    {
+      "start": 2479.24,
+      "end": 2480.0,
+      "text": "Que sería el MCD"
+    },
+    {
+      "start": 2480.0,
+      "end": 2480.86,
+      "text": "Que no me acuerdo cuál es"
+    },
+    {
+      "start": 2480.86,
+      "end": 2482.14,
+      "text": "Como lo denotaste"
+    },
+    {
+      "start": 2482.14,
+      "end": 2483.9,
+      "text": "La D, D mayúscula"
+    },
+    {
+      "start": 2483.9,
+      "end": 2485.5,
+      "text": "Ajá, D mayúscula y el A por B"
+    },
+    {
+      "start": 2485.5,
+      "end": 2490.38,
+      "text": "No, el A por B nomás, creo, yo creo"
+    },
+    {
+      "start": 2490.38,
+      "end": 2491.52,
+      "text": "Sí, claro que sí"
+    },
+    {
+      "start": 2491.52,
+      "end": 2494.26,
+      "text": "Por ahí es"
+    },
+    {
+      "start": 2494.26,
+      "end": 2496.36,
+      "text": "Ah, bueno, sí, pero ese sí lo podemos operar"
+    },
+    {
+      "start": 2496.36,
+      "end": 2497.02,
+      "text": "Digamos como"
+    },
+    {
+      "start": 2497.02,
+      "end": 2499.86,
+      "text": "Sí, como una función, podemos hacerlo directamente, sí"
+    },
+    {
+      "start": 2499.86,
+      "end": 2502.3,
+      "text": "Ok, sí, algo así, digamos"
+    },
+    {
+      "start": 2502.3,
+      "end": 2503.24,
+      "text": "Algo así"
+    },
+    {
+      "start": 2503.24,
+      "end": 2504.44,
+      "text": "Algo así"
+    },
+    {
+      "start": 2504.44,
+      "end": 2506.4,
+      "text": "A mí se me ocurrió esto"
+    },
+    {
+      "start": 2506.4,
+      "end": 2509.73,
+      "text": "A mí se me ocurrió esto"
+    },
+    {
+      "start": 2509.73,
+      "end": 2510.87,
+      "text": "Este"
+    },
+    {
+      "start": 2510.87,
+      "end": 2513.57,
+      "text": "Voy a llevarme esto"
+    },
+    {
+      "start": 2513.57,
+      "end": 2515.27,
+      "text": "Porque hay muchos símbolos que hay aquí"
+    },
+    {
+      "start": 2515.27,
+      "end": 2521.29,
+      "text": "cuáles son mis definiciones"
+    },
+    {
+      "start": 2521.29,
+      "end": 2525.92,
+      "text": "entonces ahora tengo que definir"
+    },
+    {
+      "start": 2525.92,
+      "end": 2527.84,
+      "text": "utilizando cálculo de predicados de primer orden"
+    },
+    {
+      "start": 2527.84,
+      "end": 2529.82,
+      "text": "¿qué es esto?"
+    },
+    {
+      "start": 2530.28,
+      "end": 2531.8,
+      "text": "¿verdad? porque aquí no dice"
+    },
+    {
+      "start": 2531.8,
+      "end": 2532.26,
+      "text": "¿qué es?"
+    },
+    {
+      "start": 2533.8,
+      "end": 2534.74,
+      "text": "no, solo dice"
+    },
+    {
+      "start": 2534.74,
+      "end": 2536.5,
+      "text": "este es un predicado"
+    },
+    {
+      "start": 2536.5,
+      "end": 2538.94,
+      "text": "ok, ahora me pregunto, bueno, ¿cómo se define"
+    },
+    {
+      "start": 2538.94,
+      "end": 2540.72,
+      "text": "ese predicado? ¿cómo hago yo"
+    },
+    {
+      "start": 2540.72,
+      "end": 2542.88,
+      "text": "para en cierta forma"
+    },
+    {
+      "start": 2542.88,
+      "end": 2544.4,
+      "text": "operacionalizar"
+    },
+    {
+      "start": 2544.4,
+      "end": 2546.78,
+      "text": "pero de una manera lógica ese predicado?"
+    },
+    {
+      "start": 2547.82,
+      "end": 2548.54,
+      "text": "ah, ok, bueno"
+    },
+    {
+      "start": 2548.54,
+      "end": 2550.46,
+      "text": "entonces"
+    },
+    {
+      "start": 2550.46,
+      "end": 2552.66,
+      "text": "podríamos decir que para todo"
+    },
+    {
+      "start": 2552.66,
+      "end": 2554.76,
+      "text": "A y para todo"
+    },
+    {
+      "start": 2554.76,
+      "end": 2555.08,
+      "text": "B"
+    },
+    {
+      "start": 2555.08,
+      "end": 2562.63,
+      "text": "ahí vamos a ver qué les parece esto"
+    },
+    {
+      "start": 2562.63,
+      "end": 2566.5,
+      "text": "para todo A y para todo"
+    },
+    {
+      "start": 2566.5,
+      "end": 2566.82,
+      "text": "B"
+    },
+    {
+      "start": 2566.82,
+      "end": 2570.74,
+      "text": "existe un X"
+    },
+    {
+      "start": 2570.74,
+      "end": 2576.52,
+      "text": "o sea, es verdad"
+    },
+    {
+      "start": 2576.52,
+      "end": 2577.26,
+      "text": "que"
+    },
+    {
+      "start": 2577.26,
+      "end": 2580.66,
+      "text": "si para todo A y para todo B"
+    },
+    {
+      "start": 2580.66,
+      "end": 2581.56,
+      "text": "existe un X"
+    },
+    {
+      "start": 2581.56,
+      "end": 2586.61,
+      "text": "así que esto es un tío del Zoom"
+    },
+    {
+      "start": 2586.61,
+      "end": 2592.63,
+      "text": "y existe un"
+    },
+    {
+      "start": 2592.63,
+      "end": 2602.56,
+      "text": "Y, ya les digo para qué"
+    },
+    {
+      "start": 2602.56,
+      "end": 2604.36,
+      "text": "tengo que poner que existe un Y"
+    },
+    {
+      "start": 2604.36,
+      "end": 2611.18,
+      "text": "voy a quitar esto porque me está confundiendo"
+    },
+    {
+      "start": 2611.18,
+      "end": 2619.47,
+      "text": "ok, en primer lugar"
+    },
+    {
+      "start": 2619.47,
+      "end": 2621.01,
+      "text": "existe un Y tal que"
+    },
+    {
+      "start": 2621.01,
+      "end": 2622.09,
+      "text": "ese Y"
+    },
+    {
+      "start": 2622.09,
+      "end": 2633.17,
+      "text": "es el"
+    },
+    {
+      "start": 2633.17,
+      "end": 2635.89,
+      "text": "máximo común divisor"
+    },
+    {
+      "start": 2635.89,
+      "end": 2636.67,
+      "text": "de A y B"
+    },
+    {
+      "start": 2636.67,
+      "end": 2641.06,
+      "text": "o sea, si existe un Y"
+    },
+    {
+      "start": 2641.06,
+      "end": 2643.5,
+      "text": "tal que"
+    },
+    {
+      "start": 2643.5,
+      "end": 2645.2,
+      "text": "ese Y es el máximo"
+    },
+    {
+      "start": 2645.2,
+      "end": 2648.22,
+      "text": "común divisor de A y B"
+    },
+    {
+      "start": 2648.22,
+      "end": 2648.8,
+      "text": "entonces"
+    },
+    {
+      "start": 2648.8,
+      "end": 2652.76,
+      "text": "este"
+    },
+    {
+      "start": 2652.76,
+      "end": 2660.7,
+      "text": "eso es un existencial"
+    },
+    {
+      "start": 2660.7,
+      "end": 2663.44,
+      "text": "entonces aquí tengo que hacer una conversión"
+    },
+    {
+      "start": 2663.44,
+      "end": 2664.46,
+      "text": "de mis notas"
+    },
+    {
+      "start": 2664.46,
+      "end": 2666.3,
+      "text": "uy uy uy uy"
+    },
+    {
+      "start": 2666.3,
+      "end": 2670.87,
+      "text": "existe este y"
+    },
+    {
+      "start": 2670.87,
+      "end": 2680.56,
+      "text": "y este"
+    },
+    {
+      "start": 2680.56,
+      "end": 2684.26,
+      "text": "ahora otro de estos"
+    },
+    {
+      "start": 2684.26,
+      "end": 2688.44,
+      "text": "y x"
+    },
+    {
+      "start": 2688.44,
+      "end": 2690.24,
+      "text": "es igual"
+    },
+    {
+      "start": 2690.24,
+      "end": 2692.02,
+      "text": "aquí estoy usando el predicado de igualdad"
+    },
+    {
+      "start": 2692.02,
+      "end": 2696.82,
+      "text": "aquí voy a usar las funciones"
+    },
+    {
+      "start": 2696.82,
+      "end": 2699.12,
+      "text": "x es"
+    },
+    {
+      "start": 2699.12,
+      "end": 2701.94,
+      "text": "a por b"
+    },
+    {
+      "start": 2701.94,
+      "end": 2706.22,
+      "text": "entre Y"
+    },
+    {
+      "start": 2706.22,
+      "end": 2710.22,
+      "text": "yo no puedo poner"
+    },
+    {
+      "start": 2710.22,
+      "end": 2711.94,
+      "text": "D de Y"
+    },
+    {
+      "start": 2711.94,
+      "end": 2713.0,
+      "text": "perdón"
+    },
+    {
+      "start": 2713.0,
+      "end": 2717.7,
+      "text": "es esto"
+    },
+    {
+      "start": 2717.7,
+      "end": 2719.3,
+      "text": "no puedo ponerlo"
+    },
+    {
+      "start": 2719.3,
+      "end": 2720.74,
+      "text": "aquí debajo"
+    },
+    {
+      "start": 2720.74,
+      "end": 2726.44,
+      "text": "porque esto"
+    },
+    {
+      "start": 2726.44,
+      "end": 2728.4,
+      "text": "no es una función"
+    },
+    {
+      "start": 2728.4,
+      "end": 2729.84,
+      "text": "es un predicado"
+    },
+    {
+      "start": 2729.84,
+      "end": 2732.2,
+      "text": "entonces"
+    },
+    {
+      "start": 2732.2,
+      "end": 2734.2,
+      "text": "tengo que decir que Y"
+    },
+    {
+      "start": 2734.2,
+      "end": 2736.4,
+      "text": "es el elemento que hace"
+    },
+    {
+      "start": 2736.4,
+      "end": 2738.14,
+      "text": "que este predicado sea verdadero"
+    },
+    {
+      "start": 2738.14,
+      "end": 2739.14,
+      "text": "respecto A y B"
+    },
+    {
+      "start": 2739.14,
+      "end": 2742.86,
+      "text": "y entonces ese mismo y lo utilizo aquí"
+    },
+    {
+      "start": 2742.86,
+      "end": 2749.76,
+      "text": "entonces si es cierto que existe"
+    },
+    {
+      "start": 2749.76,
+      "end": 2751.76,
+      "text": "si existe un x tal que"
+    },
+    {
+      "start": 2751.76,
+      "end": 2754.76,
+      "text": "si existe un y tal que ese y es el"
+    },
+    {
+      "start": 2754.76,
+      "end": 2756.52,
+      "text": "este"
+    },
+    {
+      "start": 2756.52,
+      "end": 2759.44,
+      "text": "el máximo común divisor de a y b"
+    },
+    {
+      "start": 2759.44,
+      "end": 2765.48,
+      "text": "y este x es igual a a por b"
+    },
+    {
+      "start": 2765.48,
+      "end": 2766.48,
+      "text": "entre y"
+    },
+    {
+      "start": 2766.48,
+      "end": 2769.82,
+      "text": "vamos a ver"
+    },
+    {
+      "start": 2769.82,
+      "end": 2775.81,
+      "text": "1, 2, aquí está el existencial"
+    },
+    {
+      "start": 2775.81,
+      "end": 2780.24,
+      "text": "déjenme contar paréntesis"
+    },
+    {
+      "start": 2780.24,
+      "end": 2789.44,
+      "text": "Yo los he sacado, este es por acá, este es acá, este es aquí."
+    },
+    {
+      "start": 2790.64,
+      "end": 2805.4,
+      "text": "Ok, si todo es excierto, ¿dónde es el para todo B?"
+    },
+    {
+      "start": 2805.54,
+      "end": 2810.03,
+      "text": "Debería ser aquí, sí."
+    },
+    {
+      "start": 2812.08,
+      "end": 2823.3,
+      "text": "Eso implica que justamente, este, ah no, mentira, no puede estar ahí porque está fuera del ámbito, es esta X de aquí."
+    },
+    {
+      "start": 2823.3,
+      "end": 2826.54,
+      "text": "entonces eso tengo que decirlo"
+    },
+    {
+      "start": 2826.54,
+      "end": 2828.96,
+      "text": "aquí, eso implica"
+    },
+    {
+      "start": 2828.96,
+      "end": 2832.5,
+      "text": "que ese x"
+    },
+    {
+      "start": 2832.5,
+      "end": 2834.36,
+      "text": "precisamente el x"
+    },
+    {
+      "start": 2834.36,
+      "end": 2835.9,
+      "text": "al que se refiere este"
+    },
+    {
+      "start": 2835.9,
+      "end": 2836.74,
+      "text": "existencial"
+    },
+    {
+      "start": 2836.74,
+      "end": 2841.4,
+      "text": "es el máximo"
+    },
+    {
+      "start": 2841.4,
+      "end": 2843.64,
+      "text": "común, el mínimo común múltiplo"
+    },
+    {
+      "start": 2843.64,
+      "end": 2844.9,
+      "text": "perdón, de a y de b"
+    },
+    {
+      "start": 2844.9,
+      "end": 2853.75,
+      "text": "esto no es sencillo"
+    },
+    {
+      "start": 2853.75,
+      "end": 2856.11,
+      "text": "de hecho prolog no fue"
+    },
+    {
+      "start": 2856.11,
+      "end": 2857.81,
+      "text": "hecho, no fue pensado"
+    },
+    {
+      "start": 2857.81,
+      "end": 2859.45,
+      "text": "para hacer cálculos"
+    },
+    {
+      "start": 2859.45,
+      "end": 2860.79,
+      "text": "aunque"
+    },
+    {
+      "start": 2860.79,
+      "end": 2900.49,
+      "text": "Por ejemplo, este maravilloso libro, Artificial Intelligence Techniques in Prologue, de Joab Shoham, es de la editorial Double Day, de San Francisco."
+    },
+    {
+      "start": 2900.49,
+      "end": 2904.79,
+      "text": "la biblioteca del tecnológico tiene un ejemplar"
+    },
+    {
+      "start": 2904.79,
+      "end": 2906.39,
+      "text": "de este libro extraordinario"
+    },
+    {
+      "start": 2906.39,
+      "end": 2908.41,
+      "text": "aquí uno"
+    },
+    {
+      "start": 2908.41,
+      "end": 2910.73,
+      "text": "encuentra por ejemplo"
+    },
+    {
+      "start": 2910.73,
+      "end": 2911.71,
+      "text": "frutas mínimas"
+    },
+    {
+      "start": 2911.71,
+      "end": 2914.23,
+      "text": "cofre el algoritmo"
+    },
+    {
+      "start": 2914.23,
+      "end": 2916.29,
+      "text": "hay una versión del algoritmo"
+    },
+    {
+      "start": 2916.29,
+      "end": 2917.21,
+      "text": "a estrella"
+    },
+    {
+      "start": 2917.21,
+      "end": 2920.05,
+      "text": "en prolog"
+    },
+    {
+      "start": 2920.05,
+      "end": 2922.03,
+      "text": "entonces"
+    },
+    {
+      "start": 2922.03,
+      "end": 2924.23,
+      "text": "pues cosas así"
+    },
+    {
+      "start": 2924.23,
+      "end": 2925.91,
+      "text": "si se ven, a decir verdad"
+    },
+    {
+      "start": 2925.91,
+      "end": 2927.17,
+      "text": "si hay que hacerlas"
+    },
+    {
+      "start": 2927.17,
+      "end": 2930.51,
+      "text": "no es la parte más gruesa"
+    },
+    {
+      "start": 2930.51,
+      "end": 2931.05,
+      "text": "digámoslo así"
+    },
+    {
+      "start": 2931.05,
+      "end": 2933.65,
+      "text": "de inteligencia artificial logicista"
+    },
+    {
+      "start": 2933.65,
+      "end": 2934.63,
+      "text": "pero sí hay que hacerlo"
+    },
+    {
+      "start": 2934.63,
+      "end": 2938.13,
+      "text": "este es un libro que les recomiendo"
+    },
+    {
+      "start": 2938.13,
+      "end": 2940.65,
+      "text": "abiertamente"
+    },
+    {
+      "start": 2940.65,
+      "end": 2942.31,
+      "text": "si tienen un interés"
+    },
+    {
+      "start": 2942.31,
+      "end": 2943.03,
+      "text": "más que casual"
+    },
+    {
+      "start": 2943.03,
+      "end": 2946.95,
+      "text": "en lenguajes"
+    },
+    {
+      "start": 2946.95,
+      "end": 2948.33,
+      "text": "para"
+    },
+    {
+      "start": 2948.33,
+      "end": 2949.45,
+      "text": "en lenguajes lógicos"
+    },
+    {
+      "start": 2949.45,
+      "end": 2952.89,
+      "text": "es un libro muy recomendable"
+    },
+    {
+      "start": 2952.89,
+      "end": 2956.25,
+      "text": "bueno y por supuesto si están pensando"
+    },
+    {
+      "start": 2956.25,
+      "end": 2957.33,
+      "text": "en el punto de vista"
+    },
+    {
+      "start": 2957.33,
+      "end": 2959.77,
+      "text": "logicista de inteligencia artificial"
+    },
+    {
+      "start": 2959.77,
+      "end": 2962.43,
+      "text": "a mí es el que más me cae"
+    },
+    {
+      "start": 2962.43,
+      "end": 2964.21,
+      "text": "que mejor me cae"
+    },
+    {
+      "start": 2964.21,
+      "end": 2965.13,
+      "text": "y"
+    },
+    {
+      "start": 2965.13,
+      "end": 2967.41,
+      "text": "hasta cierto punto"
+    },
+    {
+      "start": 2967.41,
+      "end": 2969.15,
+      "text": "disculpen por"
+    },
+    {
+      "start": 2969.15,
+      "end": 2971.59,
+      "text": "presumir de esta forma"
+    },
+    {
+      "start": 2971.59,
+      "end": 2974.25,
+      "text": "lo que se está viendo"
+    },
+    {
+      "start": 2974.25,
+      "end": 2976.41,
+      "text": "hasta cierto"
+    },
+    {
+      "start": 2976.41,
+      "end": 2978.03,
+      "text": "punto con las"
+    },
+    {
+      "start": 2978.03,
+      "end": 2980.27,
+      "text": "empresas de inteligencia artificial en este momento"
+    },
+    {
+      "start": 2980.27,
+      "end": 2982.35,
+      "text": "me da una gran satisfacción"
+    },
+    {
+      "start": 2982.35,
+      "end": 2985.73,
+      "text": "porque precisamente"
+    },
+    {
+      "start": 2985.73,
+      "end": 2987.49,
+      "text": "una de las cosas que a mí siempre"
+    },
+    {
+      "start": 2987.49,
+      "end": 2990.11,
+      "text": "me han disgustado de la inteligencia"
+    },
+    {
+      "start": 2990.11,
+      "end": 2995.07,
+      "text": "artificial conexionista es la falta de"
+    },
+    {
+      "start": 2995.07,
+      "end": 2996.11,
+      "text": "accountability"
+    },
+    {
+      "start": 2996.11,
+      "end": 2999.77,
+      "text": "de estas inteligencias o sea yo no sé"
+    },
+    {
+      "start": 2999.77,
+      "end": 3000.43,
+      "text": "qué hay ahí"
+    },
+    {
+      "start": 3000.43,
+      "end": 3004.21,
+      "text": "el conocimiento es almacenado como un"
+    },
+    {
+      "start": 3004.21,
+      "end": 3004.93,
+      "text": "conjunto"
+    },
+    {
+      "start": 3004.93,
+      "end": 3009.09,
+      "text": "monstruosamente grande de números de"
+    },
+    {
+      "start": 3009.09,
+      "end": 3012.83,
+      "text": "punto flotante entonces no hay manera de"
+    },
+    {
+      "start": 3012.83,
+      "end": 3018.63,
+      "text": "saber qué conocimiento está ahí este"
+    },
+    {
+      "start": 3018.63,
+      "end": 3038.75,
+      "text": "Que se yo, por ejemplo, según parece, no quiero ofender a nadie, no es mi intención, solamente para mostrar a lo que me refiero."
+    },
+    {
+      "start": 3038.75,
+      "end": 3060.21,
+      "text": "Según parece, a esta inteligencia artificial GROK se le mostró una imagen de diferentes, compuesta a su vez de imágenes de representaciones gráficas o visuales de diferentes divinidades de religiones."
+    },
+    {
+      "start": 3060.21,
+      "end": 3062.53,
+      "text": "bueno y también"
+    },
+    {
+      "start": 3062.53,
+      "end": 3065.65,
+      "text": "personas que no son divinidades"
+    },
+    {
+      "start": 3065.65,
+      "end": 3067.45,
+      "text": "pero que tienen un alto"
+    },
+    {
+      "start": 3067.45,
+      "end": 3069.31,
+      "text": "peso religioso, entonces había una imagen"
+    },
+    {
+      "start": 3069.31,
+      "end": 3070.57,
+      "text": "del Buda"
+    },
+    {
+      "start": 3070.57,
+      "end": 3073.57,
+      "text": "una imagen, diferentes"
+    },
+    {
+      "start": 3073.57,
+      "end": 3075.27,
+      "text": "imágenes de dioses hindúes"
+    },
+    {
+      "start": 3075.27,
+      "end": 3077.43,
+      "text": "como de Ganesh, Shiva"
+    },
+    {
+      "start": 3077.43,
+      "end": 3079.87,
+      "text": "por supuesto"
+    },
+    {
+      "start": 3079.87,
+      "end": 3080.91,
+      "text": "había una imagen"
+    },
+    {
+      "start": 3080.91,
+      "end": 3083.21,
+      "text": "como la imaginación popular"
+    },
+    {
+      "start": 3083.21,
+      "end": 3085.37,
+      "text": "usualmente imagina"
+    },
+    {
+      "start": 3085.37,
+      "end": 3086.91,
+      "text": "a Jesús de Nazaret"
+    },
+    {
+      "start": 3086.91,
+      "end": 3093.24,
+      "text": "entonces había diferentes imágenes"
+    },
+    {
+      "start": 3093.24,
+      "end": 3094.1,
+      "text": "religiosas"
+    },
+    {
+      "start": 3094.1,
+      "end": 3096.42,
+      "text": "y este"
+    },
+    {
+      "start": 3096.42,
+      "end": 3099.14,
+      "text": "y la persona que"
+    },
+    {
+      "start": 3099.14,
+      "end": 3101.1,
+      "text": "le puso la imagen dijo, le puso"
+    },
+    {
+      "start": 3101.1,
+      "end": 3102.88,
+      "text": "la tarea a Grock de"
+    },
+    {
+      "start": 3102.88,
+      "end": 3105.02,
+      "text": "elimine"
+    },
+    {
+      "start": 3105.02,
+      "end": 3106.76,
+      "text": "todos los dioses que son falsos"
+    },
+    {
+      "start": 3106.76,
+      "end": 3111.43,
+      "text": "ok, entonces"
+    },
+    {
+      "start": 3111.43,
+      "end": 3112.51,
+      "text": "si esto fue"
+    },
+    {
+      "start": 3112.51,
+      "end": 3115.49,
+      "text": "verdadero porque yo solo vi los resultados"
+    },
+    {
+      "start": 3115.49,
+      "end": 3119.41,
+      "text": "no me consta que efectivamente fue una"
+    },
+    {
+      "start": 3119.41,
+      "end": 3120.85,
+      "text": "tarea que se le encargará a Grock"
+    },
+    {
+      "start": 3120.85,
+      "end": 3123.21,
+      "text": "pero si si lo fue"
+    },
+    {
+      "start": 3123.21,
+      "end": 3125.35,
+      "text": "resulta que Grock respondió"
+    },
+    {
+      "start": 3125.35,
+      "end": 3127.45,
+      "text": "con una imagen completamente en blanco"
+    },
+    {
+      "start": 3127.45,
+      "end": 3129.31,
+      "text": "excepto la figura"
+    },
+    {
+      "start": 3129.31,
+      "end": 3130.31,
+      "text": "de Jesús de Nazaret"
+    },
+    {
+      "start": 3130.31,
+      "end": 3133.54,
+      "text": "este"
+    },
+    {
+      "start": 3133.54,
+      "end": 3136.26,
+      "text": "y donde se le preguntó por qué"
+    },
+    {
+      "start": 3136.26,
+      "end": 3138.58,
+      "text": "dejó solamente esa figura"
+    },
+    {
+      "start": 3138.58,
+      "end": 3141.16,
+      "text": "dijo porque ese es el único"
+    },
+    {
+      "start": 3141.16,
+      "end": 3142.82,
+      "text": "que no era falso"
+    },
+    {
+      "start": 3142.82,
+      "end": 3144.4,
+      "text": "ok"
+    },
+    {
+      "start": 3144.4,
+      "end": 3147.5,
+      "text": "esa es la posición de las personas cristianas"
+    },
+    {
+      "start": 3147.5,
+      "end": 3149.12,
+      "text": "muy respetable"
+    },
+    {
+      "start": 3149.12,
+      "end": 3152.3,
+      "text": "ok"
+    },
+    {
+      "start": 3152.3,
+      "end": 3153.46,
+      "text": "está bien"
+    },
+    {
+      "start": 3153.46,
+      "end": 3156.08,
+      "text": "lo que pasa es que si usted es judío"
+    },
+    {
+      "start": 3156.08,
+      "end": 3157.48,
+      "text": "o si usted es musulmán"
+    },
+    {
+      "start": 3157.48,
+      "end": 3160.42,
+      "text": "o si usted es"
+    },
+    {
+      "start": 3160.42,
+      "end": 3160.94,
+      "text": "hindú"
+    },
+    {
+      "start": 3160.94,
+      "end": 3163.88,
+      "text": "no creo que"
+    },
+    {
+      "start": 3163.88,
+      "end": 3165.98,
+      "text": "esté muy de acuerdo con que esa sea una"
+    },
+    {
+      "start": 3165.98,
+      "end": 3167.96,
+      "text": "respuesta apropiada, o sea"
+    },
+    {
+      "start": 3167.96,
+      "end": 3168.94,
+      "text": "quiero decir que"
+    },
+    {
+      "start": 3168.94,
+      "end": 3172.34,
+      "text": "tienen sesgos"
+    },
+    {
+      "start": 3172.34,
+      "end": 3175.36,
+      "text": "pero como de antemano"
+    },
+    {
+      "start": 3175.36,
+      "end": 3176.74,
+      "text": "no sé yo cuáles son los sesgos"
+    },
+    {
+      "start": 3176.74,
+      "end": 3178.82,
+      "text": "en este caso, bueno, tiene este"
+    },
+    {
+      "start": 3178.82,
+      "end": 3181.32,
+      "text": "este, no voy a"
+    },
+    {
+      "start": 3181.32,
+      "end": 3183.58,
+      "text": "obviamente a juzgar si es correcto"
+    },
+    {
+      "start": 3183.58,
+      "end": 3186.82,
+      "text": "es incorrecto pero en política por"
+    },
+    {
+      "start": 3186.82,
+      "end": 3191.48,
+      "text": "ejemplo este grok es famosa por ejemplo"
+    },
+    {
+      "start": 3191.48,
+      "end": 3192.34,
+      "text": "por decir"
+    },
+    {
+      "start": 3192.34,
+      "end": 3197.18,
+      "text": "frases elogiosas de líderes"
+    },
+    {
+      "start": 3197.18,
+      "end": 3199.22,
+      "text": "autoritarios como adolfo hitler como"
+    },
+    {
+      "start": 3199.22,
+      "end": 3201.14,
+      "text": "benito mussolini francisco franco"
+    },
+    {
+      "start": 3201.14,
+      "end": 3207.46,
+      "text": "o sea tiene sesgos políticos muy fuertes"
+    },
+    {
+      "start": 3207.46,
+      "end": 3211.56,
+      "text": "pero si yo examino el conocimiento de"
+    },
+    {
+      "start": 3211.56,
+      "end": 3213.24,
+      "text": "esta inteligencia artificial que vería"
+    },
+    {
+      "start": 3213.24,
+      "end": 3215.42,
+      "text": "números"
+    },
+    {
+      "start": 3215.42,
+      "end": 3217.38,
+      "text": "solo números"
+    },
+    {
+      "start": 3217.38,
+      "end": 3219.44,
+      "text": "solo números de punto flotante"
+    },
+    {
+      "start": 3219.44,
+      "end": 3223.2,
+      "text": "decenas de miles de millones"
+    },
+    {
+      "start": 3223.2,
+      "end": 3224.84,
+      "text": "de números de punto flotante"
+    },
+    {
+      "start": 3224.84,
+      "end": 3227.16,
+      "text": "ese es el conocimiento de cualquier inteligencia"
+    },
+    {
+      "start": 3227.16,
+      "end": 3228.18,
+      "text": "artificial conexionista"
+    },
+    {
+      "start": 3228.18,
+      "end": 3230.16,
+      "text": "no es auditable"
+    },
+    {
+      "start": 3230.16,
+      "end": 3234.31,
+      "text": "en cambio la inteligencia"
+    },
+    {
+      "start": 3234.31,
+      "end": 3234.77,
+      "text": "artificial"
+    },
+    {
+      "start": 3234.77,
+      "end": 3237.19,
+      "text": "logicista"
+    },
+    {
+      "start": 3237.19,
+      "end": 3239.99,
+      "text": "simbólica si lo es"
+    },
+    {
+      "start": 3239.99,
+      "end": 3242.05,
+      "text": "porque su conocimiento"
+    },
+    {
+      "start": 3242.05,
+      "end": 3244.27,
+      "text": "está consignado"
+    },
+    {
+      "start": 3244.27,
+      "end": 3246.09,
+      "text": "por ejemplo en sentencias"
+    },
+    {
+      "start": 3246.09,
+      "end": 3248.03,
+      "text": "de algo que se parece a cálculo de predicados"
+    },
+    {
+      "start": 3248.03,
+      "end": 3250.27,
+      "text": "entonces yo si puedo"
+    },
+    {
+      "start": 3250.27,
+      "end": 3252.19,
+      "text": "interpretar como ser humano que hay"
+    },
+    {
+      "start": 3252.19,
+      "end": 3252.45,
+      "text": "ahí"
+    },
+    {
+      "start": 3252.45,
+      "end": 3257.52,
+      "text": "y que conexiones hay entre el conocimiento"
+    },
+    {
+      "start": 3257.52,
+      "end": 3259.06,
+      "text": "o sea puedo crear programas"
+    },
+    {
+      "start": 3259.06,
+      "end": 3261.32,
+      "text": "que me digan que relación hay entre"
+    },
+    {
+      "start": 3261.32,
+      "end": 3262.54,
+      "text": "las diferentes sentencias"
+    },
+    {
+      "start": 3262.54,
+      "end": 3265.04,
+      "text": "o sea si es auditable"
+    },
+    {
+      "start": 3265.04,
+      "end": 3269.52,
+      "text": "en realidad la inteligencia"
+    },
+    {
+      "start": 3269.52,
+      "end": 3271.38,
+      "text": "artificial está pegando"
+    },
+    {
+      "start": 3271.38,
+      "end": 3272.84,
+      "text": "con pared en este momento"
+    },
+    {
+      "start": 3272.84,
+      "end": 3274.98,
+      "text": "por precisamente"
+    },
+    {
+      "start": 3274.98,
+      "end": 3277.22,
+      "text": "por su falta de auditabilidad"
+    },
+    {
+      "start": 3277.5,
+      "end": 3279.74,
+      "text": "no saben que hay ahí"
+    },
+    {
+      "start": 3279.74,
+      "end": 3281.6,
+      "text": "no saben"
+    },
+    {
+      "start": 3281.6,
+      "end": 3282.52,
+      "text": "que"
+    },
+    {
+      "start": 3282.52,
+      "end": 3285.8,
+      "text": "o sea lo único que parece es que"
+    },
+    {
+      "start": 3285.8,
+      "end": 3287.7,
+      "text": "cuando sale una sentencia muy rara"
+    },
+    {
+      "start": 3287.7,
+      "end": 3289.9,
+      "text": "la gente misma"
+    },
+    {
+      "start": 3289.9,
+      "end": 3291.96,
+      "text": "le dice oiga eso no puede ser cierto"
+    },
+    {
+      "start": 3291.96,
+      "end": 3293.98,
+      "text": "por esto"
+    },
+    {
+      "start": 3293.98,
+      "end": 3294.42,
+      "text": "y esto"
+    },
+    {
+      "start": 3294.42,
+      "end": 3297.48,
+      "text": "a veces la inteligencia"
+    },
+    {
+      "start": 3297.48,
+      "end": 3299.76,
+      "text": "se pone en modo de aprendizaje y se"
+    },
+    {
+      "start": 3299.76,
+      "end": 3301.94,
+      "text": "corrige a veces no"
+    },
+    {
+      "start": 3301.94,
+      "end": 3307.26,
+      "text": "es demasiado el conocimiento humano"
+    },
+    {
+      "start": 3307.26,
+      "end": 3309.86,
+      "text": "los mismos creadores"
+    },
+    {
+      "start": 3309.86,
+      "end": 3311.1,
+      "text": "de estas"
+    },
+    {
+      "start": 3311.1,
+      "end": 3314.38,
+      "text": "inteligencias y que le dan mantenimiento"
+    },
+    {
+      "start": 3314.38,
+      "end": 3316.16,
+      "text": "ellos mismos no tienen control"
+    },
+    {
+      "start": 3316.16,
+      "end": 3318.06,
+      "text": "de qué más está aprendiendo"
+    },
+    {
+      "start": 3318.06,
+      "end": 3322.28,
+      "text": "entonces creo que se están topando"
+    },
+    {
+      "start": 3322.28,
+      "end": 3324.22,
+      "text": "con el problema de que hay mucho"
+    },
+    {
+      "start": 3324.22,
+      "end": 3325.66,
+      "text": "conocimiento falso"
+    },
+    {
+      "start": 3325.66,
+      "end": 3330.3,
+      "text": "y además de que se está"
+    },
+    {
+      "start": 3330.3,
+      "end": 3332.32,
+      "text": "alimentando de su propio conocimiento"
+    },
+    {
+      "start": 3332.32,
+      "end": 3334.18,
+      "text": "falso y eso va a"
+    },
+    {
+      "start": 3334.18,
+      "end": 3336.18,
+      "text": "darle lugar a disparates"
+    },
+    {
+      "start": 3336.18,
+      "end": 3358.27,
+      "text": "Entonces ellos mismos vean que un capitalista tan agresivo como Elon Musk admitiera que tenemos que poner en pausa esto, pero eso sí tenemos que hacerlo todos, que él mismo admitiera eso significa, maestro, esto está muy mal."
+    },
+    {
+      "start": 3358.27,
+      "end": 3360.75,
+      "text": "aquí"
+    },
+    {
+      "start": 3360.75,
+      "end": 3363.07,
+      "text": "no es un asunto ético"
+    },
+    {
+      "start": 3363.07,
+      "end": 3364.79,
+      "text": "sabemos que Elon Musk no tiene"
+    },
+    {
+      "start": 3364.79,
+      "end": 3365.87,
+      "text": "ninguna ética"
+    },
+    {
+      "start": 3365.87,
+      "end": 3368.93,
+      "text": "más que la de ganar todo el dinero que sea posible"
+    },
+    {
+      "start": 3368.93,
+      "end": 3369.39,
+      "text": "para él"
+    },
+    {
+      "start": 3369.39,
+      "end": 3372.99,
+      "text": "entonces que él mismo estuviera de acuerdo"
+    },
+    {
+      "start": 3372.99,
+      "end": 3374.45,
+      "text": "con que un toquecito"
+    },
+    {
+      "start": 3374.45,
+      "end": 3376.65,
+      "text": "estuvo de acuerdo con"
+    },
+    {
+      "start": 3376.65,
+      "end": 3378.51,
+      "text": "el madre de Anthropic"
+    },
+    {
+      "start": 3378.51,
+      "end": 3380.39,
+      "text": "y Sam Altman"
+    },
+    {
+      "start": 3380.39,
+      "end": 3382.91,
+      "text": "no, no, vamos a poner el freno humano"
+    },
+    {
+      "start": 3382.91,
+      "end": 3383.97,
+      "text": "un toquecito aquí porque"
+    },
+    {
+      "start": 3383.97,
+      "end": 3386.45,
+      "text": "se nos está saliendo de control"
+    },
+    {
+      "start": 3386.45,
+      "end": 3390.11,
+      "text": "es por esa carencia de auditabilidad"
+    },
+    {
+      "start": 3390.11,
+      "end": 3390.55,
+      "text": "entonces"
+    },
+    {
+      "start": 3390.55,
+      "end": 3394.05,
+      "text": "la verdad me he sentido muy satisfecho"
+    },
+    {
+      "start": 3394.05,
+      "end": 3394.57,
+      "text": "por eso"
+    },
+    {
+      "start": 3394.57,
+      "end": 3397.95,
+      "text": "ok bueno entonces continuamos con esto"
+    },
+    {
+      "start": 3397.95,
+      "end": 3399.81,
+      "text": "como ven"
+    },
+    {
+      "start": 3399.81,
+      "end": 3401.95,
+      "text": "entonces ya esto me dice"
+    },
+    {
+      "start": 3401.95,
+      "end": 3403.99,
+      "text": "cuando ya yo puedo"
+    },
+    {
+      "start": 3403.99,
+      "end": 3405.67,
+      "text": "decir que"
+    },
+    {
+      "start": 3405.67,
+      "end": 3406.77,
+      "text": "este x"
+    },
+    {
+      "start": 3406.77,
+      "end": 3409.83,
+      "text": "es el mínimo"
+    },
+    {
+      "start": 3409.83,
+      "end": 3410.63,
+      "text": "como múltiplo"
+    },
+    {
+      "start": 3410.63,
+      "end": 3412.87,
+      "text": "si satisface esto"
+    },
+    {
+      "start": 3412.87,
+      "end": 3420.14,
+      "text": "porque aquí"
+    },
+    {
+      "start": 3420.14,
+      "end": 3441.68,
+      "text": "Y yo puedo manejar el predicado de igualdad diciendo, ok, lo único que tengo que hacer, como se ve, es ahora sí aplicar estas funciones y ya esto me da el valor que yo necesito y ese es el x que ya necesito, que estoy necesitando encontrar."
+    },
+    {
+      "start": 3441.68,
+      "end": 3444.38,
+      "text": "que bien, ah bueno, ok, pura vida"
+    },
+    {
+      "start": 3444.38,
+      "end": 3446.26,
+      "text": "ok, como"
+    },
+    {
+      "start": 3446.26,
+      "end": 3448.24,
+      "text": "entonces ahora lo que tengo que"
+    },
+    {
+      "start": 3448.24,
+      "end": 3450.12,
+      "text": "hacer es, y como se demuestra"
+    },
+    {
+      "start": 3450.12,
+      "end": 3452.16,
+      "text": "esto, como se demuestra que"
+    },
+    {
+      "start": 3452.16,
+      "end": 3453.8,
+      "text": "existe un ye que cumple esto"
+    },
+    {
+      "start": 3453.8,
+      "end": 3458.74,
+      "text": "ok, ya vemos que tiene que ser algo"
+    },
+    {
+      "start": 3458.74,
+      "end": 3460.84,
+      "text": "parecido, o sea tiene"
+    },
+    {
+      "start": 3460.84,
+      "end": 3462.02,
+      "text": "que definirse como una"
+    },
+    {
+      "start": 3462.02,
+      "end": 3466.52,
+      "text": "implicación y como"
+    },
+    {
+      "start": 3466.52,
+      "end": 3467.24,
+      "text": "un existencial"
+    },
+    {
+      "start": 3467.24,
+      "end": 3470.64,
+      "text": "verdad, o sea este es el existencial"
+    },
+    {
+      "start": 3470.64,
+      "end": 3473.7,
+      "text": "y esta es la implicación"
+    },
+    {
+      "start": 3473.7,
+      "end": 3476.28,
+      "text": "Ah, ok, bueno, eso ya nos da"
+    },
+    {
+      "start": 3476.28,
+      "end": 3477.3,
+      "text": "Una especie de machote"
+    },
+    {
+      "start": 3477.3,
+      "end": 3479.4,
+      "text": "Para ver cómo definimos"
+    },
+    {
+      "start": 3479.4,
+      "end": 3484.78,
+      "text": "Esto, este es más interesante"
+    },
+    {
+      "start": 3484.78,
+      "end": 3497.34,
+      "text": "Cómo creen que se pueda"
+    },
+    {
+      "start": 3497.34,
+      "end": 3497.96,
+      "text": "Definir eso"
+    },
+    {
+      "start": 3497.96,
+      "end": 3503.83,
+      "text": "Ese sí lleva más trabajo, por supuesto"
+    },
+    {
+      "start": 3503.83,
+      "end": 3508.77,
+      "text": "Ah, y ustedes saben que necesito"
+    },
+    {
+      "start": 3508.77,
+      "end": 3510.07,
+      "text": "Un predicado más"
+    },
+    {
+      "start": 3510.07,
+      "end": 3512.71,
+      "text": "Ahora me estaba fijando"
+    },
+    {
+      "start": 3512.71,
+      "end": 3514.71,
+      "text": "Voy a apuntarlo porque"
+    },
+    {
+      "start": 3514.71,
+      "end": 3515.57,
+      "text": "Si no, se me olvida"
+    },
+    {
+      "start": 3515.57,
+      "end": 3522.37,
+      "text": "Vas a definir el de la aritmética modular, ¿no?"
+    },
+    {
+      "start": 3524.42,
+      "end": 3525.76,
+      "text": "Perdón, Enrique, decías"
+    },
+    {
+      "start": 3525.76,
+      "end": 3527.38,
+      "text": "Vas a definir el del módulo"
+    },
+    {
+      "start": 3527.38,
+      "end": 3528.6,
+      "text": "Exactamente"
+    },
+    {
+      "start": 3528.6,
+      "end": 3531.62,
+      "text": "No había definido el módulo"
+    },
+    {
+      "start": 3531.62,
+      "end": 3543.98,
+      "text": "No puedo usar la m"
+    },
+    {
+      "start": 3543.98,
+      "end": 3545.34,
+      "text": "Porque ya la estoy usando para"
+    },
+    {
+      "start": 3545.34,
+      "end": 3547.06,
+      "text": "Mínimo común múltiplo"
+    },
+    {
+      "start": 3547.06,
+      "end": 3558.42,
+      "text": "O puedo decir que"
+    },
+    {
+      "start": 3558.42,
+      "end": 3561.48,
+      "text": "R es y módulo z"
+    },
+    {
+      "start": 3561.48,
+      "end": 3575.44,
+      "text": "Es que le pongo la r"
+    },
+    {
+      "start": 3575.44,
+      "end": 3576.52,
+      "text": "Por residuo"
+    },
+    {
+      "start": 3576.52,
+      "end": 3592.4,
+      "text": "Entonces x es el residuo"
+    },
+    {
+      "start": 3592.4,
+      "end": 3598.24,
+      "text": "De y y z"
+    },
+    {
+      "start": 3598.24,
+      "end": 3615.51,
+      "text": "Ok"
+    },
+    {
+      "start": 3615.51,
+      "end": 3618.15,
+      "text": "Bueno y ahora si"
+    },
+    {
+      "start": 3618.15,
+      "end": 3619.41,
+      "text": "Ya tenemos todos los elementos"
+    },
+    {
+      "start": 3619.41,
+      "end": 3627.23,
+      "text": "Para definir el"
+    },
+    {
+      "start": 3627.23,
+      "end": 3631.03,
+      "text": "máximo común divisor"
+    },
+    {
+      "start": 3631.03,
+      "end": 3636.68,
+      "text": "como ven"
+    },
+    {
+      "start": 3636.68,
+      "end": 3638.04,
+      "text": "esto es más difícil todavía"
+    },
+    {
+      "start": 3638.04,
+      "end": 3640.34,
+      "text": "porque tiene dos casos"
+    },
+    {
+      "start": 3640.34,
+      "end": 3647.11,
+      "text": "ok"
+    },
+    {
+      "start": 3647.11,
+      "end": 3662.2,
+      "text": "estos paréntesis"
+    },
+    {
+      "start": 3662.2,
+      "end": 3665.48,
+      "text": "que ustedes están viendo aquí"
+    },
+    {
+      "start": 3665.48,
+      "end": 3667.68,
+      "text": "se ponen para"
+    },
+    {
+      "start": 3667.68,
+      "end": 3670.0,
+      "text": "ser muy formales y describir"
+    },
+    {
+      "start": 3670.0,
+      "end": 3672.28,
+      "text": "cuál es el ámbito"
+    },
+    {
+      "start": 3672.28,
+      "end": 3673.96,
+      "text": "de"
+    },
+    {
+      "start": 3673.96,
+      "end": 3675.74,
+      "text": "el cuantificador"
+    },
+    {
+      "start": 3675.74,
+      "end": 3677.42,
+      "text": "por eso es que esta"
+    },
+    {
+      "start": 3677.42,
+      "end": 3678.38,
+      "text": "implicación"
+    },
+    {
+      "start": 3678.38,
+      "end": 3681.46,
+      "text": "yo la tengo que poner"
+    },
+    {
+      "start": 3681.46,
+      "end": 3684.66,
+      "text": "aquí adentro"
+    },
+    {
+      "start": 3684.66,
+      "end": 3687.46,
+      "text": "porque estoy dentro"
+    },
+    {
+      "start": 3687.46,
+      "end": 3688.2,
+      "text": "del ámbito"
+    },
+    {
+      "start": 3688.2,
+      "end": 3690.78,
+      "text": "de este cuantificador"
+    },
+    {
+      "start": 3690.78,
+      "end": 3693.18,
+      "text": "o en lógica"
+    },
+    {
+      "start": 3693.18,
+      "end": 3694.6,
+      "text": "se le suele decir el alcance"
+    },
+    {
+      "start": 3694.6,
+      "end": 3696.58,
+      "text": "el alcance"
+    },
+    {
+      "start": 3696.58,
+      "end": 3697.98,
+      "text": "es el término más técnico"
+    },
+    {
+      "start": 3697.98,
+      "end": 3701.44,
+      "text": "ese es el alcance de este cuantificador existencial"
+    },
+    {
+      "start": 3701.44,
+      "end": 3703.04,
+      "text": "entonces si yo lo pongo"
+    },
+    {
+      "start": 3703.04,
+      "end": 3705.16,
+      "text": "afuera ya no se sabría"
+    },
+    {
+      "start": 3705.16,
+      "end": 3705.74,
+      "text": "quien es x"
+    },
+    {
+      "start": 3705.74,
+      "end": 3708.9,
+      "text": "tengo que ponerlo aquí para que"
+    },
+    {
+      "start": 3708.9,
+      "end": 3711.56,
+      "text": "quede en el alcance del existencial"
+    },
+    {
+      "start": 3711.56,
+      "end": 3715.41,
+      "text": "entonces para eso"
+    },
+    {
+      "start": 3715.41,
+      "end": 3717.37,
+      "text": "es que ya poniéndonos más serios"
+    },
+    {
+      "start": 3717.37,
+      "end": 3719.15,
+      "text": "hay que poner"
+    },
+    {
+      "start": 3719.15,
+      "end": 3720.29,
+      "text": "todos estos paréntesis"
+    },
+    {
+      "start": 3720.29,
+      "end": 3726.13,
+      "text": "ok entonces"
+    },
+    {
+      "start": 3726.13,
+      "end": 3728.05,
+      "text": "vamos a empezar"
+    },
+    {
+      "start": 3728.05,
+      "end": 3732.77,
+      "text": "este"
+    },
+    {
+      "start": 3732.77,
+      "end": 3739.24,
+      "text": "voy a empezar por así decirlo"
+    },
+    {
+      "start": 3739.24,
+      "end": 3742.25,
+      "text": "por acá"
+    },
+    {
+      "start": 3742.25,
+      "end": 3745.39,
+      "text": "que el máximo común divisor de A y B es B"
+    },
+    {
+      "start": 3745.39,
+      "end": 3747.61,
+      "text": "si A módulo B es"
+    },
+    {
+      "start": 3747.61,
+      "end": 3749.03,
+      "text": "o sea lo vamos a hacer así"
+    },
+    {
+      "start": 3749.03,
+      "end": 3751.69,
+      "text": "el máximo común"
+    },
+    {
+      "start": 3751.69,
+      "end": 3753.23,
+      "text": "divisor de A y B es"
+    },
+    {
+      "start": 3753.23,
+      "end": 3754.09,
+      "text": "o B"
+    },
+    {
+      "start": 3754.09,
+      "end": 3757.85,
+      "text": "o el máximo común divisor"
+    },
+    {
+      "start": 3757.85,
+      "end": 3759.65,
+      "text": "de B"
+    },
+    {
+      "start": 3759.65,
+      "end": 3760.91,
+      "text": "y A módulo B"
+    },
+    {
+      "start": 3760.91,
+      "end": 3765.16,
+      "text": "es uno o el otro"
+    },
+    {
+      "start": 3765.16,
+      "end": 3768.28,
+      "text": "claro, son excluyentes"
+    },
+    {
+      "start": 3768.28,
+      "end": 3768.78,
+      "text": "porque"
+    },
+    {
+      "start": 3768.78,
+      "end": 3771.86,
+      "text": "esta condición no puede ser simultánea"
+    },
+    {
+      "start": 3771.86,
+      "end": 3773.24,
+      "text": "con esta, pero"
+    },
+    {
+      "start": 3773.24,
+      "end": 3775.98,
+      "text": "no necesito"
+    },
+    {
+      "start": 3775.98,
+      "end": 3777.82,
+      "text": "especificarlo tanto"
+    },
+    {
+      "start": 3777.82,
+      "end": 3778.92,
+      "text": "si pongo un O"
+    },
+    {
+      "start": 3778.92,
+      "end": 3781.7,
+      "text": "el hecho de que uno"
+    },
+    {
+      "start": 3781.7,
+      "end": 3782.84,
+      "text": "sea la negación del otro"
+    },
+    {
+      "start": 3782.84,
+      "end": 3784.86,
+      "text": "digámoslo así, me da gratis"
+    },
+    {
+      "start": 3784.86,
+      "end": 3787.08,
+      "text": "el asunto de que si no se cumple uno"
+    },
+    {
+      "start": 3787.08,
+      "end": 3788.3,
+      "text": "entonces se tiene que cumplir el otro"
+    },
+    {
+      "start": 3788.3,
+      "end": 3793.58,
+      "text": "no necesito ser tan estricto"
+    },
+    {
+      "start": 3793.58,
+      "end": 3795.38,
+      "text": "para poner un O exclusivo"
+    },
+    {
+      "start": 3795.38,
+      "end": 3800.32,
+      "text": "ok, entonces"
+    },
+    {
+      "start": 3800.32,
+      "end": 3801.26,
+      "text": "este"
+    },
+    {
+      "start": 3801.26,
+      "end": 3807.44,
+      "text": "podríamos tal vez"
+    },
+    {
+      "start": 3807.44,
+      "end": 3818.58,
+      "text": "decir esto, para todo A"
+    },
+    {
+      "start": 3818.58,
+      "end": 3823.04,
+      "text": "y para todo B"
+    },
+    {
+      "start": 3823.04,
+      "end": 3833.77,
+      "text": "ok, mejor"
+    },
+    {
+      "start": 3833.77,
+      "end": 3839.56,
+      "text": "me voy a perder todo"
+    },
+    {
+      "start": 3839.56,
+      "end": 3841.92,
+      "text": "y eso no me sería"
+    },
+    {
+      "start": 3841.92,
+      "end": 3842.28,
+      "text": "así"
+    },
+    {
+      "start": 3842.28,
+      "end": 3848.5,
+      "text": "¡Ay, no!"
+    },
+    {
+      "start": 3849.16,
+      "end": 3850.82,
+      "text": "Zoom sí que me da problemas con eso."
+    },
+    {
+      "start": 3862.72,
+      "end": 3863.5,
+      "text": "Para todo A,"
+    },
+    {
+      "start": 3867.84,
+      "end": 3870.8,
+      "text": "sí vamos a usar los paréntesis con alcance."
+    },
+    {
+      "start": 3872.56,
+      "end": 3876.77,
+      "text": "Y para todo B,"
+    },
+    {
+      "start": 3886.67,
+      "end": 3887.17,
+      "text": "¡Ay, no!"
+    },
+    {
+      "start": 3887.63,
+      "end": 3892.37,
+      "text": "¡Ajá, perfecto!"
+    },
+    {
+      "start": 3897.84,
+      "end": 3899.22,
+      "text": "Para todo A y para todo B,"
+    },
+    {
+      "start": 3903.03,
+      "end": 3903.21,
+      "text": "¿Ok?"
+    },
+    {
+      "start": 3903.33,
+      "end": 3909.55,
+      "text": "¿Cómo digo esto?"
+    },
+    {
+      "start": 3914.77,
+      "end": 3916.47,
+      "text": "Si A módulo B es igual a cero,"
+    },
+    {
+      "start": 3916.47,
+      "end": 3922.21,
+      "text": "entonces B es el máximo común divisor de A y B."
+    },
+    {
+      "start": 3923.35,
+      "end": 3924.53,
+      "text": "como lo digo"
+    },
+    {
+      "start": 3924.53,
+      "end": 3926.53,
+      "text": "con cálculo de predicados"
+    },
+    {
+      "start": 3926.53,
+      "end": 3934.8,
+      "text": "esta es la parte fácil"
+    },
+    {
+      "start": 3934.8,
+      "end": 3938.73,
+      "text": "¿y cómo verá lo que B ha que describir?"
+    },
+    {
+      "start": 3940.11,
+      "end": 3940.67,
+      "text": "es esto"
+    },
+    {
+      "start": 3940.67,
+      "end": 3944.85,
+      "text": "si B"
+    },
+    {
+      "start": 3944.85,
+      "end": 3946.19,
+      "text": "es"
+    },
+    {
+      "start": 3946.19,
+      "end": 3947.75,
+      "text": "el"
+    },
+    {
+      "start": 3947.75,
+      "end": 3951.21,
+      "text": "o sea, si A módulo B es igual a cero"
+    },
+    {
+      "start": 3951.21,
+      "end": 3953.37,
+      "text": "entonces B"
+    },
+    {
+      "start": 3953.37,
+      "end": 3955.87,
+      "text": "es el máximo común divisor de A y B"
+    },
+    {
+      "start": 3955.87,
+      "end": 3966.51,
+      "text": "entonces yo diría"
+    },
+    {
+      "start": 3966.51,
+      "end": 3970.73,
+      "text": "que va a dar la idea general"
+    },
+    {
+      "start": 3970.73,
+      "end": 3972.33,
+      "text": "que utilizando el"
+    },
+    {
+      "start": 3972.33,
+      "end": 3974.33,
+      "text": "R, X, Y, Z"
+    },
+    {
+      "start": 3974.33,
+      "end": 3975.71,
+      "text": "Ajá"
+    },
+    {
+      "start": 3975.71,
+      "end": 3980.01,
+      "text": "Si X es igual a cero"
+    },
+    {
+      "start": 3980.01,
+      "end": 3987.03,
+      "text": "Entonces de Y"
+    },
+    {
+      "start": 3987.03,
+      "end": 3989.37,
+      "text": "Y corresponde al módulo"
+    },
+    {
+      "start": 3989.37,
+      "end": 3991.37,
+      "text": "Sí, entonces ¿qué te parece si lo escribo así?"
+    },
+    {
+      "start": 3995.54,
+      "end": 3996.88,
+      "text": "Si cero es el residuo de A y B"
+    },
+    {
+      "start": 3996.88,
+      "end": 3997.76,
+      "text": "Ajá, sí"
+    },
+    {
+      "start": 3997.76,
+      "end": 3998.7,
+      "text": "¿Verdad?"
+    },
+    {
+      "start": 4001.28,
+      "end": 4003.48,
+      "text": "Entonces si cero es el residuo de A y B"
+    },
+    {
+      "start": 4003.48,
+      "end": 4007.12,
+      "text": "Y ahí estás metiendo incluso"
+    },
+    {
+      "start": 4007.12,
+      "end": 4008.88,
+      "text": "el concepto de constante"
+    },
+    {
+      "start": 4008.88,
+      "end": 4009.72,
+      "text": "por decirlo así"
+    },
+    {
+      "start": 4009.72,
+      "end": 4016.21,
+      "text": "sí, sí, sí, ahí estoy metiendo"
+    },
+    {
+      "start": 4016.21,
+      "end": 4018.01,
+      "text": "la constante cero, que es legítimo"
+    },
+    {
+      "start": 4018.01,
+      "end": 4019.75,
+      "text": "entonces"
+    },
+    {
+      "start": 4019.75,
+      "end": 4021.23,
+      "text": "si eso es cierto"
+    },
+    {
+      "start": 4021.23,
+      "end": 4039.09,
+      "text": "esto implica que B"
+    },
+    {
+      "start": 4039.09,
+      "end": 4041.53,
+      "text": "es el máximo común divisor de A y B"
+    },
+    {
+      "start": 4041.53,
+      "end": 4048.76,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 4049.82,
+      "end": 4053.65,
+      "text": "sencillo"
+    },
+    {
+      "start": 4053.65,
+      "end": 4058.48,
+      "text": "ok"
+    },
+    {
+      "start": 4058.48,
+      "end": 4064.01,
+      "text": "puede que"
+    },
+    {
+      "start": 4064.01,
+      "end": 4066.37,
+      "text": "nuestro lenguaje de programación"
+    },
+    {
+      "start": 4066.37,
+      "end": 4068.37,
+      "text": "contenga residuo"
+    },
+    {
+      "start": 4068.37,
+      "end": 4069.71,
+      "text": "como una función, de hecho"
+    },
+    {
+      "start": 4069.71,
+      "end": 4073.15,
+      "text": "en el caso de prologue eso es totalmente cierto"
+    },
+    {
+      "start": 4073.15,
+      "end": 4077.91,
+      "text": "así que no necesitamos"
+    },
+    {
+      "start": 4077.91,
+      "end": 4079.23,
+      "text": "definir que es el residuo"
+    },
+    {
+      "start": 4079.23,
+      "end": 4081.25,
+      "text": "aunque si tuviéramos que definirlo"
+    },
+    {
+      "start": 4081.25,
+      "end": 4082.77,
+      "text": "no habría ningún problema"
+    },
+    {
+      "start": 4082.77,
+      "end": 4085.29,
+      "text": "pero vamos a suponer que"
+    },
+    {
+      "start": 4085.29,
+      "end": 4087.71,
+      "text": "efectivamente si tenemos algún operador de residuo"
+    },
+    {
+      "start": 4087.71,
+      "end": 4092.06,
+      "text": "alguna función que nos dé el residuo"
+    },
+    {
+      "start": 4092.06,
+      "end": 4093.44,
+      "text": "entonces"
+    },
+    {
+      "start": 4093.44,
+      "end": 4099.88,
+      "text": "para todo A, para todo B"
+    },
+    {
+      "start": 4099.88,
+      "end": 4104.15,
+      "text": "listo"
+    },
+    {
+      "start": 4104.15,
+      "end": 4108.72,
+      "text": "si Ebre de 0"
+    },
+    {
+      "start": 4108.72,
+      "end": 4110.2,
+      "text": "si Ebre de"
+    },
+    {
+      "start": 4110.2,
+      "end": 4111.92,
+      "text": "si cero es el residuo de A y B"
+    },
+    {
+      "start": 4111.92,
+      "end": 4112.88,
+      "text": "entonces B"
+    },
+    {
+      "start": 4112.88,
+      "end": 4115.74,
+      "text": "es el máximo común divisor de A y B"
+    },
+    {
+      "start": 4115.74,
+      "end": 4121.96,
+      "text": "o"
+    },
+    {
+      "start": 4121.96,
+      "end": 4130.9,
+      "text": "y ahí podrían negarlo"
+    },
+    {
+      "start": 4130.9,
+      "end": 4132.0,
+      "text": "exactamente"
+    },
+    {
+      "start": 4132.0,
+      "end": 4137.52,
+      "text": "ahí lo puedo negar"
+    },
+    {
+      "start": 4143.14,
+      "end": 4161.77,
+      "text": "si esto no es cierto"
+    },
+    {
+      "start": 4161.77,
+      "end": 4162.99,
+      "text": "entonces"
+    },
+    {
+      "start": 4162.99,
+      "end": 4176.0,
+      "text": "vamos a ver cómo definimos lo otro"
+    },
+    {
+      "start": 4176.0,
+      "end": 4182.27,
+      "text": "eso implica"
+    },
+    {
+      "start": 4182.27,
+      "end": 4182.91,
+      "text": "que"
+    },
+    {
+      "start": 4182.91,
+      "end": 4185.49,
+      "text": "Ahora lo interesante es"
+    },
+    {
+      "start": 4185.49,
+      "end": 4186.79,
+      "text": "Cómo vamos a describir"
+    },
+    {
+      "start": 4186.79,
+      "end": 4189.11,
+      "text": "Esto otro de aquí"
+    },
+    {
+      "start": 4189.11,
+      "end": 4193.41,
+      "text": "El otro caso"
+    },
+    {
+      "start": 4193.41,
+      "end": 4194.57,
+      "text": "Ya lo pusimos"
+    },
+    {
+      "start": 4194.57,
+      "end": 4196.21,
+      "text": "Cómo definimos esto"
+    },
+    {
+      "start": 4196.21,
+      "end": 4226.72,
+      "text": "Cómo hacemos la definición recursiva"
+    },
+    {
+      "start": 4226.72,
+      "end": 4228.9,
+      "text": "De el"
+    },
+    {
+      "start": 4228.9,
+      "end": 4231.18,
+      "text": "Máximo común divisor"
+    },
+    {
+      "start": 4231.18,
+      "end": 4242.26,
+      "text": "No sé si se puede volver a poner"
+    },
+    {
+      "start": 4242.26,
+      "end": 4244.08,
+      "text": "La condición inicial"
+    },
+    {
+      "start": 4244.08,
+      "end": 4247.26,
+      "text": "Solo que modificando el x y el y"
+    },
+    {
+      "start": 4247.26,
+      "end": 4248.78,
+      "text": "Parece que hay que hacerlo"
+    },
+    {
+      "start": 4248.78,
+      "end": 4249.14,
+      "text": "¿Verdad?"
+    },
+    {
+      "start": 4253.9,
+      "end": 4264.2,
+      "text": "Ok, puede que tengamos que modificar un poco esto más adelante."
+    },
+    {
+      "start": 4272.16,
+      "end": 4274.46,
+      "text": "Tengo libres la Y y el X."
+    },
+    {
+      "start": 4278.65,
+      "end": 4299.36,
+      "text": "Hagámoslo así, a ver, ¿cómo nos va?"
+    },
+    {
+      "start": 4299.36,
+      "end": 4302.15,
+      "text": "entonces"
+    },
+    {
+      "start": 4302.15,
+      "end": 4315.38,
+      "text": "si existe"
+    },
+    {
+      "start": 4315.38,
+      "end": 4316.56,
+      "text": "un Y"
+    },
+    {
+      "start": 4316.56,
+      "end": 4324.16,
+      "text": "tal que"
+    },
+    {
+      "start": 4324.16,
+      "end": 4334.43,
+      "text": "ese Y es el residuo"
+    },
+    {
+      "start": 4334.43,
+      "end": 4336.51,
+      "text": "de A y B"
+    },
+    {
+      "start": 4336.51,
+      "end": 4338.35,
+      "text": "ya yo sé que"
+    },
+    {
+      "start": 4338.35,
+      "end": 4341.07,
+      "text": "el residuo no es cero ¿verdad? porque ya pasé por aquí"
+    },
+    {
+      "start": 4341.07,
+      "end": 4344.78,
+      "text": "entonces si existe"
+    },
+    {
+      "start": 4344.78,
+      "end": 4346.8,
+      "text": "el residuo, ya yo sé que no es cero"
+    },
+    {
+      "start": 4346.8,
+      "end": 4348.92,
+      "text": "pero por así decirlo es como si no supieras"
+    },
+    {
+      "start": 4348.92,
+      "end": 4351.02,
+      "text": "y entonces si existe algún otro"
+    },
+    {
+      "start": 4351.02,
+      "end": 4352.82,
+      "text": "sé que existen"
+    },
+    {
+      "start": 4352.82,
+      "end": 4355.12,
+      "text": "entonces eso no me estresa"
+    },
+    {
+      "start": 4355.12,
+      "end": 4375.42,
+      "text": "Si existe un Y tal que Y es el residuo de A y B y recordemos que los existenciales exigen un Y en lugar de una implicación."
+    },
+    {
+      "start": 4375.42,
+      "end": 4380.22,
+      "text": "entonces si existe esto"
+    },
+    {
+      "start": 4380.22,
+      "end": 4390.31,
+      "text": "y otra vez"
+    },
+    {
+      "start": 4390.31,
+      "end": 4397.73,
+      "text": "existe un x"
+    },
+    {
+      "start": 4397.73,
+      "end": 4403.91,
+      "text": "tal que"
+    },
+    {
+      "start": 4403.91,
+      "end": 4409.44,
+      "text": "ese x es"
+    },
+    {
+      "start": 4409.44,
+      "end": 4411.78,
+      "text": "justamente"
+    },
+    {
+      "start": 4411.78,
+      "end": 4413.34,
+      "text": "el mínimo"
+    },
+    {
+      "start": 4413.34,
+      "end": 4414.38,
+      "text": "común múltiplo"
+    },
+    {
+      "start": 4414.38,
+      "end": 4421.3,
+      "text": "de b y y"
+    },
+    {
+      "start": 4421.3,
+      "end": 4428.99,
+      "text": "ok"
+    },
+    {
+      "start": 4428.99,
+      "end": 4430.77,
+      "text": "esto está en el alcance"
+    },
+    {
+      "start": 4430.77,
+      "end": 4431.65,
+      "text": "de esto"
+    },
+    {
+      "start": 4431.65,
+      "end": 4435.7,
+      "text": "entonces si existe"
+    },
+    {
+      "start": 4435.7,
+      "end": 4436.52,
+      "text": "¿Cómo es ahí?"
+    },
+    {
+      "start": 4436.94,
+      "end": 4442.84,
+      "text": "Y es, Y se convierte en el, ya en el resultado del módulo A, módulo B, ¿verdad?"
+    },
+    {
+      "start": 4443.08,
+      "end": 4443.34,
+      "text": "No."
+    },
+    {
+      "start": 4444.24,
+      "end": 4444.62,
+      "text": "No."
+    },
+    {
+      "start": 4444.92,
+      "end": 4445.12,
+      "text": "No."
+    },
+    {
+      "start": 4446.94,
+      "end": 4453.3,
+      "text": "Entonces ahí, pero ahí no estás como volviendo a evaluar la condición del, de que no es cero, digamos."
+    },
+    {
+      "start": 4454.76,
+      "end": 4459.56,
+      "text": "Tengo que hacerlo después, efectivamente, por esto, por esta parte de aquí."
+    },
+    {
+      "start": 4459.56,
+      "end": 4462.98,
+      "text": "Pero es que toma en cuenta que aquí ya yo estoy"
+    },
+    {
+      "start": 4462.98,
+      "end": 4463.7,
+      "text": "Con"
+    },
+    {
+      "start": 4463.7,
+      "end": 4467.04,
+      "text": "Ah bueno suponiendo que ya es cero"
+    },
+    {
+      "start": 4467.04,
+      "end": 4468.1,
+      "text": "O sea que no es cero"
+    },
+    {
+      "start": 4468.1,
+      "end": 4469.94,
+      "text": "Sí"
+    },
+    {
+      "start": 4469.94,
+      "end": 4471.48,
+      "text": "Estoy suponiendo que no es cero"
+    },
+    {
+      "start": 4471.48,
+      "end": 4474.68,
+      "text": "Sí entonces si del otro lado ya uno sabe"
+    },
+    {
+      "start": 4474.68,
+      "end": 4475.92,
+      "text": "Que existe otro que no"
+    },
+    {
+      "start": 4475.92,
+      "end": 4476.1,
+      "text": "Sí"
+    },
+    {
+      "start": 4476.1,
+      "end": 4479.54,
+      "text": "Y vamos a ver"
+    },
+    {
+      "start": 4479.54,
+      "end": 4481.12,
+      "text": "X es el"
+    },
+    {
+      "start": 4481.12,
+      "end": 4483.12,
+      "text": "Mínimo común"
+    },
+    {
+      "start": 4483.12,
+      "end": 4488.18,
+      "text": "Múltiplo de"
+    },
+    {
+      "start": 4488.18,
+      "end": 4490.12,
+      "text": "perdón, el máximo común divisor"
+    },
+    {
+      "start": 4490.12,
+      "end": 4491.74,
+      "text": "un toquecito"
+    },
+    {
+      "start": 4491.74,
+      "end": 4492.56,
+      "text": "este"
+    },
+    {
+      "start": 4492.56,
+      "end": 4503.66,
+      "text": "ok"
+    },
+    {
+      "start": 4503.66,
+      "end": 4512.08,
+      "text": "se cierra ahí"
+    },
+    {
+      "start": 4512.08,
+      "end": 4514.38,
+      "text": "perdón por lo que voy a hacer"
+    },
+    {
+      "start": 4514.38,
+      "end": 4515.88,
+      "text": "más paréntesis todavía"
+    },
+    {
+      "start": 4515.88,
+      "end": 4517.88,
+      "text": "pero es para separar bien"
+    },
+    {
+      "start": 4517.88,
+      "end": 4519.84,
+      "text": "esta situación de esta otra"
+    },
+    {
+      "start": 4519.84,
+      "end": 4522.68,
+      "text": "entonces esto implica que"
+    },
+    {
+      "start": 4522.68,
+      "end": 4524.78,
+      "text": "si existe"
+    },
+    {
+      "start": 4524.78,
+      "end": 4525.26,
+      "text": "un Y"
+    },
+    {
+      "start": 4525.26,
+      "end": 4528.8,
+      "text": "ahora sí, listo"
+    },
+    {
+      "start": 4528.8,
+      "end": 4530.28,
+      "text": "si existe un Y"
+    },
+    {
+      "start": 4530.28,
+      "end": 4541.19,
+      "text": "este"
+    },
+    {
+      "start": 4541.19,
+      "end": 4543.11,
+      "text": "o sea si"
+    },
+    {
+      "start": 4543.11,
+      "end": 4544.33,
+      "text": "F0"
+    },
+    {
+      "start": 4544.33,
+      "end": 4546.73,
+      "text": "si 0 no es el"
+    },
+    {
+      "start": 4546.73,
+      "end": 4548.67,
+      "text": "este mínimo"
+    },
+    {
+      "start": 4548.67,
+      "end": 4550.21,
+      "text": "perdón el residuo de A y B"
+    },
+    {
+      "start": 4550.21,
+      "end": 4558.02,
+      "text": "esto implica que"
+    },
+    {
+      "start": 4558.02,
+      "end": 4559.26,
+      "text": "si existe"
+    },
+    {
+      "start": 4559.26,
+      "end": 4565.12,
+      "text": "un X tal que"
+    },
+    {
+      "start": 4565.12,
+      "end": 4566.22,
+      "text": "satisfaga esto"
+    },
+    {
+      "start": 4566.22,
+      "end": 4568.64,
+      "text": "tal que Y es el residuo de A y B"
+    },
+    {
+      "start": 4568.64,
+      "end": 4570.66,
+      "text": "y existe un X que es"
+    },
+    {
+      "start": 4570.66,
+      "end": 4572.92,
+      "text": "el mínimo común múltiplo"
+    },
+    {
+      "start": 4572.92,
+      "end": 4574.68,
+      "text": "perdón el máximo común divisor"
+    },
+    {
+      "start": 4574.68,
+      "end": 4575.78,
+      "text": "de b y y"
+    },
+    {
+      "start": 4575.78,
+      "end": 4582.83,
+      "text": "si se cumple todo esto de acá"
+    },
+    {
+      "start": 4582.83,
+      "end": 4589.76,
+      "text": "entonces"
+    },
+    {
+      "start": 4589.76,
+      "end": 4598.83,
+      "text": "mentira, mentira, ese no puede estar ahí"
+    },
+    {
+      "start": 4598.83,
+      "end": 4601.41,
+      "text": "tiene que estar"
+    },
+    {
+      "start": 4601.41,
+      "end": 4604.27,
+      "text": "en"
+    },
+    {
+      "start": 4604.27,
+      "end": 4607.87,
+      "text": "aquí, porque ese es"
+    },
+    {
+      "start": 4607.87,
+      "end": 4608.85,
+      "text": "este x justamente"
+    },
+    {
+      "start": 4608.85,
+      "end": 4611.63,
+      "text": "si existe un x"
+    },
+    {
+      "start": 4611.63,
+      "end": 4613.09,
+      "text": "tal que ese x es"
+    },
+    {
+      "start": 4613.09,
+      "end": 4615.71,
+      "text": "el máximo común divisor"
+    },
+    {
+      "start": 4615.71,
+      "end": 4622.35,
+      "text": "de b y y, tiene que estar aquí"
+    },
+    {
+      "start": 4622.35,
+      "end": 4627.91,
+      "text": "porque para que"
+    },
+    {
+      "start": 4627.91,
+      "end": 4629.51,
+      "text": "ese x se refiera a él"
+    },
+    {
+      "start": 4629.51,
+      "end": 4635.28,
+      "text": "ese X es justamente"
+    },
+    {
+      "start": 4635.28,
+      "end": 4636.98,
+      "text": "el"
+    },
+    {
+      "start": 4636.98,
+      "end": 4640.59,
+      "text": "perdón"
+    },
+    {
+      "start": 4640.59,
+      "end": 4641.67,
+      "text": "aquí es esto"
+    },
+    {
+      "start": 4641.67,
+      "end": 4643.89,
+      "text": "debería ser un Y"
+    },
+    {
+      "start": 4643.89,
+      "end": 4648.09,
+      "text": "porque es un existencial"
+    },
+    {
+      "start": 4648.09,
+      "end": 4657.9,
+      "text": "y ese X es justamente"
+    },
+    {
+      "start": 4657.9,
+      "end": 4659.96,
+      "text": "o sea es verdad que ese X es"
+    },
+    {
+      "start": 4659.96,
+      "end": 4661.16,
+      "text": "o sea si existe un X"
+    },
+    {
+      "start": 4661.16,
+      "end": 4663.36,
+      "text": "que hace esto"
+    },
+    {
+      "start": 4663.36,
+      "end": 4666.24,
+      "text": "y ese X entonces es también"
+    },
+    {
+      "start": 4666.24,
+      "end": 4667.0,
+      "text": "el"
+    },
+    {
+      "start": 4667.0,
+      "end": 4670.44,
+      "text": "máximo común divisor de A y B"
+    },
+    {
+      "start": 4670.44,
+      "end": 4672.74,
+      "text": "No, profe, más bien ahí"
+    },
+    {
+      "start": 4672.74,
+      "end": 4674.46,
+      "text": "El símbolo es el lote"
+    },
+    {
+      "start": 4674.46,
+      "end": 4675.52,
+      "text": "¿Qué es esto, verdad?"
+    },
+    {
+      "start": 4677.62,
+      "end": 4678.14,
+      "text": "¿Perdón?"
+    },
+    {
+      "start": 4679.38,
+      "end": 4681.22,
+      "text": "Que ahí más bien fue que pusiste"
+    },
+    {
+      "start": 4681.22,
+      "end": 4682.56,
+      "text": "El símbolo O"
+    },
+    {
+      "start": 4682.56,
+      "end": 4683.4,
+      "text": "Entonces más bien"
+    },
+    {
+      "start": 4683.4,
+      "end": 4685.18,
+      "text": "Tienes razón, tienes razón"
+    },
+    {
+      "start": 4685.18,
+      "end": 4687.72,
+      "text": "Es al revés"
+    },
+    {
+      "start": 4687.72,
+      "end": 4688.26,
+      "text": "Gracias"
+    },
+    {
+      "start": 4688.26,
+      "end": 4703.6,
+      "text": "¿Qué es en el fondo lo que estoy diciendo aquí?"
+    },
+    {
+      "start": 4704.28,
+      "end": 4705.14,
+      "text": "Y ahora sí, ya queda"
+    },
+    {
+      "start": 4705.14,
+      "end": 4706.08,
+      "text": "¿Verdad?"
+    },
+    {
+      "start": 4707.22,
+      "end": 4709.48,
+      "text": "El mismo máximo común divisor de A y B"
+    },
+    {
+      "start": 4709.48,
+      "end": 4712.04,
+      "text": "es el máximo común divisor de B"
+    },
+    {
+      "start": 4712.04,
+      "end": 4713.02,
+      "text": "y a módulo B"
+    },
+    {
+      "start": 4713.02,
+      "end": 4718.58,
+      "text": "eso es esto que estoy diciendo aquí"
+    },
+    {
+      "start": 4718.58,
+      "end": 4726.6,
+      "text": "ok"
+    },
+    {
+      "start": 4726.6,
+      "end": 4729.68,
+      "text": "entonces"
+    },
+    {
+      "start": 4729.68,
+      "end": 4732.22,
+      "text": "bueno ven, sí, sí se puede"
+    },
+    {
+      "start": 4732.22,
+      "end": 4734.64,
+      "text": "sí se puede describir"
+    },
+    {
+      "start": 4734.64,
+      "end": 4735.34,
+      "text": "con lógica"
+    },
+    {
+      "start": 4735.34,
+      "end": 4740.18,
+      "text": "un cálculo"
+    },
+    {
+      "start": 4740.18,
+      "end": 4747.32,
+      "text": "ok, sí, se ve enredadísimo"
+    },
+    {
+      "start": 4747.32,
+      "end": 4749.64,
+      "text": "pero es que"
+    },
+    {
+      "start": 4749.64,
+      "end": 4751.06,
+      "text": "obviamente estos lenguajes"
+    },
+    {
+      "start": 4751.06,
+      "end": 4751.76,
+      "text": "de este"
+    },
+    {
+      "start": 4751.76,
+      "end": 4754.58,
+      "text": "paradigma"
+    },
+    {
+      "start": 4754.58,
+      "end": 4757.48,
+      "text": "no están enfocados a esto"
+    },
+    {
+      "start": 4757.48,
+      "end": 4758.88,
+      "text": "aunque pueden hacerlo"
+    },
+    {
+      "start": 4758.88,
+      "end": 4759.52,
+      "text": "como ustedes ven"
+    },
+    {
+      "start": 4759.52,
+      "end": 4773.73,
+      "text": "¿tienen alguna pregunta?"
+    },
+    {
+      "start": 4779.42,
+      "end": 4780.1,
+      "text": "no, no"
+    },
+    {
+      "start": 4780.1,
+      "end": 4782.28,
+      "text": "verlo es muy fácil"
+    },
+    {
+      "start": 4782.28,
+      "end": 4784.66,
+      "text": "digamos, hacerlo es más complicado"
+    },
+    {
+      "start": 4784.66,
+      "end": 4785.72,
+      "text": "sí"
+    },
+    {
+      "start": 4785.72,
+      "end": 4788.02,
+      "text": "sí, se lleva un ratillo"
+    },
+    {
+      "start": 4788.02,
+      "end": 4790.3,
+      "text": "llegar a esto, sí"
+    },
+    {
+      "start": 4790.3,
+      "end": 4791.94,
+      "text": "bueno, a mí me llegó"
+    },
+    {
+      "start": 4791.94,
+      "end": 4793.44,
+      "text": "me llevó un ratillo llegar acá"
+    },
+    {
+      "start": 4793.44,
+      "end": 4795.74,
+      "text": "obviamente"
+    },
+    {
+      "start": 4795.74,
+      "end": 4796.98,
+      "text": "este no, verdad"
+    },
+    {
+      "start": 4796.98,
+      "end": 4811.54,
+      "text": "ok"
+    },
+    {
+      "start": 4811.54,
+      "end": 4815.86,
+      "text": "ok, el siguiente punto"
+    },
+    {
+      "start": 4815.86,
+      "end": 4819.56,
+      "text": "en el cual tenemos que pensar es"
+    },
+    {
+      "start": 4819.56,
+      "end": 4820.2,
+      "text": "bueno, ok"
+    },
+    {
+      "start": 4820.2,
+      "end": 4823.56,
+      "text": "y ese es un punto"
+    },
+    {
+      "start": 4823.56,
+      "end": 4825.24,
+      "text": "muy importante en"
+    },
+    {
+      "start": 4825.24,
+      "end": 4827.16,
+      "text": "el paradigma lógico"
+    },
+    {
+      "start": 4827.16,
+      "end": 4830.8,
+      "text": "y es el siguiente"
+    },
+    {
+      "start": 4830.8,
+      "end": 4836.56,
+      "text": "¿cómo hago yo"
+    },
+    {
+      "start": 4836.56,
+      "end": 4838.42,
+      "text": "para demostrar?"
+    },
+    {
+      "start": 4839.14,
+      "end": 4840.7,
+      "text": "¿por qué punto aquí es que"
+    },
+    {
+      "start": 4840.7,
+      "end": 4842.8,
+      "text": "es la computadora la que tiene que sacar"
+    },
+    {
+      "start": 4842.8,
+      "end": 4844.7,
+      "text": "hacer la demostración"
+    },
+    {
+      "start": 4844.7,
+      "end": 4853.46,
+      "text": "ok, esto parece"
+    },
+    {
+      "start": 4853.46,
+      "end": 4855.7,
+      "text": "ser una cosa un poco contradictoria"
+    },
+    {
+      "start": 4855.7,
+      "end": 4859.02,
+      "text": "¿verdad? ¿por qué?"
+    },
+    {
+      "start": 4861.16,
+      "end": 4862.68,
+      "text": "porque parece ser como un poco"
+    },
+    {
+      "start": 4862.68,
+      "end": 4864.66,
+      "text": "extraño que yo diga"
+    },
+    {
+      "start": 4864.66,
+      "end": 4866.76,
+      "text": "que la computadora tiene que hacer la demostración"
+    },
+    {
+      "start": 4866.76,
+      "end": 4870.64,
+      "text": "sí, porque al final"
+    },
+    {
+      "start": 4870.64,
+      "end": 4872.64,
+      "text": "es incompleta, es un sistema cerrado"
+    },
+    {
+      "start": 4872.64,
+      "end": 4875.1,
+      "text": "no puede hacer la demostración directamente"
+    },
+    {
+      "start": 4875.1,
+      "end": 4876.92,
+      "text": "no puede hacer la verificación total"
+    },
+    {
+      "start": 4876.92,
+      "end": 4878.88,
+      "text": "o sea, no existe un algoritmo para hacer"
+    },
+    {
+      "start": 4878.88,
+      "end": 4879.52,
+      "text": "demostraciones"
+    },
+    {
+      "start": 4879.52,
+      "end": 4882.44,
+      "text": "y no puede haber un algoritmo para hacer"
+    },
+    {
+      "start": 4882.44,
+      "end": 4883.46,
+      "text": "demostraciones, ¿verdad?"
+    },
+    {
+      "start": 4884.42,
+      "end": 4898.38,
+      "text": "Eso violaría precisamente el descubrimiento de Turing, ¿verdad? De que existe siempre un algoritmo para construir la demostración de cualquier sentencia que sea verdadera."
+    },
+    {
+      "start": 4898.38,
+      "end": 4907.12,
+      "text": "lo que se hace aquí"
+    },
+    {
+      "start": 4907.12,
+      "end": 4910.15,
+      "text": "es"
+    },
+    {
+      "start": 4910.15,
+      "end": 4913.51,
+      "text": "por así decirlo"
+    },
+    {
+      "start": 4913.51,
+      "end": 4915.65,
+      "text": "atacar, o sea la estrategia"
+    },
+    {
+      "start": 4915.65,
+      "end": 4917.37,
+      "text": "que se usa en estas máquinas"
+    },
+    {
+      "start": 4917.37,
+      "end": 4919.23,
+      "text": "de inferencia es atacar"
+    },
+    {
+      "start": 4919.23,
+      "end": 4920.97,
+      "text": "el problema por fuerza bruta"
+    },
+    {
+      "start": 4920.97,
+      "end": 4925.5,
+      "text": "y este"
+    },
+    {
+      "start": 4925.5,
+      "end": 4928.06,
+      "text": "lo que hacemos"
+    },
+    {
+      "start": 4928.06,
+      "end": 4930.44,
+      "text": "es que cuando escribimos"
+    },
+    {
+      "start": 4930.44,
+      "end": 4931.64,
+      "text": "los programas"
+    },
+    {
+      "start": 4931.64,
+      "end": 4935.65,
+      "text": "facilitamos"
+    },
+    {
+      "start": 4935.65,
+      "end": 4936.99,
+      "text": "esa fuerza bruta"
+    },
+    {
+      "start": 4936.99,
+      "end": 4941.87,
+      "text": "por ejemplo poniendo las sentencias en un"
+    },
+    {
+      "start": 4941.87,
+      "end": 4942.71,
+      "text": "orden diferente"
+    },
+    {
+      "start": 4942.71,
+      "end": 4948.85,
+      "text": "apelamos a ciertos tipos de trucos"
+    },
+    {
+      "start": 4948.85,
+      "end": 4952.85,
+      "text": "que permiten decir no no más si usted"
+    },
+    {
+      "start": 4952.85,
+      "end": 4955.51,
+      "text": "ya llegó aquí y esto es falso ya no"
+    },
+    {
+      "start": 4955.51,
+      "end": 4958.47,
+      "text": "siga por acá para limitar esa fuerza"
+    },
+    {
+      "start": 4958.47,
+      "end": 4961.47,
+      "text": "bruta y tratar de demostrar lo que se"
+    },
+    {
+      "start": 4961.47,
+      "end": 4964.27,
+      "text": "quiere mostrar es que además hay un"
+    },
+    {
+      "start": 4964.27,
+      "end": 4966.51,
+      "text": "detalle que no se dice con la máquina"
+    },
+    {
+      "start": 4966.51,
+      "end": 4966.97,
+      "text": "de Turing"
+    },
+    {
+      "start": 4966.97,
+      "end": 4969.75,
+      "text": "y es esta, de que"
+    },
+    {
+      "start": 4969.75,
+      "end": 4972.21,
+      "text": "cuando yo hago"
+    },
+    {
+      "start": 4972.21,
+      "end": 4973.41,
+      "text": "una demostración"
+    },
+    {
+      "start": 4973.41,
+      "end": 4979.46,
+      "text": "yo como ser humano"
+    },
+    {
+      "start": 4979.46,
+      "end": 4981.82,
+      "text": "me digo"
+    },
+    {
+      "start": 4981.82,
+      "end": 4983.6,
+      "text": "ok, bueno, yo quiero demostrar"
+    },
+    {
+      "start": 4983.6,
+      "end": 4984.54,
+      "text": "esto"
+    },
+    {
+      "start": 4984.54,
+      "end": 4989.14,
+      "text": "y parto de este y este"
+    },
+    {
+      "start": 4989.14,
+      "end": 4991.08,
+      "text": "y estos supuestos, tengo estas premisas"
+    },
+    {
+      "start": 4991.08,
+      "end": 4994.95,
+      "text": "y llega un momento en que me pego"
+    },
+    {
+      "start": 4994.95,
+      "end": 4995.43,
+      "text": "con pared"
+    },
+    {
+      "start": 4995.43,
+      "end": 4998.69,
+      "text": "pucha, no puedo"
+    },
+    {
+      "start": 4998.69,
+      "end": 5000.31,
+      "text": "de aquí lo he intentado, no puedo seguir"
+    },
+    {
+      "start": 5000.31,
+      "end": 5000.95,
+      "text": "¿qué me falta?"
+    },
+    {
+      "start": 5000.99,
+      "end": 5003.15,
+      "text": "puede ser"
+    },
+    {
+      "start": 5003.15,
+      "end": 5005.37,
+      "text": "y eso es lo que a nosotros nos pasa"
+    },
+    {
+      "start": 5005.37,
+      "end": 5006.87,
+      "text": "cuando deshacemos demostraciones"
+    },
+    {
+      "start": 5006.87,
+      "end": 5009.81,
+      "text": "puede ser que una de dos"
+    },
+    {
+      "start": 5009.81,
+      "end": 5012.9,
+      "text": "puede ser que me"
+    },
+    {
+      "start": 5012.9,
+      "end": 5014.34,
+      "text": "falten premisas"
+    },
+    {
+      "start": 5014.34,
+      "end": 5018.41,
+      "text": "bueno no, más bien podría ser"
+    },
+    {
+      "start": 5018.41,
+      "end": 5020.15,
+      "text": "esa es la causa"
+    },
+    {
+      "start": 5020.15,
+      "end": 5022.31,
+      "text": "casi siempre, me faltan premisas"
+    },
+    {
+      "start": 5022.31,
+      "end": 5024.37,
+      "text": "o sea yo suponía"
+    },
+    {
+      "start": 5024.37,
+      "end": 5026.25,
+      "text": "que esas premisas son verdaderas y si son"
+    },
+    {
+      "start": 5026.25,
+      "end": 5028.19,
+      "text": "verdaderas pero hasta cierto punto no"
+    },
+    {
+      "start": 5028.19,
+      "end": 5030.31,
+      "text": "puedo pasar porque una de dos"
+    },
+    {
+      "start": 5030.31,
+      "end": 5032.25,
+      "text": "o hay otro resultado previo"
+    },
+    {
+      "start": 5032.25,
+      "end": 5034.71,
+      "text": "que yo debía haber demostrado"
+    },
+    {
+      "start": 5034.71,
+      "end": 5036.67,
+      "text": "y no lo he demostrado para que me aporten"
+    },
+    {
+      "start": 5036.67,
+      "end": 5037.81,
+      "text": "una premisa adicional"
+    },
+    {
+      "start": 5037.81,
+      "end": 5039.31,
+      "text": "o"
+    },
+    {
+      "start": 5039.31,
+      "end": 5042.31,
+      "text": "y eso es lo que a mí me pasaba con mucha frecuencia"
+    },
+    {
+      "start": 5042.31,
+      "end": 5043.61,
+      "text": "y me sigue pasando"
+    },
+    {
+      "start": 5043.61,
+      "end": 5046.85,
+      "text": "hay algo más que yo debía"
+    },
+    {
+      "start": 5046.85,
+      "end": 5047.69,
+      "text": "haber sabido"
+    },
+    {
+      "start": 5047.69,
+      "end": 5049.57,
+      "text": "o sea que era"
+    },
+    {
+      "start": 5049.57,
+      "end": 5052.71,
+      "text": "materia pasada, digámoslo así"
+    },
+    {
+      "start": 5052.71,
+      "end": 5054.51,
+      "text": "y no me acordaba"
+    },
+    {
+      "start": 5054.51,
+      "end": 5055.69,
+      "text": "yo no me acordaba"
+    },
+    {
+      "start": 5055.69,
+      "end": 5058.45,
+      "text": "si tal cosa sí es cierta"
+    },
+    {
+      "start": 5058.45,
+      "end": 5060.59,
+      "text": "si yo agrego esto aquí lo puedo usar"
+    },
+    {
+      "start": 5060.59,
+      "end": 5065.22,
+      "text": "eso toda la vida"
+    },
+    {
+      "start": 5065.22,
+      "end": 5066.58,
+      "text": "me ha pasado con mucha frecuencia"
+    },
+    {
+      "start": 5066.58,
+      "end": 5069.3,
+      "text": "entonces"
+    },
+    {
+      "start": 5069.3,
+      "end": 5071.42,
+      "text": "por eso es que"
+    },
+    {
+      "start": 5071.42,
+      "end": 5076.4,
+      "text": "en general"
+    },
+    {
+      "start": 5076.4,
+      "end": 5078.8,
+      "text": "esas situaciones también están"
+    },
+    {
+      "start": 5078.8,
+      "end": 5079.96,
+      "text": "cubiertas en el"
+    },
+    {
+      "start": 5079.96,
+      "end": 5082.82,
+      "text": "en el teorema este de"
+    },
+    {
+      "start": 5082.82,
+      "end": 5084.86,
+      "text": "Turing, o sea puede ser que"
+    },
+    {
+      "start": 5084.86,
+      "end": 5086.92,
+      "text": "haya cosas previas"
+    },
+    {
+      "start": 5086.92,
+      "end": 5088.82,
+      "text": "que debieron haber sido"
+    },
+    {
+      "start": 5088.82,
+      "end": 5090.76,
+      "text": "verdaderas antes y"
+    },
+    {
+      "start": 5090.76,
+      "end": 5092.42,
+      "text": "no las tengo en este momento"
+    },
+    {
+      "start": 5092.42,
+      "end": 5108.06,
+      "text": "Y entonces el algoritmo no puede tapar, no puede cumplir con, bueno, ¿cómo identifico qué es aquello que me falta? Ya no hay un algoritmo que me diga qué es lo que me falta para poder completar una demostración."
+    },
+    {
+      "start": 5108.06,
+      "end": 5113.94,
+      "text": "entonces"
+    },
+    {
+      "start": 5113.94,
+      "end": 5116.24,
+      "text": "no es tan incoherente"
+    },
+    {
+      "start": 5116.24,
+      "end": 5118.16,
+      "text": "que yo quiera hacer una máquina"
+    },
+    {
+      "start": 5118.16,
+      "end": 5119.16,
+      "text": "de demostrar"
+    },
+    {
+      "start": 5119.16,
+      "end": 5122.52,
+      "text": "lo que en el fondo estamos construyendo"
+    },
+    {
+      "start": 5122.52,
+      "end": 5124.02,
+      "text": "es una máquina que demuestra"
+    },
+    {
+      "start": 5124.02,
+      "end": 5125.8,
+      "text": "con las premisas que se le dan"
+    },
+    {
+      "start": 5125.8,
+      "end": 5128.78,
+      "text": "pero hasta ahí puede llegar"
+    },
+    {
+      "start": 5128.78,
+      "end": 5130.54,
+      "text": "o sea no puede identificar"
+    },
+    {
+      "start": 5130.54,
+      "end": 5132.58,
+      "text": "que me está faltando"
+    },
+    {
+      "start": 5132.58,
+      "end": 5134.34,
+      "text": "en caso de que no pueda completar"
+    },
+    {
+      "start": 5134.34,
+      "end": 5135.0,
+      "text": "la demostración"
+    },
+    {
+      "start": 5135.0,
+      "end": 5140.22,
+      "text": "que eso si es en lo que estaba"
+    },
+    {
+      "start": 5140.22,
+      "end": 5141.96,
+      "text": "pensando David Hilbert"
+    },
+    {
+      "start": 5141.96,
+      "end": 5144.22,
+      "text": "cuando dijo que"
+    },
+    {
+      "start": 5144.22,
+      "end": 5146.88,
+      "text": "sería interesante"
+    },
+    {
+      "start": 5146.88,
+      "end": 5149.32,
+      "text": "ver si existe un algoritmo"
+    },
+    {
+      "start": 5149.32,
+      "end": 5150.9,
+      "text": "que incluso me identifique"
+    },
+    {
+      "start": 5150.9,
+      "end": 5153.02,
+      "text": "qué es lo que me falta"
+    },
+    {
+      "start": 5153.02,
+      "end": 5153.84,
+      "text": "por demostrar"
+    },
+    {
+      "start": 5153.84,
+      "end": 5156.76,
+      "text": "y por lo tanto pueda meterse en un proceso"
+    },
+    {
+      "start": 5156.76,
+      "end": 5159.12,
+      "text": "recursivo de identificar"
+    },
+    {
+      "start": 5159.12,
+      "end": 5160.16,
+      "text": "qué es lo que me hace falta"
+    },
+    {
+      "start": 5160.16,
+      "end": 5161.72,
+      "text": "demostrarlo"
+    },
+    {
+      "start": 5161.72,
+      "end": 5164.94,
+      "text": "y entonces volver a la demostración original"
+    },
+    {
+      "start": 5164.94,
+      "end": 5168.91,
+      "text": "entonces eso es lo que aclara"
+    },
+    {
+      "start": 5168.91,
+      "end": 5170.97,
+      "text": "por qué estas máquinas"
+    },
+    {
+      "start": 5170.97,
+      "end": 5172.75,
+      "text": "de inferencia que he dicho sea de paso"
+    },
+    {
+      "start": 5172.75,
+      "end": 5175.49,
+      "text": "trabajan con una variante"
+    },
+    {
+      "start": 5175.49,
+      "end": 5177.25,
+      "text": "digamos de fuerza bruta"
+    },
+    {
+      "start": 5177.25,
+      "end": 5182.89,
+      "text": "¿Cómo es que funcionan?"
+    },
+    {
+      "start": 5185.94,
+      "end": 5187.9,
+      "text": "Ok, entonces, antes de"
+    },
+    {
+      "start": 5187.9,
+      "end": 5189.78,
+      "text": "meternos más"
+    },
+    {
+      "start": 5189.78,
+      "end": 5190.76,
+      "text": "profundamente en eso"
+    },
+    {
+      "start": 5190.76,
+      "end": 5195.74,
+      "text": "tal vez ustedes no se habían dado cuenta"
+    },
+    {
+      "start": 5195.74,
+      "end": 5197.64,
+      "text": "pero hay dos maneras de"
+    },
+    {
+      "start": 5197.64,
+      "end": 5198.24,
+      "text": "demostrar"
+    },
+    {
+      "start": 5198.24,
+      "end": 5201.75,
+      "text": "voy a ponerlo aquí"
+    },
+    {
+      "start": 5201.75,
+      "end": 5208.22,
+      "text": "supondría que una de esas, eso entiendo yo"
+    },
+    {
+      "start": 5208.22,
+      "end": 5210.48,
+      "text": "por fuerza bruta es ir y mandarse la tabla"
+    },
+    {
+      "start": 5210.48,
+      "end": 5212.2,
+      "text": "de verdad y empezar a"
+    },
+    {
+      "start": 5212.2,
+      "end": 5213.78,
+      "text": "probar con todo"
+    },
+    {
+      "start": 5213.78,
+      "end": 5214.66,
+      "text": "de ahí sí"
+    },
+    {
+      "start": 5214.66,
+      "end": 5220.2,
+      "text": "y entonces yo lo que hago en mis"
+    },
+    {
+      "start": 5220.2,
+      "end": 5222.24,
+      "text": "programas es que"
+    },
+    {
+      "start": 5222.24,
+      "end": 5224.4,
+      "text": "a sabiendas de que eso puede pasar"
+    },
+    {
+      "start": 5224.4,
+      "end": 5226.52,
+      "text": "acomodo las cosas"
+    },
+    {
+      "start": 5226.52,
+      "end": 5228.58,
+      "text": "de tal forma que"
+    },
+    {
+      "start": 5228.58,
+      "end": 5229.82,
+      "text": "digámoslo así"
+    },
+    {
+      "start": 5229.82,
+      "end": 5232.54,
+      "text": "aquellas vertientes"
+    },
+    {
+      "start": 5232.54,
+      "end": 5234.32,
+      "text": "que con mi"
+    },
+    {
+      "start": 5234.32,
+      "end": 5235.0,
+      "text": "experiencia"
+    },
+    {
+      "start": 5235.0,
+      "end": 5238.88,
+      "text": "o con la experiencia de otros"
+    },
+    {
+      "start": 5238.88,
+      "end": 5240.5,
+      "text": "yo creo que"
+    },
+    {
+      "start": 5240.5,
+      "end": 5242.52,
+      "text": "por estas es por donde se va"
+    },
+    {
+      "start": 5242.52,
+      "end": 5244.94,
+      "text": "más a hacer la demostración"
+    },
+    {
+      "start": 5244.94,
+      "end": 5245.94,
+      "text": "donde funciona mejor"
+    },
+    {
+      "start": 5245.94,
+      "end": 5247.16,
+      "text": "es donde"
+    },
+    {
+      "start": 5247.16,
+      "end": 5249.72,
+      "text": "explora primero"
+    },
+    {
+      "start": 5249.72,
+      "end": 5254.37,
+      "text": "para, digámoslo así, tener una especie"
+    },
+    {
+      "start": 5254.37,
+      "end": 5256.21,
+      "text": "de, lo que en"
+    },
+    {
+      "start": 5256.21,
+      "end": 5258.39,
+      "text": "criptografía yo uso este término"
+    },
+    {
+      "start": 5258.39,
+      "end": 5260.17,
+      "text": "que es fuerza bruta"
+    },
+    {
+      "start": 5260.17,
+      "end": 5263.64,
+      "text": "acotada, o sea, tratar"
+    },
+    {
+      "start": 5263.64,
+      "end": 5265.36,
+      "text": "de hacer fuerza bruta, o sea"
+    },
+    {
+      "start": 5265.36,
+      "end": 5267.62,
+      "text": "que no se me estalle, a menos que"
+    },
+    {
+      "start": 5267.62,
+      "end": 5270.44,
+      "text": "de ahí, ni modo, lo que era más probable"
+    },
+    {
+      "start": 5270.44,
+      "end": 5272.28,
+      "text": "según yo, no lo encontró ahí"
+    },
+    {
+      "start": 5272.28,
+      "end": 5273.2,
+      "text": "de ahí, ni modo, jálese"
+    },
+    {
+      "start": 5273.2,
+      "end": 5276.54,
+      "text": "no crean, las inteligencias"
+    },
+    {
+      "start": 5276.54,
+      "end": 5277.4,
+      "text": "artificiales"
+    },
+    {
+      "start": 5277.4,
+      "end": 5277.56,
+      "text": "de"
+    },
+    {
+      "start": 5277.56,
+      "end": 5282.28,
+      "text": "conexionistas, en realidad"
+    },
+    {
+      "start": 5282.28,
+      "end": 5284.36,
+      "text": "hacen la misma estrategia de fuerza bruta"
+    },
+    {
+      "start": 5284.36,
+      "end": 5286.22,
+      "text": "¿por qué creen que son tan grandes"
+    },
+    {
+      "start": 5286.22,
+      "end": 5288.2,
+      "text": "los centros de datos para"
+    },
+    {
+      "start": 5288.2,
+      "end": 5289.82,
+      "text": "estas inteligencias artificiales?"
+    },
+    {
+      "start": 5290.18,
+      "end": 5292.48,
+      "text": "no es solamente para atender millones"
+    },
+    {
+      "start": 5292.48,
+      "end": 5293.64,
+      "text": "de"
+    },
+    {
+      "start": 5293.64,
+      "end": 5296.08,
+      "text": "consultas simultáneamente, sí"
+    },
+    {
+      "start": 5296.08,
+      "end": 5298.12,
+      "text": "eso sí es cierto, pero también"
+    },
+    {
+      "start": 5298.12,
+      "end": 5300.02,
+      "text": "es porque se necesita"
+    },
+    {
+      "start": 5300.02,
+      "end": 5301.98,
+      "text": "una cantidad exagerada"
+    },
+    {
+      "start": 5301.98,
+      "end": 5303.52,
+      "text": "de poder computacional"
+    },
+    {
+      "start": 5303.52,
+      "end": 5304.9,
+      "text": "para"
+    },
+    {
+      "start": 5304.9,
+      "end": 5307.92,
+      "text": "acomodar estas cosas"
+    },
+    {
+      "start": 5307.92,
+      "end": 5309.78,
+      "text": "en un tiempo razonable"
+    },
+    {
+      "start": 5309.78,
+      "end": 5314.49,
+      "text": "este"
+    },
+    {
+      "start": 5314.49,
+      "end": 5319.39,
+      "text": "ok, entonces, volviendo a nuestro"
+    },
+    {
+      "start": 5319.39,
+      "end": 5319.83,
+      "text": "punto"
+    },
+    {
+      "start": 5319.83,
+      "end": 5322.83,
+      "text": "hay dos maneras de resonar"
+    },
+    {
+      "start": 5322.83,
+      "end": 5333.42,
+      "text": "si"
+    },
+    {
+      "start": 5333.42,
+      "end": 5345.31,
+      "text": "si queremos mostrar"
+    },
+    {
+      "start": 5345.31,
+      "end": 5345.75,
+      "text": "que"
+    },
+    {
+      "start": 5345.75,
+      "end": 5356.08,
+      "text": "voy a usar vocabulario"
+    },
+    {
+      "start": 5356.08,
+      "end": 5356.48,
+      "text": "de"
+    },
+    {
+      "start": 5356.48,
+      "end": 5359.02,
+      "text": "un poco más técnico"
+    },
+    {
+      "start": 5359.02,
+      "end": 5370.52,
+      "text": "supongamos que tengo un conjunto de premisas delta"
+    },
+    {
+      "start": 5370.52,
+      "end": 5374.94,
+      "text": "y yo necesito"
+    },
+    {
+      "start": 5374.94,
+      "end": 5381.14,
+      "text": "vamos a ver"
+    },
+    {
+      "start": 5381.14,
+      "end": 5381.84,
+      "text": "si está aquí"
+    },
+    {
+      "start": 5381.84,
+      "end": 5391.24,
+      "text": "quiero mostrar"
+    },
+    {
+      "start": 5391.24,
+      "end": 5393.2,
+      "text": "que una sentencia fi"
+    },
+    {
+      "start": 5393.2,
+      "end": 5395.68,
+      "text": "es demostrable a partir de delta"
+    },
+    {
+      "start": 5395.68,
+      "end": 5405.13,
+      "text": "ser demostrable"
+    },
+    {
+      "start": 5405.13,
+      "end": 5405.85,
+      "text": "significa"
+    },
+    {
+      "start": 5405.85,
+      "end": 5409.25,
+      "text": "o se deriva a partir"
+    },
+    {
+      "start": 5409.25,
+      "end": 5410.99,
+      "text": "de delta, también se"
+    },
+    {
+      "start": 5410.99,
+      "end": 5413.43,
+      "text": "se denomina así este símbolo"
+    },
+    {
+      "start": 5413.43,
+      "end": 5417.07,
+      "text": "es que existe una"
+    },
+    {
+      "start": 5417.07,
+      "end": 5419.49,
+      "text": "demostración, o sea, existe una cadena"
+    },
+    {
+      "start": 5419.49,
+      "end": 5420.95,
+      "text": "de sentencias"
+    },
+    {
+      "start": 5420.95,
+      "end": 5423.94,
+      "text": "este"
+    },
+    {
+      "start": 5423.94,
+      "end": 5426.74,
+      "text": "a partir de acá"
+    },
+    {
+      "start": 5426.74,
+      "end": 5428.92,
+      "text": "tal que"
+    },
+    {
+      "start": 5428.92,
+      "end": 5430.64,
+      "text": "el último elemento de la"
+    },
+    {
+      "start": 5430.64,
+      "end": 5432.52,
+      "text": "sucesión es fi"
+    },
+    {
+      "start": 5432.52,
+      "end": 5436.95,
+      "text": "o sea, yo lo que necesito"
+    },
+    {
+      "start": 5436.95,
+      "end": 5442.26,
+      "text": "hacer, debemos"
+    },
+    {
+      "start": 5442.26,
+      "end": 5447.21,
+      "text": "encontrar, yo creo que"
+    },
+    {
+      "start": 5447.21,
+      "end": 5448.41,
+      "text": "me cambié el tipo de letra"
+    },
+    {
+      "start": 5448.41,
+      "end": 5454.72,
+      "text": "lo siguiente"
+    },
+    {
+      "start": 5454.72,
+      "end": 5468.62,
+      "text": "tengo que encontrar una sucesión"
+    },
+    {
+      "start": 5468.62,
+      "end": 5469.42,
+      "text": "de sentencias"
+    },
+    {
+      "start": 5469.42,
+      "end": 5477.04,
+      "text": "bueno, perdón, voy a poner estas"
+    },
+    {
+      "start": 5477.04,
+      "end": 5478.12,
+      "text": "bastantes de estas"
+    },
+    {
+      "start": 5478.12,
+      "end": 5486.33,
+      "text": "ahí no"
+    },
+    {
+      "start": 5486.33,
+      "end": 5521.5,
+      "text": "ahí lo que estás tratando de definir"
+    },
+    {
+      "start": 5521.5,
+      "end": 5524.14,
+      "text": "entonces es como que todas esas líneas"
+    },
+    {
+      "start": 5524.14,
+      "end": 5525.12,
+      "text": "de la demostración"
+    },
+    {
+      "start": 5525.12,
+      "end": 5527.9,
+      "text": "son como cadenas de símbolos"
+    },
+    {
+      "start": 5527.9,
+      "end": 5529.74,
+      "text": "por decirlo así, el lenguaje que leería"
+    },
+    {
+      "start": 5529.74,
+      "end": 5531.1,
+      "text": "reconocería la máquina"
+    },
+    {
+      "start": 5531.1,
+      "end": 5534.04,
+      "text": "tal que, digamos, de la derivación"
+    },
+    {
+      "start": 5534.04,
+      "end": 5535.82,
+      "text": "del primero, yo empiezo a derivar"
+    },
+    {
+      "start": 5535.82,
+      "end": 5537.96,
+      "text": "los siguientes y llego a que"
+    },
+    {
+      "start": 5537.96,
+      "end": 5540.82,
+      "text": "la última derivación que yo le agregué"
+    },
+    {
+      "start": 5540.82,
+      "end": 5542.2,
+      "text": "fue fi, que era el resultado"
+    },
+    {
+      "start": 5542.2,
+      "end": 5544.4,
+      "text": "bueno, esa es una manera"
+    },
+    {
+      "start": 5544.4,
+      "end": 5546.04,
+      "text": "estoy tratando, más bien"
+    },
+    {
+      "start": 5546.04,
+      "end": 5547.84,
+      "text": "estoy haciéndolo un poco más"
+    },
+    {
+      "start": 5547.84,
+      "end": 5549.38,
+      "text": "general, digámoslo así"
+    },
+    {
+      "start": 5549.38,
+      "end": 5553.76,
+      "text": "de qué es una demostración"
+    },
+    {
+      "start": 5553.76,
+      "end": 5555.02,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 5576.3,
+      "end": 5578.8,
+      "text": "es un conjunto de, es una sucesión"
+    },
+    {
+      "start": 5578.8,
+      "end": 5579.48,
+      "text": "de sentencias"
+    },
+    {
+      "start": 5579.48,
+      "end": 5584.12,
+      "text": "donde cada una se deriva lógicamente"
+    },
+    {
+      "start": 5584.12,
+      "end": 5586.26,
+      "text": "de la anterior o de las anteriores"
+    },
+    {
+      "start": 5586.26,
+      "end": 5589.66,
+      "text": "y la última es"
+    },
+    {
+      "start": 5589.66,
+      "end": 5602.88,
+      "text": "FI, ¿verdad? Es que"
+    },
+    {
+      "start": 5602.88,
+      "end": 5604.76,
+      "text": "lo que quiero mostrarles es que hay"
+    },
+    {
+      "start": 5604.76,
+      "end": 5606.48,
+      "text": "dos formas de construir"
+    },
+    {
+      "start": 5606.48,
+      "end": 5608.52,
+      "text": "esta sentencia, esta"
+    },
+    {
+      "start": 5608.52,
+      "end": 5613.01,
+      "text": "cadena. Hay dos maneras."
+    },
+    {
+      "start": 5617.76,
+      "end": 5618.12,
+      "text": "Entonces,"
+    },
+    {
+      "start": 5619.58,
+      "end": 5620.2,
+      "text": "esta"
+    },
+    {
+      "start": 5620.2,
+      "end": 5626.4,
+      "text": "sucesión de"
+    },
+    {
+      "start": 5626.4,
+      "end": 5633.06,
+      "text": "sentencias se puede"
+    },
+    {
+      "start": 5633.06,
+      "end": 5638.37,
+      "text": "construir de"
+    },
+    {
+      "start": 5638.37,
+      "end": 5640.31,
+      "text": "las siguientes formas."
+    },
+    {
+      "start": 5644.41,
+      "end": 5645.87,
+      "text": "La primera es decir,"
+    },
+    {
+      "start": 5646.09,
+      "end": 5656.44,
+      "text": "bueno, ok, necesito"
+    },
+    {
+      "start": 5656.44,
+      "end": 5657.38,
+      "text": "FI."
+    },
+    {
+      "start": 5668.24,
+      "end": 5669.24,
+      "text": "Entonces,"
+    },
+    {
+      "start": 5670.42,
+      "end": 5685.15,
+      "text": "Trato de demostrar inmediatamente antes que debería ser verdadero para que phi sea verdadero."
+    },
+    {
+      "start": 5705.46,
+      "end": 5706.24,
+      "text": "¿Me lo tengo bien? Sí."
+    },
+    {
+      "start": 5714.6,
+      "end": 5721.7,
+      "text": "Y entonces, bueno, yo digo, bueno, si S sub n es verdadero, phi sería verdadero."
+    },
+    {
+      "start": 5721.7,
+      "end": 5726.14,
+      "text": "Ok, entonces ahora, ¿qué necesito para que S sub n sea verdadero?"
+    },
+    {
+      "start": 5726.14,
+      "end": 5730.71,
+      "text": "este"
+    },
+    {
+      "start": 5730.71,
+      "end": 5735.29,
+      "text": "y este"
+    },
+    {
+      "start": 5735.29,
+      "end": 5738.36,
+      "text": "continuar"
+    },
+    {
+      "start": 5738.36,
+      "end": 5740.14,
+      "text": "hasta"
+    },
+    {
+      "start": 5740.14,
+      "end": 5741.78,
+      "text": "que"
+    },
+    {
+      "start": 5741.78,
+      "end": 5747.02,
+      "text": "pueda encontrar, o sea, pueda llegar"
+    },
+    {
+      "start": 5747.02,
+      "end": 5750.2,
+      "text": "a"
+    },
+    {
+      "start": 5750.2,
+      "end": 5752.0,
+      "text": "las sentencias"
+    },
+    {
+      "start": 5752.0,
+      "end": 5755.39,
+      "text": "que son mis premisas"
+    },
+    {
+      "start": 5755.39,
+      "end": 5761.55,
+      "text": "o sea, voy para atrás, para atrás, para atrás"
+    },
+    {
+      "start": 5761.55,
+      "end": 5763.51,
+      "text": "o sea, más bien, desde el último, sí"
+    },
+    {
+      "start": 5763.51,
+      "end": 5765.23,
+      "text": "para atrás, para atrás, para atrás"
+    },
+    {
+      "start": 5765.23,
+      "end": 5767.95,
+      "text": "hasta que llego a que ese sub 1"
+    },
+    {
+      "start": 5767.95,
+      "end": 5769.45,
+      "text": "es una premisa"
+    },
+    {
+      "start": 5769.45,
+      "end": 5771.37,
+      "text": "ay, como es una premisa"
+    },
+    {
+      "start": 5771.37,
+      "end": 5773.37,
+      "text": "esta es verdadera, entonces si esta es verdadera"
+    },
+    {
+      "start": 5773.37,
+      "end": 5775.49,
+      "text": "la que la seguí es verdadera y así sucesivamente"
+    },
+    {
+      "start": 5775.49,
+      "end": 5776.93,
+      "text": "y ya fi es verdadero"
+    },
+    {
+      "start": 5776.93,
+      "end": 5779.37,
+      "text": "entonces voy construyendo la"
+    },
+    {
+      "start": 5779.37,
+      "end": 5780.67,
+      "text": "demostración de atrás"
+    },
+    {
+      "start": 5780.67,
+      "end": 5782.71,
+      "text": "perdón, de adelante para atrás"
+    },
+    {
+      "start": 5782.71,
+      "end": 5788.18,
+      "text": "esto se llama precisamente por eso"
+    },
+    {
+      "start": 5788.18,
+      "end": 5789.9,
+      "text": "porque empiezo desde la última"
+    },
+    {
+      "start": 5789.9,
+      "end": 5791.5,
+      "text": "hasta la primera"
+    },
+    {
+      "start": 5791.5,
+      "end": 5795.02,
+      "text": "Backward Chaining"
+    },
+    {
+      "start": 5795.02,
+      "end": 5806.83,
+      "text": "Prolog es un"
+    },
+    {
+      "start": 5806.83,
+      "end": 5808.63,
+      "text": "lenguaje que hace demostraciones"
+    },
+    {
+      "start": 5808.63,
+      "end": 5809.95,
+      "text": "con Backward Chaining"
+    },
+    {
+      "start": 5809.95,
+      "end": 5815.26,
+      "text": "o sea, la máquina de inferencia de Prolog"
+    },
+    {
+      "start": 5815.26,
+      "end": 5817.22,
+      "text": "trabaja con Backward Chaining, o sea, yo empiezo"
+    },
+    {
+      "start": 5817.22,
+      "end": 5819.24,
+      "text": "con lo que quiero"
+    },
+    {
+      "start": 5819.24,
+      "end": 5821.42,
+      "text": "demostrar, entonces me pregunto"
+    },
+    {
+      "start": 5821.42,
+      "end": 5823.2,
+      "text": "ok, bueno, para que"
+    },
+    {
+      "start": 5823.2,
+      "end": 5825.44,
+      "text": "esto sea verdadero, ¿qué debería"
+    },
+    {
+      "start": 5825.44,
+      "end": 5826.6,
+      "text": "ser verdadero antes?"
+    },
+    {
+      "start": 5829.05,
+      "end": 5829.77,
+      "text": "y así voy"
+    },
+    {
+      "start": 5829.77,
+      "end": 5832.77,
+      "text": "hasta llegar a mis premisas"
+    },
+    {
+      "start": 5832.77,
+      "end": 5834.81,
+      "text": "un principio similar de lo que"
+    },
+    {
+      "start": 5834.81,
+      "end": 5836.99,
+      "text": "utiliza la inteligencia artificial"
+    },
+    {
+      "start": 5836.99,
+      "end": 5838.61,
+      "text": "esta, por redes neuronales"
+    },
+    {
+      "start": 5838.61,
+      "end": 5840.75,
+      "text": "de convolución, pero cuando tiene que"
+    },
+    {
+      "start": 5840.75,
+      "end": 5842.51,
+      "text": "hacer un ajuste, que hace un"
+    },
+    {
+      "start": 5842.51,
+      "end": 5844.31,
+      "text": "que hace un"
+    },
+    {
+      "start": 5844.31,
+      "end": 5846.65,
+      "text": "backpropagation, obviamente lo hace con derivadas"
+    },
+    {
+      "start": 5846.65,
+      "end": 5848.55,
+      "text": "parciales y otras cosas, pero lo que hace"
+    },
+    {
+      "start": 5848.55,
+      "end": 5877.55,
+      "text": "No, no, no, no, no. La back propagation es un ajuste de pesos. Ah, ok. Es un, es simplemente que ya sea que tiene un conjunto de, este, de aprendizaje o que tiene algún criterio para saber si, este, si está cerca de la respuesta correcta."
+    },
+    {
+      "start": 5878.55,
+      "end": 5904.32,
+      "text": "¿Verdad? O, más bien, lo que hacen estas inteligencias, la táctica más usual que tienen es la de, más bien, aprendizaje por refuerzo, donde una vez que empiezan a trabajar y tienen muchos casos, y esos casos son ya sea exitosos o, o sea, tienen un criterio de éxito,"
+    },
+    {
+      "start": 5904.32,
+      "end": 5906.5,
+      "text": "si no son exitosos"
+    },
+    {
+      "start": 5906.5,
+      "end": 5908.64,
+      "text": "entonces corrige sus pesos dependiendo"
+    },
+    {
+      "start": 5908.64,
+      "end": 5910.38,
+      "text": "de qué tan mal lo están haciendo"
+    },
+    {
+      "start": 5910.38,
+      "end": 5911.84,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 5912.08,
+      "end": 5914.38,
+      "text": "entonces los pesos"
+    },
+    {
+      "start": 5914.38,
+      "end": 5916.92,
+      "text": "simulan por así decirlo"
+    },
+    {
+      "start": 5916.92,
+      "end": 5918.44,
+      "text": "las conexiones neuronales"
+    },
+    {
+      "start": 5918.44,
+      "end": 5920.08,
+      "text": "la fuerza de la conexión"
+    },
+    {
+      "start": 5920.08,
+      "end": 5922.9,
+      "text": "de una neurona artificial"
+    },
+    {
+      "start": 5922.9,
+      "end": 5923.96,
+      "text": "con sus vecinas"
+    },
+    {
+      "start": 5923.96,
+      "end": 5926.12,
+      "text": "entonces"
+    },
+    {
+      "start": 5926.12,
+      "end": 5928.74,
+      "text": "aumenta o disminuye sus pesos"
+    },
+    {
+      "start": 5928.74,
+      "end": 5930.62,
+      "text": "puesto que son números de punto flotante"
+    },
+    {
+      "start": 5930.62,
+      "end": 5933.2,
+      "text": "de acuerdo con ese parámetro"
+    },
+    {
+      "start": 5933.2,
+      "end": 5935.7,
+      "text": "ok, si es un método de corrección"
+    },
+    {
+      "start": 5935.7,
+      "end": 5936.16,
+      "text": "del mercado"
+    },
+    {
+      "start": 5936.16,
+      "end": 5937.04,
+      "text": "exactamente"
+    },
+    {
+      "start": 5937.04,
+      "end": 5942.43,
+      "text": "entonces"
+    },
+    {
+      "start": 5942.43,
+      "end": 5946.49,
+      "text": "la siguiente, la otra estrategia"
+    },
+    {
+      "start": 5946.49,
+      "end": 5947.25,
+      "text": "es"
+    },
+    {
+      "start": 5947.25,
+      "end": 5952.22,
+      "text": "inicio con las premisas"
+    },
+    {
+      "start": 5952.22,
+      "end": 5956.12,
+      "text": "y"
+    },
+    {
+      "start": 5956.12,
+      "end": 5956.84,
+      "text": "este"
+    },
+    {
+      "start": 5956.84,
+      "end": 5966.15,
+      "text": "avanzo"
+    },
+    {
+      "start": 5966.15,
+      "end": 5968.23,
+      "text": "avanzo"
+    },
+    {
+      "start": 5968.23,
+      "end": 5973.31,
+      "text": "digámoslo así, saco"
+    },
+    {
+      "start": 5973.31,
+      "end": 5976.47,
+      "text": "consecuencias"
+    },
+    {
+      "start": 5976.47,
+      "end": 5979.92,
+      "text": "empiezo a generar"
+    },
+    {
+      "start": 5979.92,
+      "end": 6002.73,
+      "text": "Con mi conocimiento empiezo a generar derivaciones lógicas hasta que en algún momento llego a fin."
+    },
+    {
+      "start": 6013.7,
+      "end": 6015.04,
+      "text": "Ok, yo sé lo que están pensando."
+    },
+    {
+      "start": 6015.16,
+      "end": 6018.84,
+      "text": "Eso parece tener terribles problemas de tipo combinatorio, ¿verdad?"
+    },
+    {
+      "start": 6019.66,
+      "end": 6022.36,
+      "text": "Bueno, podría tenerlos si usted no es cuidadoso."
+    },
+    {
+      "start": 6022.36,
+      "end": 6030.49,
+      "text": "esto se llama"
+    },
+    {
+      "start": 6030.49,
+      "end": 6033.39,
+      "text": "como ustedes pueden suponer"
+    },
+    {
+      "start": 6033.39,
+      "end": 6035.15,
+      "text": "forward chaining"
+    },
+    {
+      "start": 6035.15,
+      "end": 6043.85,
+      "text": "y por ejemplo"
+    },
+    {
+      "start": 6043.85,
+      "end": 6046.05,
+      "text": "clips"
+    },
+    {
+      "start": 6046.05,
+      "end": 6050.2,
+      "text": "funciona con forward chaining"
+    },
+    {
+      "start": 6050.2,
+      "end": 6061.8,
+      "text": "aquí esto le falta una tilde"
+    },
+    {
+      "start": 6061.8,
+      "end": 6068.19,
+      "text": "y aquí que le pasó"
+    },
+    {
+      "start": 6068.19,
+      "end": 6070.31,
+      "text": "no hay sugerencias"
+    },
+    {
+      "start": 6070.31,
+      "end": 6071.79,
+      "text": "pero me dice que no le gusta"
+    },
+    {
+      "start": 6071.79,
+      "end": 6074.41,
+      "text": "bueno"
+    },
+    {
+      "start": 6074.41,
+      "end": 6082.39,
+      "text": "ok, entonces"
+    },
+    {
+      "start": 6082.39,
+      "end": 6084.61,
+      "text": "¿cómo ven? a eso es a lo que me refería"
+    },
+    {
+      "start": 6084.61,
+      "end": 6086.33,
+      "text": "cuando les decía que no es un paradigma"
+    },
+    {
+      "start": 6086.33,
+      "end": 6087.89,
+      "text": "que esté así totalmente"
+    },
+    {
+      "start": 6087.89,
+      "end": 6090.43,
+      "text": "tan consolidado como los otros anteriores"
+    },
+    {
+      "start": 6090.43,
+      "end": 6094.85,
+      "text": "porque hay dos estrategias"
+    },
+    {
+      "start": 6094.85,
+      "end": 6095.53,
+      "text": "diferentes"
+    },
+    {
+      "start": 6095.53,
+      "end": 6097.87,
+      "text": "para construir las demostraciones"
+    },
+    {
+      "start": 6097.87,
+      "end": 6101.03,
+      "text": "y justamente estas estrategias"
+    },
+    {
+      "start": 6101.03,
+      "end": 6102.47,
+      "text": "configuran"
+    },
+    {
+      "start": 6102.47,
+      "end": 6104.23,
+      "text": "muy"
+    },
+    {
+      "start": 6104.23,
+      "end": 6106.13,
+      "text": "críticamente"
+    },
+    {
+      "start": 6106.13,
+      "end": 6110.53,
+      "text": "la manera en que se escriben los lenguajes"
+    },
+    {
+      "start": 6110.53,
+      "end": 6113.11,
+      "text": "y la manera en que a partir de aquí"
+    },
+    {
+      "start": 6113.11,
+      "end": 6116.27,
+      "text": "yo trato de diseñar mi solución"
+    },
+    {
+      "start": 6116.27,
+      "end": 6120.91,
+      "text": "a partir de las sentencias"
+    },
+    {
+      "start": 6120.91,
+      "end": 6122.55,
+      "text": "que yo tenga que describir mi problema."
+    },
+    {
+      "start": 6126.39,
+      "end": 6129.09,
+      "text": "Entonces, primero vamos a trabajar,"
+    },
+    {
+      "start": 6129.63,
+      "end": 6131.17,
+      "text": "ya que sabemos esto,"
+    },
+    {
+      "start": 6133.05,
+      "end": 6136.03,
+      "text": "entonces vamos a trabajar con Prolog."
+    },
+    {
+      "start": 6136.03,
+      "end": 6139.77,
+      "text": "para eso nos hace falta"
+    },
+    {
+      "start": 6139.77,
+      "end": 6141.73,
+      "text": "otro requisito teórico"
+    },
+    {
+      "start": 6141.73,
+      "end": 6144.59,
+      "text": "que es el proceso de conversión"
+    },
+    {
+      "start": 6144.59,
+      "end": 6145.35,
+      "text": "a cláusulas"
+    },
+    {
+      "start": 6145.35,
+      "end": 6149.52,
+      "text": "pero bueno, obviamente ya eso se va"
+    },
+    {
+      "start": 6149.52,
+      "end": 6151.78,
+      "text": "lo vamos a ver, de hecho ya me pasé por 5 minutos"
+    },
+    {
+      "start": 6151.78,
+      "end": 6153.78,
+      "text": "disculpen, eso ya lo vamos"
+    },
+    {
+      "start": 6153.78,
+      "end": 6154.9,
+      "text": "a ver en la próxima clase"
+    },
+    {
+      "start": 6154.9,
+      "end": 6157.28,
+      "text": "ok, entonces"
+    },
+    {
+      "start": 6157.28,
+      "end": 6161.44,
+      "text": "vamos a dejarlo acá"
+    },
+    {
+      "start": 6161.44,
+      "end": 6165.4,
+      "text": "gracias por haber asistido"
+    },
+    {
+      "start": 6165.4,
+      "end": 6166.98,
+      "text": "a esta sesión y poner atención"
+    },
+    {
+      "start": 6166.98,
+      "end": 6169.42,
+      "text": "y que tengan"
+    },
+    {
+      "start": 6169.42,
+      "end": 6171.58,
+      "text": "muy buena tarde, muy buen fin de semana"
+    },
+    {
+      "start": 6171.58,
+      "end": 6172.44,
+      "text": "también, entonces"
+    },
+    {
+      "start": 6172.44,
+      "end": 6176.2,
+      "text": "¿será que se puede"
+    },
+    {
+      "start": 6176.2,
+      "end": 6177.4,
+      "text": "pasar ese documento"
+    },
+    {
+      "start": 6177.4,
+      "end": 6178.56,
+      "text": "antes de que nos desconectemos?"
+    },
+    {
+      "start": 6178.72,
+      "end": 6181.68,
+      "text": "el que acabo de hacer"
+    },
+    {
+      "start": 6181.68,
+      "end": 6182.74,
+      "text": "sí, claro"
+    },
+    {
+      "start": 6182.74,
+      "end": 6184.5,
+      "text": "por supuesto, con mucho gusto"
+    },
+    {
+      "start": 6184.5,
+      "end": 6186.84,
+      "text": "con mucho gusto, claro"
+    },
+    {
+      "start": 6186.84,
+      "end": 6189.54,
+      "text": "sí, el 13 no hay ninguna"
+    },
+    {
+      "start": 6189.54,
+      "end": 6191.1,
+      "text": "el martes 13"
+    },
+    {
+      "start": 6191.1,
+      "end": 6192.58,
+      "text": "qué mala suerte tiene"
+    },
+    {
+      "start": 6192.58,
+      "end": 6195.52,
+      "text": "el martes 13 no tenemos nada"
+    },
+    {
+      "start": 6195.52,
+      "end": 6197.42,
+      "text": "nada en especial que yo sepa"
+    },
+    {
+      "start": 6197.42,
+      "end": 6202.62,
+      "text": "porque resulta que el 29"
+    },
+    {
+      "start": 6202.62,
+      "end": 6204.52,
+      "text": "de octubre cayó jueves"
+    },
+    {
+      "start": 6204.52,
+      "end": 6206.72,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 6208.52,
+      "end": 6210.12,
+      "text": "y es feriado, en Cartago"
+    },
+    {
+      "start": 6210.12,
+      "end": 6214.2,
+      "text": "es uno de los feriados más pasiones que hay, es un feriado local"
+    },
+    {
+      "start": 6214.2,
+      "end": 6216.42,
+      "text": "ok, pero eso es hasta el"
+    },
+    {
+      "start": 6216.42,
+      "end": 6218.7,
+      "text": "29, ok, por lo pronto"
+    },
+    {
+      "start": 6218.7,
+      "end": 6220.62,
+      "text": "entonces que tengan muy buena tarde, muy buen fin"
+    },
+    {
+      "start": 6220.62,
+      "end": 6222.86,
+      "text": "de semana y nos estamos viendo, hasta luego"
+    }
+  ]
+}

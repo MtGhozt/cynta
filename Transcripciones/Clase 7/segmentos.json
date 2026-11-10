@@ -1,0 +1,8579 @@
+{
+  "clase": "Clase 7",
+  "curso": "Lenguajes de programación",
+  "temas": [
+    "paradigma lógico",
+    "orientado a objetos"
+  ],
+  "source": "audio1077257764.m4a",
+  "model": "large-v3",
+  "language": "es",
+  "duration_sec": 5696.3626875,
+  "segments": [
+    {
+      "start": 1.84,
+      "end": 31.61,
+      "text": "El lenguaje CLIPS lo estamos poniendo como un ejemplo de otro tipo de lenguaje lógico que no es Prolog y que incluso usa una estrategia diferente, la de Forward Chaining, y al igual que Prolog en el fondo, es un sistema lógico que reduce todo a Mouse Phonics."
+    },
+    {
+      "start": 31.61,
+      "end": 48.49,
+      "text": "O sea, en cierta forma, las mismas cláusulas que obtenemos del proceso de Robinson nos pueden servir para construir un programa Clips."
+    },
+    {
+      "start": 48.49,
+      "end": 55.5,
+      "text": "solo que clips usa"
+    },
+    {
+      "start": 55.5,
+      "end": 56.4,
+      "text": "modus ponens"
+    },
+    {
+      "start": 56.4,
+      "end": 59.7,
+      "text": "entonces no es necesario en clips"
+    },
+    {
+      "start": 59.7,
+      "end": 61.88,
+      "text": "negar la conclusión"
+    },
+    {
+      "start": 61.88,
+      "end": 65.1,
+      "text": "eso solo se necesita"
+    },
+    {
+      "start": 65.1,
+      "end": 65.76,
+      "text": "en prolog"
+    },
+    {
+      "start": 65.76,
+      "end": 79.02,
+      "text": "esto que están viendo"
+    },
+    {
+      "start": 79.02,
+      "end": 80.2,
+      "text": "es un programa"
+    },
+    {
+      "start": 80.2,
+      "end": 82.6,
+      "text": "digamoslo así, inicial"
+    },
+    {
+      "start": 82.6,
+      "end": 83.52,
+      "text": "de principiante"
+    },
+    {
+      "start": 83.52,
+      "end": 91.06,
+      "text": "de como se vería"
+    },
+    {
+      "start": 91.06,
+      "end": 94.82,
+      "text": "un programa"
+    },
+    {
+      "start": 94.82,
+      "end": 96.48,
+      "text": "prolog, perdón, clips"
+    },
+    {
+      "start": 96.48,
+      "end": 152.39,
+      "text": "Como lo estoy viendo con... disculpen, lo voy a abrir con Word para que se vea mejor, para que podamos verlo con más definición."
+    },
+    {
+      "start": 152.39,
+      "end": 205.98,
+      "text": "Ok, este, el lenguaje Eclipse admite tres tipos diferentes de definiciones, definiciones de reglas, definiciones de plantillas y definiciones de datos."
+    },
+    {
+      "start": 205.98,
+      "end": 211.47,
+      "text": "recuerden que en el"
+    },
+    {
+      "start": 211.47,
+      "end": 214.61,
+      "text": "en el esquema que habíamos hecho"
+    },
+    {
+      "start": 214.61,
+      "end": 216.41,
+      "text": "de cómo funciona la máquina de inferencia"
+    },
+    {
+      "start": 216.41,
+      "end": 218.75,
+      "text": "o el ambiente de inferencia de Clips"
+    },
+    {
+      "start": 218.75,
+      "end": 220.83,
+      "text": "bueno, en general"
+    },
+    {
+      "start": 220.83,
+      "end": 223.25,
+      "text": "de cualquier sistema"
+    },
+    {
+      "start": 223.25,
+      "end": 225.27,
+      "text": "orientado a"
+    },
+    {
+      "start": 225.27,
+      "end": 229.89,
+      "text": "a reglas de producción"
+    },
+    {
+      "start": 229.89,
+      "end": 234.83,
+      "text": "tenemos por un lado"
+    },
+    {
+      "start": 234.83,
+      "end": 237.29,
+      "text": "una base de conocimiento"
+    },
+    {
+      "start": 237.29,
+      "end": 238.45,
+      "text": "y por el otro"
+    },
+    {
+      "start": 238.45,
+      "end": 241.65,
+      "text": "una base de hechos"
+    },
+    {
+      "start": 241.65,
+      "end": 249.57,
+      "text": "O sea, los hechos que son, que el sistema puede considerar como absolutamente verdaderos, como algo dado."
+    },
+    {
+      "start": 250.59,
+      "end": 264.79,
+      "text": "Y la base de reglas sería el conjunto de implicaciones que resumen el conocimiento en esta área y que se consideran también válidas."
+    },
+    {
+      "start": 268.66,
+      "end": 277.89,
+      "text": "Entonces, y las plantillas se utilizan para crear estructuras de datos."
+    },
+    {
+      "start": 284.42,
+      "end": 289.2,
+      "text": "Ok, veamos esta sentencia de acá, por ejemplo."
+    },
+    {
+      "start": 289.2,
+      "end": 299.38,
+      "text": "Este es un sistema muy primitivo, muy tonto, digámoslo así, para identificar animales."
+    },
+    {
+      "start": 300.86,
+      "end": 306.1,
+      "text": "O sea, es un verificador taxonómico, podríamos decir."
+    },
+    {
+      "start": 306.1,
+      "end": 314.62,
+      "text": "entonces, lo primero que salta a la vista"
+    },
+    {
+      "start": 314.62,
+      "end": 316.54,
+      "text": "es, lo primero que salta a la vista"
+    },
+    {
+      "start": 316.54,
+      "end": 318.46,
+      "text": "es que"
+    },
+    {
+      "start": 318.46,
+      "end": 319.5,
+      "text": "la sintaxis"
+    },
+    {
+      "start": 319.5,
+      "end": 321.86,
+      "text": "de todo lo que hay en Clips"
+    },
+    {
+      "start": 321.86,
+      "end": 324.22,
+      "text": "es la sintaxis de Lisp"
+    },
+    {
+      "start": 324.22,
+      "end": 326.46,
+      "text": "entonces, esto se ve"
+    },
+    {
+      "start": 326.46,
+      "end": 328.4,
+      "text": "rarísimo porque parece un programa en Skim"
+    },
+    {
+      "start": 328.4,
+      "end": 330.14,
+      "text": "por ejemplo, o en Lisp"
+    },
+    {
+      "start": 330.14,
+      "end": 333.48,
+      "text": "porque está usando la misma sintaxis"
+    },
+    {
+      "start": 333.48,
+      "end": 335.56,
+      "text": "o sea, todo"
+    },
+    {
+      "start": 335.56,
+      "end": 337.6,
+      "text": "cerrado entre paréntesis redondos"
+    },
+    {
+      "start": 337.6,
+      "end": 339.46,
+      "text": "y el primer elemento"
+    },
+    {
+      "start": 339.46,
+      "end": 341.98,
+      "text": "después del paréntesis abierto"
+    },
+    {
+      "start": 341.98,
+      "end": 345.3,
+      "text": "es el operador"
+    },
+    {
+      "start": 345.3,
+      "end": 348.16,
+      "text": "de toda la lista"
+    },
+    {
+      "start": 348.16,
+      "end": 354.01,
+      "text": "y lo que sigue entonces son los parámetros de ese operador"
+    },
+    {
+      "start": 354.01,
+      "end": 357.45,
+      "text": "entonces ese mismo sintaxis tiene clips"
+    },
+    {
+      "start": 357.45,
+      "end": 361.21,
+      "text": "veamos esto que está en gris"
+    },
+    {
+      "start": 361.21,
+      "end": 364.19,
+      "text": "empieza con"
+    },
+    {
+      "start": 364.19,
+      "end": 366.29,
+      "text": "la palabra"
+    },
+    {
+      "start": 366.29,
+      "end": 370.73,
+      "text": "def rule"
+    },
+    {
+      "start": 370.73,
+      "end": 374.53,
+      "text": "eso es una palabra"
+    },
+    {
+      "start": 374.53,
+      "end": 377.67,
+      "text": "reservada de clips"
+    },
+    {
+      "start": 377.67,
+      "end": 380.21,
+      "text": "yo les decía que en Clips hay tres cosas"
+    },
+    {
+      "start": 380.21,
+      "end": 382.49,
+      "text": "nada más que yo tengo que definir"
+    },
+    {
+      "start": 382.49,
+      "end": 383.55,
+      "text": "reglas"
+    },
+    {
+      "start": 383.55,
+      "end": 385.49,
+      "text": "hechos"
+    },
+    {
+      "start": 385.49,
+      "end": 387.33,
+      "text": "y plantillas"
+    },
+    {
+      "start": 387.33,
+      "end": 391.92,
+      "text": "entonces existe un"
+    },
+    {
+      "start": 391.92,
+      "end": 392.82,
+      "text": "dev rule"
+    },
+    {
+      "start": 392.82,
+      "end": 395.32,
+      "text": "dev fact"
+    },
+    {
+      "start": 395.32,
+      "end": 397.86,
+      "text": "y este"
+    },
+    {
+      "start": 397.86,
+      "end": 400.44,
+      "text": "dev template"
+    },
+    {
+      "start": 400.44,
+      "end": 402.64,
+      "text": "para las plantillas"
+    },
+    {
+      "start": 402.64,
+      "end": 405.9,
+      "text": "ok, lo que sigue"
+    },
+    {
+      "start": 405.9,
+      "end": 407.82,
+      "text": "después de dev rule es una"
+    },
+    {
+      "start": 407.82,
+      "end": 410.06,
+      "text": "es un nombre de la regla"
+    },
+    {
+      "start": 410.06,
+      "end": 436.4,
+      "text": "Todas las reglas tienen un nombre único. El propósito de esto es precisamente identificar, llevar un control en el momento de una ejecución, que yo quiero verificar que todo esté funcionando bien."
+    },
+    {
+      "start": 436.4,
+      "end": 440.54,
+      "text": "o inclusive de que el sistema se explique"
+    },
+    {
+      "start": 440.54,
+      "end": 445.26,
+      "text": "que me diga por qué llegó a tal conclusión"
+    },
+    {
+      "start": 445.26,
+      "end": 450.36,
+      "text": "bueno, él dice, bueno, en primer lugar apliqué la regla R1"
+    },
+    {
+      "start": 450.36,
+      "end": 452.3,
+      "text": "después apliqué la regla R3"
+    },
+    {
+      "start": 452.3,
+      "end": 455.16,
+      "text": "después apliqué la regla R16"
+    },
+    {
+      "start": 455.16,
+      "end": 458.96,
+      "text": "y así sucesivamente"
+    },
+    {
+      "start": 458.96,
+      "end": 465.23,
+      "text": "entonces la regla R1"
+    },
+    {
+      "start": 465.23,
+      "end": 466.77,
+      "text": "vean que hay entre comillas"
+    },
+    {
+      "start": 466.77,
+      "end": 470.55,
+      "text": "un string"
+    },
+    {
+      "start": 470.55,
+      "end": 471.97,
+      "text": "y esto es nada más"
+    },
+    {
+      "start": 471.97,
+      "end": 473.07,
+      "text": "es documental"
+    },
+    {
+      "start": 473.07,
+      "end": 476.39,
+      "text": "es documentación para mi propio sistema"
+    },
+    {
+      "start": 476.39,
+      "end": 478.67,
+      "text": "¿qué hace la regla R1?"
+    },
+    {
+      "start": 479.05,
+      "end": 480.41,
+      "text": "¿cuál es el propósito"
+    },
+    {
+      "start": 480.41,
+      "end": 481.89,
+      "text": "de la regla R1?"
+    },
+    {
+      "start": 482.83,
+      "end": 484.19,
+      "text": "aquí dice que es"
+    },
+    {
+      "start": 484.19,
+      "end": 485.61,
+      "text": "identificar mamíferos"
+    },
+    {
+      "start": 485.61,
+      "end": 490.28,
+      "text": "la idea es que"
+    },
+    {
+      "start": 490.28,
+      "end": 491.68,
+      "text": "en este pequeño sistemita"
+    },
+    {
+      "start": 491.68,
+      "end": 496.28,
+      "text": "como ven"
+    },
+    {
+      "start": 496.28,
+      "end": 497.84,
+      "text": "que es la primera que aparece"
+    },
+    {
+      "start": 497.84,
+      "end": 512.34,
+      "text": "r1 es para identificar si el animal es un mamífero ok la mayor parte de los mamíferos"
+    },
+    {
+      "start": 512.34,
+      "end": 520.9,
+      "text": "de las especies de mamíferos tal vez el 99.9 por ciento de todos los mamíferos tienen pelo"
+    },
+    {
+      "start": 520.9,
+      "end": 531.54,
+      "text": "ok entonces vean lo que después viene de r1 de la identificación de la regla"
+    },
+    {
+      "start": 531.54,
+      "end": 533.76,
+      "text": "paréntesis"
+    },
+    {
+      "start": 533.76,
+      "end": 536.98,
+      "text": "la observación tiene pelo"
+    },
+    {
+      "start": 536.98,
+      "end": 542.63,
+      "text": "interrogación X"
+    },
+    {
+      "start": 542.63,
+      "end": 543.99,
+      "text": "y cierra el paréntesis"
+    },
+    {
+      "start": 543.99,
+      "end": 544.83,
+      "text": "ok"
+    },
+    {
+      "start": 544.83,
+      "end": 546.21,
+      "text": "bueno"
+    },
+    {
+      "start": 546.21,
+      "end": 547.51,
+      "text": "después sigue"
+    },
+    {
+      "start": 547.51,
+      "end": 549.47,
+      "text": "este símbolo"
+    },
+    {
+      "start": 549.47,
+      "end": 551.17,
+      "text": "y luego dice"
+    },
+    {
+      "start": 551.17,
+      "end": 553.07,
+      "text": "acert mamífero X"
+    },
+    {
+      "start": 553.07,
+      "end": 554.05,
+      "text": "ok"
+    },
+    {
+      "start": 554.05,
+      "end": 557.67,
+      "text": "¿cómo se interpreta esto?"
+    },
+    {
+      "start": 560.55,
+      "end": 562.99,
+      "text": "esta regla se dispara"
+    },
+    {
+      "start": 562.99,
+      "end": 563.93,
+      "text": "si"
+    },
+    {
+      "start": 563.93,
+      "end": 568.42,
+      "text": "en el environment"
+    },
+    {
+      "start": 568.42,
+      "end": 570.52,
+      "text": "recuerdan esa estructura de datos"
+    },
+    {
+      "start": 570.52,
+      "end": 571.12,
+      "text": "el environment"
+    },
+    {
+      "start": 571.12,
+      "end": 574.54,
+      "text": "aparece un hecho en este momento"
+    },
+    {
+      "start": 574.54,
+      "end": 583.06,
+      "text": "esto es un identificador de una variable"
+    },
+    {
+      "start": 583.06,
+      "end": 585.54,
+      "text": "la idea es"
+    },
+    {
+      "start": 585.54,
+      "end": 587.68,
+      "text": "que yo diga"
+    },
+    {
+      "start": 587.68,
+      "end": 589.48,
+      "text": "por ejemplo, identifíqueme"
+    },
+    {
+      "start": 589.48,
+      "end": 590.64,
+      "text": "al espécimen"
+    },
+    {
+      "start": 590.64,
+      "end": 592.32,
+      "text": "al espécimen 20"
+    },
+    {
+      "start": 592.32,
+      "end": 594.9,
+      "text": "entonces, espécimen 20"
+    },
+    {
+      "start": 594.9,
+      "end": 598.92,
+      "text": "es un símbolo"
+    },
+    {
+      "start": 598.98,
+      "end": 628.68,
+      "text": "podría ser el valor de esa variable, si en el ambiente ya existe el hecho de que espécimen 20, o sea tiene pelo espécimen 20, o sea si eso existe entonces la regla R1 se dispara o por lo menos queda en la agenda,"
+    },
+    {
+      "start": 628.68,
+      "end": 634.2,
+      "text": "este es el antecedente"
+    },
+    {
+      "start": 634.2,
+      "end": 636.1,
+      "text": "de la regla, vean que eso está"
+    },
+    {
+      "start": 636.1,
+      "end": 637.84,
+      "text": "eso es impactivamente un implica"
+    },
+    {
+      "start": 637.84,
+      "end": 640.02,
+      "text": "o sea P implica Q"
+    },
+    {
+      "start": 640.02,
+      "end": 645.99,
+      "text": "ok, entonces"
+    },
+    {
+      "start": 645.99,
+      "end": 648.03,
+      "text": "si espécimen 20"
+    },
+    {
+      "start": 648.03,
+      "end": 650.03,
+      "text": "tiene pelo, entonces"
+    },
+    {
+      "start": 650.03,
+      "end": 651.57,
+      "text": "vean lo que aparece, assert"
+    },
+    {
+      "start": 651.57,
+      "end": 653.53,
+      "text": "mamífero X"
+    },
+    {
+      "start": 653.53,
+      "end": 657.83,
+      "text": "assert es la manera en que"
+    },
+    {
+      "start": 657.83,
+      "end": 660.01,
+      "text": "yo pongo hechos nuevos"
+    },
+    {
+      "start": 660.01,
+      "end": 661.69,
+      "text": "en el environment"
+    },
+    {
+      "start": 661.69,
+      "end": 666.04,
+      "text": "en el ambiente, entonces"
+    },
+    {
+      "start": 666.04,
+      "end": 668.02,
+      "text": "si espécimen"
+    },
+    {
+      "start": 668.02,
+      "end": 669.0,
+      "text": "20 tiene pelo"
+    },
+    {
+      "start": 669.0,
+      "end": 672.62,
+      "text": "entonces de una vez ya lo clasifica como"
+    },
+    {
+      "start": 672.62,
+      "end": 682.14,
+      "text": "un mamífero vean que este otra forma de"
+    },
+    {
+      "start": 682.14,
+      "end": 684.66,
+      "text": "identificar mamíferos es si las hembras"
+    },
+    {
+      "start": 684.66,
+      "end": 689.6,
+      "text": "dan leche en caso de que falle el asunto"
+    },
+    {
+      "start": 689.6,
+      "end": 695.26,
+      "text": "del pelo es que vean este hay algunos"
+    },
+    {
+      "start": 695.26,
+      "end": 697.6,
+      "text": "mamíferos como este"
+    },
+    {
+      "start": 697.6,
+      "end": 702.84,
+      "text": "hay más de si mal no me acuerdo hay como"
+    },
+    {
+      "start": 702.84,
+      "end": 706.66,
+      "text": "seis especies de un tipo de roedor que"
+    },
+    {
+      "start": 706.66,
+      "end": 709.64,
+      "text": "se llaman las ratas topo son unos"
+    },
+    {
+      "start": 709.64,
+      "end": 710.68,
+      "text": "animalones así"
+    },
+    {
+      "start": 710.68,
+      "end": 716.64,
+      "text": "no sé si exactamente son de la familia"
+    },
+    {
+      "start": 716.64,
+      "end": 720.68,
+      "text": "de las ratas pero son mamíferos que"
+    },
+    {
+      "start": 720.68,
+      "end": 721.6,
+      "text": "viven bajo tierra"
+    },
+    {
+      "start": 721.6,
+      "end": 727.9,
+      "text": "y que nunca nunca salen viven bajo"
+    },
+    {
+      "start": 727.9,
+      "end": 728.82,
+      "text": "tierra literalmente"
+    },
+    {
+      "start": 728.82,
+      "end": 732.98,
+      "text": "tienen unos dientes enormes permítame"
+    },
+    {
+      "start": 732.98,
+      "end": 733.58,
+      "text": "por favor"
+    },
+    {
+      "start": 733.58,
+      "end": 735.56,
+      "text": "ponerles"
+    },
+    {
+      "start": 735.56,
+      "end": 738.98,
+      "text": "para que ustedes vean"
+    },
+    {
+      "start": 738.98,
+      "end": 774.05,
+      "text": "como ven"
+    },
+    {
+      "start": 774.05,
+      "end": 776.35,
+      "text": "si alguna vez la naturaleza se empeñó"
+    },
+    {
+      "start": 776.35,
+      "end": 777.59,
+      "text": "en hacer un animal feo"
+    },
+    {
+      "start": 777.59,
+      "end": 779.59,
+      "text": "son las"
+    },
+    {
+      "start": 779.59,
+      "end": 780.87,
+      "text": "ratas topo"
+    },
+    {
+      "start": 780.87,
+      "end": 784.89,
+      "text": "hay de muchas especies"
+    },
+    {
+      "start": 784.89,
+      "end": 787.15,
+      "text": "como les decía son seis especies diferentes"
+    },
+    {
+      "start": 787.15,
+      "end": 789.17,
+      "text": "y no están necesariamente relacionadas"
+    },
+    {
+      "start": 789.17,
+      "end": 789.83,
+      "text": "cercanamente"
+    },
+    {
+      "start": 789.83,
+      "end": 792.27,
+      "text": "y lo que caracteriza a"
+    },
+    {
+      "start": 792.27,
+      "end": 793.83,
+      "text": "esto es un topo verdadero"
+    },
+    {
+      "start": 793.83,
+      "end": 797.11,
+      "text": "esto es un topo verdadero"
+    },
+    {
+      "start": 797.11,
+      "end": 799.77,
+      "text": "tienen pelo"
+    },
+    {
+      "start": 799.77,
+      "end": 802.91,
+      "text": "pero"
+    },
+    {
+      "start": 802.91,
+      "end": 805.53,
+      "text": "las ratas topo no"
+    },
+    {
+      "start": 805.53,
+      "end": 809.2,
+      "text": "tienen unas cuantas cerdas"
+    },
+    {
+      "start": 809.2,
+      "end": 810.62,
+      "text": "pero eso no se puede decir que"
+    },
+    {
+      "start": 810.62,
+      "end": 812.7,
+      "text": "tengan su piel cubierta de pelo"
+    },
+    {
+      "start": 812.7,
+      "end": 815.52,
+      "text": "no tienen pelo porque como no salen"
+    },
+    {
+      "start": 815.52,
+      "end": 816.9,
+      "text": "a la superficie"
+    },
+    {
+      "start": 816.9,
+      "end": 819.3,
+      "text": "no necesitan proteger su piel"
+    },
+    {
+      "start": 819.3,
+      "end": 825.95,
+      "text": "algunas tienen una"
+    },
+    {
+      "start": 825.95,
+      "end": 826.85,
+      "text": "vista muy débil"
+    },
+    {
+      "start": 826.85,
+      "end": 830.01,
+      "text": "pero hay otras especies"
+    },
+    {
+      "start": 830.01,
+      "end": 831.47,
+      "text": "de ratas topo"
+    },
+    {
+      "start": 831.47,
+      "end": 833.81,
+      "text": "que son completamente ciegas"
+    },
+    {
+      "start": 833.81,
+      "end": 851.88,
+      "text": "me parece que este es un ejemplo"
+    },
+    {
+      "start": 851.88,
+      "end": 852.56,
+      "text": "de esa especie"
+    },
+    {
+      "start": 852.56,
+      "end": 855.6,
+      "text": "los"
+    },
+    {
+      "start": 855.6,
+      "end": 859.14,
+      "text": "dientes frontales se han"
+    },
+    {
+      "start": 859.14,
+      "end": 861.24,
+      "text": "desarrollado así porque hacen los huecos"
+    },
+    {
+      "start": 861.24,
+      "end": 862.5,
+      "text": "precisamente con los dientes"
+    },
+    {
+      "start": 862.5,
+      "end": 863.76,
+      "text": "ok"
+    },
+    {
+      "start": 863.76,
+      "end": 867.28,
+      "text": "entonces por eso es que"
+    },
+    {
+      "start": 867.28,
+      "end": 869.48,
+      "text": "hay varios criterios para clasificar mamíferos"
+    },
+    {
+      "start": 869.48,
+      "end": 870.78,
+      "text": "porque no necesariamente"
+    },
+    {
+      "start": 870.78,
+      "end": 872.34,
+      "text": "el tener pelo"
+    },
+    {
+      "start": 872.34,
+      "end": 874.4,
+      "text": "es lo que"
+    },
+    {
+      "start": 874.4,
+      "end": 877.28,
+      "text": "o sea si un animal tiene pelo es un mamífero"
+    },
+    {
+      "start": 877.28,
+      "end": 882.92,
+      "text": "Pero no necesariamente si es un mamífero tiene pelo."
+    },
+    {
+      "start": 885.59,
+      "end": 909.28,
+      "text": "Entonces, ¿cómo ven? Vean, por ejemplo, para identificar aves, el hecho de que tenga plumas, bueno, eso es definitivamente una, que yo sepa, no hay ninguna ave que no tenga plumas, o sea, que tengan su piel totalmente expuesta."
+    },
+    {
+      "start": 909.28,
+      "end": 912.08,
+      "text": "pero en todo caso"
+    },
+    {
+      "start": 912.08,
+      "end": 914.74,
+      "text": "hay un par de criterios más"
+    },
+    {
+      "start": 914.74,
+      "end": 916.7,
+      "text": "y es el hecho de que vuele"
+    },
+    {
+      "start": 916.7,
+      "end": 918.62,
+      "text": "y que ponga huevos, bueno, ahora"
+    },
+    {
+      "start": 918.62,
+      "end": 920.86,
+      "text": "no todas las aves"
+    },
+    {
+      "start": 920.86,
+      "end": 921.22,
+      "text": "vuelan"
+    },
+    {
+      "start": 921.22,
+      "end": 924.52,
+      "text": "tal vez el de aquella pluma"
+    },
+    {
+      "start": 924.52,
+      "end": 926.42,
+      "text": "es más adecuado"
+    },
+    {
+      "start": 926.42,
+      "end": 927.9,
+      "text": "una vez que ya"
+    },
+    {
+      "start": 927.9,
+      "end": 930.78,
+      "text": "está identificado que espécimen 20"
+    },
+    {
+      "start": 930.78,
+      "end": 932.48,
+      "text": "es un mamífero, entonces"
+    },
+    {
+      "start": 932.48,
+      "end": 934.9,
+      "text": "el hecho, mamífero, espécimen 20"
+    },
+    {
+      "start": 934.9,
+      "end": 936.48,
+      "text": "va a aparecer en"
+    },
+    {
+      "start": 936.48,
+      "end": 937.76,
+      "text": "el environment"
+    },
+    {
+      "start": 937.76,
+      "end": 939.84,
+      "text": "entonces"
+    },
+    {
+      "start": 939.84,
+      "end": 941.66,
+      "text": "ahora preguntamos"
+    },
+    {
+      "start": 941.66,
+      "end": 944.32,
+      "text": "bueno, vemos, verificamos"
+    },
+    {
+      "start": 944.32,
+      "end": 945.88,
+      "text": "si en el momento actual en que está"
+    },
+    {
+      "start": 945.88,
+      "end": 948.04,
+      "text": "corriendo, mamífero"
+    },
+    {
+      "start": 948.04,
+      "end": 950.18,
+      "text": "este, existe"
+    },
+    {
+      "start": 950.18,
+      "end": 951.56,
+      "text": "ambos hechos, vean"
+    },
+    {
+      "start": 951.56,
+      "end": 953.9,
+      "text": "el mamífero y come"
+    },
+    {
+      "start": 953.9,
+      "end": 954.38,
+      "text": "carne"
+    },
+    {
+      "start": 954.38,
+      "end": 957.3,
+      "text": "el hecho de que estén así"
+    },
+    {
+      "start": 957.3,
+      "end": 959.6,
+      "text": "estas dos en el antecedente"
+    },
+    {
+      "start": 959.6,
+      "end": 961.52,
+      "text": "significa que es una y o la otra"
+    },
+    {
+      "start": 961.52,
+      "end": 964.71,
+      "text": "este"
+    },
+    {
+      "start": 964.71,
+      "end": 971.41,
+      "text": "si esto es así"
+    },
+    {
+      "start": 971.41,
+      "end": 984.41,
+      "text": "Entonces, esto implica que podemos meter en la base de conocimiento que el espécimen 20 es un carnívoro."
+    },
+    {
+      "start": 988.65,
+      "end": 1002.02,
+      "text": "Entonces, ahí se pueden clasificar todavía un poco más en ungulados, felinos."
+    },
+    {
+      "start": 1002.02,
+      "end": 1009.53,
+      "text": "vean que no necesariamente"
+    },
+    {
+      "start": 1009.53,
+      "end": 1010.33,
+      "text": "ni"
+    },
+    {
+      "start": 1010.33,
+      "end": 1013.03,
+      "text": "en el antecedente ni en el"
+    },
+    {
+      "start": 1013.03,
+      "end": 1015.03,
+      "text": "consecuente tiene que haber una"
+    },
+    {
+      "start": 1015.03,
+      "end": 1015.61,
+      "text": "sola cosa"
+    },
+    {
+      "start": 1015.61,
+      "end": 1019.07,
+      "text": "lo que caracteriza esto es que"
+    },
+    {
+      "start": 1019.07,
+      "end": 1020.73,
+      "text": "más bien aquí en el antecedente"
+    },
+    {
+      "start": 1020.73,
+      "end": 1022.87,
+      "text": "siempre pregunto sobre"
+    },
+    {
+      "start": 1022.87,
+      "end": 1024.39,
+      "text": "hechos que están en el ambiente"
+    },
+    {
+      "start": 1024.39,
+      "end": 1025.45,
+      "text": "y"
+    },
+    {
+      "start": 1025.45,
+      "end": 1029.25,
+      "text": "en el consecuente siempre hay alguna"
+    },
+    {
+      "start": 1029.25,
+      "end": 1031.13,
+      "text": "un conjunto de acciones"
+    },
+    {
+      "start": 1031.13,
+      "end": 1033.33,
+      "text": "donde las acciones"
+    },
+    {
+      "start": 1033.33,
+      "end": 1034.33,
+      "text": "pueden ser como aquí"
+    },
+    {
+      "start": 1034.33,
+      "end": 1036.67,
+      "text": "agregue un elemento más"
+    },
+    {
+      "start": 1036.67,
+      "end": 1037.93,
+      "text": "en la base de conocimiento"
+    },
+    {
+      "start": 1037.93,
+      "end": 1040.71,
+      "text": "que por ejemplo"
+    },
+    {
+      "start": 1040.71,
+      "end": 1042.67,
+      "text": "el espécimen 20 es un"
+    },
+    {
+      "start": 1042.67,
+      "end": 1044.69,
+      "text": "leopardo, pero vean"
+    },
+    {
+      "start": 1044.69,
+      "end": 1046.69,
+      "text": "que también puede haber cosas como entrada y salida"
+    },
+    {
+      "start": 1046.69,
+      "end": 1048.39,
+      "text": "hago un printout"
+    },
+    {
+      "start": 1048.39,
+      "end": 1054.76,
+      "text": "esto es printout"
+    },
+    {
+      "start": 1054.76,
+      "end": 1056.56,
+      "text": "en la consola"
+    },
+    {
+      "start": 1056.56,
+      "end": 1057.58,
+      "text": "eso significa la T"
+    },
+    {
+      "start": 1057.58,
+      "end": 1060.64,
+      "text": "de la hilera es un leopardo"
+    },
+    {
+      "start": 1060.64,
+      "end": 1065.01,
+      "text": "ok"
+    },
+    {
+      "start": 1065.01,
+      "end": 1076.8,
+      "text": "vean esto"
+    },
+    {
+      "start": 1076.8,
+      "end": 1079.66,
+      "text": "cómo arranca esto"
+    },
+    {
+      "start": 1079.66,
+      "end": 1080.4,
+      "text": "cómo empieza"
+    },
+    {
+      "start": 1080.4,
+      "end": 1081.72,
+      "text": "ustedes pueden decir"
+    },
+    {
+      "start": 1081.72,
+      "end": 1082.82,
+      "text": "bueno todo eso está muy bien"
+    },
+    {
+      "start": 1082.82,
+      "end": 1083.04,
+      "text": "pero"
+    },
+    {
+      "start": 1083.04,
+      "end": 1084.26,
+      "text": "cómo sabe el sistema"
+    },
+    {
+      "start": 1084.26,
+      "end": 1085.14,
+      "text": "por dónde empezar"
+    },
+    {
+      "start": 1085.14,
+      "end": 1087.44,
+      "text": "bueno"
+    },
+    {
+      "start": 1087.44,
+      "end": 1088.74,
+      "text": "en el caso de Eclipse"
+    },
+    {
+      "start": 1088.74,
+      "end": 1091.36,
+      "text": "el ambiente"
+    },
+    {
+      "start": 1091.36,
+      "end": 1094.08,
+      "text": "va a estar vacío"
+    },
+    {
+      "start": 1094.08,
+      "end": 1095.34,
+      "text": "al inicio"
+    },
+    {
+      "start": 1095.34,
+      "end": 1096.6,
+      "text": "cuando esto arranca"
+    },
+    {
+      "start": 1096.6,
+      "end": 1098.22,
+      "text": "yo le digo"
+    },
+    {
+      "start": 1098.22,
+      "end": 1099.96,
+      "text": "a la máquina virtual"
+    },
+    {
+      "start": 1099.96,
+      "end": 1100.32,
+      "text": "oiga"
+    },
+    {
+      "start": 1100.32,
+      "end": 1101.2,
+      "text": "léase este"
+    },
+    {
+      "start": 1101.2,
+      "end": 1102.36,
+      "text": "este programa"
+    },
+    {
+      "start": 1102.36,
+      "end": 1102.8,
+      "text": "Eclipse"
+    },
+    {
+      "start": 1102.8,
+      "end": 1105.46,
+      "text": "este va a ser su conocimiento"
+    },
+    {
+      "start": 1105.46,
+      "end": 1106.08,
+      "text": "él lo lee"
+    },
+    {
+      "start": 1106.08,
+      "end": 1109.7,
+      "text": "y en el principio"
+    },
+    {
+      "start": 1109.7,
+      "end": 1111.12,
+      "text": "el"
+    },
+    {
+      "start": 1111.12,
+      "end": 1113.6,
+      "text": "ambiente va a estar vacío"
+    },
+    {
+      "start": 1113.6,
+      "end": 1115.54,
+      "text": "excepto por"
+    },
+    {
+      "start": 1115.54,
+      "end": 1117.5,
+      "text": "algo que se llama el hecho inicial"
+    },
+    {
+      "start": 1117.5,
+      "end": 1119.56,
+      "text": "entonces va a haber un hecho"
+    },
+    {
+      "start": 1119.56,
+      "end": 1121.22,
+      "text": "inicial, entonces vean que hay una"
+    },
+    {
+      "start": 1121.22,
+      "end": 1125.84,
+      "text": "regla que es el"
+    },
+    {
+      "start": 1125.84,
+      "end": 1126.98,
+      "text": "inicio de la identificación"
+    },
+    {
+      "start": 1126.98,
+      "end": 1129.4,
+      "text": "y dice, bueno"
+    },
+    {
+      "start": 1129.4,
+      "end": 1131.1,
+      "text": "si en el"
+    },
+    {
+      "start": 1131.1,
+      "end": 1136.32,
+      "text": "si en la base de conocimiento"
+    },
+    {
+      "start": 1136.32,
+      "end": 1137.84,
+      "text": "está el hecho inicial"
+    },
+    {
+      "start": 1137.84,
+      "end": 1141.32,
+      "text": "entonces"
+    },
+    {
+      "start": 1141.32,
+      "end": 1146.14,
+      "text": "pone esto en la pantalla"
+    },
+    {
+      "start": 1146.14,
+      "end": 1148.48,
+      "text": "el animal observado, vean que es una"
+    },
+    {
+      "start": 1148.48,
+      "end": 1150.48,
+      "text": "pregunta, el animal observado"
+    },
+    {
+      "start": 1150.48,
+      "end": 1156.3,
+      "text": "tiene pelo, sí o no, y vean"
+    },
+    {
+      "start": 1156.3,
+      "end": 1158.08,
+      "text": "que hace dos cosas"
+    },
+    {
+      "start": 1158.08,
+      "end": 1158.64,
+      "text": "primero"
+    },
+    {
+      "start": 1158.64,
+      "end": 1160.2,
+      "text": "lee"
+    },
+    {
+      "start": 1160.2,
+      "end": 1167.8,
+      "text": "la respuesta"
+    },
+    {
+      "start": 1167.8,
+      "end": 1169.54,
+      "text": "esta es una variable"
+    },
+    {
+      "start": 1169.54,
+      "end": 1171.62,
+      "text": "para la respuesta y"
+    },
+    {
+      "start": 1171.62,
+      "end": 1174.06,
+      "text": "va a decir, bueno, la respuesta"
+    },
+    {
+      "start": 1174.06,
+      "end": 1175.48,
+      "text": "uno fue sí o no"
+    },
+    {
+      "start": 1175.48,
+      "end": 1179.8,
+      "text": "ok, si la"
+    },
+    {
+      "start": 1179.8,
+      "end": 1181.58,
+      "text": "respuesta uno fue sí"
+    },
+    {
+      "start": 1181.58,
+      "end": 1183.74,
+      "text": "entonces es que pregunta"
+    },
+    {
+      "start": 1183.74,
+      "end": 1231.46,
+      "text": "Bueno, tiene pelo. Aquí incluso a esta regla le falta algo, ¿verdad? Debe haber un printout al principio que diga, perdón, indique una identificación para el espécimen."
+    },
+    {
+      "start": 1231.46,
+      "end": 1240.99,
+      "text": "y le digo"
+    },
+    {
+      "start": 1240.99,
+      "end": 1246.71,
+      "text": "read"
+    },
+    {
+      "start": 1246.71,
+      "end": 1260.46,
+      "text": "ahí está"
+    },
+    {
+      "start": 1260.46,
+      "end": 1266.93,
+      "text": "ident"
+    },
+    {
+      "start": 1266.93,
+      "end": 1270.68,
+      "text": "y una vez que lo he leído"
+    },
+    {
+      "start": 1270.68,
+      "end": 1272.04,
+      "text": "hago un assert"
+    },
+    {
+      "start": 1272.04,
+      "end": 1276.78,
+      "text": "de"
+    },
+    {
+      "start": 1276.78,
+      "end": 1288.73,
+      "text": "specimen"
+    },
+    {
+      "start": 1288.73,
+      "end": 1296.4,
+      "text": "ident"
+    },
+    {
+      "start": 1296.4,
+      "end": 1300.5,
+      "text": "para que la identificación me quede"
+    },
+    {
+      "start": 1300.5,
+      "end": 1303.02,
+      "text": "me quede en el sistema"
+    },
+    {
+      "start": 1303.02,
+      "end": 1307.67,
+      "text": "ok, entonces a partir de aquí"
+    },
+    {
+      "start": 1307.67,
+      "end": 1322.35,
+      "text": "vamos a ver"
+    },
+    {
+      "start": 1322.35,
+      "end": 1329.83,
+      "text": "si el animal observado tiene pelo"
+    },
+    {
+      "start": 1329.83,
+      "end": 1334.97,
+      "text": "si o no, ok, la respuesta 1"
+    },
+    {
+      "start": 1334.97,
+      "end": 1336.71,
+      "text": "si la respuesta 1 fue sí"
+    },
+    {
+      "start": 1336.71,
+      "end": 1337.31,
+      "text": "entonces"
+    },
+    {
+      "start": 1337.31,
+      "end": 1339.91,
+      "text": "hago un assert"
+    },
+    {
+      "start": 1339.91,
+      "end": 1346.07,
+      "text": "de que efectivamente"
+    },
+    {
+      "start": 1346.07,
+      "end": 1347.81,
+      "text": "el individuo tiene pelo"
+    },
+    {
+      "start": 1347.81,
+      "end": 1351.89,
+      "text": "hay una cosa que, perdón"
+    },
+    {
+      "start": 1351.89,
+      "end": 1353.51,
+      "text": "les dije que fue"
+    },
+    {
+      "start": 1353.51,
+      "end": 1354.11,
+      "text": "que es"
+    },
+    {
+      "start": 1354.11,
+      "end": 1357.61,
+      "text": "incompleta, disculpen"
+    },
+    {
+      "start": 1357.61,
+      "end": 1361.45,
+      "text": "clips"
+    },
+    {
+      "start": 1361.45,
+      "end": 1363.55,
+      "text": "en realidad tiene cuatro"
+    },
+    {
+      "start": 1363.55,
+      "end": 1365.57,
+      "text": "cosas que define"
+    },
+    {
+      "start": 1365.57,
+      "end": 1379.19,
+      "text": "O sea, puedo definir hechos, puedo definir reglas, puedo definir plantillas, pero puedo también definir funciones."
+    },
+    {
+      "start": 1379.19,
+      "end": 1388.73,
+      "text": "o sea, en ese sentido"
+    },
+    {
+      "start": 1388.73,
+      "end": 1390.13,
+      "text": "Clips tiene un rango"
+    },
+    {
+      "start": 1390.13,
+      "end": 1393.23,
+      "text": "de posibilidades"
+    },
+    {
+      "start": 1393.23,
+      "end": 1394.65,
+      "text": "un poco más potente"
+    },
+    {
+      "start": 1394.65,
+      "end": 1395.97,
+      "text": "que Prolog"
+    },
+    {
+      "start": 1395.97,
+      "end": 1399.07,
+      "text": "porque yo sí puedo"
+    },
+    {
+      "start": 1399.07,
+      "end": 1400.69,
+      "text": "definir funciones matemáticas"
+    },
+    {
+      "start": 1400.69,
+      "end": 1403.11,
+      "text": "en Clips como objetos"
+    },
+    {
+      "start": 1403.11,
+      "end": 1404.77,
+      "text": "por aparte, como cosas por aparte"
+    },
+    {
+      "start": 1404.77,
+      "end": 1413.15,
+      "text": "entonces, bueno"
+    },
+    {
+      "start": 1413.15,
+      "end": 1417.45,
+      "text": "este es un pequeño ejemplo"
+    },
+    {
+      "start": 1417.45,
+      "end": 1419.49,
+      "text": "de lo que podría"
+    },
+    {
+      "start": 1419.49,
+      "end": 1421.59,
+      "text": "hacer un sistema experto, o sea,"
+    },
+    {
+      "start": 1421.73,
+      "end": 1423.13,
+      "text": "¿cómo haría un experto para"
+    },
+    {
+      "start": 1423.13,
+      "end": 1427.63,
+      "text": "clasificar, este, para, por"
+    },
+    {
+      "start": 1427.63,
+      "end": 1430.95,
+      "text": "ejemplo, para clasificar a, si"
+    },
+    {
+      "start": 1430.95,
+      "end": 1435.53,
+      "text": "está habiendo un animal, ¿cómo"
+    },
+    {
+      "start": 1435.53,
+      "end": 1436.49,
+      "text": "hacemos la clasificación"
+    },
+    {
+      "start": 1436.49,
+      "end": 1438.47,
+      "text": "taxonómica del animal? ¿De qué"
+    },
+    {
+      "start": 1438.47,
+      "end": 1446.45,
+      "text": "es eso? Identificar la especie."
+    },
+    {
+      "start": 1446.95,
+      "end": 1448.21,
+      "text": "¿Cómo hago para identificar la"
+    },
+    {
+      "start": 1448.21,
+      "end": 1450.55,
+      "text": "especie, dado que estoy viendo"
+    },
+    {
+      "start": 1450.55,
+      "end": 1457.5,
+      "text": "un animal, entonces"
+    },
+    {
+      "start": 1457.5,
+      "end": 1459.66,
+      "text": "si bien aquí solo hay reglas"
+    },
+    {
+      "start": 1459.66,
+      "end": 1462.12,
+      "text": "como les digo"
+    },
+    {
+      "start": 1462.12,
+      "end": 1463.8,
+      "text": "también puedo definir"
+    },
+    {
+      "start": 1463.8,
+      "end": 1465.96,
+      "text": "plantillas para estructuras"
+    },
+    {
+      "start": 1465.96,
+      "end": 1466.4,
+      "text": "de datos"
+    },
+    {
+      "start": 1466.4,
+      "end": 1469.64,
+      "text": "puedo definir hechos"
+    },
+    {
+      "start": 1469.64,
+      "end": 1471.96,
+      "text": "como por ejemplo el hecho inicial"
+    },
+    {
+      "start": 1471.96,
+      "end": 1475.64,
+      "text": "y puedo"
+    },
+    {
+      "start": 1475.64,
+      "end": 1477.84,
+      "text": "definir"
+    },
+    {
+      "start": 1477.84,
+      "end": 1478.36,
+      "text": "funciones"
+    },
+    {
+      "start": 1478.36,
+      "end": 1481.64,
+      "text": "assert me sirve"
+    },
+    {
+      "start": 1481.64,
+      "end": 1483.68,
+      "text": "para poner cosas en el ambiente"
+    },
+    {
+      "start": 1483.68,
+      "end": 1485.44,
+      "text": "si, si tengo"
+    },
+    {
+      "start": 1485.44,
+      "end": 1486.02,
+      "text": "retract"
+    },
+    {
+      "start": 1486.02,
+      "end": 1489.34,
+      "text": "para quitar cosas"
+    },
+    {
+      "start": 1489.34,
+      "end": 1490.06,
+      "text": "en el ambiente"
+    },
+    {
+      "start": 1490.06,
+      "end": 1491.48,
+      "text": "retract"
+    },
+    {
+      "start": 1491.48,
+      "end": 1496.61,
+      "text": "y como ven todo tiene"
+    },
+    {
+      "start": 1496.61,
+      "end": 1498.03,
+      "text": "una sintaxis muy sencilla"
+    },
+    {
+      "start": 1498.03,
+      "end": 1500.19,
+      "text": "todo es en la forma de"
+    },
+    {
+      "start": 1500.19,
+      "end": 1502.59,
+      "text": "si P implica Q"
+    },
+    {
+      "start": 1502.59,
+      "end": 1504.63,
+      "text": "donde"
+    },
+    {
+      "start": 1504.63,
+      "end": 1506.41,
+      "text": "como ven si tengo varias cosas"
+    },
+    {
+      "start": 1506.41,
+      "end": 1507.61,
+      "text": "en el P"
+    },
+    {
+      "start": 1507.61,
+      "end": 1512.56,
+      "text": "supongo que cada una de ellas"
+    },
+    {
+      "start": 1512.56,
+      "end": 1514.0,
+      "text": "está unida por un I"
+    },
+    {
+      "start": 1514.0,
+      "end": 1516.78,
+      "text": "así vuela I pone huevos"
+    },
+    {
+      "start": 1516.78,
+      "end": 1517.94,
+      "text": "entonces"
+    },
+    {
+      "start": 1517.94,
+      "end": 1520.46,
+      "text": "haga esto y esto y esto"
+    },
+    {
+      "start": 1520.46,
+      "end": 1521.16,
+      "text": "y esto otro"
+    },
+    {
+      "start": 1521.16,
+      "end": 1536.29,
+      "text": "ok, ¿tienen alguna pregunta?"
+    },
+    {
+      "start": 1541.25,
+      "end": 1542.23,
+      "text": "todo claro, Sarita"
+    },
+    {
+      "start": 1542.23,
+      "end": 1543.71,
+      "text": "ok, muchas gracias"
+    },
+    {
+      "start": 1543.71,
+      "end": 1546.77,
+      "text": "vean que interesante, esto aún así"
+    },
+    {
+      "start": 1546.77,
+      "end": 1548.79,
+      "text": "todavía es una forma de"
+    },
+    {
+      "start": 1548.79,
+      "end": 1549.69,
+      "text": "una cláusula"
+    },
+    {
+      "start": 1549.69,
+      "end": 1556.01,
+      "text": "por la siguiente razón"
+    },
+    {
+      "start": 1556.01,
+      "end": 1557.69,
+      "text": "aquí"
+    },
+    {
+      "start": 1557.69,
+      "end": 1559.97,
+      "text": "esto ya es Word, así que voy a"
+    },
+    {
+      "start": 1559.97,
+      "end": 1561.77,
+      "text": "poner este documento"
+    },
+    {
+      "start": 1561.77,
+      "end": 1563.89,
+      "text": "las cláusulas nosotros vimos"
+    },
+    {
+      "start": 1563.89,
+      "end": 1566.05,
+      "text": "que son en la forma"
+    },
+    {
+      "start": 1566.05,
+      "end": 1567.31,
+      "text": "Por ejemplo"
+    },
+    {
+      "start": 1567.31,
+      "end": 1568.79,
+      "text": "P"
+    },
+    {
+      "start": 1568.79,
+      "end": 1570.59,
+      "text": "Q"
+    },
+    {
+      "start": 1570.59,
+      "end": 1572.53,
+      "text": "Este"
+    },
+    {
+      "start": 1572.53,
+      "end": 1578.05,
+      "text": "Un momentito"
+    },
+    {
+      "start": 1578.05,
+      "end": 1580.21,
+      "text": "No, no es ese"
+    },
+    {
+      "start": 1580.21,
+      "end": 1582.41,
+      "text": "No tampoco"
+    },
+    {
+      "start": 1582.41,
+      "end": 1584.77,
+      "text": "Eh, no"
+    },
+    {
+      "start": 1584.77,
+      "end": 1590.17,
+      "text": "Permítame un momento"
+    },
+    {
+      "start": 1590.17,
+      "end": 1592.05,
+      "text": "Bueno, ahí"
+    },
+    {
+      "start": 1592.05,
+      "end": 1601.79,
+      "text": "Qué dibujo más feo de una llave"
+    },
+    {
+      "start": 1601.79,
+      "end": 1603.57,
+      "text": "Y lo entendió bien"
+    },
+    {
+      "start": 1603.57,
+      "end": 1611.26,
+      "text": "Puedo tener P"
+    },
+    {
+      "start": 1611.26,
+      "end": 1618.44,
+      "text": "Puedo tener Q"
+    },
+    {
+      "start": 1618.44,
+      "end": 1625.38,
+      "text": "Puedo tener"
+    },
+    {
+      "start": 1625.38,
+      "end": 1626.88,
+      "text": "No"
+    },
+    {
+      "start": 1626.88,
+      "end": 1628.56,
+      "text": "R"
+    },
+    {
+      "start": 1628.56,
+      "end": 1637.88,
+      "text": "y no S"
+    },
+    {
+      "start": 1637.88,
+      "end": 1642.08,
+      "text": "esa S si me quedó horrible"
+    },
+    {
+      "start": 1642.08,
+      "end": 1653.4,
+      "text": "bueno"
+    },
+    {
+      "start": 1653.4,
+      "end": 1663.26,
+      "text": "aquí lo voy a corregir"
+    },
+    {
+      "start": 1663.26,
+      "end": 1666.66,
+      "text": "esto es P"
+    },
+    {
+      "start": 1666.66,
+      "end": 1682.77,
+      "text": "Q, no R"
+    },
+    {
+      "start": 1682.77,
+      "end": 1686.29,
+      "text": "y no S"
+    },
+    {
+      "start": 1686.29,
+      "end": 1694.14,
+      "text": "ok, esto"
+    },
+    {
+      "start": 1694.14,
+      "end": 1699.34,
+      "text": "como cláusula"
+    },
+    {
+      "start": 1699.34,
+      "end": 1701.22,
+      "text": "en la anotación"
+    },
+    {
+      "start": 1701.22,
+      "end": 1702.52,
+      "text": "de Robinson, en realidad"
+    },
+    {
+      "start": 1702.52,
+      "end": 1707.14,
+      "text": "está equivaliendo a"
+    },
+    {
+      "start": 1707.14,
+      "end": 1707.74,
+      "text": "este"
+    },
+    {
+      "start": 1707.74,
+      "end": 1710.92,
+      "text": "P o Q"
+    },
+    {
+      "start": 1710.92,
+      "end": 1712.88,
+      "text": "o no R o no S"
+    },
+    {
+      "start": 1712.88,
+      "end": 1722.62,
+      "text": "pero este"
+    },
+    {
+      "start": 1722.62,
+      "end": 1751.65,
+      "text": "o sea porque está en la forma"
+    },
+    {
+      "start": 1751.65,
+      "end": 1753.11,
+      "text": "normal este"
+    },
+    {
+      "start": 1753.11,
+      "end": 1761.53,
+      "text": "conjuntiva así que eso"
+    },
+    {
+      "start": 1761.53,
+      "end": 1762.59,
+      "text": "equivale a esto"
+    },
+    {
+      "start": 1762.59,
+      "end": 1788.9,
+      "text": "y entonces este"
+    },
+    {
+      "start": 1788.9,
+      "end": 1806.32,
+      "text": "¿y qué es esto?"
+    },
+    {
+      "start": 1807.04,
+      "end": 1813.23,
+      "text": "ah, perdón, perdón"
+    },
+    {
+      "start": 1813.23,
+      "end": 1830.35,
+      "text": "ahí, final de semana"
+    },
+    {
+      "start": 1830.35,
+      "end": 1832.25,
+      "text": "final de semestre, final de año"
+    },
+    {
+      "start": 1832.25,
+      "end": 1835.75,
+      "text": "se me está juntando"
+    },
+    {
+      "start": 1835.75,
+      "end": 1836.13,
+      "text": "todo"
+    },
+    {
+      "start": 1836.13,
+      "end": 1839.25,
+      "text": "bueno, ustedes deben estar"
+    },
+    {
+      "start": 1839.25,
+      "end": 1840.35,
+      "text": "parecido o peor"
+    },
+    {
+      "start": 1840.35,
+      "end": 1842.23,
+      "text": "supongo"
+    },
+    {
+      "start": 1842.23,
+      "end": 1847.78,
+      "text": "entonces esto por supuesto que equivale"
+    },
+    {
+      "start": 1847.78,
+      "end": 1861.14,
+      "text": "a esto"
+    },
+    {
+      "start": 1861.14,
+      "end": 1867.9,
+      "text": "bueno, si bien"
+    },
+    {
+      "start": 1867.9,
+      "end": 1870.3,
+      "text": "si es cierto que nos está fallando aquí"
+    },
+    {
+      "start": 1870.3,
+      "end": 1872.62,
+      "text": "porque"
+    },
+    {
+      "start": 1872.62,
+      "end": 1874.82,
+      "text": "esto equivaldría"
+    },
+    {
+      "start": 1874.82,
+      "end": 1902.12,
+      "text": "R"
+    },
+    {
+      "start": 1902.12,
+      "end": 1903.1,
+      "text": "R o S"
+    },
+    {
+      "start": 1903.1,
+      "end": 1904.8,
+      "text": "a esto"
+    },
+    {
+      "start": 1904.8,
+      "end": 1907.42,
+      "text": "R o S"
+    },
+    {
+      "start": 1907.42,
+      "end": 1909.98,
+      "text": "la R"
+    },
+    {
+      "start": 1909.98,
+      "end": 1911.88,
+      "text": "vibrante siempre, toda la vida me ha dado"
+    },
+    {
+      "start": 1911.88,
+      "end": 1912.58,
+      "text": "muchos problemas"
+    },
+    {
+      "start": 1912.58,
+      "end": 1918.17,
+      "text": "de que esto"
+    },
+    {
+      "start": 1918.17,
+      "end": 1921.26,
+      "text": "implican"
+    },
+    {
+      "start": 1921.26,
+      "end": 1936.16,
+      "text": "bueno, está en los operadores"
+    },
+    {
+      "start": 1936.16,
+      "end": 1946.26,
+      "text": "yo creo, ahí está"
+    },
+    {
+      "start": 1946.26,
+      "end": 1948.5,
+      "text": "de que"
+    },
+    {
+      "start": 1948.5,
+      "end": 1950.08,
+      "text": "RIS implica"
+    },
+    {
+      "start": 1950.08,
+      "end": 1951.9,
+      "text": "POQ"
+    },
+    {
+      "start": 1951.9,
+      "end": 1954.38,
+      "text": "bueno, ahí nos"
+    },
+    {
+      "start": 1954.38,
+      "end": 1954.96,
+      "text": "falla un poco"
+    },
+    {
+      "start": 1954.96,
+      "end": 1959.34,
+      "text": "el operando"
+    },
+    {
+      "start": 1959.34,
+      "end": 1967.06,
+      "text": "pero no es difícil ver"
+    },
+    {
+      "start": 1967.06,
+      "end": 1967.68,
+      "text": "que"
+    },
+    {
+      "start": 1967.68,
+      "end": 1980.69,
+      "text": "este"
+    },
+    {
+      "start": 1980.69,
+      "end": 1984.26,
+      "text": "modificando un poco"
+    },
+    {
+      "start": 1984.26,
+      "end": 1986.44,
+      "text": "la forma, el esquema"
+    },
+    {
+      "start": 1986.44,
+      "end": 1987.66,
+      "text": "de producir las cláusulas"
+    },
+    {
+      "start": 1987.66,
+      "end": 1991.82,
+      "text": "podemos llegar a esta forma"
+    },
+    {
+      "start": 1991.82,
+      "end": 1994.06,
+      "text": "que esto, precisamente esto"
+    },
+    {
+      "start": 1994.06,
+      "end": 1995.54,
+      "text": "es una"
+    },
+    {
+      "start": 1995.54,
+      "end": 1997.3,
+      "text": "regla"
+    },
+    {
+      "start": 1997.3,
+      "end": 1998.92,
+      "text": "de Eclipse"
+    },
+    {
+      "start": 1998.92,
+      "end": 2010.02,
+      "text": "como ven"
+    },
+    {
+      "start": 2010.02,
+      "end": 2018.39,
+      "text": "bueno, Eclipse es un sistema"
+    },
+    {
+      "start": 2018.39,
+      "end": 2018.71,
+      "text": "de"
+    },
+    {
+      "start": 2018.71,
+      "end": 2022.05,
+      "text": "en cambio, como ven"
+    },
+    {
+      "start": 2022.05,
+      "end": 2023.57,
+      "text": "es de razonamiento hacia adelante"
+    },
+    {
+      "start": 2023.57,
+      "end": 2026.13,
+      "text": "yo no sé cuál es mi"
+    },
+    {
+      "start": 2026.13,
+      "end": 2027.59,
+      "text": "conclusión en este caso"
+    },
+    {
+      "start": 2027.59,
+      "end": 2029.91,
+      "text": "entonces voy preguntando"
+    },
+    {
+      "start": 2029.91,
+      "end": 2031.25,
+      "text": "bueno esto es una"
+    },
+    {
+      "start": 2031.25,
+      "end": 2032.21,
+      "text": "será esto una"
+    },
+    {
+      "start": 2032.21,
+      "end": 2036.03,
+      "text": "si tiene esto"
+    },
+    {
+      "start": 2036.03,
+      "end": 2037.81,
+      "text": "si tiene pelo entonces"
+    },
+    {
+      "start": 2037.81,
+      "end": 2041.39,
+      "text": "ok es un mamífero"
+    },
+    {
+      "start": 2041.39,
+      "end": 2043.87,
+      "text": "entonces ya sabiendo que es"
+    },
+    {
+      "start": 2043.87,
+      "end": 2045.65,
+      "text": "un mamífero entonces"
+    },
+    {
+      "start": 2045.65,
+      "end": 2047.23,
+      "text": "si es un mamífero y"
+    },
+    {
+      "start": 2047.23,
+      "end": 2049.67,
+      "text": "tiene gafas"
+    },
+    {
+      "start": 2049.67,
+      "end": 2054.11,
+      "text": "entonces es un carnívoro"
+    },
+    {
+      "start": 2054.11,
+      "end": 2055.71,
+      "text": "o si"
+    },
+    {
+      "start": 2055.71,
+      "end": 2060.27,
+      "text": "tiene pelo y tiene colmillos grandes, es"
+    },
+    {
+      "start": 2060.27,
+      "end": 2063.45,
+      "text": "un carnívoro. Entonces ahora tenemos"
+    },
+    {
+      "start": 2063.45,
+      "end": 2066.53,
+      "text": "todos los tipos de carnívoros, puede ser"
+    },
+    {
+      "start": 2066.53,
+      "end": 2070.11,
+      "text": "un cánido, puede ser un félido,"
+    },
+    {
+      "start": 2072.94,
+      "end": 2081.43,
+      "text": "podría ser un primate, los primates son"
+    },
+    {
+      "start": 2081.43,
+      "end": 2083.71,
+      "text": "también carnívoros, bueno somos también"
+    },
+    {
+      "start": 2083.71,
+      "end": 2086.25,
+      "text": "carnívoros obviamente, aunque no tengamos"
+    },
+    {
+      "start": 2086.25,
+      "end": 2088.25,
+      "text": "los colmillos así de grandes, los seres"
+    },
+    {
+      "start": 2088.25,
+      "end": 2091.13,
+      "text": "humanos. ¿Qué otros animales son"
+    },
+    {
+      "start": 2091.13,
+      "end": 2091.85,
+      "text": "carnívoros"
+    },
+    {
+      "start": 2091.85,
+      "end": 2094.05,
+      "text": "bueno, en fin"
+    },
+    {
+      "start": 2094.05,
+      "end": 2096.99,
+      "text": "eso no es el tema de la clase de hoy"
+    },
+    {
+      "start": 2096.99,
+      "end": 2105.02,
+      "text": "ok, esto es Clips"
+    },
+    {
+      "start": 2105.02,
+      "end": 2107.18,
+      "text": "y es la, digámoslo así"
+    },
+    {
+      "start": 2107.18,
+      "end": 2108.9,
+      "text": "un representante de la segunda"
+    },
+    {
+      "start": 2108.9,
+      "end": 2111.54,
+      "text": "variedad de lenguajes lógicos"
+    },
+    {
+      "start": 2111.54,
+      "end": 2115.97,
+      "text": "¿tienen alguna"
+    },
+    {
+      "start": 2115.97,
+      "end": 2123.78,
+      "text": "pregunta? ¿alguna duda?"
+    },
+    {
+      "start": 2130.28,
+      "end": 2131.62,
+      "text": "yo no sé que lo hice"
+    },
+    {
+      "start": 2131.62,
+      "end": 2133.22,
+      "text": "pero vieran que"
+    },
+    {
+      "start": 2133.22,
+      "end": 2135.92,
+      "text": "yo tenía"
+    },
+    {
+      "start": 2135.92,
+      "end": 2142.38,
+      "text": "yo tenía un"
+    },
+    {
+      "start": 2142.38,
+      "end": 2144.58,
+      "text": "sistema experto para saber"
+    },
+    {
+      "start": 2144.58,
+      "end": 2146.48,
+      "text": "qué nudo de la corbata"
+    },
+    {
+      "start": 2146.48,
+      "end": 2148.72,
+      "text": "sería bueno"
+    },
+    {
+      "start": 2148.72,
+      "end": 2149.76,
+      "text": "sería bueno usar"
+    },
+    {
+      "start": 2149.76,
+      "end": 2152.64,
+      "text": "dependiendo de varios"
+    },
+    {
+      "start": 2152.64,
+      "end": 2154.18,
+      "text": "factores, pero no sé que lo hice"
+    },
+    {
+      "start": 2154.18,
+      "end": 2156.82,
+      "text": "ya estaba buscándolo para"
+    },
+    {
+      "start": 2156.82,
+      "end": 2158.8,
+      "text": "mostrárselos"
+    },
+    {
+      "start": 2158.8,
+      "end": 2160.62,
+      "text": "pero si bien es cierto"
+    },
+    {
+      "start": 2160.62,
+      "end": 2162.58,
+      "text": "que Clips, quiero resaltar eso, Clips"
+    },
+    {
+      "start": 2162.58,
+      "end": 2163.66,
+      "text": "nace en el contexto"
+    },
+    {
+      "start": 2163.66,
+      "end": 2166.76,
+      "text": "de la producción o de la fabricación de sistemas"
+    },
+    {
+      "start": 2166.76,
+      "end": 2168.72,
+      "text": "expertos basados en reglas de producción"
+    },
+    {
+      "start": 2168.72,
+      "end": 2172.76,
+      "text": "creció lo suficiente para hacer un lenguaje"
+    },
+    {
+      "start": 2172.76,
+      "end": 2173.56,
+      "text": "Turing completo"
+    },
+    {
+      "start": 2173.56,
+      "end": 2226.83,
+      "text": "Ok, empecemos con nuestro último paradigma, que es orientación a objetos, que es el paradigma que podemos decir fue el que casi hace desaparecer al paradigma imperativo."
+    },
+    {
+      "start": 2226.83,
+      "end": 2230.18,
+      "text": "el paradigma imperativo"
+    },
+    {
+      "start": 2230.18,
+      "end": 2232.64,
+      "text": "solamente subsiste"
+    },
+    {
+      "start": 2232.64,
+      "end": 2234.86,
+      "text": "en parte por legacy code"
+    },
+    {
+      "start": 2234.86,
+      "end": 2236.44,
+      "text": "de"
+    },
+    {
+      "start": 2236.44,
+      "end": 2238.58,
+      "text": "código muy importante que fue"
+    },
+    {
+      "start": 2238.58,
+      "end": 2240.02,
+      "text": "escrito en lenguajes"
+    },
+    {
+      "start": 2240.02,
+      "end": 2242.3,
+      "text": "imperativos"
+    },
+    {
+      "start": 2242.3,
+      "end": 2244.66,
+      "text": "COBOL, FORTRAN, un poco"
+    },
+    {
+      "start": 2244.66,
+      "end": 2246.76,
+      "text": "en Pascal, C por supuesto"
+    },
+    {
+      "start": 2246.76,
+      "end": 2248.64,
+      "text": "todavía sigue produciéndose"
+    },
+    {
+      "start": 2248.64,
+      "end": 2249.88,
+      "text": "muchísimo código en C"
+    },
+    {
+      "start": 2249.88,
+      "end": 2255.32,
+      "text": "y código nuevo en C"
+    },
+    {
+      "start": 2255.32,
+      "end": 2262.09,
+      "text": "los físicos"
+    },
+    {
+      "start": 2262.09,
+      "end": 2264.21,
+      "text": "siguen trabajando"
+    },
+    {
+      "start": 2264.21,
+      "end": 2266.25,
+      "text": "muy duro en Fortran"
+    },
+    {
+      "start": 2266.25,
+      "end": 2267.75,
+      "text": "especialmente en Fortran"
+    },
+    {
+      "start": 2267.75,
+      "end": 2269.79,
+      "text": "en algunas de sus versiones en paralelo"
+    },
+    {
+      "start": 2269.79,
+      "end": 2272.31,
+      "text": "y eso es lo que"
+    },
+    {
+      "start": 2272.31,
+      "end": 2274.37,
+      "text": "mantiene vivo digamos al paradigma imperativo"
+    },
+    {
+      "start": 2274.37,
+      "end": 2276.05,
+      "text": "pero"
+    },
+    {
+      "start": 2276.05,
+      "end": 2277.79,
+      "text": "para lo que es programación"
+    },
+    {
+      "start": 2277.79,
+      "end": 2280.05,
+      "text": "comercial está crecido"
+    },
+    {
+      "start": 2280.05,
+      "end": 2282.31,
+      "text": "de una manera tan espectacular"
+    },
+    {
+      "start": 2282.31,
+      "end": 2286.17,
+      "text": "creando"
+    },
+    {
+      "start": 2286.17,
+      "end": 2288.17,
+      "text": "divisiones que hace muchísimo tiempo"
+    },
+    {
+      "start": 2288.17,
+      "end": 2289.79,
+      "text": "no existían como"
+    },
+    {
+      "start": 2289.79,
+      "end": 2291.99,
+      "text": "front end, back end"
+    },
+    {
+      "start": 2291.99,
+      "end": 2294.69,
+      "text": "gente ya habla del middle end"
+    },
+    {
+      "start": 2294.69,
+      "end": 2295.77,
+      "text": "desde hace un rato"
+    },
+    {
+      "start": 2295.77,
+      "end": 2297.67,
+      "text": "y"
+    },
+    {
+      "start": 2297.67,
+      "end": 2302.16,
+      "text": "bueno, programación orientada a objetos"
+    },
+    {
+      "start": 2302.16,
+      "end": 2305.92,
+      "text": "es una de las"
+    },
+    {
+      "start": 2305.92,
+      "end": 2307.78,
+      "text": "grandes normas en este"
+    },
+    {
+      "start": 2307.78,
+      "end": 2309.9,
+      "text": "momento, es el paradigma más usado"
+    },
+    {
+      "start": 2309.9,
+      "end": 2313.94,
+      "text": "los lenguajes, o sea"
+    },
+    {
+      "start": 2313.94,
+      "end": 2315.66,
+      "text": "cada vez que surge el lenguaje nuevo"
+    },
+    {
+      "start": 2315.66,
+      "end": 2318.02,
+      "text": "lo crean de una"
+    },
+    {
+      "start": 2318.02,
+      "end": 2319.28,
+      "text": "vez ya con orientación a objetos"
+    },
+    {
+      "start": 2319.28,
+      "end": 2323.8,
+      "text": "y si es de algún otro paradigma"
+    },
+    {
+      "start": 2323.8,
+      "end": 2325.48,
+      "text": "aún así le"
+    },
+    {
+      "start": 2325.48,
+      "end": 2327.58,
+      "text": "meten características de orientación a objetos"
+    },
+    {
+      "start": 2327.58,
+      "end": 2331.5,
+      "text": "ok, este"
+    },
+    {
+      "start": 2331.5,
+      "end": 2334.38,
+      "text": "volviéndonos"
+    },
+    {
+      "start": 2334.38,
+      "end": 2336.08,
+      "text": "muy atrás, yo les digo que"
+    },
+    {
+      "start": 2336.08,
+      "end": 2337.88,
+      "text": "Cobol en los años 60"
+    },
+    {
+      "start": 2337.88,
+      "end": 2340.22,
+      "text": "logró, fue Cobol"
+    },
+    {
+      "start": 2340.22,
+      "end": 2342.06,
+      "text": "quien logró que la computación"
+    },
+    {
+      "start": 2342.06,
+      "end": 2343.18,
+      "text": "se difundiera a gran escala"
+    },
+    {
+      "start": 2343.18,
+      "end": 2346.16,
+      "text": "no fue la computadora"
+    },
+    {
+      "start": 2346.16,
+      "end": 2346.64,
+      "text": "en sí"
+    },
+    {
+      "start": 2346.64,
+      "end": 2350.2,
+      "text": "por supuesto que la máquina obviamente ayudó"
+    },
+    {
+      "start": 2350.2,
+      "end": 2353.23,
+      "text": "mucho, pero"
+    },
+    {
+      "start": 2353.23,
+      "end": 2357.73,
+      "text": "fue la aparición"
+    },
+    {
+      "start": 2357.73,
+      "end": 2359.89,
+      "text": "y la difusión"
+    },
+    {
+      "start": 2359.89,
+      "end": 2360.93,
+      "text": "del lenguaje Cobol"
+    },
+    {
+      "start": 2360.93,
+      "end": 2364.57,
+      "text": "lo que podemos decir que creó"
+    },
+    {
+      "start": 2364.57,
+      "end": 2366.63,
+      "text": "la industria de la computación"
+    },
+    {
+      "start": 2366.63,
+      "end": 2369.01,
+      "text": "se asentó a las bases de la industria de la computación"
+    },
+    {
+      "start": 2369.01,
+      "end": 2370.51,
+      "text": "tal y como la conocemos hoy en día"
+    },
+    {
+      "start": 2370.51,
+      "end": 2374.6,
+      "text": "porque las grandes corporaciones"
+    },
+    {
+      "start": 2374.6,
+      "end": 2376.2,
+      "text": "como digo aquí, empezaron a comprar"
+    },
+    {
+      "start": 2376.2,
+      "end": 2378.54,
+      "text": "o alquilar equipo computacional"
+    },
+    {
+      "start": 2378.54,
+      "end": 2380.9,
+      "text": "para automatizar sus operaciones"
+    },
+    {
+      "start": 2380.9,
+      "end": 2383.12,
+      "text": "y no solamente las grandes corporaciones"
+    },
+    {
+      "start": 2383.12,
+      "end": 2384.24,
+      "text": "privadas"
+    },
+    {
+      "start": 2384.24,
+      "end": 2386.82,
+      "text": "también los gobiernos"
+    },
+    {
+      "start": 2386.82,
+      "end": 2392.25,
+      "text": "oficina del censo"
+    },
+    {
+      "start": 2392.25,
+      "end": 2399.02,
+      "text": "los diferentes dependencias"
+    },
+    {
+      "start": 2399.02,
+      "end": 2400.78,
+      "text": "en Estados Unidos, por ejemplo"
+    },
+    {
+      "start": 2400.78,
+      "end": 2401.68,
+      "text": "el IRS"
+    },
+    {
+      "start": 2401.68,
+      "end": 2407.01,
+      "text": "el brazo armado"
+    },
+    {
+      "start": 2407.01,
+      "end": 2408.99,
+      "text": "digamoslo así, del departamento del tesoro"
+    },
+    {
+      "start": 2408.99,
+      "end": 2410.91,
+      "text": "o sea, el encargado"
+    },
+    {
+      "start": 2410.91,
+      "end": 2413.29,
+      "text": "de cobrar los impuestos"
+    },
+    {
+      "start": 2413.29,
+      "end": 2420.95,
+      "text": "no es de sorprender que"
+    },
+    {
+      "start": 2420.95,
+      "end": 2422.15,
+      "text": "entonces en Costa Rica"
+    },
+    {
+      "start": 2422.15,
+      "end": 2424.95,
+      "text": "las primeras entidades"
+    },
+    {
+      "start": 2424.95,
+      "end": 2426.99,
+      "text": "que tuvieron"
+    },
+    {
+      "start": 2426.99,
+      "end": 2427.85,
+      "text": "computadoras"
+    },
+    {
+      "start": 2427.85,
+      "end": 2429.63,
+      "text": "en los 60"
+    },
+    {
+      "start": 2429.63,
+      "end": 2431.05,
+      "text": "fueron"
+    },
+    {
+      "start": 2431.05,
+      "end": 2433.33,
+      "text": "los bancos estatales"
+    },
+    {
+      "start": 2433.33,
+      "end": 2436.07,
+      "text": "la caja"
+    },
+    {
+      "start": 2436.07,
+      "end": 2437.73,
+      "text": "costavicense del seguro social"
+    },
+    {
+      "start": 2437.73,
+      "end": 2440.25,
+      "text": "me parece"
+    },
+    {
+      "start": 2440.25,
+      "end": 2442.49,
+      "text": "también que la municipalidad de San José"
+    },
+    {
+      "start": 2442.49,
+      "end": 2445.88,
+      "text": "la universidad"
+    },
+    {
+      "start": 2445.88,
+      "end": 2446.54,
+      "text": "de Costa Rica"
+    },
+    {
+      "start": 2446.54,
+      "end": 2451.31,
+      "text": "y bueno el ICE"
+    },
+    {
+      "start": 2451.31,
+      "end": 2453.73,
+      "text": "el ICE"
+    },
+    {
+      "start": 2453.73,
+      "end": 2455.75,
+      "text": "más que nadie porque el ICE necesitaba"
+    },
+    {
+      "start": 2455.75,
+      "end": 2457.27,
+      "text": "no solamente"
+    },
+    {
+      "start": 2457.27,
+      "end": 2459.45,
+      "text": "administración de cuentas sino también"
+    },
+    {
+      "start": 2459.45,
+      "end": 2463.09,
+      "text": "proyectos de ingeniería de gran escala"
+    },
+    {
+      "start": 2463.09,
+      "end": 2465.07,
+      "text": "que ocupaban muchos cálculos"
+    },
+    {
+      "start": 2465.07,
+      "end": 2466.97,
+      "text": "entonces además"
+    },
+    {
+      "start": 2466.97,
+      "end": 2467.47,
+      "text": "del ICE"
+    },
+    {
+      "start": 2467.47,
+      "end": 2471.05,
+      "text": "el acueducto se ha alcantarillado"
+    },
+    {
+      "start": 2471.05,
+      "end": 2472.01,
+      "text": "para cobrar"
+    },
+    {
+      "start": 2472.01,
+      "end": 2478.08,
+      "text": "entonces esta oleada como les digo"
+    },
+    {
+      "start": 2478.08,
+      "end": 2480.1,
+      "text": "alcanzó a Europa y Latinoamérica"
+    },
+    {
+      "start": 2480.1,
+      "end": 2482.28,
+      "text": "en realidad muy pronto, en cuestión de"
+    },
+    {
+      "start": 2482.28,
+      "end": 2484.24,
+      "text": "5 o 6 años"
+    },
+    {
+      "start": 2484.24,
+      "end": 2486.12,
+      "text": "ya empezó a difundirse"
+    },
+    {
+      "start": 2486.12,
+      "end": 2488.24,
+      "text": "la computadora y la computación en América Latina"
+    },
+    {
+      "start": 2488.24,
+      "end": 2492.26,
+      "text": "solo que vean, en Costa Rica"
+    },
+    {
+      "start": 2492.26,
+      "end": 2494.66,
+      "text": "las primeras"
+    },
+    {
+      "start": 2494.66,
+      "end": 2497.26,
+      "text": "carreras de computación"
+    },
+    {
+      "start": 2497.26,
+      "end": 2499.34,
+      "text": "empiezan"
+    },
+    {
+      "start": 2499.34,
+      "end": 2501.44,
+      "text": "hasta los años 70 y segunda mitad"
+    },
+    {
+      "start": 2501.44,
+      "end": 2502.42,
+      "text": "de los años 70"
+    },
+    {
+      "start": 2502.42,
+      "end": 2508.32,
+      "text": "inclusive en la Universidad de Costa Rica"
+    },
+    {
+      "start": 2508.32,
+      "end": 2510.08,
+      "text": "permitieron"
+    },
+    {
+      "start": 2510.08,
+      "end": 2512.08,
+      "text": "que se diera"
+    },
+    {
+      "start": 2512.08,
+      "end": 2512.9,
+      "text": "un desorden"
+    },
+    {
+      "start": 2512.9,
+      "end": 2515.04,
+      "text": "en este sentido"
+    },
+    {
+      "start": 2515.04,
+      "end": 2517.64,
+      "text": "la carrera que"
+    },
+    {
+      "start": 2517.64,
+      "end": 2520.0,
+      "text": "inició"
+    },
+    {
+      "start": 2520.0,
+      "end": 2521.56,
+      "text": "la computación"
+    },
+    {
+      "start": 2521.56,
+      "end": 2524.26,
+      "text": "como carrera"
+    },
+    {
+      "start": 2524.26,
+      "end": 2529.84,
+      "text": "bueno, fue la escuela de matemática"
+    },
+    {
+      "start": 2529.84,
+      "end": 2533.58,
+      "text": "la cabrera de ciencias de la computación"
+    },
+    {
+      "start": 2533.58,
+      "end": 2536.08,
+      "text": "era en realidad un asomo"
+    },
+    {
+      "start": 2536.08,
+      "end": 2540.08,
+      "text": "de lo que hoy se llamaría una cabrera de matemática aplicada"
+    },
+    {
+      "start": 2540.08,
+      "end": 2541.1,
+      "text": "usando computadoras"
+    },
+    {
+      "start": 2541.1,
+      "end": 2547.12,
+      "text": "esa era la intención de esa cabrera"
+    },
+    {
+      "start": 2547.12,
+      "end": 2553.4,
+      "text": "entonces, por ejemplo, en esa cabrera era muy rara"
+    },
+    {
+      "start": 2553.4,
+      "end": 2556.02,
+      "text": "en el sentido de que era una cabrera de computación"
+    },
+    {
+      "start": 2556.02,
+      "end": 2558.42,
+      "text": "pero no había"
+    },
+    {
+      "start": 2558.42,
+      "end": 2560.44,
+      "text": "un curso de sistemas operativos"
+    },
+    {
+      "start": 2560.44,
+      "end": 2562.74,
+      "text": "no había un curso de compiladores"
+    },
+    {
+      "start": 2562.74,
+      "end": 2564.74,
+      "text": "este"
+    },
+    {
+      "start": 2564.74,
+      "end": 2566.94,
+      "text": "no había ningún curso"
+    },
+    {
+      "start": 2566.94,
+      "end": 2568.64,
+      "text": "de, bueno, comunicaciones estaban"
+    },
+    {
+      "start": 2568.64,
+      "end": 2570.38,
+      "text": "en los sesentas y en los ochentas"
+    },
+    {
+      "start": 2570.38,
+      "end": 2572.38,
+      "text": "pero en setentas y ochentas estaba apenas"
+    },
+    {
+      "start": 2572.38,
+      "end": 2574.5,
+      "text": "empezando, entonces"
+    },
+    {
+      "start": 2574.5,
+      "end": 2575.98,
+      "text": "es razonable que no hubiera"
+    },
+    {
+      "start": 2575.98,
+      "end": 2578.36,
+      "text": "nada muy profundo en comunicaciones"
+    },
+    {
+      "start": 2578.36,
+      "end": 2581.39,
+      "text": "pero no había nada de eso"
+    },
+    {
+      "start": 2581.39,
+      "end": 2584.17,
+      "text": "en cambio la gente llevaba"
+    },
+    {
+      "start": 2584.17,
+      "end": 2586.07,
+      "text": "una cantidad enorme de cursos de matemática"
+    },
+    {
+      "start": 2586.07,
+      "end": 2605.75,
+      "text": "Por otro lado, el centro de informática de la Universidad de Costa Rica necesitaba programadores, pero la mayor parte de los programadores de ahí se hacían en la calle, ya se hacían por sí mismos."
+    },
+    {
+      "start": 2605.75,
+      "end": 2615.36,
+      "text": "Eran que las compañías como IBM, Burroughs, Kit y Ramírez"
+    },
+    {
+      "start": 2615.36,
+      "end": 2617.52,
+      "text": "En ese momento en Costa Rica"
+    },
+    {
+      "start": 2617.52,
+      "end": 2622.14,
+      "text": "Les daban cursos cuando compraban la máquina"
+    },
+    {
+      "start": 2622.14,
+      "end": 2624.08,
+      "text": "Les daban cursos a unos cuantos empleados"
+    },
+    {
+      "start": 2624.08,
+      "end": 2625.9,
+      "text": "Cursos de Cobol y Hale"
+    },
+    {
+      "start": 2625.9,
+      "end": 2627.52,
+      "text": "Esos eran los programadores de esos años"
+    },
+    {
+      "start": 2627.52,
+      "end": 2634.71,
+      "text": "Ok, entonces el centro de informática de la Universidad de Costa Rica"
+    },
+    {
+      "start": 2634.71,
+      "end": 2636.29,
+      "text": "Dio un paso muy audaz"
+    },
+    {
+      "start": 2636.29,
+      "end": 2637.93,
+      "text": "y es"
+    },
+    {
+      "start": 2637.93,
+      "end": 2640.23,
+      "text": "empezar a dar"
+    },
+    {
+      "start": 2640.23,
+      "end": 2641.51,
+      "text": "cursos de computación"
+    },
+    {
+      "start": 2641.51,
+      "end": 2643.53,
+      "text": "pero inicialmente para"
+    },
+    {
+      "start": 2643.53,
+      "end": 2645.91,
+      "text": "formar programadores"
+    },
+    {
+      "start": 2645.91,
+      "end": 2646.53,
+      "text": "para ellos"
+    },
+    {
+      "start": 2646.53,
+      "end": 2649.55,
+      "text": "lo mismo que hacían"
+    },
+    {
+      "start": 2649.55,
+      "end": 2651.63,
+      "text": "las empresas solo que fuera"
+    },
+    {
+      "start": 2651.63,
+      "end": 2655.62,
+      "text": "el centro de informática quien diera los cursos"
+    },
+    {
+      "start": 2655.62,
+      "end": 2657.4,
+      "text": "lo mismo que hacían las empresas"
+    },
+    {
+      "start": 2657.4,
+      "end": 2659.08,
+      "text": "que vendían software"
+    },
+    {
+      "start": 2659.08,
+      "end": 2660.48,
+      "text": "o hardware"
+    },
+    {
+      "start": 2660.48,
+      "end": 2663.48,
+      "text": "de ahí yo no sé quién tuvo"
+    },
+    {
+      "start": 2663.48,
+      "end": 2665.1,
+      "text": "la peregrina idea en algún momento"
+    },
+    {
+      "start": 2665.1,
+      "end": 2667.5,
+      "text": "de crear una carrera"
+    },
+    {
+      "start": 2667.5,
+      "end": 2669.72,
+      "text": "completa con eso, con esos cursos"
+    },
+    {
+      "start": 2669.72,
+      "end": 2671.7,
+      "text": "no sé"
+    },
+    {
+      "start": 2671.7,
+      "end": 2672.1,
+      "text": "cómo"
+    },
+    {
+      "start": 2672.1,
+      "end": 2675.28,
+      "text": "habrá llegado a suceder"
+    },
+    {
+      "start": 2675.28,
+      "end": 2676.08,
+      "text": "semejante cosa"
+    },
+    {
+      "start": 2676.08,
+      "end": 2678.78,
+      "text": "desde entonces había una cosa rarísima"
+    },
+    {
+      "start": 2678.78,
+      "end": 2680.5,
+      "text": "como que el DATIC"
+    },
+    {
+      "start": 2680.5,
+      "end": 2682.22,
+      "text": "aquí en el TEC"
+    },
+    {
+      "start": 2682.22,
+      "end": 2683.66,
+      "text": "diera una carrera"
+    },
+    {
+      "start": 2683.66,
+      "end": 2687.02,
+      "text": "y que no tuviera nada que ver con la escuela de computación"
+    },
+    {
+      "start": 2687.02,
+      "end": 2689.48,
+      "text": "ni con computadoras, ni con ATI"
+    },
+    {
+      "start": 2689.48,
+      "end": 2690.04,
+      "text": "ni con nadie"
+    },
+    {
+      "start": 2690.04,
+      "end": 2693.62,
+      "text": "pero el DATIC tiene su carrera"
+    },
+    {
+      "start": 2693.62,
+      "end": 2695.64,
+      "text": "sería extraño"
+    },
+    {
+      "start": 2695.64,
+      "end": 2695.86,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 2695.86,
+      "end": 2698.3,
+      "text": "bueno, eso era lo que pasaba en la UCED"
+    },
+    {
+      "start": 2698.3,
+      "end": 2698.9,
+      "text": "en esos años"
+    },
+    {
+      "start": 2698.9,
+      "end": 2704.61,
+      "text": "y las universidades"
+    },
+    {
+      "start": 2704.61,
+      "end": 2708.83,
+      "text": "tardaron hasta la segunda mitad"
+    },
+    {
+      "start": 2708.83,
+      "end": 2710.57,
+      "text": "de los años 70 en crear"
+    },
+    {
+      "start": 2710.57,
+      "end": 2713.05,
+      "text": "carreras de computación en Costa Rica"
+    },
+    {
+      "start": 2713.05,
+      "end": 2714.23,
+      "text": "bueno, pero ok"
+    },
+    {
+      "start": 2714.23,
+      "end": 2720.42,
+      "text": "entonces"
+    },
+    {
+      "start": 2720.42,
+      "end": 2721.52,
+      "text": "el asunto fue así"
+    },
+    {
+      "start": 2721.52,
+      "end": 2725.47,
+      "text": "eso significó que las grandes corporaciones"
+    },
+    {
+      "start": 2725.47,
+      "end": 2727.53,
+      "text": "e instituciones públicas ocuparon"
+    },
+    {
+      "start": 2727.53,
+      "end": 2729.59,
+      "text": "implementar sistemas de software"
+    },
+    {
+      "start": 2729.59,
+      "end": 2730.65,
+      "text": "muy grandes"
+    },
+    {
+      "start": 2730.65,
+      "end": 2732.85,
+      "text": "y en muy corto tiempo"
+    },
+    {
+      "start": 2732.85,
+      "end": 2735.09,
+      "text": "aquí les pongo otro ejemplo"
+    },
+    {
+      "start": 2735.09,
+      "end": 2735.73,
+      "text": "el pentágono"
+    },
+    {
+      "start": 2735.73,
+      "end": 2745.54,
+      "text": "en el caso de los Estados Unidos"
+    },
+    {
+      "start": 2745.54,
+      "end": 2747.5,
+      "text": "o sea su departamento de defensa"
+    },
+    {
+      "start": 2747.5,
+      "end": 2750.06,
+      "text": "el gran reto"
+    },
+    {
+      "start": 2750.06,
+      "end": 2752.48,
+      "text": "tanto antes como ahora"
+    },
+    {
+      "start": 2752.48,
+      "end": 2754.46,
+      "text": "es implementar estos sistemas"
+    },
+    {
+      "start": 2754.46,
+      "end": 2755.88,
+      "text": "en el menor tiempo posible"
+    },
+    {
+      "start": 2755.88,
+      "end": 2758.12,
+      "text": "pero asegurando un nivel alto"
+    },
+    {
+      "start": 2758.12,
+      "end": 2760.32,
+      "text": "de confiabilidad, usabilidad"
+    },
+    {
+      "start": 2760.32,
+      "end": 2761.48,
+      "text": "y mantenibilidad"
+    },
+    {
+      "start": 2761.48,
+      "end": 2765.53,
+      "text": "ok, aquí tengo que hacer una"
+    },
+    {
+      "start": 2765.53,
+      "end": 2767.65,
+      "text": "una reseña, o sea tengo que"
+    },
+    {
+      "start": 2767.65,
+      "end": 2769.49,
+      "text": "detenerme un momento porque precisamente"
+    },
+    {
+      "start": 2769.49,
+      "end": 2773.85,
+      "text": "el cambio que está introduciendo"
+    },
+    {
+      "start": 2773.85,
+      "end": 2775.75,
+      "text": "inteligencia artificial en este momento"
+    },
+    {
+      "start": 2775.75,
+      "end": 2776.89,
+      "text": "en los sistemas"
+    },
+    {
+      "start": 2776.89,
+      "end": 2779.59,
+      "text": "basados en redes generativas"
+    },
+    {
+      "start": 2779.59,
+      "end": 2784.0,
+      "text": "de todo eso que estamos pidiendo"
+    },
+    {
+      "start": 2784.0,
+      "end": 2785.72,
+      "text": "en el menor tiempo posible"
+    },
+    {
+      "start": 2785.72,
+      "end": 2787.58,
+      "text": "con un nivel de autoconfiabilidad"
+    },
+    {
+      "start": 2787.58,
+      "end": 2788.88,
+      "text": "usabilidad y mantenibilidad"
+    },
+    {
+      "start": 2788.88,
+      "end": 2791.94,
+      "text": "lo único que estamos teniendo de fijo"
+    },
+    {
+      "start": 2791.94,
+      "end": 2793.64,
+      "text": "es"
+    },
+    {
+      "start": 2793.64,
+      "end": 2795.66,
+      "text": "implementarlos en el menor"
+    },
+    {
+      "start": 2795.66,
+      "end": 2797.1,
+      "text": "tiempo posible, eso nos"
+    },
+    {
+      "start": 2797.1,
+      "end": 2799.02,
+      "text": "nos ha servido para"
+    },
+    {
+      "start": 2799.02,
+      "end": 2800.28,
+      "text": "acelerar montones"
+    },
+    {
+      "start": 2800.28,
+      "end": 2801.94,
+      "text": "la implementación"
+    },
+    {
+      "start": 2801.94,
+      "end": 2803.48,
+      "text": "pero"
+    },
+    {
+      "start": 2803.48,
+      "end": 2806.22,
+      "text": "las otras características que son"
+    },
+    {
+      "start": 2806.22,
+      "end": 2808.2,
+      "text": "tan importantes como la primera"
+    },
+    {
+      "start": 2808.2,
+      "end": 2812.56,
+      "text": "siguen flaqueando"
+    },
+    {
+      "start": 2812.56,
+      "end": 2815.36,
+      "text": "o sea usted no puede"
+    },
+    {
+      "start": 2815.36,
+      "end": 2818.18,
+      "text": "suponer que el sistema que le"
+    },
+    {
+      "start": 2818.18,
+      "end": 2819.72,
+      "text": "fabrica una inteligencia artificial"
+    },
+    {
+      "start": 2819.72,
+      "end": 2822.3,
+      "text": "sea confiable"
+    },
+    {
+      "start": 2822.3,
+      "end": 2823.58,
+      "text": "o sea"
+    },
+    {
+      "start": 2823.58,
+      "end": 2826.16,
+      "text": "que ha atajado la mayor parte"
+    },
+    {
+      "start": 2826.16,
+      "end": 2827.7,
+      "text": "de las pulgas más grandes"
+    },
+    {
+      "start": 2827.7,
+      "end": 2830.06,
+      "text": "de que es fácil de usar"
+    },
+    {
+      "start": 2830.06,
+      "end": 2831.46,
+      "text": "de cómo vas a verlo"
+    },
+    {
+      "start": 2831.46,
+      "end": 2833.88,
+      "text": "si es una máquina que no está creando"
+    },
+    {
+      "start": 2833.88,
+      "end": 2836.08,
+      "text": "y que es sencillo"
+    },
+    {
+      "start": 2836.08,
+      "end": 2837.08,
+      "text": "darle mantenimiento"
+    },
+    {
+      "start": 2837.08,
+      "end": 2839.72,
+      "text": "tengo entendido"
+    },
+    {
+      "start": 2839.72,
+      "end": 2840.94,
+      "text": "que cloud"
+    },
+    {
+      "start": 2840.94,
+      "end": 2842.0,
+      "text": "está"
+    },
+    {
+      "start": 2842.0,
+      "end": 2845.86,
+      "text": "haciendo cosas interesantes"
+    },
+    {
+      "start": 2845.86,
+      "end": 2846.98,
+      "text": "en mantenibilidad"
+    },
+    {
+      "start": 2846.98,
+      "end": 2850.12,
+      "text": "introduciendo"
+    },
+    {
+      "start": 2850.12,
+      "end": 2852.08,
+      "text": "documentación interna en el código"
+    },
+    {
+      "start": 2852.08,
+      "end": 2853.36,
+      "text": "hasta donde tengo entendido"
+    },
+    {
+      "start": 2853.36,
+      "end": 2854.7,
+      "text": "yo nunca he usado cloud"
+    },
+    {
+      "start": 2854.7,
+      "end": 2859.29,
+      "text": "que se están esforzando"
+    },
+    {
+      "start": 2859.29,
+      "end": 2860.61,
+      "text": "porque los sistemas"
+    },
+    {
+      "start": 2860.61,
+      "end": 2863.25,
+      "text": "los programas que la inteligencia"
+    },
+    {
+      "start": 2863.25,
+      "end": 2865.07,
+      "text": "artificial hace, vengan también"
+    },
+    {
+      "start": 2865.07,
+      "end": 2867.31,
+      "text": "con comentarios internos que signifiquen algo"
+    },
+    {
+      "start": 2867.31,
+      "end": 2869.39,
+      "text": "para que los seres"
+    },
+    {
+      "start": 2869.39,
+      "end": 2871.39,
+      "text": "humanos podamos darles mantenimiento"
+    },
+    {
+      "start": 2871.39,
+      "end": 2876.08,
+      "text": "como digo aquí"
+    },
+    {
+      "start": 2876.08,
+      "end": 2877.94,
+      "text": "hay un dicho"
+    },
+    {
+      "start": 2877.94,
+      "end": 2880.14,
+      "text": "y es que si usted quiere que algo"
+    },
+    {
+      "start": 2880.14,
+      "end": 2882.0,
+      "text": "se fabrique rápidamente, barato"
+    },
+    {
+      "start": 2882.0,
+      "end": 2884.2,
+      "text": "y de alta calidad, usted siempre puede"
+    },
+    {
+      "start": 2884.2,
+      "end": 2885.6,
+      "text": "obtener solo dos de ellas"
+    },
+    {
+      "start": 2885.6,
+      "end": 2888.2,
+      "text": "bueno, a nosotros nos exigen"
+    },
+    {
+      "start": 2888.2,
+      "end": 2889.34,
+      "text": "las tres siempre"
+    },
+    {
+      "start": 2889.34,
+      "end": 2899.19,
+      "text": "ok, este, ¿cuál era"
+    },
+    {
+      "start": 2899.19,
+      "end": 2900.19,
+      "text": "el problema"
+    },
+    {
+      "start": 2900.19,
+      "end": 2903.09,
+      "text": "lo que estoy tratando de hacer"
+    },
+    {
+      "start": 2903.09,
+      "end": 2904.43,
+      "text": "es"
+    },
+    {
+      "start": 2904.43,
+      "end": 2906.79,
+      "text": "mostrar cómo surge"
+    },
+    {
+      "start": 2906.79,
+      "end": 2909.03,
+      "text": "el concepto de"
+    },
+    {
+      "start": 2909.03,
+      "end": 2910.39,
+      "text": "orientación a objetos"
+    },
+    {
+      "start": 2910.39,
+      "end": 2912.93,
+      "text": "o sea, orientación a objetos"
+    },
+    {
+      "start": 2912.93,
+      "end": 2914.03,
+      "text": "perdón"
+    },
+    {
+      "start": 2914.03,
+      "end": 2916.95,
+      "text": "que a veces se me viene un poco la sangre por la nariz"
+    },
+    {
+      "start": 2916.95,
+      "end": 2917.43,
+      "text": "perdón"
+    },
+    {
+      "start": 2917.43,
+      "end": 2919.33,
+      "text": "este"
+    },
+    {
+      "start": 2919.33,
+      "end": 2924.42,
+      "text": "orientación a objetos surge para resolver"
+    },
+    {
+      "start": 2924.42,
+      "end": 2924.94,
+      "text": "un problema"
+    },
+    {
+      "start": 2924.94,
+      "end": 2929.15,
+      "text": "un problema de desarrollo de software"
+    },
+    {
+      "start": 2929.15,
+      "end": 2930.93,
+      "text": "ese digamos es mi punto"
+    },
+    {
+      "start": 2930.93,
+      "end": 2933.97,
+      "text": "en esta parte"
+    },
+    {
+      "start": 2933.97,
+      "end": 2934.79,
+      "text": "de la presentación"
+    },
+    {
+      "start": 2934.79,
+      "end": 2939.5,
+      "text": "entonces quiero aclarar para ustedes"
+    },
+    {
+      "start": 2939.5,
+      "end": 2940.96,
+      "text": "cuál fue el problema"
+    },
+    {
+      "start": 2940.96,
+      "end": 2943.5,
+      "text": "que había"
+    },
+    {
+      "start": 2943.5,
+      "end": 2945.76,
+      "text": "y que resolvió"
+    },
+    {
+      "start": 2945.76,
+      "end": 2946.74,
+      "text": "orientación a objetos"
+    },
+    {
+      "start": 2946.74,
+      "end": 2948.96,
+      "text": "más o menos bien"
+    },
+    {
+      "start": 2948.96,
+      "end": 2950.22,
+      "text": "más o menos"
+    },
+    {
+      "start": 2950.22,
+      "end": 2955.96,
+      "text": "y por qué entonces eso se hizo tan popular"
+    },
+    {
+      "start": 2955.96,
+      "end": 2958.46,
+      "text": "bueno"
+    },
+    {
+      "start": 2958.46,
+      "end": 2961.26,
+      "text": "cuál era el problema"
+    },
+    {
+      "start": 2961.26,
+      "end": 2963.12,
+      "text": "de la programación imperativa en el desarrollo"
+    },
+    {
+      "start": 2963.12,
+      "end": 2966.38,
+      "text": "de sistemas grandes de información, nosotros ya habíamos visto esto"
+    },
+    {
+      "start": 2966.38,
+      "end": 2967.36,
+      "text": "en el diagrama de flujo de datos"
+    },
+    {
+      "start": 2967.36,
+      "end": 2971.5,
+      "text": "que si ustedes se fijan en el diagrama de flujo de datos"
+    },
+    {
+      "start": 2971.5,
+      "end": 2973.12,
+      "text": "lo que muestra es justamente"
+    },
+    {
+      "start": 2973.12,
+      "end": 2977.7,
+      "text": "los grandes grupos de datos"
+    },
+    {
+      "start": 2977.7,
+      "end": 2984.59,
+      "text": "y como fluye la información"
+    },
+    {
+      "start": 2984.59,
+      "end": 2989.27,
+      "text": "entre los grandes repositorios"
+    },
+    {
+      "start": 2989.27,
+      "end": 2989.85,
+      "text": "de datos"
+    },
+    {
+      "start": 2989.85,
+      "end": 2995.29,
+      "text": "y los círculos representan"
+    },
+    {
+      "start": 2995.29,
+      "end": 2999.44,
+      "text": "el conjunto de software"
+    },
+    {
+      "start": 2999.44,
+      "end": 3001.42,
+      "text": "que se alimenta"
+    },
+    {
+      "start": 3001.42,
+      "end": 3003.44,
+      "text": "de esos datos y produce"
+    },
+    {
+      "start": 3003.44,
+      "end": 3004.0,
+      "text": "más datos"
+    },
+    {
+      "start": 3004.0,
+      "end": 3006.5,
+      "text": "por ejemplo"
+    },
+    {
+      "start": 3006.5,
+      "end": 3008.28,
+      "text": "esta burbuja"
+    },
+    {
+      "start": 3008.28,
+      "end": 3011.34,
+      "text": "que dice recepción de pedidos"
+    },
+    {
+      "start": 3011.34,
+      "end": 3018.87,
+      "text": "recibe"
+    },
+    {
+      "start": 3018.87,
+      "end": 3021.43,
+      "text": "pedidos, cualquier cosa que"
+    },
+    {
+      "start": 3021.43,
+      "end": 3021.81,
+      "text": "eso sea"
+    },
+    {
+      "start": 3021.81,
+      "end": 3024.67,
+      "text": "y este"
+    },
+    {
+      "start": 3024.67,
+      "end": 3027.17,
+      "text": "alimenta"
+    },
+    {
+      "start": 3027.17,
+      "end": 3029.13,
+      "text": "algún repositorio"
+    },
+    {
+      "start": 3029.13,
+      "end": 3031.27,
+      "text": "que se llama pedidos, puede ser"
+    },
+    {
+      "start": 3031.27,
+      "end": 3032.85,
+      "text": "una base de datos puede ser un archivo"
+    },
+    {
+      "start": 3032.85,
+      "end": 3035.23,
+      "text": "ya pueden ser"
+    },
+    {
+      "start": 3035.23,
+      "end": 3037.25,
+      "text": "tablas en una base de datos o puede"
+    },
+    {
+      "start": 3037.25,
+      "end": 3039.19,
+      "text": "ser un solo archivo o varios"
+    },
+    {
+      "start": 3039.19,
+      "end": 3041.67,
+      "text": "archivos que conjuntamente"
+    },
+    {
+      "start": 3041.67,
+      "end": 3043.37,
+      "text": "codifica la información de pedidos"
+    },
+    {
+      "start": 3043.37,
+      "end": 3047.17,
+      "text": "pero no hay mayor"
+    },
+    {
+      "start": 3047.17,
+      "end": 3048.41,
+      "text": "detalle sobre los datos"
+    },
+    {
+      "start": 3048.41,
+      "end": 3051.73,
+      "text": "vean que por ejemplo"
+    },
+    {
+      "start": 3051.73,
+      "end": 3053.93,
+      "text": "recepción de pedidos"
+    },
+    {
+      "start": 3053.93,
+      "end": 3055.63,
+      "text": "usa pedidos"
+    },
+    {
+      "start": 3055.63,
+      "end": 3058.61,
+      "text": "y contabilidad de envío"
+    },
+    {
+      "start": 3058.61,
+      "end": 3060.55,
+      "text": "también usa pedidos"
+    },
+    {
+      "start": 3060.55,
+      "end": 3062.45,
+      "text": "o sea podría"
+    },
+    {
+      "start": 3062.45,
+      "end": 3065.49,
+      "text": "ser que haya operaciones que se hagan"
+    },
+    {
+      "start": 3065.49,
+      "end": 3069.01,
+      "text": "sobre un pedido que fueron definidas"
+    },
+    {
+      "start": 3069.01,
+      "end": 3071.07,
+      "text": "aquí en el módulo de recepción de"
+    },
+    {
+      "start": 3071.07,
+      "end": 3073.53,
+      "text": "pedidos y en el módulo de contabilidad"
+    },
+    {
+      "start": 3073.53,
+      "end": 3076.87,
+      "text": "de envío se podrían haber usado pero"
+    },
+    {
+      "start": 3076.87,
+      "end": 3079.89,
+      "text": "cuando se desarrolló este subsistema de"
+    },
+    {
+      "start": 3079.89,
+      "end": 3082.57,
+      "text": "contabilidad nadie sabía que esos"
+    },
+    {
+      "start": 3082.57,
+      "end": 3083.97,
+      "text": "este"
+    },
+    {
+      "start": 3083.97,
+      "end": 3086.93,
+      "text": "que esos procesos ya se habían"
+    },
+    {
+      "start": 3086.93,
+      "end": 3089.15,
+      "text": "desarrollado en recepción de pedidos"
+    },
+    {
+      "start": 3089.15,
+      "end": 3091.45,
+      "text": "entonces se escriben de nuevo"
+    },
+    {
+      "start": 3091.45,
+      "end": 3093.61,
+      "text": "en la vieja escuela"
+    },
+    {
+      "start": 3093.61,
+      "end": 3099.93,
+      "text": "a veces los programadores"
+    },
+    {
+      "start": 3099.93,
+      "end": 3102.37,
+      "text": "decidían escribir sus propias versiones"
+    },
+    {
+      "start": 3102.37,
+      "end": 3104.43,
+      "text": "por ego"
+    },
+    {
+      "start": 3104.43,
+      "end": 3107.07,
+      "text": "yo puedo hacerlo mejor"
+    },
+    {
+      "start": 3107.07,
+      "end": 3108.69,
+      "text": "a mi eso me parece muy feo"
+    },
+    {
+      "start": 3108.69,
+      "end": 3109.75,
+      "text": "yo lo voy a escribir mejor"
+    },
+    {
+      "start": 3109.75,
+      "end": 3113.51,
+      "text": "entonces puede ser por ignorancia"
+    },
+    {
+      "start": 3113.51,
+      "end": 3115.05,
+      "text": "puede ser simplemente ego"
+    },
+    {
+      "start": 3115.05,
+      "end": 3119.36,
+      "text": "o puede ser que efectivamente"
+    },
+    {
+      "start": 3119.36,
+      "end": 3121.08,
+      "text": "la primera versión era"
+    },
+    {
+      "start": 3121.08,
+      "end": 3122.66,
+      "text": "muy ineficiente"
+    },
+    {
+      "start": 3122.66,
+      "end": 3130.68,
+      "text": "¿qué aprendimos durante"
+    },
+    {
+      "start": 3130.68,
+      "end": 3132.82,
+      "text": "estos 20 años de los"
+    },
+    {
+      "start": 3132.82,
+      "end": 3133.78,
+      "text": "60 y los 70?"
+    },
+    {
+      "start": 3135.3,
+      "end": 3136.84,
+      "text": "que se tenía una"
+    },
+    {
+      "start": 3136.84,
+      "end": 3138.78,
+      "text": "visión de alto nivel para"
+    },
+    {
+      "start": 3138.78,
+      "end": 3140.94,
+      "text": "los datos, pero de muy"
+    },
+    {
+      "start": 3140.94,
+      "end": 3142.86,
+      "text": "bajo nivel para el proceso, en el sentido"
+    },
+    {
+      "start": 3142.86,
+      "end": 3144.78,
+      "text": "de que pensábamos en el"
+    },
+    {
+      "start": 3144.78,
+      "end": 3146.5,
+      "text": "proceso de una manera muy detallada"
+    },
+    {
+      "start": 3146.5,
+      "end": 3150.12,
+      "text": "y lo veíamos"
+    },
+    {
+      "start": 3150.12,
+      "end": 3152.06,
+      "text": "a los datos como algo que se"
+    },
+    {
+      "start": 3152.06,
+      "end": 3153.78,
+      "text": "usaba en el proceso"
+    },
+    {
+      "start": 3153.78,
+      "end": 3156.16,
+      "text": "o sea, el énfasis estaba en el proceso"
+    },
+    {
+      "start": 3156.16,
+      "end": 3157.98,
+      "text": "aunque"
+    },
+    {
+      "start": 3157.98,
+      "end": 3172.4,
+      "text": "Que desde hacía mucho tiempo, en el ambiente académico, se entendía que algoritmos más estructuras de datos es igual a programas."
+    },
+    {
+      "start": 3172.4,
+      "end": 3198.61,
+      "text": "Y como ven, incluso el profesor suizo, Niklaus Wirth, bueno, él era suizo, pero con ese apellido probablemente era de la zona alemana, en cuyo caso esto se debería pronunciar Niklaus Wirth."
+    },
+    {
+      "start": 3198.61,
+      "end": 3204.48,
+      "text": "ok, digamos que el profesor Wirth"
+    },
+    {
+      "start": 3204.48,
+      "end": 3206.68,
+      "text": "ya había publicado un libro"
+    },
+    {
+      "start": 3206.68,
+      "end": 3208.72,
+      "text": "que es"
+    },
+    {
+      "start": 3208.72,
+      "end": 3210.62,
+      "text": "que justamente tenía ese"
+    },
+    {
+      "start": 3210.62,
+      "end": 3212.66,
+      "text": "título, algoritmos"
+    },
+    {
+      "start": 3212.66,
+      "end": 3214.38,
+      "text": "más estructuras de datos"
+    },
+    {
+      "start": 3214.38,
+      "end": 3215.74,
+      "text": "igual, programas"
+    },
+    {
+      "start": 3215.74,
+      "end": 3221.82,
+      "text": "o sea, en su mayoría"
+    },
+    {
+      "start": 3221.82,
+      "end": 3224.38,
+      "text": "el medio académico de computación"
+    },
+    {
+      "start": 3224.38,
+      "end": 3226.26,
+      "text": "entendía esto por una forma muy"
+    },
+    {
+      "start": 3226.26,
+      "end": 3228.36,
+      "text": "general, o sea, conocíamos"
+    },
+    {
+      "start": 3228.36,
+      "end": 3230.3,
+      "text": "el tipo de datos abstracto pila"
+    },
+    {
+      "start": 3230.3,
+      "end": 3232.5,
+      "text": "que tenía necesariamente"
+    },
+    {
+      "start": 3232.5,
+      "end": 3234.34,
+      "text": "las operaciones asociadas push"
+    },
+    {
+      "start": 3234.34,
+      "end": 3240.64,
+      "text": "y POP. Pero precisamente por su generalidad, cada vez que se implementaba el tipo de datos en un"
+    },
+    {
+      "start": 3240.64,
+      "end": 3254.05,
+      "text": "sistema, se reescribían las operaciones adaptadas a cada caso particular. Por otro lado, también es"
+    },
+    {
+      "start": 3254.05,
+      "end": 3260.55,
+      "text": "cierto que desde antes incluso de que hubiera computadoras verdaderas, los programadores, por"
+    },
+    {
+      "start": 3260.55,
+      "end": 3268.35,
+      "text": "ejemplo, de Maresco 1, ya habían implementado una forma muy rudimentaria de, digamos, importar"
+    },
+    {
+      "start": 3268.35,
+      "end": 3269.91,
+      "text": "rutinas de cálculo"
+    },
+    {
+      "start": 3269.91,
+      "end": 3272.59,
+      "text": "en la fotografía"
+    },
+    {
+      "start": 3272.59,
+      "end": 3273.75,
+      "text": "está"
+    },
+    {
+      "start": 3273.75,
+      "end": 3276.03,
+      "text": "precisamente"
+    },
+    {
+      "start": 3276.03,
+      "end": 3277.69,
+      "text": "una de estas personas"
+    },
+    {
+      "start": 3277.69,
+      "end": 3279.55,
+      "text": "que fue programador"
+    },
+    {
+      "start": 3279.55,
+      "end": 3281.71,
+      "text": "en este caso programadora de la Mark I"
+    },
+    {
+      "start": 3281.71,
+      "end": 3283.85,
+      "text": "ella es Grace Murray Hopper"
+    },
+    {
+      "start": 3283.85,
+      "end": 3288.59,
+      "text": "y Hopper"
+    },
+    {
+      "start": 3288.59,
+      "end": 3289.29,
+      "text": "en una"
+    },
+    {
+      "start": 3289.29,
+      "end": 3292.43,
+      "text": "biografía de ella"
+    },
+    {
+      "start": 3292.43,
+      "end": 3294.57,
+      "text": "creo que la tengo"
+    },
+    {
+      "start": 3294.57,
+      "end": 3303.4,
+      "text": "por aquí, me parece que es este"
+    },
+    {
+      "start": 3303.4,
+      "end": 3306.3,
+      "text": "este"
+    },
+    {
+      "start": 3306.3,
+      "end": 3330.98,
+      "text": "Y creo recordar en esta bibliografía de ella que ella contaba que cuando alguien salía en esa máquina y le tocaba hacer una pequeña rutina para, por ejemplo, sacar una raíz cuadrada,"
+    },
+    {
+      "start": 3330.98,
+      "end": 3332.36,
+      "text": "calcular un logaritmo"
+    },
+    {
+      "start": 3332.36,
+      "end": 3336.34,
+      "text": "calcular una función trigonométrica"
+    },
+    {
+      "start": 3336.34,
+      "end": 3337.72,
+      "text": "entonces"
+    },
+    {
+      "start": 3337.72,
+      "end": 3345.9,
+      "text": "lo anotaban en una libreta que tenían"
+    },
+    {
+      "start": 3345.9,
+      "end": 3347.24,
+      "text": "a mano"
+    },
+    {
+      "start": 3347.24,
+      "end": 3349.76,
+      "text": "y esa libreta"
+    },
+    {
+      "start": 3349.76,
+      "end": 3351.84,
+      "text": "se volvió una especie de"
+    },
+    {
+      "start": 3351.84,
+      "end": 3352.74,
+      "text": "biblioteca"
+    },
+    {
+      "start": 3352.74,
+      "end": 3355.92,
+      "text": "de rutinas, entonces cada vez"
+    },
+    {
+      "start": 3355.92,
+      "end": 3356.92,
+      "text": "que alguien ocupaba"
+    },
+    {
+      "start": 3356.92,
+      "end": 3359.08,
+      "text": "un cálculo"
+    },
+    {
+      "start": 3359.08,
+      "end": 3361.9,
+      "text": "pedía prestada la"
+    },
+    {
+      "start": 3361.9,
+      "end": 3363.32,
+      "text": "libreta y copiaba"
+    },
+    {
+      "start": 3363.32,
+      "end": 3364.0,
+      "text": "lo que"
+    },
+    {
+      "start": 3364.0,
+      "end": 3367.88,
+      "text": "la rutina que aparecía en la libreta"
+    },
+    {
+      "start": 3367.88,
+      "end": 3368.96,
+      "text": "en su propio programa"
+    },
+    {
+      "start": 3368.96,
+      "end": 3370.66,
+      "text": "entonces ok"
+    },
+    {
+      "start": 3370.66,
+      "end": 3374.08,
+      "text": "no parece muy"
+    },
+    {
+      "start": 3374.08,
+      "end": 3376.78,
+      "text": "muy serio"
+    },
+    {
+      "start": 3376.78,
+      "end": 3378.38,
+      "text": "pero bien que mal"
+    },
+    {
+      "start": 3378.38,
+      "end": 3379.84,
+      "text": "ya era una forma de"
+    },
+    {
+      "start": 3379.84,
+      "end": 3382.36,
+      "text": "importar rutinas de cálculo"
+    },
+    {
+      "start": 3382.36,
+      "end": 3385.77,
+      "text": "o sea la gente"
+    },
+    {
+      "start": 3385.77,
+      "end": 3386.89,
+      "text": "entendía"
+    },
+    {
+      "start": 3386.89,
+      "end": 3389.89,
+      "text": "que desde hacía"
+    },
+    {
+      "start": 3389.89,
+      "end": 3391.85,
+      "text": "muchísimo tiempo que yo"
+    },
+    {
+      "start": 3391.85,
+      "end": 3394.11,
+      "text": "podía importar rutinas"
+    },
+    {
+      "start": 3394.11,
+      "end": 3396.41,
+      "text": "desde afuera y ponerlas en mi código"
+    },
+    {
+      "start": 3396.41,
+      "end": 3398.53,
+      "text": "o sea no tenía yo que escribirlas"
+    },
+    {
+      "start": 3398.53,
+      "end": 3399.05,
+      "text": "otra vez"
+    },
+    {
+      "start": 3399.05,
+      "end": 3403.66,
+      "text": "si alguien las había escrito en algún lado"
+    },
+    {
+      "start": 3403.66,
+      "end": 3406.04,
+      "text": "podía usarlas"
+    },
+    {
+      "start": 3406.04,
+      "end": 3408.06,
+      "text": "el lenguaje C"
+    },
+    {
+      "start": 3408.06,
+      "end": 3409.54,
+      "text": "por ejemplo consagró esto"
+    },
+    {
+      "start": 3409.54,
+      "end": 3412.0,
+      "text": "asimismo"
+    },
+    {
+      "start": 3412.0,
+      "end": 3414.0,
+      "text": "en el medio académico"
+    },
+    {
+      "start": 3414.0,
+      "end": 3415.38,
+      "text": "ya entendíamos que"
+    },
+    {
+      "start": 3415.38,
+      "end": 3418.0,
+      "text": "cuando usted crea una estructura"
+    },
+    {
+      "start": 3418.0,
+      "end": 3418.46,
+      "text": "de datos"
+    },
+    {
+      "start": 3418.46,
+      "end": 3423.94,
+      "text": "hay ciertos algoritmos que se asocian"
+    },
+    {
+      "start": 3423.94,
+      "end": 3425.92,
+      "text": "con esa estructura de datos para poderla manejar"
+    },
+    {
+      "start": 3425.92,
+      "end": 3428.9,
+      "text": "y este"
+    },
+    {
+      "start": 3428.9,
+      "end": 3431.44,
+      "text": "lo ideal"
+    },
+    {
+      "start": 3431.44,
+      "end": 3433.04,
+      "text": "lo correcto"
+    },
+    {
+      "start": 3433.04,
+      "end": 3435.3,
+      "text": "es usar esa estructura de datos"
+    },
+    {
+      "start": 3435.3,
+      "end": 3436.98,
+      "text": "utilizando solamente"
+    },
+    {
+      "start": 3436.98,
+      "end": 3439.38,
+      "text": "esas operaciones estándar"
+    },
+    {
+      "start": 3439.38,
+      "end": 3441.54,
+      "text": "que se definen por esa estructura"
+    },
+    {
+      "start": 3441.54,
+      "end": 3446.06,
+      "text": "entonces como les digo"
+    },
+    {
+      "start": 3446.06,
+      "end": 3448.28,
+      "text": "aquí costó algo de trabajo"
+    },
+    {
+      "start": 3448.28,
+      "end": 3450.02,
+      "text": "que la comunidad académica de computación"
+    },
+    {
+      "start": 3450.02,
+      "end": 3450.96,
+      "text": "uniera los puntos"
+    },
+    {
+      "start": 3450.96,
+      "end": 3453.78,
+      "text": "de todo esto"
+    },
+    {
+      "start": 3453.78,
+      "end": 3457.16,
+      "text": "de una manera muy tímida"
+    },
+    {
+      "start": 3457.16,
+      "end": 3460.36,
+      "text": "y igual que como les decía"
+    },
+    {
+      "start": 3460.36,
+      "end": 3461.32,
+      "text": "que pasó con Clips"
+    },
+    {
+      "start": 3461.32,
+      "end": 3462.46,
+      "text": "en el sentido de que"
+    },
+    {
+      "start": 3462.46,
+      "end": 3463.76,
+      "text": "querían resolver un problema"
+    },
+    {
+      "start": 3463.76,
+      "end": 3465.18,
+      "text": "y terminaron resolviendo otro"
+    },
+    {
+      "start": 3465.18,
+      "end": 3470.68,
+      "text": "este par de científicos noruegos"
+    },
+    {
+      "start": 3470.68,
+      "end": 3474.44,
+      "text": "estaban diseñando"
+    },
+    {
+      "start": 3474.44,
+      "end": 3477.1,
+      "text": "por ejemplo centrales nucleares"
+    },
+    {
+      "start": 3477.1,
+      "end": 3480.09,
+      "text": "y se les ocurrió"
+    },
+    {
+      "start": 3480.09,
+      "end": 3481.29,
+      "text": "que sería una buena idea"
+    },
+    {
+      "start": 3481.29,
+      "end": 3483.77,
+      "text": "que el software se comportara"
+    },
+    {
+      "start": 3483.77,
+      "end": 3484.55,
+      "text": "como un Lego"
+    },
+    {
+      "start": 3484.55,
+      "end": 3501.94,
+      "text": "O sea, ensamblando elementos ya creados, pero los elementos traían también las rutinas con las cuales se manejaba cada uno de esos elementos."
+    },
+    {
+      "start": 3501.94,
+      "end": 3522.42,
+      "text": "Ese fue el lenguaje Simula. Ok, entonces eso es orientación a objetos. Es una forma muy sofisticada de, primero, pensar desde las etapas más tempranas de diseño en cuáles entidades, o sea, cuáles entidades serán usadas en el sistema."
+    },
+    {
+      "start": 3522.42,
+      "end": 3526.08,
+      "text": "claro, cada una de esas entidades va a ser modelada"
+    },
+    {
+      "start": 3526.08,
+      "end": 3527.94,
+      "text": "utilizando una estructura de datos"
+    },
+    {
+      "start": 3527.94,
+      "end": 3531.52,
+      "text": "y qué relaciones tienen entre sí"
+    },
+    {
+      "start": 3531.52,
+      "end": 3535.18,
+      "text": "o sea, también podemos pensar"
+    },
+    {
+      "start": 3535.18,
+      "end": 3538.1,
+      "text": "en una jerarquización de estas estructuras"
+    },
+    {
+      "start": 3538.1,
+      "end": 3542.24,
+      "text": "además"
+    },
+    {
+      "start": 3542.24,
+      "end": 3545.92,
+      "text": "como les digo aquí"
+    },
+    {
+      "start": 3545.92,
+      "end": 3548.26,
+      "text": "se trata también de detallar"
+    },
+    {
+      "start": 3548.26,
+      "end": 3550.74,
+      "text": "desde etapas tempranas del diseño"
+    },
+    {
+      "start": 3550.74,
+      "end": 3554.04,
+      "text": "los algoritmos que deben manejar a estas entidades"
+    },
+    {
+      "start": 3554.04,
+      "end": 3577.96,
+      "text": "Y lo más importante de todo, escribir una sola vez todo el código relevante para el manejo de esas entidades y que el lenguaje facilite que no se pueda manosear ese código. En el fondo, abstracción y encapsulación son dos de las principales herramientas para eso."
+    },
+    {
+      "start": 3577.96,
+      "end": 3601.98,
+      "text": "Sí, abstracción me sirve para concentrarme en los aspectos más generales del problema, pero la abstracción yo ya la habíamos utilizado mediante procedimientos, ¿cierto?"
+    },
+    {
+      "start": 3601.98,
+      "end": 3604.58,
+      "text": "los objetos me sirven para hacer"
+    },
+    {
+      "start": 3604.58,
+      "end": 3605.12,
+      "text": "abstracción"
+    },
+    {
+      "start": 3605.12,
+      "end": 3608.26,
+      "text": "pero el asunto de la"
+    },
+    {
+      "start": 3608.26,
+      "end": 3612.15,
+      "text": "encapsulación es"
+    },
+    {
+      "start": 3612.15,
+      "end": 3613.57,
+      "text": "hacer que el contenido"
+    },
+    {
+      "start": 3613.57,
+      "end": 3616.25,
+      "text": "de lo que está en el objeto"
+    },
+    {
+      "start": 3616.25,
+      "end": 3619.5,
+      "text": "sea opaco, usted no tiene"
+    },
+    {
+      "start": 3619.5,
+      "end": 3620.94,
+      "text": "que necesariamente verlo"
+    },
+    {
+      "start": 3620.94,
+      "end": 3623.62,
+      "text": "y eso impide"
+    },
+    {
+      "start": 3623.62,
+      "end": 3625.08,
+      "text": "que la gente se ponga creativa"
+    },
+    {
+      "start": 3625.08,
+      "end": 3627.34,
+      "text": "por dicha con"
+    },
+    {
+      "start": 3627.34,
+      "end": 3628.32,
+      "text": "este código"
+    },
+    {
+      "start": 3628.32,
+      "end": 3637.82,
+      "text": "por supuesto también"
+    },
+    {
+      "start": 3637.82,
+      "end": 3639.48,
+      "text": "podemos decir que el propósito"
+    },
+    {
+      "start": 3639.48,
+      "end": 3640.5,
+      "text": "o sea un"
+    },
+    {
+      "start": 3640.5,
+      "end": 3643.16,
+      "text": "un sub"
+    },
+    {
+      "start": 3643.16,
+      "end": 3645.52,
+      "text": "producto muy bueno"
+    },
+    {
+      "start": 3645.52,
+      "end": 3646.82,
+      "text": "de esto es"
+    },
+    {
+      "start": 3646.82,
+      "end": 3649.84,
+      "text": "es mejorar la calidad del software"
+    },
+    {
+      "start": 3649.84,
+      "end": 3650.56,
+      "text": "por una razón"
+    },
+    {
+      "start": 3650.56,
+      "end": 3652.92,
+      "text": "porque si ya yo tengo código"
+    },
+    {
+      "start": 3652.92,
+      "end": 3655.2,
+      "text": "ya ha sido probado"
+    },
+    {
+      "start": 3655.2,
+      "end": 3657.56,
+      "text": "ya se sabe que funciona bien"
+    },
+    {
+      "start": 3657.56,
+      "end": 3659.78,
+      "text": "le han encontrado en la mayor parte"
+    },
+    {
+      "start": 3659.78,
+      "end": 3660.84,
+      "text": "de las pulgas que tiene"
+    },
+    {
+      "start": 3660.84,
+      "end": 3663.14,
+      "text": "entonces"
+    },
+    {
+      "start": 3663.14,
+      "end": 3666.72,
+      "text": "ese código"
+    },
+    {
+      "start": 3666.72,
+      "end": 3668.06,
+      "text": "que es de buena calidad"
+    },
+    {
+      "start": 3668.06,
+      "end": 3669.78,
+      "text": "lo puedo compartir"
+    },
+    {
+      "start": 3669.78,
+      "end": 3672.32,
+      "text": "y eso puede ayudar entonces"
+    },
+    {
+      "start": 3672.32,
+      "end": 3674.74,
+      "text": "contribuye a mejorar la calidad"
+    },
+    {
+      "start": 3674.74,
+      "end": 3676.74,
+      "text": "del código"
+    },
+    {
+      "start": 3676.74,
+      "end": 3677.48,
+      "text": "nuevo"
+    },
+    {
+      "start": 3677.48,
+      "end": 3682.12,
+      "text": "porque hace que estas piezas que son"
+    },
+    {
+      "start": 3682.12,
+      "end": 3683.48,
+      "text": "relativamente confiables"
+    },
+    {
+      "start": 3683.48,
+      "end": 3686.84,
+      "text": "se puedan usar dentro de mi código"
+    },
+    {
+      "start": 3686.84,
+      "end": 3693.09,
+      "text": "ok"
+    },
+    {
+      "start": 3693.09,
+      "end": 3698.43,
+      "text": "todos ustedes creo ya llevaron"
+    },
+    {
+      "start": 3698.43,
+      "end": 3700.17,
+      "text": "ya llevaron el curso de PO"
+    },
+    {
+      "start": 3700.17,
+      "end": 3702.65,
+      "text": "o sea de programación orientada a objetos"
+    },
+    {
+      "start": 3702.65,
+      "end": 3706.31,
+      "text": "así que esto me imagino"
+    },
+    {
+      "start": 3706.31,
+      "end": 3707.89,
+      "text": "es nada más un mero repaso"
+    },
+    {
+      "start": 3707.89,
+      "end": 3712.09,
+      "text": "ok entonces en que consiste"
+    },
+    {
+      "start": 3712.09,
+      "end": 3723.59,
+      "text": "orientación de objetos. Bueno, un objeto que es, bueno, es un elemento de datos que puede ser"
+    },
+    {
+      "start": 3723.59,
+      "end": 3730.45,
+      "text": "simple, compuesto, que está dotado de otros elementos de datos que se denominan el estado"
+    },
+    {
+      "start": 3730.45,
+      "end": 3738.05,
+      "text": "del objeto. Por ejemplo, en el caso de una pila, hace falta algún dato adicional que diga si la"
+    },
+    {
+      "start": 3738.05,
+      "end": 3747.87,
+      "text": "pila está vacía o no y si no lo está qué elemento está en el top de la pila y tal vez si es relevante"
+    },
+    {
+      "start": 3747.87,
+      "end": 3757.29,
+      "text": "si la pila crece para arriba o crece para abajo y además en un objeto están metidos los módulos"
+    },
+    {
+      "start": 3757.29,
+      "end": 3764.65,
+      "text": "de software que le dan mantenimiento al estado del objeto esos son métodos y que comunican datos"
+    },
+    {
+      "start": 3764.65,
+      "end": 3767.21,
+      "text": "del estado a otros objetos"
+    },
+    {
+      "start": 3767.21,
+      "end": 3770.63,
+      "text": "esos son mensajes, o sea"
+    },
+    {
+      "start": 3770.63,
+      "end": 3772.07,
+      "text": "el objeto"
+    },
+    {
+      "start": 3772.07,
+      "end": 3774.13,
+      "text": "define también"
+    },
+    {
+      "start": 3774.13,
+      "end": 3776.71,
+      "text": "qué se le puede preguntar"
+    },
+    {
+      "start": 3776.71,
+      "end": 3778.83,
+      "text": "qué mensajes"
+    },
+    {
+      "start": 3778.83,
+      "end": 3779.85,
+      "text": "me pueden enviar"
+    },
+    {
+      "start": 3779.85,
+      "end": 3785.27,
+      "text": "en consecuencia"
+    },
+    {
+      "start": 3785.27,
+      "end": 3787.91,
+      "text": "cualquier lenguaje que se diga del paradigma"
+    },
+    {
+      "start": 3787.91,
+      "end": 3788.77,
+      "text": "de habitación de objetos"
+    },
+    {
+      "start": 3788.77,
+      "end": 3790.37,
+      "text": "consiste en"
+    },
+    {
+      "start": 3790.37,
+      "end": 3793.23,
+      "text": "medios para definir los objetos"
+    },
+    {
+      "start": 3793.23,
+      "end": 3794.31,
+      "text": "y sus estados"
+    },
+    {
+      "start": 3794.31,
+      "end": 3797.23,
+      "text": "secuencias de mensajes entre objetos"
+    },
+    {
+      "start": 3797.23,
+      "end": 3798.91,
+      "text": "y secuencias de métodos"
+    },
+    {
+      "start": 3798.91,
+      "end": 3800.61,
+      "text": "que son internos a cada objeto"
+    },
+    {
+      "start": 3800.61,
+      "end": 3812.14,
+      "text": "ok, este"
+    },
+    {
+      "start": 3812.14,
+      "end": 3816.04,
+      "text": "permítanme un momento"
+    },
+    {
+      "start": 3816.04,
+      "end": 3844.33,
+      "text": "¿tienen alguna pregunta?"
+    },
+    {
+      "start": 3847.45,
+      "end": 3849.29,
+      "text": "¿coincide esto con lo que usted quería?"
+    },
+    {
+      "start": 3851.01,
+      "end": 3852.65,
+      "text": "¿hay algo que me haya faltado?"
+    },
+    {
+      "start": 3853.07,
+      "end": 3854.77,
+      "text": "¿y que a usted le gustaría agregar?"
+    },
+    {
+      "start": 3858.08,
+      "end": 3859.16,
+      "text": "creo que nada más ahí"
+    },
+    {
+      "start": 3859.16,
+      "end": 3860.74,
+      "text": "los mensajes son"
+    },
+    {
+      "start": 3860.74,
+      "end": 3862.9,
+      "text": "como llamadas a los métodos"
+    },
+    {
+      "start": 3862.9,
+      "end": 3863.76,
+      "text": "o son como"
+    },
+    {
+      "start": 3863.76,
+      "end": 3867.14,
+      "text": "o sea que sería como más o menos un mensaje"
+    },
+    {
+      "start": 3867.14,
+      "end": 3868.58,
+      "text": "en este contexto"
+    },
+    {
+      "start": 3868.58,
+      "end": 3870.74,
+      "text": "bueno, sí, por supuesto"
+    },
+    {
+      "start": 3870.74,
+      "end": 3873.54,
+      "text": "al mandarle un mensaje a un objeto"
+    },
+    {
+      "start": 3873.54,
+      "end": 3875.0,
+      "text": "eso"
+    },
+    {
+      "start": 3875.0,
+      "end": 3876.42,
+      "text": "dispara"
+    },
+    {
+      "start": 3876.42,
+      "end": 3878.64,
+      "text": "un conjunto de métodos"
+    },
+    {
+      "start": 3878.64,
+      "end": 3883.02,
+      "text": "puede que sea solo uno, o puede que sean varios"
+    },
+    {
+      "start": 3883.02,
+      "end": 3887.16,
+      "text": "efectivamente"
+    },
+    {
+      "start": 3887.16,
+      "end": 3889.28,
+      "text": "ok"
+    },
+    {
+      "start": 3889.28,
+      "end": 3891.92,
+      "text": "sí, se mantiene el mismo concepto"
+    },
+    {
+      "start": 3891.92,
+      "end": 3892.16,
+      "text": "sí"
+    },
+    {
+      "start": 3892.16,
+      "end": 3894.48,
+      "text": "este"
+    },
+    {
+      "start": 3894.48,
+      "end": 3900.59,
+      "text": "por supuesto, el asunto es este"
+    },
+    {
+      "start": 3900.59,
+      "end": 3904.62,
+      "text": "el Estado"
+    },
+    {
+      "start": 3904.62,
+      "end": 3915.05,
+      "text": "está construido también con objetos, o sea, son objetos internos al objeto riandote."
+    },
+    {
+      "start": 3915.95,
+      "end": 3922.21,
+      "text": "Entonces, en vista de que los métodos se refieren a los objetos del Estado,"
+    },
+    {
+      "start": 3923.15,
+      "end": 3925.89,
+      "text": "los métodos a su vez son mensajes también,"
+    },
+    {
+      "start": 3927.51,
+      "end": 3934.45,
+      "text": "solo que se envían desde adentro del objeto y que están encapsulados en el objeto."
+    },
+    {
+      "start": 3934.45,
+      "end": 3939.13,
+      "text": "Entonces, en el fondo, los métodos también son mensajes."
+    },
+    {
+      "start": 3939.73,
+      "end": 3950.44,
+      "text": "Así que yo podría hablar solamente de los atributos y los mensajes, para ser más preciso."
+    },
+    {
+      "start": 3952.5,
+      "end": 3952.98,
+      "text": "Ok, perfecto."
+    },
+    {
+      "start": 3954.02,
+      "end": 3954.54,
+      "text": "Con mucho gusto."
+    },
+    {
+      "start": 3959.63,
+      "end": 3961.71,
+      "text": "Ok, hay varios tipos de mensajes, ¿verdad?"
+    },
+    {
+      "start": 3962.55,
+      "end": 3965.99,
+      "text": "Hay mensajes que modifican el estado del objeto."
+    },
+    {
+      "start": 3968.31,
+      "end": 3971.69,
+      "text": "Hay mensajes que solicitan información de estado."
+    },
+    {
+      "start": 3971.69,
+      "end": 3975.48,
+      "text": "solamente dígame"
+    },
+    {
+      "start": 3975.48,
+      "end": 3979.32,
+      "text": "qué característica"
+    },
+    {
+      "start": 3979.32,
+      "end": 3981.06,
+      "text": "tiene determinado elemento"
+    },
+    {
+      "start": 3981.06,
+      "end": 3981.68,
+      "text": "de su estado"
+    },
+    {
+      "start": 3981.68,
+      "end": 3989.54,
+      "text": "me faltó este último de acá"
+    },
+    {
+      "start": 3989.54,
+      "end": 3992.7,
+      "text": "este"
+    },
+    {
+      "start": 3992.7,
+      "end": 3998.07,
+      "text": "es que hay otros"
+    },
+    {
+      "start": 3998.07,
+      "end": 4000.91,
+      "text": "mensajes que son muy interesantes"
+    },
+    {
+      "start": 4000.91,
+      "end": 4001.43,
+      "text": "porque"
+    },
+    {
+      "start": 4001.43,
+      "end": 4012.44,
+      "text": "son mensajes"
+    },
+    {
+      "start": 4012.44,
+      "end": 4014.58,
+      "text": "que solicitan elaboración"
+    },
+    {
+      "start": 4014.58,
+      "end": 4015.3,
+      "text": "de información"
+    },
+    {
+      "start": 4015.3,
+      "end": 4021.2,
+      "text": "pero no toda la información"
+    },
+    {
+      "start": 4021.2,
+      "end": 4022.68,
+      "text": "está en el mismo objeto"
+    },
+    {
+      "start": 4022.68,
+      "end": 4064.56,
+      "text": "Entonces se solicita información elaborada con el estado, pero que requiere información de otro objeto."
+    },
+    {
+      "start": 4065.0,
+      "end": 4077.47,
+      "text": "Entonces yo le envío a un objeto determinado, oiga, yo necesito que usted me dé este dato."
+    },
+    {
+      "start": 4077.47,
+      "end": 4080.11,
+      "text": "pero resulta que para obtener ese dato"
+    },
+    {
+      "start": 4080.11,
+      "end": 4081.87,
+      "text": "este objeto tiene que"
+    },
+    {
+      "start": 4081.87,
+      "end": 4084.27,
+      "text": "comunicarse con otro"
+    },
+    {
+      "start": 4084.27,
+      "end": 4085.01,
+      "text": "objeto"
+    },
+    {
+      "start": 4085.01,
+      "end": 4088.33,
+      "text": "para que ese otro objeto le mande"
+    },
+    {
+      "start": 4088.33,
+      "end": 4090.19,
+      "text": "la información y este"
+    },
+    {
+      "start": 4090.19,
+      "end": 4092.53,
+      "text": "entonces termine de elaborar"
+    },
+    {
+      "start": 4092.53,
+      "end": 4094.15,
+      "text": "la información que le está siendo"
+    },
+    {
+      "start": 4094.15,
+      "end": 4095.51,
+      "text": "solicitada desde otro lado"
+    },
+    {
+      "start": 4095.51,
+      "end": 4102.08,
+      "text": "a eso se deben estas rayitas de aquí"
+    },
+    {
+      "start": 4102.08,
+      "end": 4109.86,
+      "text": "entonces podríamos decir que estos son los"
+    },
+    {
+      "start": 4109.86,
+      "end": 4112.24,
+      "text": "tres tipos de mensajes que existen"
+    },
+    {
+      "start": 4112.24,
+      "end": 4113.46,
+      "text": "en el mundo"
+    },
+    {
+      "start": 4113.46,
+      "end": 4114.92,
+      "text": "de orientación a objetos"
+    },
+    {
+      "start": 4114.92,
+      "end": 4120.66,
+      "text": "ok, entonces"
+    },
+    {
+      "start": 4120.66,
+      "end": 4123.42,
+      "text": "¿cómo se ve un programa"
+    },
+    {
+      "start": 4123.42,
+      "end": 4125.44,
+      "text": "en orientación a objetos?"
+    },
+    {
+      "start": 4126.08,
+      "end": 4132.48,
+      "text": "bueno"
+    },
+    {
+      "start": 4132.48,
+      "end": 4145.81,
+      "text": "podemos decir legítimamente"
+    },
+    {
+      "start": 4145.81,
+      "end": 4147.33,
+      "text": "que un programa orientado a objetos"
+    },
+    {
+      "start": 4147.33,
+      "end": 4149.33,
+      "text": "es un ecosistema de objetos"
+    },
+    {
+      "start": 4149.33,
+      "end": 4152.98,
+      "text": "si hay un conjunto de objetos"
+    },
+    {
+      "start": 4152.98,
+      "end": 4154.98,
+      "text": "que se mandan mensajes entre ellos"
+    },
+    {
+      "start": 4154.98,
+      "end": 4157.2,
+      "text": "que"
+    },
+    {
+      "start": 4157.2,
+      "end": 4158.66,
+      "text": "elaboran información"
+    },
+    {
+      "start": 4158.66,
+      "end": 4159.92,
+      "text": "hay un objeto main"
+    },
+    {
+      "start": 4159.92,
+      "end": 4162.34,
+      "text": "que es el que arranca todo"
+    },
+    {
+      "start": 4162.34,
+      "end": 4166.24,
+      "text": "el objeto main"
+    },
+    {
+      "start": 4166.24,
+      "end": 4168.94,
+      "text": "le pide a algún objeto"
+    },
+    {
+      "start": 4168.94,
+      "end": 4170.9,
+      "text": "que, por ejemplo, obtenga información"
+    },
+    {
+      "start": 4170.9,
+      "end": 4175.26,
+      "text": "para que se la devuelva"
+    },
+    {
+      "start": 4175.26,
+      "end": 4175.7,
+      "text": "a main"
+    },
+    {
+      "start": 4175.7,
+      "end": 4178.44,
+      "text": "o"
+    },
+    {
+      "start": 4178.44,
+      "end": 4181.08,
+      "text": "main le pide a este objeto, vea"
+    },
+    {
+      "start": 4181.08,
+      "end": 4182.94,
+      "text": "modifique su estado"
+    },
+    {
+      "start": 4182.94,
+      "end": 4184.56,
+      "text": "para hacer determinada cosa"
+    },
+    {
+      "start": 4184.56,
+      "end": 4189.48,
+      "text": "main le puede"
+    },
+    {
+      "start": 4189.48,
+      "end": 4191.38,
+      "text": "decir a este otro objeto, oiga"
+    },
+    {
+      "start": 4191.38,
+      "end": 4193.34,
+      "text": "ahora necesito que usted haga tal cosa"
+    },
+    {
+      "start": 4193.34,
+      "end": 4195.42,
+      "text": "pero este objeto, a su vez"
+    },
+    {
+      "start": 4195.42,
+      "end": 4197.3,
+      "text": "el de color negro, necesita"
+    },
+    {
+      "start": 4197.3,
+      "end": 4199.34,
+      "text": "para hacer eso, información que"
+    },
+    {
+      "start": 4199.34,
+      "end": 4201.18,
+      "text": "ya el primer objeto"
+    },
+    {
+      "start": 4201.18,
+      "end": 4202.68,
+      "text": "el del gris tiene"
+    },
+    {
+      "start": 4202.68,
+      "end": 4206.3,
+      "text": "entonces"
+    },
+    {
+      "start": 4206.3,
+      "end": 4209.46,
+      "text": "un programa orientado a objetos"
+    },
+    {
+      "start": 4209.46,
+      "end": 4211.92,
+      "text": "solamente"
+    },
+    {
+      "start": 4211.92,
+      "end": 4213.56,
+      "text": "es un objeto"
+    },
+    {
+      "start": 4213.56,
+      "end": 4215.02,
+      "text": "bueno, hay un objeto main"
+    },
+    {
+      "start": 4215.02,
+      "end": 4216.52,
+      "text": "otros objetos"
+    },
+    {
+      "start": 4216.52,
+      "end": 4219.86,
+      "text": "que por supuesto se definen"
+    },
+    {
+      "start": 4219.86,
+      "end": 4221.58,
+      "text": "a partir de una clase, cada uno"
+    },
+    {
+      "start": 4221.58,
+      "end": 4224.76,
+      "text": "de ellos, y el"
+    },
+    {
+      "start": 4224.76,
+      "end": 4227.0,
+      "text": "programa es la secuencia"
+    },
+    {
+      "start": 4227.0,
+      "end": 4228.7,
+      "text": "en un cierto"
+    },
+    {
+      "start": 4228.7,
+      "end": 4229.32,
+      "text": "orden"
+    },
+    {
+      "start": 4229.32,
+      "end": 4232.84,
+      "text": "de los mensajes que yo puedo"
+    },
+    {
+      "start": 4232.84,
+      "end": 4234.82,
+      "text": "mandar a los objetos"
+    },
+    {
+      "start": 4234.82,
+      "end": 4236.9,
+      "text": "eso es un programa"
+    },
+    {
+      "start": 4236.9,
+      "end": 4237.76,
+      "text": "en orientación a objetos"
+    },
+    {
+      "start": 4237.76,
+      "end": 4242.25,
+      "text": "en su forma pura"
+    },
+    {
+      "start": 4242.25,
+      "end": 4243.53,
+      "text": "entonces"
+    },
+    {
+      "start": 4243.53,
+      "end": 4246.43,
+      "text": "esto ya nos permite comparar"
+    },
+    {
+      "start": 4246.43,
+      "end": 4247.27,
+      "text": "todos los paradigmas"
+    },
+    {
+      "start": 4247.27,
+      "end": 4251.9,
+      "text": "¿cómo se ve un algoritmo"
+    },
+    {
+      "start": 4251.9,
+      "end": 4253.6,
+      "text": "en orientación a objetos?"
+    },
+    {
+      "start": 4256.6,
+      "end": 4256.96,
+      "text": "bueno"
+    },
+    {
+      "start": 4256.96,
+      "end": 4260.32,
+      "text": "ya habíamos visto que"
+    },
+    {
+      "start": 4260.32,
+      "end": 4262.76,
+      "text": "este"
+    },
+    {
+      "start": 4262.76,
+      "end": 4265.76,
+      "text": "es más aquí"
+    },
+    {
+      "start": 4265.76,
+      "end": 4266.82,
+      "text": "debería decir una cosa"
+    },
+    {
+      "start": 4266.82,
+      "end": 4277.36,
+      "text": "decíamos, yo les había dicho desde el puro"
+    },
+    {
+      "start": 4277.36,
+      "end": 4286.24,
+      "text": "inicio del curso que la definición de algoritmo que vamos a usar es la de una secuencia de tareas"
+    },
+    {
+      "start": 4288.2,
+      "end": 4290.96,
+      "text": "que según que se ejecutan"
+    },
+    {
+      "start": 4293.12,
+      "end": 4305.08,
+      "text": "este o que se llevan a cabo más bien aquí podríamos poner incluso la palabra elaboración"
+    },
+    {
+      "start": 4305.08,
+      "end": 4329.6,
+      "text": "O sea, tareas que se elaboran en cierta secuencia, donde el conjunto de tareas es finito, el tiempo en que se lleve a cabo esa elaboración es finito también, y utiliza una cantidad finita de recursos."
+    },
+    {
+      "start": 4329.6,
+      "end": 4333.78,
+      "text": "y desde el inicio del curso les ponía el"
+    },
+    {
+      "start": 4333.78,
+      "end": 4336.08,
+      "text": "énfasis en que estamos hablando de"
+    },
+    {
+      "start": 4336.08,
+      "end": 4340.58,
+      "text": "tareas, ¿por qué? bueno, porque esas tareas"
+    },
+    {
+      "start": 4340.58,
+      "end": 4343.84,
+      "text": "en el paradigma imperativo procedimental"
+    },
+    {
+      "start": 4343.84,
+      "end": 4351.24,
+      "text": "son instrucciones, entonces lo que"
+    },
+    {
+      "start": 4351.24,
+      "end": 4353.32,
+      "text": "tengo yo es una secuencia de instrucciones"
+    },
+    {
+      "start": 4353.32,
+      "end": 4357.6,
+      "text": "que se ejecutan, o sea la elaboración de"
+    },
+    {
+      "start": 4357.6,
+      "end": 4361.22,
+      "text": "una tarea es ejecutar la instrucción, así"
+    },
+    {
+      "start": 4361.22,
+      "end": 4365.08,
+      "text": "que correr un algoritmo en el paradigma"
+    },
+    {
+      "start": 4365.08,
+      "end": 4367.6,
+      "text": "imperativo es ejecutar la secuencia de"
+    },
+    {
+      "start": 4367.6,
+      "end": 4368.06,
+      "text": "instrucciones."
+    },
+    {
+      "start": 4369.38,
+      "end": 4371.74,
+      "text": "Ya vimos que en el paradigma funcional"
+    },
+    {
+      "start": 4371.74,
+      "end": 4374.76,
+      "text": "esto cambia, porque ya no tengo"
+    },
+    {
+      "start": 4374.76,
+      "end": 4377.88,
+      "text": "instrucciones, tengo funciones. Estamos"
+    },
+    {
+      "start": 4377.88,
+      "end": 4379.58,
+      "text": "hablando de computabilidad de Church."
+    },
+    {
+      "start": 4387.23,
+      "end": 4393.91,
+      "text": "Incluso podríamos decir que el paradigma"
+    },
+    {
+      "start": 4393.91,
+      "end": 4396.95,
+      "text": "imperativo, estamos hablando"
+    },
+    {
+      "start": 4396.95,
+      "end": 4398.15,
+      "text": "de computabilidad"
+    },
+    {
+      "start": 4398.15,
+      "end": 4399.55,
+      "text": "de Turing"
+    },
+    {
+      "start": 4399.55,
+      "end": 4407.19,
+      "text": "tal vez hay un poquitito más"
+    },
+    {
+      "start": 4407.19,
+      "end": 4413.94,
+      "text": "si"
+    },
+    {
+      "start": 4413.94,
+      "end": 4427.24,
+      "text": "entonces en el paradigma funcional"
+    },
+    {
+      "start": 4427.24,
+      "end": 4430.08,
+      "text": "lo único que tengo son funciones"
+    },
+    {
+      "start": 4430.08,
+      "end": 4434.09,
+      "text": "entonces"
+    },
+    {
+      "start": 4434.09,
+      "end": 4435.65,
+      "text": "cobrar un algoritmo"
+    },
+    {
+      "start": 4435.65,
+      "end": 4437.39,
+      "text": "es evaluar"
+    },
+    {
+      "start": 4437.39,
+      "end": 4440.13,
+      "text": "funciones, entonces a partir de una función main"
+    },
+    {
+      "start": 4440.13,
+      "end": 4443.87,
+      "text": "esa función main"
+    },
+    {
+      "start": 4443.87,
+      "end": 4444.83,
+      "text": "se descompone"
+    },
+    {
+      "start": 4444.83,
+      "end": 4447.39,
+      "text": "en otras funciones"
+    },
+    {
+      "start": 4447.39,
+      "end": 4449.43,
+      "text": "y yo lo que hago es evaluar funciones"
+    },
+    {
+      "start": 4449.43,
+      "end": 4450.97,
+      "text": "eso es un mecanismo de evaluación"
+    },
+    {
+      "start": 4450.97,
+      "end": 4454.07,
+      "text": "ok, el paradigma lógico"
+    },
+    {
+      "start": 4454.07,
+      "end": 4455.09,
+      "text": "que acabamos de dejar"
+    },
+    {
+      "start": 4455.09,
+      "end": 4457.55,
+      "text": "todos son sentencias lógicas"
+    },
+    {
+      "start": 4457.55,
+      "end": 4461.76,
+      "text": "entonces en el fondo"
+    },
+    {
+      "start": 4461.76,
+      "end": 4464.06,
+      "text": "lo que hacemos es una descripción"
+    },
+    {
+      "start": 4464.06,
+      "end": 4466.2,
+      "text": "en cálculo de predicados de primer orden"
+    },
+    {
+      "start": 4466.2,
+      "end": 4467.44,
+      "text": "del algoritmo"
+    },
+    {
+      "start": 4467.44,
+      "end": 4473.49,
+      "text": "entonces la elaboración"
+    },
+    {
+      "start": 4473.49,
+      "end": 4475.47,
+      "text": "del algoritmo será"
+    },
+    {
+      "start": 4475.47,
+      "end": 4477.35,
+      "text": "demostrar la veracidad"
+    },
+    {
+      "start": 4477.35,
+      "end": 4479.79,
+      "text": "de alguna sentencia universal"
+    },
+    {
+      "start": 4479.79,
+      "end": 4480.65,
+      "text": "o existencial"
+    },
+    {
+      "start": 4480.65,
+      "end": 4485.75,
+      "text": "OOK, orientación a objetos"
+    },
+    {
+      "start": 4485.75,
+      "end": 4487.91,
+      "text": "cuáles son las tareas"
+    },
+    {
+      "start": 4487.91,
+      "end": 4489.91,
+      "text": "son mensajes"
+    },
+    {
+      "start": 4489.91,
+      "end": 4491.11,
+      "text": "o sea, un"
+    },
+    {
+      "start": 4491.11,
+      "end": 4494.01,
+      "text": "mensajes"
+    },
+    {
+      "start": 4494.01,
+      "end": 4495.69,
+      "text": "o métodos"
+    },
+    {
+      "start": 4495.69,
+      "end": 4497.39,
+      "text": "pero en el fondo todos son mensajes"
+    },
+    {
+      "start": 4497.39,
+      "end": 4498.81,
+      "text": "como les había dicho"
+    },
+    {
+      "start": 4498.81,
+      "end": 4500.81,
+      "text": "como le explicaba Andrés"
+    },
+    {
+      "start": 4500.81,
+      "end": 4505.16,
+      "text": "entonces, ¿cómo se elabora"
+    },
+    {
+      "start": 4505.16,
+      "end": 4507.88,
+      "text": "un"
+    },
+    {
+      "start": 4507.88,
+      "end": 4510.74,
+      "text": "cada uno de estos mensajes?"
+    },
+    {
+      "start": 4511.16,
+      "end": 4511.88,
+      "text": "bueno"
+    },
+    {
+      "start": 4511.88,
+      "end": 4514.52,
+      "text": "es el envío del mensaje"
+    },
+    {
+      "start": 4514.52,
+      "end": 4517.22,
+      "text": "lo que"
+    },
+    {
+      "start": 4517.22,
+      "end": 4517.8,
+      "text": "este"
+    },
+    {
+      "start": 4517.8,
+      "end": 4522.38,
+      "text": "consiste la"
+    },
+    {
+      "start": 4522.38,
+      "end": 4524.26,
+      "text": "elaboración o"
+    },
+    {
+      "start": 4524.26,
+      "end": 4526.14,
+      "text": "el llevar a cabo"
+    },
+    {
+      "start": 4526.14,
+      "end": 4528.98,
+      "text": "una tarea. Puesto que la tarea"
+    },
+    {
+      "start": 4528.98,
+      "end": 4531.0,
+      "text": "es un mensaje, entonces"
+    },
+    {
+      "start": 4531.0,
+      "end": 4532.38,
+      "text": "consiste en"
+    },
+    {
+      "start": 4532.38,
+      "end": 4536.8,
+      "text": "ya sea mandar un mensaje"
+    },
+    {
+      "start": 4536.8,
+      "end": 4538.12,
+      "text": "de vuelta con la respuesta"
+    },
+    {
+      "start": 4538.12,
+      "end": 4540.84,
+      "text": "o modificar el"
+    },
+    {
+      "start": 4540.84,
+      "end": 4545.99,
+      "text": "estado de un objeto. Yo sé"
+    },
+    {
+      "start": 4545.99,
+      "end": 4547.95,
+      "text": "que suena muy raro lo que voy a decir"
+    },
+    {
+      "start": 4547.95,
+      "end": 4551.52,
+      "text": "y es lo siguiente."
+    },
+    {
+      "start": 4552.38,
+      "end": 4553.68,
+      "text": "En ningún"
+    },
+    {
+      "start": 4553.68,
+      "end": 4555.84,
+      "text": "lenguaje verdadero"
+    },
+    {
+      "start": 4555.84,
+      "end": 4558.42,
+      "text": "de orientación a objetos"
+    },
+    {
+      "start": 4558.42,
+      "end": 4560.52,
+      "text": "hay instrucciones"
+    },
+    {
+      "start": 4560.52,
+      "end": 4565.98,
+      "text": "lo que debería haber son"
+    },
+    {
+      "start": 4565.98,
+      "end": 4567.5,
+      "text": "solamente mensajes"
+    },
+    {
+      "start": 4567.5,
+      "end": 4570.98,
+      "text": "ok"
+    },
+    {
+      "start": 4570.98,
+      "end": 4574.12,
+      "text": "pero ustedes han pasado toda una vida"
+    },
+    {
+      "start": 4574.12,
+      "end": 4576.1,
+      "text": "pensando que Java"
+    },
+    {
+      "start": 4576.1,
+      "end": 4578.3,
+      "text": "y Python son lenguajes orientados"
+    },
+    {
+      "start": 4578.3,
+      "end": 4578.78,
+      "text": "a objetos"
+    },
+    {
+      "start": 4578.78,
+      "end": 4581.72,
+      "text": "y ustedes pueden estarse preguntando"
+    },
+    {
+      "start": 4581.72,
+      "end": 4583.72,
+      "text": "oiga, ¿qué está diciendo este sujeto?"
+    },
+    {
+      "start": 4584.36,
+      "end": 4585.56,
+      "text": "porque en Python"
+    },
+    {
+      "start": 4585.56,
+      "end": 4587.06,
+      "text": "y en Java"
+    },
+    {
+      "start": 4587.06,
+      "end": 4588.62,
+      "text": "sí tengo instrucciones"
+    },
+    {
+      "start": 4588.62,
+      "end": 4592.64,
+      "text": "y en C++ todavía peor"
+    },
+    {
+      "start": 4592.64,
+      "end": 4595.14,
+      "text": "porque C++ es prácticamente C"
+    },
+    {
+      "start": 4595.14,
+      "end": 4596.94,
+      "text": "este"
+    },
+    {
+      "start": 4596.94,
+      "end": 4599.65,
+      "text": "bueno"
+    },
+    {
+      "start": 4599.65,
+      "end": 4601.49,
+      "text": "es prácticamente C aunque"
+    },
+    {
+      "start": 4601.49,
+      "end": 4603.63,
+      "text": "C++ es un poquitito más"
+    },
+    {
+      "start": 4603.63,
+      "end": 4606.95,
+      "text": "más cuidadoso"
+    },
+    {
+      "start": 4606.95,
+      "end": 4610.43,
+      "text": "en la forma de"
+    },
+    {
+      "start": 4610.43,
+      "end": 4611.49,
+      "text": "generar código"
+    },
+    {
+      "start": 4611.49,
+      "end": 4619.16,
+      "text": "perdón, pero"
+    },
+    {
+      "start": 4619.16,
+      "end": 4621.12,
+      "text": "sí, en Python hay instrucciones"
+    },
+    {
+      "start": 4621.12,
+      "end": 4623.06,
+      "text": "y Python es orientado a objetos, ¿no?"
+    },
+    {
+      "start": 4626.06,
+      "end": 4626.98,
+      "text": "sí y no"
+    },
+    {
+      "start": 4626.98,
+      "end": 4632.28,
+      "text": "al tener instrucciones"
+    },
+    {
+      "start": 4632.28,
+      "end": 4634.1,
+      "text": "tanto Java como C++"
+    },
+    {
+      "start": 4634.1,
+      "end": 4644.72,
+      "text": "como python se ponen en un en una zona gris intermedia entre verdadera orientación objetos"
+    },
+    {
+      "start": 4646.72,
+      "end": 4657.44,
+      "text": "el paradigma imperativo ok entonces ustedes pueden a su vez hacerse otra pregunta o hacerme otra"
+    },
+    {
+      "start": 4657.44,
+      "end": 4669.69,
+      "text": "pregunta y es ok entonces cuál sería un lenguaje verdaderamente orientado a objetos si usted"
+    },
+    {
+      "start": 4669.69,
+      "end": 4671.59,
+      "text": "tuviera razón, podría"
+    },
+    {
+      "start": 4671.59,
+      "end": 4674.09,
+      "text": "pensar ustedes, genuinamente"
+    },
+    {
+      "start": 4674.09,
+      "end": 4674.33,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 4676.01,
+      "end": 4677.61,
+      "text": "o sea, recuerden, la esencia"
+    },
+    {
+      "start": 4677.61,
+      "end": 4679.53,
+      "text": "de la universidad es que usted"
+    },
+    {
+      "start": 4679.53,
+      "end": 4681.05,
+      "text": "puede cuestionar cualquier cosa"
+    },
+    {
+      "start": 4681.05,
+      "end": 4685.25,
+      "text": "o sea, hacer cuestionamiento válido"
+    },
+    {
+      "start": 4685.25,
+      "end": 4687.53,
+      "text": "usted puede"
+    },
+    {
+      "start": 4687.53,
+      "end": 4689.67,
+      "text": "pedir, hacer buenas preguntas"
+    },
+    {
+      "start": 4689.67,
+      "end": 4691.63,
+      "text": "y exigir que le den buenas"
+    },
+    {
+      "start": 4691.63,
+      "end": 4695.89,
+      "text": "respuestas, entonces"
+    },
+    {
+      "start": 4695.89,
+      "end": 4697.99,
+      "text": "si alguien me preguntara cuál sería"
+    },
+    {
+      "start": 4697.99,
+      "end": 4700.21,
+      "text": "un programa para mí, verdadero"
+    },
+    {
+      "start": 4700.21,
+      "end": 4701.15,
+      "text": "de orientación a objetos"
+    },
+    {
+      "start": 4701.15,
+      "end": 4703.69,
+      "text": "yo le respondería"
+    },
+    {
+      "start": 4703.69,
+      "end": 4704.49,
+      "text": "Smalltalk"
+    },
+    {
+      "start": 4704.49,
+      "end": 4707.94,
+      "text": "O"
+    },
+    {
+      "start": 4707.94,
+      "end": 4710.86,
+      "text": "Su pariente más cercano"
+    },
+    {
+      "start": 4710.86,
+      "end": 4713.72,
+      "text": "Este"
+    },
+    {
+      "start": 4713.72,
+      "end": 4720.38,
+      "text": "Que se llama Squeak"
+    },
+    {
+      "start": 4720.38,
+      "end": 4725.93,
+      "text": "Esa es verdadera orientación a objetos"
+    },
+    {
+      "start": 4725.93,
+      "end": 4727.13,
+      "text": "Esa es de verdad"
+    },
+    {
+      "start": 4727.13,
+      "end": 4736.06,
+      "text": "Ok, entonces ustedes se preguntan"
+    },
+    {
+      "start": 4736.06,
+      "end": 4738.76,
+      "text": "Bueno, ahora eso nos lleva a otro problema"
+    },
+    {
+      "start": 4738.76,
+      "end": 4740.14,
+      "text": "Y es ¿Por qué"
+    },
+    {
+      "start": 4740.14,
+      "end": 4742.4,
+      "text": "Se desarrollan lenguajes"
+    },
+    {
+      "start": 4742.4,
+      "end": 4743.76,
+      "text": "Como Java o Python"
+    },
+    {
+      "start": 4743.76,
+      "end": 4746.06,
+      "text": "Si no son"
+    },
+    {
+      "start": 4746.06,
+      "end": 4747.92,
+      "text": "Verdaderamente orientados a objetos"
+    },
+    {
+      "start": 4747.92,
+      "end": 4750.2,
+      "text": "Y hay otra"
+    },
+    {
+      "start": 4750.2,
+      "end": 4752.46,
+      "text": "pregunta que surge y es al darles"
+    },
+    {
+      "start": 4752.46,
+      "end": 4755.56,
+      "text": "instrucciones podrían arrastrar los"
+    },
+    {
+      "start": 4755.56,
+      "end": 4761.48,
+      "text": "vicios del paradigma imperativo bueno"
+    },
+    {
+      "start": 4761.48,
+      "end": 4765.22,
+      "text": "la respuesta a la primera pregunta de"
+    },
+    {
+      "start": 4765.22,
+      "end": 4765.84,
+      "text": "por qué"
+    },
+    {
+      "start": 4765.84,
+      "end": 4769.68,
+      "text": "estos lenguajes tienen instrucciones"
+    },
+    {
+      "start": 4769.68,
+      "end": 4781.46,
+      "text": "bueno la respuesta es que hasta ahora es"
+    },
+    {
+      "start": 4781.46,
+      "end": 4787.02,
+      "text": "que tenemos programación hecha por"
+    },
+    {
+      "start": 4787.02,
+      "end": 4792.23,
+      "text": "computadoras desde hace más de 80 años"
+    },
+    {
+      "start": 4792.23,
+      "end": 4794.55,
+      "text": "que habíamos estado haciendo programación"
+    },
+    {
+      "start": 4794.55,
+      "end": 4795.49,
+      "text": "hecha por personas"
+    },
+    {
+      "start": 4795.49,
+      "end": 4801.29,
+      "text": "y si a ustedes por ejemplo le enseñaron"
+    },
+    {
+      "start": 4801.29,
+      "end": 4802.37,
+      "text": "a programar en C"
+    },
+    {
+      "start": 4802.37,
+      "end": 4813.28,
+      "text": "y le dicen bueno queremos un lenguaje"
+    },
+    {
+      "start": 4813.28,
+      "end": 4816.22,
+      "text": "nuevo que tenga otras ventajas que C no"
+    },
+    {
+      "start": 4816.22,
+      "end": 4821.03,
+      "text": "tiene la idea es esta"
+    },
+    {
+      "start": 4821.03,
+      "end": 4826.37,
+      "text": "la cantidad de software que se necesita"
+    },
+    {
+      "start": 4826.37,
+      "end": 4829.29,
+      "text": "en el mundo es cada vez mayor"
+    },
+    {
+      "start": 4829.29,
+      "end": 4831.29,
+      "text": "cada vez más"
+    },
+    {
+      "start": 4831.29,
+      "end": 4833.03,
+      "text": "cosas están pasando"
+    },
+    {
+      "start": 4833.03,
+      "end": 4835.05,
+      "text": "a la digital"
+    },
+    {
+      "start": 4835.05,
+      "end": 4839.14,
+      "text": "piensen en esto"
+    },
+    {
+      "start": 4839.14,
+      "end": 4841.0,
+      "text": "este"
+    },
+    {
+      "start": 4841.0,
+      "end": 4844.8,
+      "text": "vamos a ver"
+    },
+    {
+      "start": 4844.8,
+      "end": 4845.96,
+      "text": "si tengo alguna por aquí"
+    },
+    {
+      "start": 4845.96,
+      "end": 4849.08,
+      "text": "no sé si han visto"
+    },
+    {
+      "start": 4849.08,
+      "end": 4851.06,
+      "text": "por ejemplo las moneditas de 500"
+    },
+    {
+      "start": 4851.06,
+      "end": 4852.5,
+      "text": "colones que están circulando"
+    },
+    {
+      "start": 4852.5,
+      "end": 4854.26,
+      "text": "desde hace ya unos meses"
+    },
+    {
+      "start": 4854.26,
+      "end": 4859.12,
+      "text": "no sé si han notado una característica"
+    },
+    {
+      "start": 4859.12,
+      "end": 4861.04,
+      "text": "muy peculiar de esas monedas"
+    },
+    {
+      "start": 4861.04,
+      "end": 4865.38,
+      "text": "y es el"
+    },
+    {
+      "start": 4865.38,
+      "end": 4867.66,
+      "text": "poco desgaste que tienen"
+    },
+    {
+      "start": 4867.66,
+      "end": 4874.04,
+      "text": "¿por qué les llamo la atención de esto"
+    },
+    {
+      "start": 4874.04,
+      "end": 4876.12,
+      "text": "en este contexto en que estoy hablando?"
+    },
+    {
+      "start": 4876.44,
+      "end": 4878.4,
+      "text": "bueno, porque yo me pregunto"
+    },
+    {
+      "start": 4878.4,
+      "end": 4880.2,
+      "text": "¿por qué esas monedas no están"
+    },
+    {
+      "start": 4880.2,
+      "end": 4885.08,
+      "text": "gastadas? y la razón"
+    },
+    {
+      "start": 4885.08,
+      "end": 4886.8,
+      "text": "es que cada"
+    },
+    {
+      "start": 4886.8,
+      "end": 4888.5,
+      "text": "vez menos gente"
+    },
+    {
+      "start": 4888.5,
+      "end": 4890.8,
+      "text": "usa"
+    },
+    {
+      "start": 4890.8,
+      "end": 4892.88,
+      "text": "dinero físico"
+    },
+    {
+      "start": 4892.88,
+      "end": 4901.3,
+      "text": "en el bus del TEC por ejemplo"
+    },
+    {
+      "start": 4901.3,
+      "end": 4903.82,
+      "text": "es una rareza"
+    },
+    {
+      "start": 4903.82,
+      "end": 4905.74,
+      "text": "el estudiante"
+    },
+    {
+      "start": 4905.74,
+      "end": 4907.56,
+      "text": "que paga con billetes"
+    },
+    {
+      "start": 4907.56,
+      "end": 4908.22,
+      "text": "y monedas"
+    },
+    {
+      "start": 4908.22,
+      "end": 4922.12,
+      "text": "lo más común"
+    },
+    {
+      "start": 4922.12,
+      "end": 4924.16,
+      "text": "es que la gente use una tarjeta"
+    },
+    {
+      "start": 4924.16,
+      "end": 4925.08,
+      "text": "de crédito o"
+    },
+    {
+      "start": 4925.08,
+      "end": 4927.82,
+      "text": "hacen una cosa que para mí"
+    },
+    {
+      "start": 4927.82,
+      "end": 4930.18,
+      "text": "que soy de la vieja escuela"
+    },
+    {
+      "start": 4930.18,
+      "end": 4932.1,
+      "text": "me parece todavía muy"
+    },
+    {
+      "start": 4932.1,
+      "end": 4933.84,
+      "text": "peligroso"
+    },
+    {
+      "start": 4933.84,
+      "end": 4935.76,
+      "text": "y es de ahí, usa su teléfono"
+    },
+    {
+      "start": 4935.76,
+      "end": 4943.28,
+      "text": "a mí"
+    },
+    {
+      "start": 4943.28,
+      "end": 4944.86,
+      "text": "esto me parece peligroso porque"
+    },
+    {
+      "start": 4944.86,
+      "end": 4946.62,
+      "text": "como programador viejo que soy"
+    },
+    {
+      "start": 4946.62,
+      "end": 4948.4,
+      "text": "y como"
+    },
+    {
+      "start": 4948.4,
+      "end": 4951.1,
+      "text": "alguien más o menos familiarizado"
+    },
+    {
+      "start": 4951.1,
+      "end": 4953.16,
+      "text": "aunque sea un poquitito con seguridad informática,"
+    },
+    {
+      "start": 4955.04,
+      "end": 4957.38,
+      "text": "sé que este bicho es muy vulnerable."
+    },
+    {
+      "start": 4959.48,
+      "end": 4962.58,
+      "text": "Así que darle mi información financiera"
+    },
+    {
+      "start": 4962.58,
+      "end": 4964.86,
+      "text": "a este aparato,"
+    },
+    {
+      "start": 4965.26,
+      "end": 4966.78,
+      "text": "vieran que a mí me crispa."
+    },
+    {
+      "start": 4968.06,
+      "end": 4968.9,
+      "text": "Es algo que,"
+    },
+    {
+      "start": 4970.38,
+      "end": 4972.3,
+      "text": "como les digo, tal vez es maña de la gente vieja,"
+    },
+    {
+      "start": 4973.28,
+      "end": 4974.06,
+      "text": "mala maña,"
+    },
+    {
+      "start": 4975.26,
+      "end": 4977.34,
+      "text": "pero yo desconfío mucho"
+    },
+    {
+      "start": 4977.34,
+      "end": 4978.94,
+      "text": "y yo no tengo ninguna,"
+    },
+    {
+      "start": 4979.02,
+      "end": 4980.76,
+      "text": "pero ninguna aplicación bancaria"
+    },
+    {
+      "start": 4980.76,
+      "end": 4982.3,
+      "text": "en el celular, ninguna"
+    },
+    {
+      "start": 4982.3,
+      "end": 4984.78,
+      "text": "vieran que eso me ha dado"
+    },
+    {
+      "start": 4984.78,
+      "end": 4985.92,
+      "text": "algunos problemas porque"
+    },
+    {
+      "start": 4985.92,
+      "end": 4988.56,
+      "text": "a veces voy a comprar alguna cosilla"
+    },
+    {
+      "start": 4988.56,
+      "end": 4990.8,
+      "text": "en un puestito"
+    },
+    {
+      "start": 4990.8,
+      "end": 4992.16,
+      "text": "de alguien, algún"
+    },
+    {
+      "start": 4992.16,
+      "end": 4995.14,
+      "text": "emprendedor, por ejemplo, tiene una cosita"
+    },
+    {
+      "start": 4995.14,
+      "end": 4996.24,
+      "text": "ahí que está vendiendo"
+    },
+    {
+      "start": 4996.24,
+      "end": 4998.84,
+      "text": "y es un producto de buena calidad y bonito"
+    },
+    {
+      "start": 4998.84,
+      "end": 5000.58,
+      "text": "y le dice"
+    },
+    {
+      "start": 5000.58,
+      "end": 5001.66,
+      "text": "no, no, mándeme un simple"
+    },
+    {
+      "start": 5001.66,
+      "end": 5004.78,
+      "text": "ay, qué pena, yo no tengo eso"
+    },
+    {
+      "start": 5004.78,
+      "end": 5005.62,
+      "text": "aquí en el teléfono"
+    },
+    {
+      "start": 5005.62,
+      "end": 5013.68,
+      "text": "pero, ¿qué quiero decir"
+    },
+    {
+      "start": 5013.68,
+      "end": 5014.22,
+      "text": "con esto?"
+    },
+    {
+      "start": 5015.72,
+      "end": 5030.94,
+      "text": "Que la cantidad de software, porque todo eso se mueve entonces a través de tecnología digital, entonces la cantidad de software nuevo y además software viejo al cual haya que darle mantenimiento es cada vez más grande."
+    },
+    {
+      "start": 5030.94,
+      "end": 5036.07,
+      "text": "en el fondo"
+    },
+    {
+      "start": 5036.07,
+      "end": 5038.21,
+      "text": "lo que la inteligencia artificial"
+    },
+    {
+      "start": 5038.21,
+      "end": 5039.39,
+      "text": "está eliminando"
+    },
+    {
+      "start": 5039.39,
+      "end": 5042.69,
+      "text": "es a los programadores"
+    },
+    {
+      "start": 5042.69,
+      "end": 5044.37,
+      "text": "pero no a los profesionales"
+    },
+    {
+      "start": 5044.37,
+      "end": 5045.19,
+      "text": "en computación"
+    },
+    {
+      "start": 5045.19,
+      "end": 5051.11,
+      "text": "los profesionales"
+    },
+    {
+      "start": 5051.11,
+      "end": 5052.49,
+      "text": "en computación todavía"
+    },
+    {
+      "start": 5052.49,
+      "end": 5054.95,
+      "text": "necesitamos saber"
+    },
+    {
+      "start": 5054.95,
+      "end": 5056.57,
+      "text": "de lenguaje de programación"
+    },
+    {
+      "start": 5056.57,
+      "end": 5059.07,
+      "text": "aunque alguien más"
+    },
+    {
+      "start": 5059.07,
+      "end": 5060.21,
+      "text": "programe por nosotros"
+    },
+    {
+      "start": 5060.21,
+      "end": 5062.87,
+      "text": "todavía necesitamos"
+    },
+    {
+      "start": 5062.87,
+      "end": 5065.05,
+      "text": "saber cómo funciona una computadora"
+    },
+    {
+      "start": 5065.05,
+      "end": 5069.73,
+      "text": "aunque no vayamos a abrir una computadora"
+    },
+    {
+      "start": 5069.73,
+      "end": 5072.95,
+      "text": "y con un cautín empezar a atravesar los circuitos"
+    },
+    {
+      "start": 5072.95,
+      "end": 5077.73,
+      "text": "entonces, no crean, en el futuro va a seguir"
+    },
+    {
+      "start": 5077.73,
+      "end": 5079.43,
+      "text": "habiendo un curso de lenguajes de programación"
+    },
+    {
+      "start": 5079.43,
+      "end": 5082.07,
+      "text": "y vamos a seguir enseñándoles a programar"
+    },
+    {
+      "start": 5082.07,
+      "end": 5086.45,
+      "text": "y vamos a seguir dándoles arquitectura de computadoras"
+    },
+    {
+      "start": 5086.45,
+      "end": 5090.13,
+      "text": "pero ya no para que programen"
+    },
+    {
+      "start": 5090.13,
+      "end": 5092.85,
+      "text": "sino para que"
+    },
+    {
+      "start": 5092.85,
+      "end": 5095.35,
+      "text": "sean más capaces"
+    },
+    {
+      "start": 5095.35,
+      "end": 5096.61,
+      "text": "de someter"
+    },
+    {
+      "start": 5096.61,
+      "end": 5098.77,
+      "text": "a testing"
+    },
+    {
+      "start": 5098.77,
+      "end": 5102.43,
+      "text": "darle mantenimiento"
+    },
+    {
+      "start": 5102.43,
+      "end": 5104.63,
+      "text": "y verificar"
+    },
+    {
+      "start": 5104.63,
+      "end": 5106.23,
+      "text": "la correctitud"
+    },
+    {
+      "start": 5106.23,
+      "end": 5108.07,
+      "text": "de código generado"
+    },
+    {
+      "start": 5108.07,
+      "end": 5109.53,
+      "text": "automáticamente"
+    },
+    {
+      "start": 5109.53,
+      "end": 5114.11,
+      "text": "eso no es nuevo"
+    },
+    {
+      "start": 5114.11,
+      "end": 5117.31,
+      "text": "yo bueno relacionado a eso"
+    },
+    {
+      "start": 5117.31,
+      "end": 5119.35,
+      "text": "no acuerdo de donde leí una frase"
+    },
+    {
+      "start": 5119.35,
+      "end": 5121.31,
+      "text": "creo que era de alguien que trabajaba"
+    },
+    {
+      "start": 5121.31,
+      "end": 5122.61,
+      "text": "en una empresa ya grande"
+    },
+    {
+      "start": 5122.61,
+      "end": 5125.25,
+      "text": "que decía que la programación murió"
+    },
+    {
+      "start": 5125.25,
+      "end": 5127.09,
+      "text": "pero la ingeniería"
+    },
+    {
+      "start": 5127.09,
+      "end": 5128.35,
+      "text": "está más viva que nunca"
+    },
+    {
+      "start": 5128.35,
+      "end": 5132.68,
+      "text": "bien que eso"
+    },
+    {
+      "start": 5132.68,
+      "end": 5134.7,
+      "text": "muchas gracias por tu"
+    },
+    {
+      "start": 5134.7,
+      "end": 5135.04,
+      "text": "aporte"
+    },
+    {
+      "start": 5135.04,
+      "end": 5138.48,
+      "text": "efectivamente"
+    },
+    {
+      "start": 5138.48,
+      "end": 5140.26,
+      "text": "hay mucho de verdad en eso"
+    },
+    {
+      "start": 5140.26,
+      "end": 5142.86,
+      "text": "pero yo creo que decir que la programación"
+    },
+    {
+      "start": 5142.86,
+      "end": 5144.6,
+      "text": "murió es exagerado"
+    },
+    {
+      "start": 5144.6,
+      "end": 5148.92,
+      "text": "porque eso supone"
+    },
+    {
+      "start": 5148.92,
+      "end": 5151.54,
+      "text": "que"
+    },
+    {
+      "start": 5151.54,
+      "end": 5154.34,
+      "text": "ya hemos encontrado"
+    },
+    {
+      "start": 5154.34,
+      "end": 5156.84,
+      "text": "todos los algoritmos"
+    },
+    {
+      "start": 5156.84,
+      "end": 5158.96,
+      "text": "posibles que vamos a"
+    },
+    {
+      "start": 5158.96,
+      "end": 5159.66,
+      "text": "necesitar"
+    },
+    {
+      "start": 5159.66,
+      "end": 5162.86,
+      "text": "para el procesamiento de cualquier"
+    },
+    {
+      "start": 5162.86,
+      "end": 5163.92,
+      "text": "tipo de información"
+    },
+    {
+      "start": 5163.92,
+      "end": 5166.84,
+      "text": "sí, eso sí, pero di"
+    },
+    {
+      "start": 5166.84,
+      "end": 5169.0,
+      "text": "creo que él era como CEO o algo"
+    },
+    {
+      "start": 5169.0,
+      "end": 5170.56,
+      "text": "así de una empresa, di, así que"
+    },
+    {
+      "start": 5170.56,
+      "end": 5172.54,
+      "text": "tiene que venderlo como sea"
+    },
+    {
+      "start": 5172.54,
+      "end": 5174.9,
+      "text": "tienes razón, tienes toda"
+    },
+    {
+      "start": 5174.9,
+      "end": 5175.34,
+      "text": "la razón"
+    },
+    {
+      "start": 5175.34,
+      "end": 5178.88,
+      "text": "en eso"
+    },
+    {
+      "start": 5178.88,
+      "end": 5180.9,
+      "text": "sí es cierto, pero por ejemplo"
+    },
+    {
+      "start": 5180.9,
+      "end": 5182.74,
+      "text": "a mí me entristece mucho"
+    },
+    {
+      "start": 5182.74,
+      "end": 5184.44,
+      "text": "que la gente"
+    },
+    {
+      "start": 5184.44,
+      "end": 5186.96,
+      "text": "o sea que no sea motivada"
+    },
+    {
+      "start": 5186.96,
+      "end": 5188.8,
+      "text": "a pensar en algoritmos nuevos"
+    },
+    {
+      "start": 5188.8,
+      "end": 5190.84,
+      "text": "o sea muchas veces"
+    },
+    {
+      "start": 5190.84,
+      "end": 5192.54,
+      "text": "nosotros pensamos en los algoritmos"
+    },
+    {
+      "start": 5192.54,
+      "end": 5195.12,
+      "text": "y uno de los motivos"
+    },
+    {
+      "start": 5195.12,
+      "end": 5196.66,
+      "text": "era porque había que programarlos"
+    },
+    {
+      "start": 5196.66,
+      "end": 5198.84,
+      "text": "pero"
+    },
+    {
+      "start": 5198.84,
+      "end": 5206.88,
+      "text": "este tipo"
+    },
+    {
+      "start": 5206.88,
+      "end": 5208.08,
+      "text": "de inteligencias artificiales"
+    },
+    {
+      "start": 5208.08,
+      "end": 5209.9,
+      "text": "no diseñan algoritmos nuevos"
+    },
+    {
+      "start": 5209.9,
+      "end": 5213.24,
+      "text": "porque"
+    },
+    {
+      "start": 5213.24,
+      "end": 5216.18,
+      "text": "esta inteligencia artificial"
+    },
+    {
+      "start": 5216.18,
+      "end": 5217.18,
+      "text": "es"
+    },
+    {
+      "start": 5217.18,
+      "end": 5219.18,
+      "text": "si ustedes lo quieren ver así"
+    },
+    {
+      "start": 5219.18,
+      "end": 5222.68,
+      "text": "la automatización de una biblioteca"
+    },
+    {
+      "start": 5222.68,
+      "end": 5226.28,
+      "text": "eso es lo que es"
+    },
+    {
+      "start": 5226.28,
+      "end": 5229.56,
+      "text": "automatizar bibliotecas"
+    },
+    {
+      "start": 5229.56,
+      "end": 5234.52,
+      "text": "antes, en los viejos tiempos"
+    },
+    {
+      "start": 5234.52,
+      "end": 5236.92,
+      "text": "si usted necesitaba información"
+    },
+    {
+      "start": 5236.92,
+      "end": 5238.24,
+      "text": "¿qué hacía?"
+    },
+    {
+      "start": 5238.9,
+      "end": 5240.84,
+      "text": "antes de que hubiera computadores"
+    },
+    {
+      "start": 5240.84,
+      "end": 5243.18,
+      "text": "o de que estuvieran tan disponibles"
+    },
+    {
+      "start": 5243.18,
+      "end": 5243.86,
+      "text": "más bien"
+    },
+    {
+      "start": 5243.86,
+      "end": 5245.2,
+      "text": "de ahí"
+    },
+    {
+      "start": 5245.2,
+      "end": 5247.12,
+      "text": "iba a una biblioteca"
+    },
+    {
+      "start": 5247.12,
+      "end": 5248.82,
+      "text": "revisaba el fichero"
+    },
+    {
+      "start": 5248.82,
+      "end": 5250.26,
+      "text": "este"
+    },
+    {
+      "start": 5250.26,
+      "end": 5253.08,
+      "text": "o algunos de los ficheros"
+    },
+    {
+      "start": 5253.08,
+      "end": 5254.86,
+      "text": "había tres tipos de ficheros"
+    },
+    {
+      "start": 5254.86,
+      "end": 5256.18,
+      "text": "unos ordenados por obra"
+    },
+    {
+      "start": 5256.18,
+      "end": 5257.72,
+      "text": "otros ordenados por autor"
+    },
+    {
+      "start": 5257.72,
+      "end": 5259.82,
+      "text": "y otros ordenados por"
+    },
+    {
+      "start": 5259.82,
+      "end": 5262.92,
+      "text": "palabras clave"
+    },
+    {
+      "start": 5262.92,
+      "end": 5265.0,
+      "text": "entonces"
+    },
+    {
+      "start": 5265.0,
+      "end": 5267.36,
+      "text": "uno se iba a palabras clave"
+    },
+    {
+      "start": 5267.36,
+      "end": 5269.52,
+      "text": "veía cuáles libros"
+    },
+    {
+      "start": 5269.52,
+      "end": 5271.0,
+      "text": "o revistas tenían"
+    },
+    {
+      "start": 5271.0,
+      "end": 5272.42,
+      "text": "esa misma palabra clave"
+    },
+    {
+      "start": 5272.42,
+      "end": 5274.86,
+      "text": "uno mismo se iba a buscar"
+    },
+    {
+      "start": 5274.86,
+      "end": 5276.54,
+      "text": "lo de los estantes en el caso de las"
+    },
+    {
+      "start": 5276.54,
+      "end": 5278.7,
+      "text": "bibliotecas de las universidades"
+    },
+    {
+      "start": 5278.7,
+      "end": 5281.28,
+      "text": "y le hace los libros"
+    },
+    {
+      "start": 5281.28,
+      "end": 5283.22,
+      "text": "ok"
+    },
+    {
+      "start": 5283.22,
+      "end": 5287.54,
+      "text": "¿qué ha cambiado?"
+    },
+    {
+      "start": 5288.2,
+      "end": 5289.64,
+      "text": "bueno que ahora es una computadora"
+    },
+    {
+      "start": 5289.64,
+      "end": 5291.8,
+      "text": "la que contiene a todos los libros"
+    },
+    {
+      "start": 5291.8,
+      "end": 5295.14,
+      "text": "y por lo tanto"
+    },
+    {
+      "start": 5295.14,
+      "end": 5296.92,
+      "text": "localiza todas las palabras"
+    },
+    {
+      "start": 5296.92,
+      "end": 5297.46,
+      "text": "clave"
+    },
+    {
+      "start": 5297.46,
+      "end": 5299.86,
+      "text": "y yo entonces"
+    },
+    {
+      "start": 5299.86,
+      "end": 5302.44,
+      "text": "simplemente digito"
+    },
+    {
+      "start": 5302.44,
+      "end": 5304.54,
+      "text": "con una frase"
+    },
+    {
+      "start": 5304.54,
+      "end": 5307.56,
+      "text": "en español"
+    },
+    {
+      "start": 5307.56,
+      "end": 5309.1,
+      "text": "pero medio torcida"
+    },
+    {
+      "start": 5309.1,
+      "end": 5310.34,
+      "text": "porque yo ya sé que"
+    },
+    {
+      "start": 5310.34,
+      "end": 5312.96,
+      "text": "la inteligencia me entiende mejor si yo digo esto"
+    },
+    {
+      "start": 5312.96,
+      "end": 5313.92,
+      "text": "que si yo digo otro"
+    },
+    {
+      "start": 5313.92,
+      "end": 5316.28,
+      "text": "si yo le meto muchos sinónimos"
+    },
+    {
+      "start": 5316.28,
+      "end": 5317.42,
+      "text": "entonces se confunde"
+    },
+    {
+      "start": 5317.42,
+      "end": 5320.2,
+      "text": "entonces me empiezo a acostumbrar como a pedirle cosas"
+    },
+    {
+      "start": 5320.2,
+      "end": 5320.48,
+      "text": "¿verdad?"
+    },
+    {
+      "start": 5323.29,
+      "end": 5324.43,
+      "text": "así que"
+    },
+    {
+      "start": 5324.43,
+      "end": 5327.73,
+      "text": "es la misma vara"
+    },
+    {
+      "start": 5327.73,
+      "end": 5330.39,
+      "text": "es la misma vara que antes"
+    },
+    {
+      "start": 5330.39,
+      "end": 5331.87,
+      "text": "o sea depende de la información"
+    },
+    {
+      "start": 5331.87,
+      "end": 5333.55,
+      "text": "que ya exista en la biblioteca"
+    },
+    {
+      "start": 5333.55,
+      "end": 5335.41,
+      "text": "no inventa nueva información"
+    },
+    {
+      "start": 5335.41,
+      "end": 5337.79,
+      "text": "bueno a veces si la inventa"
+    },
+    {
+      "start": 5337.79,
+      "end": 5339.03,
+      "text": "y decimos que alucina ¿verdad?"
+    },
+    {
+      "start": 5339.67,
+      "end": 5341.65,
+      "text": "y es cuando empieza a mezclar información"
+    },
+    {
+      "start": 5341.65,
+      "end": 5343.03,
+      "text": "sin ton ni son"
+    },
+    {
+      "start": 5343.03,
+      "end": 5347.55,
+      "text": "pero"
+    },
+    {
+      "start": 5347.55,
+      "end": 5349.71,
+      "text": "inventar algoritmos nuevos"
+    },
+    {
+      "start": 5349.71,
+      "end": 5352.51,
+      "text": "esta inteligencia"
+    },
+    {
+      "start": 5352.51,
+      "end": 5354.21,
+      "text": "es muy limitada"
+    },
+    {
+      "start": 5354.21,
+      "end": 5354.47,
+      "text": "para"
+    },
+    {
+      "start": 5354.47,
+      "end": 5358.05,
+      "text": "crear algoritmos nuevos"
+    },
+    {
+      "start": 5358.05,
+      "end": 5361.6,
+      "text": "es muy limitada porque"
+    },
+    {
+      "start": 5361.6,
+      "end": 5362.94,
+      "text": "T es"
+    },
+    {
+      "start": 5362.94,
+      "end": 5364.98,
+      "text": "lo que usa es un poder combinatorio"
+    },
+    {
+      "start": 5364.98,
+      "end": 5370.77,
+      "text": "cosas tan maravillosas"
+    },
+    {
+      "start": 5370.77,
+      "end": 5372.35,
+      "text": "como por ejemplo el algoritmo"
+    },
+    {
+      "start": 5372.35,
+      "end": 5374.79,
+      "text": "Quicksort, yo no esperaría"
+    },
+    {
+      "start": 5374.79,
+      "end": 5376.53,
+      "text": "que una inteligencia artificial pudiera"
+    },
+    {
+      "start": 5376.53,
+      "end": 5377.13,
+      "text": "crearlos"
+    },
+    {
+      "start": 5377.13,
+      "end": 5385.19,
+      "text": "a menos que haya"
+    },
+    {
+      "start": 5385.19,
+      "end": 5386.99,
+      "text": "muchos ejemplos que se parezcan"
+    },
+    {
+      "start": 5386.99,
+      "end": 5389.35,
+      "text": "y que entonces crea"
+    },
+    {
+      "start": 5389.35,
+      "end": 5390.85,
+      "text": "una versión juntando todo"
+    },
+    {
+      "start": 5390.85,
+      "end": 5394.51,
+      "text": "de los que ya existen"
+    },
+    {
+      "start": 5394.51,
+      "end": 5398.18,
+      "text": "solo en esos casos"
+    },
+    {
+      "start": 5398.18,
+      "end": 5403.2,
+      "text": "como dice Andrés"
+    },
+    {
+      "start": 5403.2,
+      "end": 5406.18,
+      "text": "es para facilitar"
+    },
+    {
+      "start": 5406.18,
+      "end": 5407.66,
+      "text": "la migración de código lega"
+    },
+    {
+      "start": 5407.66,
+      "end": 5408.7,
+      "text": "en parte"
+    },
+    {
+      "start": 5408.7,
+      "end": 5413.11,
+      "text": "pero en parte"
+    },
+    {
+      "start": 5413.11,
+      "end": 5414.83,
+      "text": "también lo que es legacy"
+    },
+    {
+      "start": 5414.83,
+      "end": 5417.23,
+      "text": "es la forma de pensar"
+    },
+    {
+      "start": 5417.23,
+      "end": 5419.39,
+      "text": "de los programadores"
+    },
+    {
+      "start": 5419.39,
+      "end": 5420.85,
+      "text": "que ya se habían"
+    },
+    {
+      "start": 5420.85,
+      "end": 5422.27,
+      "text": "acostumbrado al lenguaje del"
+    },
+    {
+      "start": 5422.27,
+      "end": 5426.88,
+      "text": "antiguo tipo. Hay un"
+    },
+    {
+      "start": 5426.88,
+      "end": 5428.8,
+      "text": "detalle que se toma en cuenta y es"
+    },
+    {
+      "start": 5428.8,
+      "end": 5430.78,
+      "text": "curva de aprendizaje, o sea"
+    },
+    {
+      "start": 5430.78,
+      "end": 5433.16,
+      "text": "cuánto tiempo va a tardar usted"
+    },
+    {
+      "start": 5433.16,
+      "end": 5434.56,
+      "text": "en dominar"
+    },
+    {
+      "start": 5434.56,
+      "end": 5437.02,
+      "text": "por lo menos lo más básico"
+    },
+    {
+      "start": 5437.02,
+      "end": 5439.12,
+      "text": "del lenguaje como para ponerse a programar"
+    },
+    {
+      "start": 5439.12,
+      "end": 5439.3,
+      "text": "ya."
+    },
+    {
+      "start": 5442.81,
+      "end": 5446.75,
+      "text": "Si hay algo a lo que son alérgicas"
+    },
+    {
+      "start": 5446.75,
+      "end": 5447.59,
+      "text": "las empresas"
+    },
+    {
+      "start": 5447.59,
+      "end": 5450.57,
+      "text": "pero muy alérgicas"
+    },
+    {
+      "start": 5450.57,
+      "end": 5452.57,
+      "text": "es a entrenar a su personal"
+    },
+    {
+      "start": 5452.57,
+      "end": 5456.07,
+      "text": "y si lo hacen"
+    },
+    {
+      "start": 5456.07,
+      "end": 5457.63,
+      "text": "lo hacen una sola vez"
+    },
+    {
+      "start": 5457.63,
+      "end": 5458.81,
+      "text": "cuando usted empieza"
+    },
+    {
+      "start": 5458.81,
+      "end": 5461.01,
+      "text": "y a partir de ahí es"
+    },
+    {
+      "start": 5461.01,
+      "end": 5462.23,
+      "text": "puede ser usted solo"
+    },
+    {
+      "start": 5462.23,
+      "end": 5466.53,
+      "text": "porque para ellos significa"
+    },
+    {
+      "start": 5466.53,
+      "end": 5468.29,
+      "text": "tiempo productivo"
+    },
+    {
+      "start": 5468.29,
+      "end": 5470.51,
+      "text": "que usted no va a estar produciendo"
+    },
+    {
+      "start": 5470.51,
+      "end": 5471.21,
+      "text": "para la empresa"
+    },
+    {
+      "start": 5471.21,
+      "end": 5472.57,
+      "text": "sino que va a estar aprendiendo"
+    },
+    {
+      "start": 5472.57,
+      "end": 5476.93,
+      "text": "y que los empleados"
+    },
+    {
+      "start": 5476.93,
+      "end": 5478.37,
+      "text": "ganen cosas para ellos"
+    },
+    {
+      "start": 5478.37,
+      "end": 5479.85,
+      "text": "y que no produzcan dinero"
+    },
+    {
+      "start": 5479.85,
+      "end": 5482.01,
+      "text": "a las empresas no les interesa"
+    },
+    {
+      "start": 5482.01,
+      "end": 5490.28,
+      "text": "además o las empresas les parece muy"
+    },
+    {
+      "start": 5490.28,
+      "end": 5493.12,
+      "text": "feo pagarle educación a un empleado"
+    },
+    {
+      "start": 5493.12,
+      "end": 5496.16,
+      "text": "porque dicen ok yo le pago a este le doy"
+    },
+    {
+      "start": 5496.16,
+      "end": 5497.2,
+      "text": "educación a este empleado"
+    },
+    {
+      "start": 5497.2,
+      "end": 5499.92,
+      "text": "entonces yo le pago por adquirir"
+    },
+    {
+      "start": 5499.92,
+      "end": 5502.82,
+      "text": "educación y resulta que eso hace que"
+    },
+    {
+      "start": 5502.82,
+      "end": 5506.14,
+      "text": "este empleado entonces ahora sepa más y"
+    },
+    {
+      "start": 5506.14,
+      "end": 5507.3,
+      "text": "con eso puede irse a otra empresa"
+    },
+    {
+      "start": 5507.3,
+      "end": 5510.66,
+      "text": "y la otra empresa no pagó por la"
+    },
+    {
+      "start": 5510.66,
+      "end": 5512.04,
+      "text": "educación de él se pare yo"
+    },
+    {
+      "start": 5512.04,
+      "end": 5515.44,
+      "text": "ese es el tipo de cosas mezquinas"
+    },
+    {
+      "start": 5515.44,
+      "end": 5516.9,
+      "text": "en las que los empresarios"
+    },
+    {
+      "start": 5516.9,
+      "end": 5520.39,
+      "text": "se fijan"
+    },
+    {
+      "start": 5520.39,
+      "end": 5525.35,
+      "text": "entonces"
+    },
+    {
+      "start": 5525.35,
+      "end": 5530.7,
+      "text": "hay cierta"
+    },
+    {
+      "start": 5530.7,
+      "end": 5531.32,
+      "text": "inercia"
+    },
+    {
+      "start": 5531.32,
+      "end": 5534.7,
+      "text": "dependiendo de los seres humanos"
+    },
+    {
+      "start": 5534.7,
+      "end": 5542.05,
+      "text": "sería muy interesante ver si"
+    },
+    {
+      "start": 5542.05,
+      "end": 5543.27,
+      "text": "por ejemplo"
+    },
+    {
+      "start": 5543.27,
+      "end": 5547.83,
+      "text": "los humanos también"
+    },
+    {
+      "start": 5547.83,
+      "end": 5548.83,
+      "text": "tienen que interpretarlo"
+    },
+    {
+      "start": 5548.83,
+      "end": 5551.89,
+      "text": "si a largo plazo"
+    },
+    {
+      "start": 5551.89,
+      "end": 5554.29,
+      "text": "esto va a lograr"
+    },
+    {
+      "start": 5554.29,
+      "end": 5554.77,
+      "text": "que"
+    },
+    {
+      "start": 5554.77,
+      "end": 5559.68,
+      "text": "lenguajes de programación tan sofisticados"
+    },
+    {
+      "start": 5559.68,
+      "end": 5561.92,
+      "text": "y tan elegantes como Smalltalk"
+    },
+    {
+      "start": 5561.92,
+      "end": 5563.6,
+      "text": "empiecen a ganar un poco"
+    },
+    {
+      "start": 5563.6,
+      "end": 5565.6,
+      "text": "de momentum, un poco"
+    },
+    {
+      "start": 5565.6,
+      "end": 5568.99,
+      "text": "de impulso, ya veremos"
+    },
+    {
+      "start": 5568.99,
+      "end": 5571.47,
+      "text": "a mí me encantaría"
+    },
+    {
+      "start": 5571.47,
+      "end": 5575.09,
+      "text": "que ya nos podamos olvidar de Python"
+    },
+    {
+      "start": 5575.09,
+      "end": 5575.49,
+      "text": "y de"
+    },
+    {
+      "start": 5575.49,
+      "end": 5578.89,
+      "text": "Java, pero"
+    },
+    {
+      "start": 5578.89,
+      "end": 5581.13,
+      "text": "como muy acertadamente"
+    },
+    {
+      "start": 5581.13,
+      "end": 5582.85,
+      "text": "nos dice Andrés"
+    },
+    {
+      "start": 5582.85,
+      "end": 5584.49,
+      "text": "por ejemplo en Python"
+    },
+    {
+      "start": 5584.49,
+      "end": 5586.49,
+      "text": "la cantidad de"
+    },
+    {
+      "start": 5586.49,
+      "end": 5588.91,
+      "text": "bibliotecas que hay"
+    },
+    {
+      "start": 5588.91,
+      "end": 5591.01,
+      "text": "para Python, para hacer lo que"
+    },
+    {
+      "start": 5591.01,
+      "end": 5592.41,
+      "text": "usted le dé la gana, ¿verdad?"
+    },
+    {
+      "start": 5593.31,
+      "end": 5595.11,
+      "text": "Por ejemplo, Python tiene bibliotecas"
+    },
+    {
+      "start": 5595.11,
+      "end": 5597.05,
+      "text": "para que usted pueda cobrar el código Prolog."
+    },
+    {
+      "start": 5597.41,
+      "end": 5598.97,
+      "text": "Tiene bibliotecas para"
+    },
+    {
+      "start": 5598.97,
+      "end": 5600.61,
+      "text": "que usted pueda cobrar el código Haskell"
+    },
+    {
+      "start": 5600.61,
+      "end": 5602.81,
+      "text": "en un programa Python. Tiene"
+    },
+    {
+      "start": 5602.81,
+      "end": 5604.65,
+      "text": "bibliotecas como PyTorch"
+    },
+    {
+      "start": 5604.65,
+      "end": 5607.05,
+      "text": "o NumPy para poder"
+    },
+    {
+      "start": 5607.05,
+      "end": 5608.49,
+      "text": "trabajar con redes neuronales"
+    },
+    {
+      "start": 5608.49,
+      "end": 5610.95,
+      "text": "y con"
+    },
+    {
+      "start": 5610.95,
+      "end": 5612.91,
+      "text": "aprendizaje mecánico,"
+    },
+    {
+      "start": 5613.03,
+      "end": 5613.99,
+      "text": "aprendizaje estadístico."
+    },
+    {
+      "start": 5613.99,
+      "end": 5618.56,
+      "text": "tiene bibliotecas"
+    },
+    {
+      "start": 5618.56,
+      "end": 5621.08,
+      "text": "para poder crear ambientes gráficos"
+    },
+    {
+      "start": 5621.08,
+      "end": 5621.76,
+      "text": "bien bonitos"
+    },
+    {
+      "start": 5621.76,
+      "end": 5629.3,
+      "text": "y así en general"
+    },
+    {
+      "start": 5629.3,
+      "end": 5631.0,
+      "text": "entonces también esto le da"
+    },
+    {
+      "start": 5631.0,
+      "end": 5633.56,
+      "text": "una cierta inercia a estos lenguajes"
+    },
+    {
+      "start": 5633.56,
+      "end": 5635.8,
+      "text": "ok"
+    },
+    {
+      "start": 5635.8,
+      "end": 5640.96,
+      "text": "vamos a seguir hablando entonces"
+    },
+    {
+      "start": 5640.96,
+      "end": 5643.0,
+      "text": "un poco más de orientación a objetos"
+    },
+    {
+      "start": 5643.0,
+      "end": 5644.76,
+      "text": "y voy a"
+    },
+    {
+      "start": 5644.76,
+      "end": 5646.24,
+      "text": "hacerle propaganda"
+    },
+    {
+      "start": 5646.24,
+      "end": 5648.6,
+      "text": "a lenguajes Molotov"
+    },
+    {
+      "start": 5648.6,
+      "end": 5651.24,
+      "text": "en las próximas clases"
+    },
+    {
+      "start": 5651.24,
+      "end": 5653.42,
+      "text": "ok, hoy es jueves"
+    },
+    {
+      "start": 5653.42,
+      "end": 5654.34,
+      "text": "5"
+    },
+    {
+      "start": 5654.34,
+      "end": 5657.34,
+      "text": "así que nuestra próxima clase"
+    },
+    {
+      "start": 5657.34,
+      "end": 5658.22,
+      "text": "virtual"
+    },
+    {
+      "start": 5658.22,
+      "end": 5660.78,
+      "text": "va a ser la semana entrante"
+    },
+    {
+      "start": 5660.78,
+      "end": 5662.5,
+      "text": "el próximo martes 10"
+    },
+    {
+      "start": 5662.5,
+      "end": 5665.44,
+      "text": "de noviembre"
+    },
+    {
+      "start": 5665.44,
+      "end": 5666.66,
+      "text": "ok"
+    },
+    {
+      "start": 5666.66,
+      "end": 5668.86,
+      "text": "entonces nos vemos"
+    },
+    {
+      "start": 5668.86,
+      "end": 5671.18,
+      "text": "en la semana entrante"
+    },
+    {
+      "start": 5671.18,
+      "end": 5672.98,
+      "text": "y"
+    },
+    {
+      "start": 5672.98,
+      "end": 5674.48,
+      "text": "espero que"
+    },
+    {
+      "start": 5674.48,
+      "end": 5676.46,
+      "text": "todo les salga muy bien"
+    },
+    {
+      "start": 5676.46,
+      "end": 5678.48,
+      "text": "estamos en final de semestre y"
+    },
+    {
+      "start": 5678.48,
+      "end": 5680.48,
+      "text": "espero que todo les salga"
+    },
+    {
+      "start": 5680.48,
+      "end": 5682.3,
+      "text": "perfecto en este final de semestre"
+    },
+    {
+      "start": 5682.3,
+      "end": 5683.66,
+      "text": "así que"
+    },
+    {
+      "start": 5683.66,
+      "end": 5686.16,
+      "text": "feliz fin de semana también y buenas"
+    },
+    {
+      "start": 5686.16,
+      "end": 5687.36,
+      "text": "tardes, hasta luego, nos vemos"
+    },
+    {
+      "start": 5687.36,
+      "end": 5690.06,
+      "text": "muchísimas gracias"
+    },
+    {
+      "start": 5690.06,
+      "end": 5692.18,
+      "text": "profe, igualmente, feliz fin de semana"
+    },
+    {
+      "start": 5692.18,
+      "end": 5693.1,
+      "text": "nos vemos"
+    }
+  ]
+}
