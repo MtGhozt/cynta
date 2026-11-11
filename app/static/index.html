@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/styles.css?v=5" />
+  <link rel="stylesheet" href="/static/styles.css?v=8" />
 </head>
 <body>
   <div class="shell">
@@ -112,14 +112,29 @@
 
         <div class="reader" id="previewWrap" hidden>
           <div class="reader-bar">
-            <label for="searchBox">Buscar</label>
-            <input id="searchBox" type="search" placeholder="texto en la transcripción" />
+            <div class="reader-tools">
+              <div class="reader-search">
+                <label for="searchBox">Buscar</label>
+                <input id="searchBox" type="search" placeholder="texto en segmentos" />
+              </div>
+              <div class="reader-actions">
+                <span class="dirty-flag" id="dirtyFlag" hidden>sin guardar</span>
+                <button type="button" class="btn btn-secondary" id="saveSegmentsBtn" disabled>Guardar</button>
+                <button type="button" class="quiet" id="closeEditorBtn">Cerrar</button>
+              </div>
+            </div>
+            <div class="reader-tabs" role="tablist">
+              <button type="button" class="tab is-active" role="tab" data-tab="segments" aria-selected="true">Editar</button>
+              <button type="button" class="tab" role="tab" data-tab="markdown" aria-selected="false">Markdown (solo lectura)</button>
+            </div>
+            <p class="hint" id="editorHint">Editá el texto en cada caja → Guardar regenera MD/JSON/SRT. Ver = solo lectura; MD/JSON/SRT de la cola descargan.</p>
           </div>
-          <pre id="preview"></pre>
+          <div id="segmentsEditor" class="segments-editor" role="tabpanel"></div>
+          <pre id="preview" class="md-preview" hidden></pre>
         </div>
       </section>
     </main>
   </div>
-  <script src="/static/app.js?v=5"></script>
+  <script src="/static/app.js?v=8"></script>
 </body>
 </html>

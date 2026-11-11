@@ -78,6 +78,12 @@ def merge_segments_for_markdown(
     return groups
 
 
+def _prepare_segments(
+    segments: list[dict[str, Any]], *, clean: bool
+) -> list[dict[str, Any]]:
+    return filter_segments(segments) if clean else list(segments)
+
+
 def write_json(
     path: Path,
     *,
@@ -89,8 +95,9 @@ def write_json(
     segments: list[dict[str, Any]],
     curso: str | None = None,
     temas: list[str] | None = None,
+    clean: bool = True,
 ) -> None:
-    clean = filter_segments(segments)
+    prepared = _prepare_segments(segments, clean=clean)
     payload = {
         "clase": clase,
         "curso": curso,
@@ -99,7 +106,7 @@ def write_json(
         "model": model,
         "language": language,
         "duration_sec": duration,
-        "segments": clean,
+        "segments": prepared,
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
@@ -119,8 +126,9 @@ def write_markdown(
     segments: list[dict[str, Any]],
     curso: str | None = None,
     temas: list[str] | None = None,
+    clean: bool = True,
 ) -> None:
-    groups = merge_segments_for_markdown(filter_segments(segments))
+    groups = merge_segments_for_markdown(_prepare_segments(segments, clean=clean))
 
     front = [
         "---",
@@ -154,10 +162,15 @@ def write_markdown(
     path.write_text("\n".join(front + body).rstrip() + "\n", encoding="utf-8")
 
 
-def write_srt(path: Path, segments: list[dict[str, Any]]) -> None:
+def write_srt(
+    path: Path,
+    segments: list[dict[str, Any]],
+    *,
+    clean: bool = True,
+) -> None:
     blocks: list[str] = []
     index = 1
-    for seg in filter_segments(segments):
+    for seg in _prepare_segments(segments, clean=clean):
         text = (seg.get("text") or "").strip()
         if not text:
             continue
@@ -167,6 +180,83 @@ def write_srt(path: Path, segments: list[dict[str, Any]]) -> None:
         index += 1
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(blocks).rstrip() + "\n", encoding="utf-8")
+
+
+def rewrite_job_artifacts(
+    json_path: Path,
+    md_path: Path,
+    srt_path: Path,
+    segments: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Rewrite JSON/MD/SRT keeping existing meta; preserve user-edited text (clean=False)."""
+    meta: dict[str, Any] = {}
+    if json_path.is_file():
+        try:
+            meta = json.loads(json_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            meta = {}
+
+    clase = str(meta.get("clase") or "Sin título")
+    source = str(meta.get("source") or "")
+    model = str(meta.get("model") or "")
+    language = str(meta.get("language") or "es")
+    duration = meta.get("duration_sec")
+    if duration is not None:
+        try:
+            duration = float(duration)
+        except (TypeError, ValueError):
+            duration = None
+    curso = meta.get("curso")
+    if curso is not None:
+        curso = str(curso) or None
+    temas = meta.get("temas")
+    if not isinstance(temas, list):
+        temas = []
+
+    normalized = [
+        {
+            "start": float(seg["start"]),
+            "end": float(seg["end"]),
+            "text": str(seg.get("text") or ""),
+        }
+        for seg in segments
+    ]
+
+    write_json(
+        json_path,
+        clase=clase,
+        source=source,
+        model=model,
+        language=language,
+        duration=duration,
+        segments=normalized,
+        curso=curso,
+        temas=[str(t) for t in temas],
+        clean=False,
+    )
+    write_markdown(
+        md_path,
+        clase=clase,
+        source=source,
+        model=model,
+        language=language,
+        duration=duration,
+        segments=normalized,
+        curso=curso,
+        temas=[str(t) for t in temas],
+        clean=False,
+    )
+    write_srt(srt_path, normalized, clean=False)
+    return {
+        "clase": clase,
+        "source": source,
+        "model": model,
+        "language": language,
+        "duration_sec": duration,
+        "curso": curso,
+        "temas": [str(t) for t in temas],
+        "segments": normalized,
+    }
 
 
 def _srt_ts(seconds: float) -> str:

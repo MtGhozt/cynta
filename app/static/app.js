@@ -6,6 +6,10 @@ const state = {
   sockets: new Map(),
   activePreview: null,
   previewText: "",
+  editorMode: null, // "view" | "edit" | null
+  editorTab: "segments",
+  segments: [],
+  dirty: false,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -196,7 +200,20 @@ function renderJobs() {
             ${
               job.status === "done"
                 ? `
-              <button type="button" data-act="preview" data-id="${job.id}">Ver</button>
+              <button type="button" data-act="view" data-id="${job.id}">${
+                  state.activePreview === job.id &&
+                  !$("previewWrap")?.hidden &&
+                  state.editorMode === "view"
+                    ? "Cerrar"
+                    : "Ver"
+                }</button>
+              <button type="button" data-act="edit" data-id="${job.id}">${
+                  state.activePreview === job.id &&
+                  !$("previewWrap")?.hidden &&
+                  state.editorMode === "edit"
+                    ? "Cerrar"
+                    : "Editar"
+                }</button>
               <button type="button" data-act="md" data-id="${job.id}">MD</button>
               <button type="button" data-act="json" data-id="${job.id}">JSON</button>
               <button type="button" data-act="srt" data-id="${job.id}">SRT</button>
@@ -328,24 +345,269 @@ async function onJobAction(e) {
     await fetch(`/api/jobs/${id}/open-folder`, { method: "POST" });
   } else if (["md", "json", "srt"].includes(act)) {
     window.open(`/api/jobs/${id}/files/${act}`, "_blank");
-  } else if (act === "preview") {
-    const res = await fetch(`/api/jobs/${id}/transcript`);
-    const data = await res.json();
-    state.activePreview = id;
-    state.previewText = data.markdown || "";
-    $("previewWrap").hidden = false;
-    applySearch();
+  } else if (act === "view") {
+    if (
+      state.activePreview === id &&
+      !$("previewWrap").hidden &&
+      state.editorMode === "view"
+    ) {
+      closeEditor();
+      return;
+    }
+    await openViewer(id);
+  } else if (act === "edit") {
+    if (
+      state.activePreview === id &&
+      !$("previewWrap").hidden &&
+      state.editorMode === "edit"
+    ) {
+      closeEditor();
+      return;
+    }
+    await openEditor(id);
   }
 }
 
-function applySearch() {
+function closeEditor() {
+  if (state.dirty) {
+    if (!confirm("Hay cambios sin guardar. ¿Cerrar igual?")) {
+      return;
+    }
+  }
+  state.activePreview = null;
+  state.editorMode = null;
+  state.segments = [];
+  state.previewText = "";
+  setDirty(false);
+  $("previewWrap").hidden = true;
+  $("editorHint").hidden = true;
+  $("saveSegmentsBtn").hidden = false;
+  $("segmentsEditor").innerHTML = "";
+  $("preview").textContent = "";
+  document.querySelectorAll(".reader-tabs .tab").forEach((btn) => {
+    btn.hidden = false;
+  });
+  renderJobs();
+}
+
+function fmtSegTime(sec) {
+  const t = Math.max(0, Math.floor(Number(sec) || 0));
+  const h = Math.floor(t / 3600);
+  const m = Math.floor((t % 3600) / 60);
+  const s = t % 60;
+  if (h > 0) {
+    return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  }
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
+
+function setDirty(on) {
+  state.dirty = Boolean(on);
+  $("dirtyFlag").hidden = !state.dirty;
+  $("saveSegmentsBtn").disabled = !state.dirty || !state.activePreview;
+}
+
+function setEditorTab(tab) {
+  state.editorTab = tab;
+  document.querySelectorAll(".reader-tabs .tab").forEach((btn) => {
+    const active = btn.dataset.tab === tab;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  const segs = $("segmentsEditor");
+  const md = $("preview");
+  if (tab === "segments") {
+    segs.hidden = false;
+    md.hidden = true;
+  } else {
+    segs.hidden = true;
+    md.hidden = false;
+    applyMarkdownPreview();
+  }
+}
+
+function applyMarkdownPreview() {
   const q = ($("searchBox").value || "").trim();
-  let text = state.previewText;
+  let text = state.previewText || "";
   if (q) {
     const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
     text = text.replace(re, (m) => `⟦${m}⟧`);
   }
   $("preview").textContent = text;
+}
+
+function renderSegments() {
+  const root = $("segmentsEditor");
+  const q = ($("searchBox").value || "").trim().toLowerCase();
+  root.innerHTML = state.segments
+    .map((seg, i) => {
+      const text = seg.text || "";
+      const hit = !q || text.toLowerCase().includes(q);
+      return `
+        <div class="seg-row${hit ? (q ? " is-hit" : "") : " is-hidden"}" data-idx="${i}">
+          <div class="seg-time">${escapeHtml(fmtSegTime(seg.start))}</div>
+          <textarea data-idx="${i}" rows="2" spellcheck="true">${escapeHtml(text)}</textarea>
+        </div>`;
+    })
+    .join("");
+}
+
+function applySearch() {
+  if (state.editorTab === "markdown") {
+    applyMarkdownPreview();
+    return;
+  }
+  const q = ($("searchBox").value || "").trim().toLowerCase();
+  $("segmentsEditor").querySelectorAll(".seg-row").forEach((row) => {
+    const idx = Number(row.dataset.idx);
+    const text = (state.segments[idx]?.text || "").toLowerCase();
+    const hit = !q || text.includes(q);
+    row.classList.toggle("is-hidden", !hit);
+    row.classList.toggle("is-hit", Boolean(q && hit));
+  });
+}
+
+function setReaderChrome(mode) {
+  const editTab = document.querySelector('.reader-tabs .tab[data-tab="segments"]');
+  const mdTab = document.querySelector('.reader-tabs .tab[data-tab="markdown"]');
+  const hint = $("editorHint");
+  const saveBtn = $("saveSegmentsBtn");
+  if (mode === "view") {
+    if (editTab) editTab.hidden = true;
+    if (mdTab) mdTab.hidden = true;
+    hint.hidden = true;
+    saveBtn.hidden = true;
+    $("dirtyFlag").hidden = true;
+  } else {
+    if (editTab) editTab.hidden = false;
+    if (mdTab) mdTab.hidden = false;
+    hint.hidden = false;
+    saveBtn.hidden = false;
+  }
+}
+
+async function openViewer(id) {
+  if (state.dirty && state.activePreview && state.activePreview !== id) {
+    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y abrir otro job?")) {
+      return;
+    }
+  }
+  if (state.dirty && state.activePreview === id && state.editorMode === "edit") {
+    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y solo ver?")) {
+      return;
+    }
+  }
+  const res = await fetch(`/api/jobs/${id}/transcript`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    alert(errDetail(data) || "No se pudo cargar la transcripción");
+    return;
+  }
+  state.activePreview = id;
+  state.editorMode = "view";
+  state.segments = [];
+  state.previewText = data.markdown || "";
+  setDirty(false);
+  $("previewWrap").hidden = false;
+  setReaderChrome("view");
+  setEditorTab("markdown");
+  applyMarkdownPreview();
+  renderJobs();
+  $("previewWrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+async function openEditor(id) {
+  if (state.dirty && state.activePreview && state.activePreview !== id) {
+    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y abrir otro job?")) {
+      return;
+    }
+  }
+  const res = await fetch(`/api/jobs/${id}/segments`);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    alert(errDetail(data) || "No se pudieron cargar los segmentos");
+    return;
+  }
+  state.activePreview = id;
+  state.editorMode = "edit";
+  state.segments = (data.segments || []).map((s) => ({
+    start: Number(s.start),
+    end: Number(s.end),
+    text: String(s.text || ""),
+  }));
+  setDirty(false);
+  $("previewWrap").hidden = false;
+  setReaderChrome("edit");
+  setEditorTab("segments");
+  renderSegments();
+  renderJobs();
+  $("previewWrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+  fetch(`/api/jobs/${id}/transcript`)
+    .then((r) => r.json())
+    .then((d) => {
+      if (state.activePreview === id) {
+        state.previewText = d.markdown || "";
+        if (state.editorTab === "markdown") applyMarkdownPreview();
+      }
+    })
+    .catch(() => {
+      if (state.activePreview === id) state.previewText = "";
+    });
+}
+
+async function saveSegments() {
+  const id = state.activePreview;
+  if (!id || !state.dirty) return;
+  const btn = $("saveSegmentsBtn");
+  btn.disabled = true;
+  btn.textContent = "Guardando…";
+  try {
+    const res = await fetch(`/api/jobs/${id}/segments`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ segments: state.segments }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      alert(errDetail(data) || `No se pudo guardar (${res.status})`);
+      return;
+    }
+    setDirty(false);
+    const mdRes = await fetch(`/api/jobs/${id}/transcript`);
+    if (mdRes.ok) {
+      const md = await mdRes.json();
+      state.previewText = md.markdown || "";
+      if (state.editorTab === "markdown") applyMarkdownPreview();
+    }
+  } catch (e) {
+    alert(`No se pudo guardar: ${e}`);
+  } finally {
+    btn.textContent = "Guardar";
+    btn.disabled = !state.dirty;
+  }
+}
+
+function wireEditor() {
+  $("searchBox").addEventListener("input", applySearch);
+  $("saveSegmentsBtn").addEventListener("click", saveSegments);
+  $("closeEditorBtn").addEventListener("click", closeEditor);
+  document.querySelectorAll(".reader-tabs .tab").forEach((btn) => {
+    btn.addEventListener("click", () => setEditorTab(btn.dataset.tab));
+  });
+  $("segmentsEditor").addEventListener("input", (e) => {
+    const ta = e.target.closest("textarea[data-idx]");
+    if (!ta) return;
+    const idx = Number(ta.dataset.idx);
+    if (!state.segments[idx]) return;
+    state.segments[idx].text = ta.value;
+    setDirty(true);
+  });
+  window.addEventListener("beforeunload", (e) => {
+    if (!state.dirty) return;
+    e.preventDefault();
+    e.returnValue = "";
+  });
 }
 
 function wireDrop() {
@@ -474,7 +736,7 @@ async function boot() {
   $("clearBtn").addEventListener("click", clearQueue);
   $("pickPathBtn").addEventListener("click", pickOutputDir);
   $("jobs").addEventListener("click", onJobAction);
-  $("searchBox").addEventListener("input", applySearch);
+  wireEditor();
   $("prompt_template").addEventListener("change", () => {
     $("customPromptWrap").hidden = $("prompt_template").value !== "custom";
   });

@@ -21,6 +21,14 @@ def artifact_path(job_id: str, filename: str) -> Path | None:
     return None
 
 
+def artifact_dir(job_id: str) -> Path | None:
+    """Directory that already holds transcript artifacts (flat or legacy out/)."""
+    json_path = artifact_path(job_id, "segmentos.json")
+    if json_path:
+        return json_path.parent
+    return None
+
+
 def openable_folder(job_id: str) -> Path:
     """Folder that already shows transcript files when possible."""
     base = job_dir(job_id)

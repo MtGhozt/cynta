@@ -77,6 +77,18 @@ GET /api/health → ffmpeg, cuda.gpu, cublas_wheels, recommended_device, warning
 3. **Transcribir** → mirá la cola a la derecha
 4. **Guardar en** → carpeta de salida (picker nativo en Windows)
 
+### Cola: Ver / Editar / descargas
+
+| Acción | Qué hace |
+|--------|----------|
+| **Ver** | Preview markdown solo lectura (cerrá con otra vez Ver o **Cerrar**) |
+| **Editar** | Segmentos editables → **Guardar** regenera MD / JSON / SRT |
+| **MD / JSON / SRT** | Descarga el archivo |
+| **Carpeta** | Abre la carpeta del job |
+| **Rehacer** | Vuelve a encolar el mismo audio |
+
+Fuente de verdad al editar: `segmentos.json`. El markdown se regenera al guardar (no se edita a mano en la UI).
+
 Salidas por job (también en la carpeta del job):
 
 - `transcripcion.md`
@@ -101,6 +113,7 @@ Salida: `Transcripciones/Clase N/`
 | GET | `/api/meta` | modelos, idiomas, prompts |
 | GET | `/api/jobs` | historial |
 | POST | `/api/jobs` | multipart upload |
+| GET/PUT | `/api/jobs/{id}/segments` | leer / editar segmentos (regenera MD+SRT) |
 | WS | `/ws/jobs/{id}` | progreso |
 | GET | `/api/jobs/{id}/files/{md\|json\|srt}` | descargas |
 
@@ -114,20 +127,21 @@ UI (static) → FastAPI → cola (thread) → ffmpeg (si video) → faster-whisp
 - [`app/envcheck.py`](app/envcheck.py) — health / preflight
 - [`app/worker.py`](app/worker.py) — cola
 - [`transcribe/engine.py`](transcribe/engine.py) — ASR
+- [`transcribe/export.py`](transcribe/export.py) — MD/JSON/SRT + rewrite al editar
 - [`run.ps1`](run.ps1) / [`run.bat`](run.bat) — launcher Windows
 
 ## Roadmap
 
-### Hecho (v1 + pulido local)
+### Hecho (v1 + pulido local + editor)
 
 - Drag & drop audio/video, cola, MD/JSON/SRT
 - Plantillas de prompt, dark mode, carpeta de salida
 - Launcher + health CUDA/ffmpeg + UI de entorno
+- Viewer + editor de segmentos (`Ver` / `Editar` → Guardar regenera MD/SRT)
 
-### v1.1
+### v1.1 (siguiente)
 
-- Editor de transcript en UI
-- Resumen / outline / flashcards (LLM aparte del ASR)
+- Resumen / outline / flashcards (LLM — más adelante)
 - Merge de varios archivos en una “clase”
 
 ### v1.5 — realtime

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 import subprocess
 import sys
@@ -11,7 +12,7 @@ from typing import Any
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
@@ -19,11 +20,12 @@ if str(ROOT) not in sys.path:
 
 from app.db import create_job, delete_jobs, get_job, init_db, list_jobs, update_job
 from app.envcheck import collect_health
-from app.paths import artifact_path, job_dir, openable_folder
+from app.paths import artifact_dir, artifact_path, job_dir, openable_folder
 from app.prompts import PROMPT_TEMPLATES
 from app.settings import get_output_dir, set_output_dir
 from app.worker import WORKER
 from transcribe import config
+from transcribe.export import rewrite_job_artifacts
 from transcribe.media import AUDIO_EXTENSIONS, VIDEO_EXTENSIONS
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
@@ -34,6 +36,16 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 class OutputDirBody(BaseModel):
     path: str
+
+
+class SegmentItem(BaseModel):
+    start: float
+    end: float
+    text: str = ""
+
+
+class SegmentsBody(BaseModel):
+    segments: list[SegmentItem] = Field(default_factory=list)
 
 
 @app.on_event("startup")
@@ -50,7 +62,10 @@ def _shutdown() -> None:
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> HTMLResponse:
-    return HTMLResponse((STATIC_DIR / "index.html").read_text(encoding="utf-8"))
+    return HTMLResponse(
+        (STATIC_DIR / "index.html").read_text(encoding="utf-8"),
+        headers={"Cache-Control": "no-store, max-age=0"},
+    )
 
 
 @app.get("/api/health")
@@ -299,6 +314,65 @@ def api_transcript(job_id: str) -> dict[str, str]:
     if not path:
         raise HTTPException(404, "Transcripción no lista")
     return {"markdown": path.read_text(encoding="utf-8")}
+
+
+@app.get("/api/jobs/{job_id}/segments")
+def api_get_segments(job_id: str) -> dict[str, Any]:
+    path = artifact_path(job_id, "segmentos.json")
+    if not path:
+        raise HTTPException(404, "Segmentos no listos")
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        raise HTTPException(500, f"No se pudo leer segmentos: {exc}") from exc
+    segments = data.get("segments") or []
+    if not isinstance(segments, list):
+        raise HTTPException(500, "segmentos.json inválido")
+    return {
+        "clase": data.get("clase"),
+        "curso": data.get("curso"),
+        "temas": data.get("temas") or [],
+        "source": data.get("source"),
+        "model": data.get("model"),
+        "language": data.get("language"),
+        "duration_sec": data.get("duration_sec"),
+        "segments": segments,
+    }
+
+
+@app.put("/api/jobs/{job_id}/segments")
+def api_put_segments(job_id: str, body: SegmentsBody) -> dict[str, Any]:
+    if not get_job(job_id):
+        raise HTTPException(404, "Job no encontrado")
+    out_dir = artifact_dir(job_id)
+    if not out_dir:
+        raise HTTPException(404, "Segmentos no listos")
+
+    normalized: list[dict[str, Any]] = []
+    for i, seg in enumerate(body.segments):
+        if seg.end < seg.start:
+            raise HTTPException(400, f"Segmento {i}: end < start")
+        normalized.append(
+            {
+                "start": float(seg.start),
+                "end": float(seg.end),
+                "text": str(seg.text),
+            }
+        )
+
+    json_path = out_dir / "segmentos.json"
+    md_path = out_dir / "transcripcion.md"
+    srt_path = out_dir / "subtitulos.srt"
+    try:
+        rewrite_job_artifacts(json_path, md_path, srt_path, normalized)
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(500, f"No se pudo guardar: {exc}") from exc
+
+    return {
+        "ok": True,
+        "segments_count": len(normalized),
+        "regenerated": ["md", "json", "srt"],
+    }
 
 
 @app.post("/api/jobs/{job_id}/open-folder")
