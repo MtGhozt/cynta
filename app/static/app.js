@@ -326,8 +326,8 @@ function wireDrop() {
 function applyTheme(theme) {
   const next = theme === "dark" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", next);
+  document.documentElement.style.colorScheme = next;
   localStorage.setItem("cynta-theme", next);
-  // migrate old key
   localStorage.removeItem("cinta-theme");
   const btn = $("themeToggle");
   if (btn) {
@@ -335,6 +335,9 @@ function applyTheme(theme) {
     btn.setAttribute("aria-pressed", dark ? "true" : "false");
     btn.textContent = dark ? "Claro" : "Oscuro";
   }
+  document.querySelectorAll("select").forEach((el) => {
+    el.style.colorScheme = next;
+  });
 }
 
 function wireTheme() {
@@ -354,17 +357,12 @@ async function loadSettings() {
   $("outPath").textContent = data.jobs_dir || data.output_dir || "";
 }
 
-async function saveOutputDir() {
-  const path = $("outputDir").value.trim();
-  if (!path) return;
-  const res = await fetch("/api/settings/output-dir", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ path }),
-  });
+async function pickOutputDir() {
+  const res = await fetch("/api/settings/pick-output-dir", { method: "POST" });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    alert(err.detail || "No se pudo guardar la ruta");
+    if (res.status === 400) return; // cancelled
+    alert(err.detail || "No se pudo elegir la carpeta");
     return;
   }
   const data = await res.json();
@@ -390,7 +388,7 @@ async function boot() {
   $("jobForm").addEventListener("submit", submitJob);
   $("refreshBtn").addEventListener("click", refreshJobs);
   $("clearBtn").addEventListener("click", clearQueue);
-  $("savePathBtn").addEventListener("click", saveOutputDir);
+  $("pickPathBtn").addEventListener("click", pickOutputDir);
   $("jobs").addEventListener("click", onJobAction);
   $("searchBox").addEventListener("input", applySearch);
   $("prompt_template").addEventListener("change", () => {

@@ -79,15 +79,6 @@
             <textarea id="custom_prompt" name="custom_prompt" rows="2" placeholder="Términos propios de la materia"></textarea>
           </div>
 
-          <div class="field wide">
-            <label for="outputDir">Guardar en</label>
-            <div class="path-row">
-              <input id="outputDir" name="output_dir" spellcheck="false" />
-              <button type="button" class="quiet" id="savePathBtn">Usar</button>
-            </div>
-            <p class="hint">Carpeta base. Cada job va en <code>…/jobs/&lt;id&gt;/</code> con el MD/JSON/SRT a la vista.</p>
-          </div>
-
           <div class="run-row">
             <button class="go" id="submitBtn" type="submit" disabled>Transcribir</button>
             <button class="quiet" type="button" id="refreshBtn">Actualizar lista</button>
@@ -99,10 +90,19 @@
         <div class="log-head">
           <div>
             <h2 id="log-title">Cola</h2>
-            <p class="log-note">Archivos en <code id="outPath">…</code></p>
           </div>
           <button type="button" class="quiet" id="clearBtn" title="Borra jobs terminados de la lista y del disco">Limpiar cola</button>
         </div>
+
+        <div class="save-block">
+          <label for="outputDir">Guardar en</label>
+          <div class="path-row">
+            <input id="outputDir" name="output_dir" spellcheck="false" readonly />
+            <button type="button" class="quiet" id="pickPathBtn">Elegir carpeta</button>
+          </div>
+          <p class="hint">Jobs en <code id="outPath">…</code> · MD/JSON/SRT a la vista en cada carpeta.</p>
+        </div>
+
         <div class="jobs" id="jobs"></div>
 
         <div class="reader" id="previewWrap" hidden>

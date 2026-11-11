@@ -77,6 +77,30 @@ def api_set_output_dir(body: OutputDirBody) -> dict[str, Any]:
     return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
 
 
+@app.post("/api/settings/pick-output-dir")
+def api_pick_output_dir() -> dict[str, Any]:
+    """Native folder picker (local app only)."""
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+    except ImportError as exc:
+        raise HTTPException(500, "tkinter no disponible para elegir carpeta") from exc
+
+    root = tk.Tk()
+    root.withdraw()
+    try:
+        root.attributes("-topmost", True)
+    except tk.TclError:
+        pass
+    initial = str(get_output_dir())
+    chosen = filedialog.askdirectory(title="Carpeta de salida de Cynta", initialdir=initial)
+    root.destroy()
+    if not chosen:
+        raise HTTPException(400, "Selección cancelada")
+    out = set_output_dir(chosen)
+    return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
+
+
 @app.get("/api/meta")
 def meta() -> dict[str, Any]:
     return {
