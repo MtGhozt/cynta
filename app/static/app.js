@@ -1,6 +1,7 @@
 const state = {
   file: null,
   meta: null,
+  health: null,
   jobs: [],
   sockets: new Map(),
   activePreview: null,
@@ -34,17 +35,57 @@ function progressPct(job) {
   return 0;
 }
 
-function setHealth(kind, text) {
+function setHealth(kind, text, title) {
   const el = $("healthBadge");
-  el.classList.remove("ok", "bad", "busy");
+  el.classList.remove("ok", "bad", "busy", "warn");
   el.classList.add(kind);
   el.querySelector(".live-text").textContent = text;
+  if (title) el.title = title;
   const busy = state.jobs.some((j) =>
     ["queued", "preparing", "running"].includes(j.status)
   );
-  if (busy && kind === "ok") {
-    el.classList.remove("ok");
+  if (busy && (kind === "ok" || kind === "warn")) {
+    el.classList.remove("ok", "warn");
     el.classList.add("busy");
+  }
+}
+
+function applyHealth(info) {
+  const cudaOk = Boolean(info?.cuda?.ok);
+  const ffmpegOk = Boolean(info?.ffmpeg?.ok);
+  const gpuName = info?.cuda?.gpu?.name || "";
+  const warnings = Array.isArray(info?.warnings) ? info.warnings : [];
+
+  if (!info?.ok) {
+    setHealth("bad", "offline", "Servidor no responde");
+    return;
+  }
+
+  if (cudaOk) {
+    setHealth("ok", "cuda", gpuName ? `GPU: ${gpuName}` : "CUDA listo");
+  } else {
+    setHealth(
+      "warn",
+      "cpu",
+      warnings[0] || "Sin CUDA usable — se recomienda device=cpu"
+    );
+  }
+
+  const banner = $("envBanner");
+  if (!ffmpegOk || !cudaOk) {
+    banner.hidden = false;
+    banner.textContent = warnings.join(" · ") || "Revisá el entorno local.";
+  } else {
+    banner.hidden = true;
+    banner.textContent = "";
+  }
+
+  const device = $("device");
+  if (device && info.recommended_device && !device.dataset.userPicked) {
+    const want = info.recommended_device;
+    if ([...device.options].some((o) => o.value === want)) {
+      device.value = want;
+    }
   }
 }
 
@@ -74,7 +115,16 @@ async function loadMeta() {
   });
   fillSelectPairs($("language"), languages, state.meta.defaults.language);
   fillSelect($("model"), state.meta.models, state.meta.defaults.model);
-  fillSelect($("device"), state.meta.devices, state.meta.defaults.device);
+  const recommended =
+    state.health?.recommended_device || state.meta.defaults.device;
+  fillSelect($("device"), state.meta.devices, recommended);
+  $("device").addEventListener(
+    "change",
+    () => {
+      $("device").dataset.userPicked = "1";
+    },
+    { once: true }
+  );
   const prompts = Object.entries(state.meta.prompt_templates).map(([k, v]) => [k, v.label]);
   prompts.push(["custom", "Custom"]);
   fillSelectPairs($("prompt_template"), prompts, state.meta.defaults.prompt_template);
@@ -430,13 +480,16 @@ async function boot() {
   });
 
   try {
-    await fetch("/api/health").then((r) => r.json());
-    setHealth("ok", "local");
+    const health = await fetch("/api/health").then((r) => r.json());
+    state.health = health;
+    applyHealth(health);
     await loadSettings();
   } catch {
-    setHealth("bad", "offline");
+    state.health = null;
+    setHealth("bad", "offline", "Servidor no responde");
   }
   await loadMeta();
+  if (state.health) applyHealth(state.health);
   await refreshJobs();
 }
 

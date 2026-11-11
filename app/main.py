@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.db import create_job, delete_jobs, get_job, init_db, list_jobs, update_job
+from app.envcheck import collect_health
 from app.paths import artifact_path, job_dir, openable_folder
 from app.prompts import PROMPT_TEMPLATES
 from app.settings import get_output_dir, set_output_dir
@@ -55,8 +56,9 @@ def index() -> HTMLResponse:
 @app.get("/api/health")
 def health() -> dict[str, Any]:
     out = get_output_dir()
+    info = collect_health()
     return {
-        "ok": True,
+        **info,
         "output_dir": str(out),
         "jobs_dir": str(out / "jobs"),
     }

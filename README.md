@@ -1,31 +1,83 @@
-# Transcriptor Local
+# Cynta
 
-Producto **local-first** para transcribir audio/video (clases, Zoom grabado, lo que sea) en tu PC con [faster-whisper](https://github.com/SYSTRAN/faster-whisper).
+Transcriptor **local-first** para audio/video (clases, Zoom grabado, lo que sea) en tu PC con [faster-whisper](https://github.com/SYSTRAN/faster-whisper).
 
 - UI en `http://127.0.0.1:8765` (drag & drop)
-- CLI batch para carpetas de clases (`transcribe_batch.py`)
-- GPU NVIDIA si está disponible (probado con RTX 4060)
+- Cola de jobs, progreso, export MD / JSON / SRT
+- GPU NVIDIA si está disponible (probado con RTX 4060); si no, CPU
 
-Repo privado Cursor: `matias-b/transcripciones`  
-(copia online no pública; en Windows el `git push` puede pedir `origin auth login`)
+Repo público: [MtGhozt/cynta](https://github.com/MtGhozt/cynta)
 
 ## Requisitos
 
-- Windows 10/11 (también sirve en otras plataformas con ajustes)
-- Python 3.11+
-- [ffmpeg](https://ffmpeg.org/) en el PATH (`winget install Gyan.FFmpeg`)
-- GPU NVIDIA recomendada (sin GPU: `--device cpu --model medium`, más lento)
+| Pieza | Notas |
+|-------|--------|
+| Windows 10/11 | También corre en otras plataformas con ajustes |
+| Python **3.11** | [python.org](https://www.python.org/downloads/) — marcá *Add to PATH* |
+| ffmpeg | `winget install Gyan.FFmpeg` y **reabrí** la terminal |
+| GPU NVIDIA (opc.) | Drivers recientes; sin GPU usá `device=cpu` |
 
-## Arranque rápido (producto)
+## Arranque (recomendado)
+
+Doble clic en `run.bat`, o en PowerShell:
 
 ```powershell
-cd C:\Programacion\Transcripciones
+cd C:\ruta\a\cynta   # o Transcripciones
 .\run.ps1
 ```
 
-Se abre el navegador. Arrastrá `.m4a` / `.mp3` / `.wav` o `.mp4` / `.mkv` / `.webm`.
+El script:
 
-Salidas por job en `data/jobs/<id>/out/`:
+1. Chequea Python 3.11, ffmpeg y GPU
+2. Instala deps solo si faltan (`-Install` para forzar)
+3. Levanta el server y abre el browser cuando `/api/health` responde
+
+Opciones:
+
+```powershell
+.\run.ps1 -SkipInstall   # no toca pip
+.\run.ps1 -Install       # reinstala requirements.txt
+.\run.ps1 -Port 8765
+```
+
+En la UI, el badge arriba a la derecha dice **cuda** o **cpu**. Si falta ffmpeg/CUDA, aparece un aviso.
+
+## Instalación manual
+
+```powershell
+py -3.11 -m pip install -r requirements.txt
+py -3.11 -m uvicorn app.main:app --host 127.0.0.1 --port 8765
+```
+
+Abrí `http://127.0.0.1:8765`.
+
+## CUDA — si la GPU no aparece
+
+1. `nvidia-smi` en una terminal → tiene que listar la placa.
+2. Reinstalá wheels CUDA de pip:
+
+   ```powershell
+   py -3.11 -m pip install -r requirements.txt
+   ```
+
+   Incluye `nvidia-cublas-cu12`, `nvidia-cudnn-cu12`, `nvidia-cuda-runtime-cu12`.
+3. En Cynta, Device = `cuda` (o `auto`). Si sigue fallando, usá `cpu` + modelo `medium`/`small`.
+4. Primera corrida con `large-v3` descarga ~3 GB del modelo.
+
+El health endpoint reporta el diagnóstico:
+
+```text
+GET /api/health → ffmpeg, cuda.gpu, cublas_wheels, recommended_device, warnings
+```
+
+## Uso rápido
+
+1. Soltá un `.m4a` / `.mp3` / `.wav` o `.mp4` / `.mkv` / `.webm`
+2. Elegí idioma / modelo / device / dominio
+3. **Transcribir** → mirá la cola a la derecha
+4. **Guardar en** → carpeta de salida (picker nativo en Windows)
+
+Salidas por job (también en la carpeta del job):
 
 - `transcripcion.md`
 - `segmentos.json`
@@ -34,7 +86,6 @@ Salidas por job en `data/jobs/<id>/out/`:
 ## CLI de clases (curso)
 
 ```powershell
-py -3.11 -m pip install -r requirements.txt
 py -3.11 transcribe_batch.py --clase 1
 py -3.11 transcribe_batch.py          # todas; salta las ya hechas
 ```
@@ -42,17 +93,16 @@ py -3.11 transcribe_batch.py          # todas; salta las ya hechas
 Entrada: `Clases/Clase N/audio*.m4a`  
 Salida: `Transcripciones/Clase N/`
 
-## API local (extensible)
+## API local
 
 | Método | Ruta | Uso |
 |--------|------|-----|
+| GET | `/api/health` | entorno: ffmpeg, CUDA, warnings |
 | GET | `/api/meta` | modelos, idiomas, prompts |
 | GET | `/api/jobs` | historial |
 | POST | `/api/jobs` | multipart upload |
 | WS | `/ws/jobs/{id}` | progreso |
 | GET | `/api/jobs/{id}/files/{md\|json\|srt}` | descargas |
-
-Estos contratos están pensados para mañana poder apuntar la misma UI a un worker remoto / multi-usuario.
 
 ## Arquitectura
 
@@ -60,22 +110,19 @@ Estos contratos están pensados para mañana poder apuntar la misma UI a un work
 UI (static) → FastAPI → cola (thread) → ffmpeg (si video) → faster-whisper → SQLite + files
 ```
 
-Código clave:
-
 - [`app/main.py`](app/main.py) — API + WebSocket
+- [`app/envcheck.py`](app/envcheck.py) — health / preflight
 - [`app/worker.py`](app/worker.py) — cola
 - [`transcribe/engine.py`](transcribe/engine.py) — ASR
-- [`transcribe/media.py`](transcribe/media.py) — audio/video
+- [`run.ps1`](run.ps1) / [`run.bat`](run.bat) — launcher Windows
 
 ## Roadmap
 
-### Hecho (v1)
+### Hecho (v1 + pulido local)
 
-- Drag & drop audio/video
-- Cola + progreso + historial
-- Export MD/JSON/SRT
-- Plantillas de prompt (curso / mates / general)
-- Abrir carpeta del job + búsqueda en preview
+- Drag & drop audio/video, cola, MD/JSON/SRT
+- Plantillas de prompt, dark mode, carpeta de salida
+- Launcher + health CUDA/ffmpeg + UI de entorno
 
 ### v1.1
 
@@ -85,22 +132,20 @@ Código clave:
 
 ### v1.5 — realtime
 
-- Micrófono **o** loopback WASAPI (audio del sistema) mientras Zoom/Meet suena
-- **No** requiere permiso del host de Zoom; es “transcribí lo que oigo”
-- Calidad/latencia peores que batch; GPU ayuda
+- Micrófono **o** loopback WASAPI mientras Zoom/Meet suena
+- No requiere permiso del host de Zoom
 
 ### v2
 
-- Detección de diapositivas + OCR alineado a timestamps
+- Diapositivas + OCR alineado a timestamps
 - Empaquetado `.exe` (Tauri + sidecar Python)
 - Modo LAN para compañeros en la misma WiFi
 
 ### Multi-usuario (después)
 
-Misma API; agregar auth, object storage y cola server. La UI puede seguir igual.
+Misma API; auth, object storage y cola server.
 
 ## Notas
 
-- Los medios en `Clases/` **no** van al git (muy pesados).
-- `data/` es runtime local (también ignorado).
-- Primera corrida descarga el modelo Whisper (~3 GB para `large-v3`).
+- `Clases/` y `data/` no van al git (medios / runtime local).
+- Cancelar el picker de carpeta no es error; el diálogo usa Explorer moderno en Windows.

@@ -152,6 +152,7 @@ textarea {
 }
 
 .live.ok .led { background: var(--ok); }
+.live.warn .led { background: var(--warn); }
 .live.bad .led { background: var(--rec); }
 .live.busy .led {
   background: var(--rec);
@@ -165,6 +166,16 @@ textarea {
 
 @media (prefers-reduced-motion: reduce) {
   .live.busy .led { animation: none; }
+}
+
+.env-banner {
+  margin: 0 0 var(--space-3);
+  padding: 0.55rem 0.75rem;
+  border-left: 3px solid var(--warn);
+  background: color-mix(in srgb, var(--warn) 12%, var(--surface));
+  color: var(--ink);
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
 .stage {
