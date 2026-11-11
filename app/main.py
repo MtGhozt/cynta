@@ -77,28 +77,83 @@ def api_set_output_dir(body: OutputDirBody) -> dict[str, Any]:
     return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
 
 
+def _allow_foreground() -> None:
+    """Best-effort: let the picker process steal focus after a browser click."""
+    if sys.platform != "win32":
+        return
+    try:
+        import ctypes
+
+        # ASFW_ANY = -1
+        ctypes.windll.user32.AllowSetForegroundWindow(-1)
+    except Exception:  # noqa: BLE001
+        pass
+
+
+def _pick_folder_native(initial: str) -> str | None:
+    """Folder picker in a separate process (safe under uvicorn worker threads)."""
+    if sys.platform == "win32":
+        _allow_foreground()
+        script = Path(__file__).resolve().parent / "pick_folder.ps1"
+        proc = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-STA",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                str(script),
+                "-Initial",
+                initial,
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=300,
+        )
+        if proc.returncode == 2:
+            return None  # cancelled
+        path = (proc.stdout or "").strip()
+        return path or None
+
+    code = (
+        "import tkinter as tk\n"
+        "from tkinter import filedialog\n"
+        "root = tk.Tk(); root.withdraw()\n"
+        f"p = filedialog.askdirectory(initialdir={initial!r})\n"
+        "print(p or '', end='')\n"
+    )
+    proc = subprocess.run(
+        [sys.executable, "-c", code],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=300,
+    )
+    chosen = (proc.stdout or "").strip()
+    return chosen or None
+
+
 @app.post("/api/settings/pick-output-dir")
 def api_pick_output_dir() -> dict[str, Any]:
-    """Native folder picker (local app only)."""
-    try:
-        import tkinter as tk
-        from tkinter import filedialog
-    except ImportError as exc:
-        raise HTTPException(500, "tkinter no disponible para elegir carpeta") from exc
-
-    root = tk.Tk()
-    root.withdraw()
-    try:
-        root.attributes("-topmost", True)
-    except tk.TclError:
-        pass
+    """Native folder picker (local app only). Cancel returns cancelled=true (not an error)."""
     initial = str(get_output_dir())
-    chosen = filedialog.askdirectory(title="Carpeta de salida de Cynta", initialdir=initial)
-    root.destroy()
+    try:
+        chosen = _pick_folder_native(initial)
+    except subprocess.TimeoutExpired as exc:
+        raise HTTPException(504, "Se agotó el tiempo del diálogo de carpeta") from exc
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(500, f"No se pudo abrir el selector: {exc}") from exc
+
     if not chosen:
-        raise HTTPException(400, "Selección cancelada")
+        return {
+            "cancelled": True,
+            "output_dir": str(get_output_dir()),
+            "jobs_dir": str(get_output_dir() / "jobs"),
+        }
     out = set_output_dir(chosen)
-    return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
+    return {"cancelled": False, "output_dir": str(out), "jobs_dir": str(out / "jobs")}
 
 
 @app.get("/api/meta")

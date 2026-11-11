@@ -277,19 +277,30 @@ textarea {
   font-size: 0.8rem;
 }
 
-.controls {
+#jobForm {
   margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.controls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-2) var(--space-3);
+  align-items: start;
 }
 
 .field {
   display: grid;
   gap: 0.25rem;
+  min-width: 0;
+  align-content: start;
 }
 
-.field.wide { grid-column: 1 / -1; }
+.field.wide {
+  width: 100%;
+}
 
 .field label,
 .save-block label {
@@ -302,6 +313,10 @@ textarea {
   font-size: 0.72rem;
   line-height: 1.35;
   color: var(--muted);
+}
+
+.controls .hint {
+  min-height: 2.7em;
 }
 
 .field input,
@@ -317,6 +332,8 @@ textarea {
 
 .field select {
   width: 100%;
+  min-width: 0;
+  height: 2.5rem;
   appearance: none;
   -webkit-appearance: none;
   border: 1.5px solid var(--ink);
@@ -326,12 +343,12 @@ textarea {
     linear-gradient(45deg, transparent 50%, var(--select-fg) 50%),
     linear-gradient(135deg, var(--select-fg) 50%, transparent 50%);
   background-position:
-    calc(100% - 14px) 55%,
-    calc(100% - 9px) 55%;
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
   color: var(--select-fg);
-  padding: 0.45rem 1.8rem 0.45rem 0.55rem;
+  padding: 0 1.8rem 0 0.55rem;
   color-scheme: inherit;
 }
 
@@ -356,33 +373,56 @@ textarea {
 }
 
 .run-row {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: var(--space-1);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  width: 100%;
 }
 
-.go,
+.btn,
 .quiet,
 .job-actions button {
   border: 0;
   cursor: pointer;
 }
 
-.go {
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 2.75rem;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0.9rem;
+  border: 1.5px solid var(--ink);
   background: var(--ink);
   color: var(--go-fg);
-  padding: 0.6rem 1.1rem;
   font-family: var(--display);
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.go:hover { filter: brightness(1.08); }
-.go:disabled {
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+  filter: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-secondary:hover {
+  filter: none;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
 
 .quiet,
@@ -398,6 +438,10 @@ textarea {
 .job-actions button:hover {
   color: var(--rec);
   border-bottom-color: var(--rec);
+}
+
+@media (max-width: 520px) {
+  .run-row { grid-template-columns: 1fr; }
 }
 
 .log-head {

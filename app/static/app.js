@@ -68,7 +68,11 @@ function setFile(file) {
 async function loadMeta() {
   const res = await fetch("/api/meta");
   state.meta = await res.json();
-  fillSelect($("language"), state.meta.languages, state.meta.defaults.language);
+  const languages = (state.meta.languages || ["es", "en", "auto"]).map((code) => {
+    const labels = { es: "Español", en: "English", auto: "Auto" };
+    return [code, labels[code] || code];
+  });
+  fillSelectPairs($("language"), languages, state.meta.defaults.language);
   fillSelect($("model"), state.meta.models, state.meta.defaults.model);
   fillSelect($("device"), state.meta.devices, state.meta.defaults.device);
   const prompts = Object.entries(state.meta.prompt_templates).map(([k, v]) => [k, v.label]);
@@ -357,17 +361,47 @@ async function loadSettings() {
   $("outPath").textContent = data.jobs_dir || data.output_dir || "";
 }
 
-async function pickOutputDir() {
-  const res = await fetch("/api/settings/pick-output-dir", { method: "POST" });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    if (res.status === 400) return; // cancelled
-    alert(err.detail || "No se pudo elegir la carpeta");
-    return;
+function errDetail(err) {
+  if (!err) return null;
+  if (typeof err.detail === "string") return err.detail;
+  if (Array.isArray(err.detail)) {
+    return err.detail.map((d) => d.msg || JSON.stringify(d)).join("; ");
   }
-  const data = await res.json();
-  $("outputDir").value = data.output_dir;
-  $("outPath").textContent = data.jobs_dir;
+  return err.message || null;
+}
+
+async function pickOutputDir() {
+  const btn = $("pickPathBtn");
+  if (btn.disabled) return;
+  btn.disabled = true;
+  const prev = btn.textContent;
+  btn.textContent = "Eligiendo…";
+  const ac = new AbortController();
+  const timer = setTimeout(() => ac.abort(), 180000);
+  try {
+    const res = await fetch("/api/settings/pick-output-dir", {
+      method: "POST",
+      signal: ac.signal,
+      cache: "no-store",
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      alert(errDetail(data) || `No se pudo elegir la carpeta (${res.status})`);
+      return;
+    }
+    if (data.output_dir) $("outputDir").value = data.output_dir;
+    if (data.jobs_dir) $("outPath").textContent = data.jobs_dir;
+  } catch (e) {
+    if (e && e.name === "AbortError") {
+      alert("El selector de carpeta tardó demasiado. Probá de nuevo.");
+    } else {
+      alert(`No se pudo elegir la carpeta: ${e}`);
+    }
+  } finally {
+    clearTimeout(timer);
+    btn.disabled = false;
+    btn.textContent = prev || "Elegir carpeta";
+  }
 }
 
 async function clearQueue() {

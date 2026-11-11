@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="stylesheet" href="/static/styles.css?v=4" />
 </head>
 <body>
   <div class="shell">
@@ -48,30 +48,33 @@
         <input id="fileInput" type="file" hidden accept="audio/*,video/*,.m4a,.mp3,.wav,.flac,.ogg,.mp4,.mkv,.webm,.mov,.avi" />
         <p class="loaded" id="fileChip" hidden></p>
 
-        <form class="controls" id="jobForm">
+        <form id="jobForm">
           <div class="field wide">
             <label for="title">Nombre</label>
             <input id="title" name="title" autocomplete="off" placeholder="Clase 8 resolución" />
           </div>
 
-          <div class="field">
-            <label for="language">Idioma</label>
-            <select id="language" name="language"></select>
-          </div>
-          <div class="field">
-            <label for="model">Modelo</label>
-            <select id="model" name="model"></select>
-            <p class="hint">Más grande = mejor y más lento. large-v3 para clases; tiny para probar.</p>
-          </div>
-          <div class="field">
-            <label for="device">Device</label>
-            <select id="device" name="device"></select>
-            <p class="hint">cuda = GPU NVIDIA. cpu = sin gráfica, más lento. auto intenta GPU.</p>
-          </div>
-          <div class="field">
-            <label for="prompt_template">Dominio</label>
-            <select id="prompt_template" name="prompt_template"></select>
-            <p class="hint">Vocabulario de la materia. Custom deja escribir términos vos.</p>
+          <div class="controls">
+            <div class="field">
+              <label for="language">Idioma</label>
+              <select id="language" name="language"></select>
+              <p class="hint">Idioma del audio. Auto detecta; Español o English si ya sabés.</p>
+            </div>
+            <div class="field">
+              <label for="model">Modelo</label>
+              <select id="model" name="model"></select>
+              <p class="hint">Más grande = mejor y más lento. large-v3 para clases; tiny para probar.</p>
+            </div>
+            <div class="field">
+              <label for="device">Device</label>
+              <select id="device" name="device"></select>
+              <p class="hint">cuda = GPU NVIDIA. cpu = sin gráfica, más lento. auto intenta GPU.</p>
+            </div>
+            <div class="field">
+              <label for="prompt_template">Dominio</label>
+              <select id="prompt_template" name="prompt_template"></select>
+              <p class="hint">Vocabulario de la materia. Custom deja escribir términos vos.</p>
+            </div>
           </div>
 
           <div class="field wide" id="customPromptWrap" hidden>
@@ -80,8 +83,8 @@
           </div>
 
           <div class="run-row">
-            <button class="go" id="submitBtn" type="submit" disabled>Transcribir</button>
-            <button class="quiet" type="button" id="refreshBtn">Actualizar lista</button>
+            <button class="btn" id="submitBtn" type="submit" disabled>Transcribir</button>
+            <button class="btn btn-secondary" type="button" id="refreshBtn">Actualizar lista</button>
           </div>
         </form>
       </section>
@@ -115,6 +118,6 @@
       </section>
     </main>
   </div>
-  <script src="/static/app.js"></script>
+  <script src="/static/app.js?v=4"></script>
 </body>
 </html>
