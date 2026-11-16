@@ -132,32 +132,18 @@ UI (static) → FastAPI → cola (thread) → ffmpeg (si video) → faster-whisp
 
 ## Roadmap
 
-### Hecho (v1 + pulido local + editor)
+Versiones, criterios de “listo” y orden sugerido: **[`ROADMAP.md`](ROADMAP.md)**.
 
-- Drag & drop audio/video, cola, MD/JSON/SRT
-- Plantillas de prompt, dark mode, carpeta de salida
-- Launcher + health CUDA/ffmpeg + UI de entorno
-- Viewer + editor de segmentos (`Ver` / `Editar` → Guardar regenera MD/SRT)
+Resumen:
 
-### v1.1 (siguiente)
-
-- Resumen / outline / flashcards (LLM — más adelante)
-- Merge de varios archivos en una “clase”
-
-### v1.5 — realtime
-
-- Micrófono **o** loopback WASAPI mientras Zoom/Meet suena
-- No requiere permiso del host de Zoom
-
-### v2
-
-- Diapositivas + OCR alineado a timestamps
-- Empaquetado `.exe` (Tauri + sidecar Python)
-- Modo LAN para compañeros en la misma WiFi
-
-### Multi-usuario (después)
-
-Misma API; auth, object storage y cola server.
+| Versión | Foco |
+|---------|------|
+| **Hecho (≤0.2)** | Batch + UI Cynta + editor Ver/Editar + launcher/health |
+| **v0.3** | Merge de varios archivos en una “clase” |
+| **v0.4** | Outline / flashcards **locales** (Ollama; sin API paga) |
+| **v0.5** | Realtime (mic / loopback WASAPI) |
+| **v1.0** | `.exe` + modo LAN |
+| **Después** | Slides/OCR, multi-usuario, LLM cloud opt-in |
 
 ## Notas
 
