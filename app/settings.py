@@ -50,3 +50,23 @@ def set_output_dir(path_str: str) -> Path:
 
 def jobs_dir() -> Path:
     return get_output_dir() / "jobs"
+
+
+def get_ollama_model() -> str | None:
+    raw = _read().get("ollama_model")
+    if raw is None:
+        return None
+    text = str(raw).strip()
+    return text or None
+
+
+def set_ollama_model(model: str | None) -> str | None:
+    data = _read()
+    if model is None or not str(model).strip():
+        data.pop("ollama_model", None)
+        _write(data)
+        return None
+    value = str(model).strip()
+    data["ollama_model"] = value
+    _write(data)
+    return value

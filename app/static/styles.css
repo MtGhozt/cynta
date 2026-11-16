@@ -674,6 +674,47 @@ textarea {
   color: var(--ink);
 }
 
+.study-panel {
+  max-height: 28rem;
+  overflow: auto;
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+.study-item,
+.study-card {
+  border-top: 1px solid var(--line);
+  padding: 0.65rem 0 0.15rem;
+}
+
+.study-stamp {
+  margin: 0 0 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.study-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.study-summary,
+.study-front,
+.study-back {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.study-back {
+  color: var(--muted);
+}
+
 .md-preview,
 #preview {
   margin: 0;

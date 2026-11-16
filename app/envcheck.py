@@ -81,20 +81,40 @@ def _cuda_runtime_probe() -> dict[str, Any]:
     }
 
 
+def _ollama() -> dict[str, Any]:
+    from transcribe.study import DEFAULT_OLLAMA_URL, probe_ollama
+
+    info = probe_ollama(DEFAULT_OLLAMA_URL)
+    return {
+        "ok": bool(info.get("ok")),
+        "url": info.get("url") or DEFAULT_OLLAMA_URL,
+        "models": info.get("models") or [],
+        "recommended_model": info.get("recommended_model"),
+        "error": info.get("error"),
+    }
+
+
 def collect_health() -> dict[str, Any]:
     ffmpeg = _ffmpeg()
     cuda = _cuda_runtime_probe()
+    ollama = _ollama()
     warnings: list[str] = []
     if not ffmpeg["ok"]:
         warnings.append("ffmpeg no está en PATH — los videos van a fallar.")
     if cuda.get("hint"):
         warnings.append(cuda["hint"])
+    if not ollama.get("ok"):
+        warnings.append(
+            "Sin Ollama — Estudio usará outline/cards heurísticos "
+            "(opcional: instalá Ollama en 127.0.0.1:11434)."
+        )
     return {
         "ok": True,
         "python": sys.version.split()[0],
         "platform": sys.platform,
         "ffmpeg": ffmpeg,
         "cuda": cuda,
+        "ollama": ollama,
         "warnings": warnings,
         "recommended_device": "cuda" if cuda.get("ok") else "cpu",
     }

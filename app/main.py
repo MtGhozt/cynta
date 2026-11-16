@@ -22,20 +22,25 @@ from app.db import create_job, delete_jobs, get_job, init_db, list_jobs, update_
 from app.envcheck import collect_health
 from app.paths import artifact_dir, artifact_path, job_dir, openable_folder
 from app.prompts import PROMPT_TEMPLATES
-from app.settings import get_output_dir, set_output_dir
+from app.settings import get_ollama_model, get_output_dir, set_ollama_model, set_output_dir
 from app.worker import WORKER
 from transcribe import config
 from transcribe.export import rewrite_job_artifacts
 from transcribe.media import AUDIO_EXTENSIONS, VIDEO_EXTENSIONS
+from transcribe.study import DEFAULT_OLLAMA_URL, generate_study
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 
-app = FastAPI(title="Cynta", version="0.3.0")
+app = FastAPI(title="Cynta", version="0.4.0")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 class OutputDirBody(BaseModel):
     path: str
+
+
+class OllamaModelBody(BaseModel):
+    model: str | None = None
 
 
 class SegmentItem(BaseModel):
@@ -46,6 +51,11 @@ class SegmentItem(BaseModel):
 
 class SegmentsBody(BaseModel):
     segments: list[SegmentItem] = Field(default_factory=list)
+
+
+class StudyBody(BaseModel):
+    force: bool = True
+    use_ollama: bool = True
 
 
 @app.on_event("startup")
@@ -82,7 +92,11 @@ def health() -> dict[str, Any]:
 @app.get("/api/settings")
 def api_get_settings() -> dict[str, Any]:
     out = get_output_dir()
-    return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
+    return {
+        "output_dir": str(out),
+        "jobs_dir": str(out / "jobs"),
+        "ollama_model": get_ollama_model(),
+    }
 
 
 @app.post("/api/settings/output-dir")
@@ -92,6 +106,12 @@ def api_set_output_dir(body: OutputDirBody) -> dict[str, Any]:
         raise HTTPException(400, "Path vacío")
     out = set_output_dir(path)
     return {"output_dir": str(out), "jobs_dir": str(out / "jobs")}
+
+
+@app.post("/api/settings/ollama-model")
+def api_set_ollama_model(body: OllamaModelBody) -> dict[str, Any]:
+    model = set_ollama_model(body.model)
+    return {"ollama_model": model}
 
 
 def _allow_foreground() -> None:
@@ -368,9 +388,14 @@ def api_download(job_id: str, kind: str) -> FileResponse:
         "md": "transcripcion.md",
         "json": "segmentos.json",
         "srt": "subtitulos.srt",
+        "outline": "outline.json",
+        "outline_md": "outline.md",
+        "opencards": "open-cards.json",
     }
     if kind not in mapping:
-        raise HTTPException(400, "kind debe ser md|json|srt")
+        raise HTTPException(
+            400, "kind debe ser md|json|srt|outline|outline_md|opencards"
+        )
     path = artifact_path(job_id, mapping[kind])
     if not path:
         raise HTTPException(404, "Archivo no listo")
@@ -378,8 +403,98 @@ def api_download(job_id: str, kind: str) -> FileResponse:
         "md": "text/markdown; charset=utf-8",
         "json": "application/json",
         "srt": "application/x-subrip",
+        "outline": "application/json",
+        "outline_md": "text/markdown; charset=utf-8",
+        "opencards": "application/json",
     }[kind]
     return FileResponse(path, media_type=media, filename=f"{job_id}-{mapping[kind]}")
+
+
+@app.post("/api/jobs/{job_id}/study")
+def api_generate_study(job_id: str, body: StudyBody | None = None) -> dict[str, Any]:
+    opts = body or StudyBody()
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(404, "Job no encontrado")
+    if job["status"] != "done":
+        raise HTTPException(400, "Solo se puede generar estudio en jobs done")
+
+    segmentos = artifact_path(job_id, "segmentos.json")
+    if not segmentos:
+        raise HTTPException(404, "Falta segmentos.json")
+
+    out_dir = artifact_dir(job_id) or job_dir(job_id)
+    outline_existing = artifact_path(job_id, "outline.json")
+    cards_existing = artifact_path(job_id, "open-cards.json")
+    if not opts.force and outline_existing and cards_existing:
+        return api_get_study(job_id)
+
+    try:
+        result = generate_study(
+            segmentos,
+            out_dir,
+            title=job.get("title"),
+            ollama_url=DEFAULT_OLLAMA_URL,
+            model=get_ollama_model(),
+            use_ollama=opts.use_ollama,
+        )
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(500, f"No se pudo generar estudio: {exc}") from exc
+
+    return {
+        "ok": True,
+        "mode": result.get("mode"),
+        "outline": result.get("outline"),
+        "deck": result.get("deck"),
+        "ollama": result.get("ollama"),
+        "paths": result.get("paths"),
+    }
+
+
+@app.get("/api/jobs/{job_id}/study")
+def api_get_study(job_id: str) -> dict[str, Any]:
+    if not get_job(job_id):
+        raise HTTPException(404, "Job no encontrado")
+    outline_path = artifact_path(job_id, "outline.json")
+    cards_path = artifact_path(job_id, "open-cards.json")
+    if not outline_path or not cards_path:
+        raise HTTPException(404, "Estudio no generado aún")
+
+    try:
+        outline = json.loads(outline_path.read_text(encoding="utf-8"))
+        library = json.loads(cards_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        raise HTTPException(500, f"No se pudo leer estudio: {exc}") from exc
+
+    decks = library.get("decks") if isinstance(library, dict) else None
+    deck = decks[0] if isinstance(decks, list) and decks else {}
+    cards = deck.get("cards") if isinstance(deck, dict) else []
+    preview_cards: list[dict[str, str]] = []
+    if isinstance(cards, list):
+        for card in cards:
+            if not isinstance(card, dict):
+                continue
+            front_blocks = card.get("front") or []
+            back_blocks = card.get("back") or []
+            front = ""
+            back = ""
+            if isinstance(front_blocks, list) and front_blocks:
+                front = str((front_blocks[0] or {}).get("content") or "")
+            if isinstance(back_blocks, list) and back_blocks:
+                back = str((back_blocks[0] or {}).get("content") or "")
+            preview_cards.append({"front": front, "back": back})
+
+    return {
+        "mode": outline.get("mode"),
+        "outline": outline,
+        "deck": {
+            "name": deck.get("name") if isinstance(deck, dict) else None,
+            "tags": (deck.get("tags") if isinstance(deck, dict) else None) or [],
+            "cards_count": len(preview_cards),
+            "cards": preview_cards,
+        },
+        "ollama": outline.get("ollama"),
+    }
 
 
 @app.get("/api/jobs/{job_id}/transcript")

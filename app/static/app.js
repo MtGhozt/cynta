@@ -6,10 +6,11 @@ const state = {
   sockets: new Map(),
   activePreview: null,
   previewText: "",
-  editorMode: null, // "view" | "edit" | null
+  editorMode: null, // "view" | "edit" | "study" | null
   editorTab: "segments",
   segments: [],
   dirty: false,
+  study: null,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -103,7 +104,8 @@ function applyHealth(info) {
   }
 
   const banner = $("envBanner");
-  if (!ffmpegOk || !cudaOk) {
+  const ollamaOk = Boolean(info?.ollama?.ok);
+  if (!ffmpegOk || !cudaOk || !ollamaOk) {
     banner.hidden = false;
     banner.textContent = warnings.join(" · ") || "Revisá el entorno local.";
   } else {
@@ -250,9 +252,17 @@ function renderJobs() {
                     ? "Cerrar"
                     : "Editar"
                 }</button>
+              <button type="button" data-act="study" data-id="${job.id}">${
+                  state.activePreview === job.id &&
+                  !$("previewWrap")?.hidden &&
+                  state.editorMode === "study"
+                    ? "Cerrar"
+                    : "Estudio"
+                }</button>
               <button type="button" data-act="md" data-id="${job.id}">MD</button>
               <button type="button" data-act="json" data-id="${job.id}">JSON</button>
               <button type="button" data-act="srt" data-id="${job.id}">SRT</button>
+              <button type="button" data-act="opencards" data-id="${job.id}">OpenCards</button>
               <button type="button" data-act="folder" data-id="${job.id}">Carpeta</button>
               <button type="button" data-act="retry" data-id="${job.id}">Rehacer</button>
             `
@@ -416,8 +426,18 @@ async function onJobAction(e) {
     watchJob(id);
   } else if (act === "folder") {
     await fetch(`/api/jobs/${id}/open-folder`, { method: "POST" });
-  } else if (["md", "json", "srt"].includes(act)) {
+  } else if (["md", "json", "srt", "opencards", "outline", "outline_md"].includes(act)) {
     window.open(`/api/jobs/${id}/files/${act}`, "_blank");
+  } else if (act === "study") {
+    if (
+      state.activePreview === id &&
+      !$("previewWrap").hidden &&
+      state.editorMode === "study"
+    ) {
+      closeEditor();
+      return;
+    }
+    await openStudy(id);
   } else if (act === "view") {
     if (
       state.activePreview === id &&
@@ -451,12 +471,19 @@ function closeEditor() {
   state.editorMode = null;
   state.segments = [];
   state.previewText = "";
+  state.study = null;
   setDirty(false);
   $("previewWrap").hidden = true;
   $("editorHint").hidden = true;
+  $("studyMeta").hidden = true;
+  $("studyMeta").textContent = "";
   $("saveSegmentsBtn").hidden = false;
   $("segmentsEditor").innerHTML = "";
   $("preview").textContent = "";
+  $("studyOutline").innerHTML = "";
+  $("studyCards").innerHTML = "";
+  $("studyOutline").hidden = true;
+  $("studyCards").hidden = true;
   document.querySelectorAll(".reader-tabs .tab").forEach((btn) => {
     btn.hidden = false;
   });
@@ -489,14 +516,15 @@ function setEditorTab(tab) {
   });
   const segs = $("segmentsEditor");
   const md = $("preview");
-  if (tab === "segments") {
-    segs.hidden = false;
-    md.hidden = true;
-  } else {
-    segs.hidden = true;
-    md.hidden = false;
-    applyMarkdownPreview();
-  }
+  const outline = $("studyOutline");
+  const cards = $("studyCards");
+  segs.hidden = tab !== "segments";
+  md.hidden = tab !== "markdown";
+  outline.hidden = tab !== "outline";
+  cards.hidden = tab !== "cards";
+  if (tab === "markdown") applyMarkdownPreview();
+  if (tab === "outline") renderStudyOutline();
+  if (tab === "cards") renderStudyCards();
 }
 
 function applyMarkdownPreview() {
@@ -530,6 +558,15 @@ function applySearch() {
     applyMarkdownPreview();
     return;
   }
+  if (state.editorTab === "outline" || state.editorTab === "cards") {
+    const q = ($("searchBox").value || "").trim().toLowerCase();
+    const root = state.editorTab === "outline" ? $("studyOutline") : $("studyCards");
+    root.querySelectorAll(".study-item, .study-card").forEach((el) => {
+      const text = (el.textContent || "").toLowerCase();
+      el.hidden = Boolean(q && !text.includes(q));
+    });
+    return;
+  }
   const q = ($("searchBox").value || "").trim().toLowerCase();
   $("segmentsEditor").querySelectorAll(".seg-row").forEach((row) => {
     const idx = Number(row.dataset.idx);
@@ -543,19 +580,142 @@ function applySearch() {
 function setReaderChrome(mode) {
   const editTab = document.querySelector('.reader-tabs .tab[data-tab="segments"]');
   const mdTab = document.querySelector('.reader-tabs .tab[data-tab="markdown"]');
+  const outlineTab = document.querySelector('.reader-tabs .tab[data-tab="outline"]');
+  const cardsTab = document.querySelector('.reader-tabs .tab[data-tab="cards"]');
   const hint = $("editorHint");
   const saveBtn = $("saveSegmentsBtn");
+  const studyMeta = $("studyMeta");
   if (mode === "view") {
     if (editTab) editTab.hidden = true;
     if (mdTab) mdTab.hidden = true;
+    if (outlineTab) outlineTab.hidden = true;
+    if (cardsTab) cardsTab.hidden = true;
     hint.hidden = true;
+    studyMeta.hidden = true;
+    saveBtn.hidden = true;
+    $("dirtyFlag").hidden = true;
+  } else if (mode === "study") {
+    if (editTab) editTab.hidden = true;
+    if (mdTab) mdTab.hidden = true;
+    if (outlineTab) outlineTab.hidden = false;
+    if (cardsTab) cardsTab.hidden = false;
+    hint.hidden = true;
+    studyMeta.hidden = false;
     saveBtn.hidden = true;
     $("dirtyFlag").hidden = true;
   } else {
     if (editTab) editTab.hidden = false;
     if (mdTab) mdTab.hidden = false;
+    if (outlineTab) outlineTab.hidden = true;
+    if (cardsTab) cardsTab.hidden = true;
     hint.hidden = false;
+    studyMeta.hidden = true;
     saveBtn.hidden = false;
+  }
+}
+
+function fmtStudyTime(sec) {
+  return fmtSegTime(sec);
+}
+
+function renderStudyOutline() {
+  const root = $("studyOutline");
+  const chapters = state.study?.outline?.chapters || [];
+  if (!chapters.length) {
+    root.innerHTML = `<p class="empty">Sin capítulos.</p>`;
+    return;
+  }
+  root.innerHTML = chapters
+    .map((ch, i) => {
+      const stamp = fmtStudyTime(ch.start_sec);
+      const summary = ch.summary
+        ? `<p class="study-summary">${escapeHtml(ch.summary)}</p>`
+        : "";
+      return `
+        <article class="study-item">
+          <p class="study-stamp">${i + 1}. [${escapeHtml(stamp)}]</p>
+          <h4 class="study-title">${escapeHtml(ch.title || "Sin título")}</h4>
+          ${summary}
+        </article>`;
+    })
+    .join("");
+}
+
+function renderStudyCards() {
+  const root = $("studyCards");
+  const cards = state.study?.deck?.cards || [];
+  if (!cards.length) {
+    root.innerHTML = `<p class="empty">Sin cards. Generá estudio de nuevo.</p>`;
+    return;
+  }
+  root.innerHTML = cards
+    .map((card, i) => {
+      return `
+        <article class="study-card">
+          <p class="study-stamp">Card ${i + 1}</p>
+          <p class="study-front"><strong>Q:</strong> ${escapeHtml(card.front || "")}</p>
+          <p class="study-back"><strong>A:</strong> ${escapeHtml(card.back || "")}</p>
+        </article>`;
+    })
+    .join("");
+}
+
+async function openStudy(id) {
+  if (state.dirty && state.activePreview && state.activePreview !== id) {
+    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y abrir estudio?")) {
+      return;
+    }
+  }
+  const btnBusy = document.querySelector(`button[data-act="study"][data-id="${id}"]`);
+  if (btnBusy) {
+    btnBusy.disabled = true;
+    btnBusy.textContent = "Generando…";
+  }
+  try {
+    let data = null;
+    const existing = await fetch(`/api/jobs/${id}/study`);
+    if (existing.ok) {
+      data = await existing.json();
+    } else {
+      const res = await fetch(`/api/jobs/${id}/study`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ force: true, use_ollama: true }),
+      });
+      data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert(errDetail(data) || "No se pudo generar el estudio");
+        return;
+      }
+    }
+
+    state.activePreview = id;
+    state.editorMode = "study";
+    state.study = data;
+    state.segments = [];
+    setDirty(false);
+    $("previewWrap").hidden = false;
+    setReaderChrome("study");
+
+    const mode = data.mode || data.outline?.mode || "heuristic";
+    const cardsCount = data.deck?.cards_count ?? data.deck?.cards?.length ?? 0;
+    const warn = data.ollama?.warning || data.outline?.ollama?.warning;
+    const ollamaUsed = Boolean(data.ollama?.used || data.outline?.ollama?.used);
+    const bits = [
+      `modo: ${mode}`,
+      ollamaUsed ? `ollama: ${data.ollama?.model || data.outline?.ollama?.model || "sí"}` : "ollama: no",
+      `${cardsCount} cards`,
+      "importá OpenCards en Open Cards",
+    ];
+    if (warn) bits.push(warn);
+    $("studyMeta").textContent = bits.join(" · ");
+    $("studyMeta").hidden = false;
+
+    setEditorTab("outline");
+    renderJobs();
+    $("previewWrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  } finally {
+    renderJobs();
   }
 }
 

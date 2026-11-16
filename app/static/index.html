@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/styles.css?v=8" />
+  <link rel="stylesheet" href="/static/styles.css?v=9" />
 </head>
 <body>
   <div class="shell">
@@ -105,7 +105,7 @@
             <input id="outputDir" name="output_dir" spellcheck="false" readonly />
             <button type="button" class="quiet" id="pickPathBtn">Elegir carpeta</button>
           </div>
-          <p class="hint">Jobs en <code id="outPath">…</code> · MD/JSON/SRT a la vista en cada carpeta.</p>
+          <p class="hint">Jobs en <code id="outPath">…</code> · MD/JSON/SRT/OpenCards a la vista en cada carpeta.</p>
         </div>
 
         <div class="jobs" id="jobs"></div>
@@ -126,15 +126,20 @@
             <div class="reader-tabs" role="tablist">
               <button type="button" class="tab is-active" role="tab" data-tab="segments" aria-selected="true">Editar</button>
               <button type="button" class="tab" role="tab" data-tab="markdown" aria-selected="false">Markdown (solo lectura)</button>
+              <button type="button" class="tab" role="tab" data-tab="outline" aria-selected="false" hidden>Outline</button>
+              <button type="button" class="tab" role="tab" data-tab="cards" aria-selected="false" hidden>Cards</button>
             </div>
             <p class="hint" id="editorHint">Editá el texto en cada caja → Guardar regenera MD/JSON/SRT. Ver = solo lectura; MD/JSON/SRT de la cola descargan.</p>
+            <p class="hint" id="studyMeta" hidden></p>
           </div>
           <div id="segmentsEditor" class="segments-editor" role="tabpanel"></div>
           <pre id="preview" class="md-preview" hidden></pre>
+          <div id="studyOutline" class="study-panel" hidden></div>
+          <div id="studyCards" class="study-panel" hidden></div>
         </div>
       </section>
     </main>
   </div>
-  <script src="/static/app.js?v=8"></script>
+  <script src="/static/app.js?v=9"></script>
 </body>
 </html>

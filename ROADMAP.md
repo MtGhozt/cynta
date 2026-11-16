@@ -37,22 +37,17 @@ Actualizalo al cerrar una versión (mover ítems a **Hecho** y ajustar la siguie
 - CLI `Clases/Clase N/`: todos los `audio*` ordenados → mismo merge
 - Reordenar clips en UI: diferido (orden = drop / nombre)
 
+### v0.4 — Estudio local (sin API paga)
+
+- Botón **Estudio** on-demand sobre jobs `done` (no en el worker ASR)
+- Outline por gaps de silencio (+ Ollama opcional para títulos/QAs)
+- Flashcards en formato **Open Cards v1** (`open-cards.json`) para importar en OpenCards
+- Fallback heurístico si no hay Ollama; aviso en `/api/health` y banner
+- Artefactos: `outline.json`, `outline.md`, `open-cards.json`
+
 ---
 
 ## Próximo
-
-### v0.4 — Estudio local (sin API paga)
-
-**Objetivo:** sacar valor de estudio **después** del ASR, sin obligar nube.
-
-- Outline / capítulos a partir de timestamps (heurística o LLM **local** tipo Ollama)
-- Flashcards / preguntas desde segmentos (mismo motor local)
-- Export de outline + cards junto al job
-- Si no hay Ollama: degradar a outline heurístico (por gaps / headings), no romper la UI
-
-**Listo cuando:** un job done puede generar outline + cards en la máquina, con aviso claro si falta el modelo local.
-
-> APIs externas (OpenAI, etc.) quedan para un add-on opcional **después de v0.4**, no bloquean esta versión.
 
 ### v0.5 — Realtime
 
@@ -113,4 +108,4 @@ Actualizalo al cerrar una versión (mover ítems a **Hecho** y ajustar la siguie
 2. ¿Rompe local-first o mete vendor lock? → diferir.
 3. ¿Desbloquea estudio (merge clase / outline) o distribución (exe)? → subir prioridad.
 
-**Orden sugerido actual:** `v0.4 estudio local` → `v0.5 realtime` → `v1.0 exe/LAN`.
+**Orden sugerido actual:** `v0.5 realtime` → `v1.0 exe/LAN`.

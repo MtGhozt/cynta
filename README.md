@@ -67,7 +67,7 @@ Abrí `http://127.0.0.1:8765`.
 El health endpoint reporta el diagnóstico:
 
 ```text
-GET /api/health → ffmpeg, cuda.gpu, cublas_wheels, recommended_device, warnings
+GET /api/health → ffmpeg, cuda, ollama, recommended_device, warnings
 ```
 
 ## Uso rápido
@@ -77,6 +77,7 @@ GET /api/health → ffmpeg, cuda.gpu, cublas_wheels, recommended_device, warning
 2. Elegí idioma / modelo / device / dominio
 3. **Transcribir** → mirá la cola a la derecha (en clases: progreso Parte k/n)
 4. **Guardar en** → carpeta de salida (picker nativo en Windows)
+5. Con el job **done** → **Estudio** genera outline + flashcards (Open Cards)
 
 ### Cola: Ver / Editar / descargas
 
@@ -84,7 +85,9 @@ GET /api/health → ffmpeg, cuda.gpu, cublas_wheels, recommended_device, warning
 |--------|----------|
 | **Ver** | Preview markdown solo lectura (cerrá con otra vez Ver o **Cerrar**) |
 | **Editar** | Segmentos editables → **Guardar** regenera MD / JSON / SRT |
+| **Estudio** | Outline + cards (heurística; Ollama opcional si corre en local) |
 | **MD / JSON / SRT** | Descarga el archivo |
+| **OpenCards** | Descarga `open-cards.json` para importar en [Open Cards](https://github.com/MtGhozt/open-cards) |
 | **Carpeta** | Abre la carpeta del job |
 | **Rehacer** | Vuelve a encolar el mismo audio |
 
@@ -95,6 +98,10 @@ Salidas por job (también en la carpeta del job):
 - `transcripcion.md`
 - `segmentos.json`
 - `subtitulos.srt`
+- `outline.json` / `outline.md` (tras **Estudio**)
+- `open-cards.json` (tras **Estudio** — importable en Open Cards)
+
+Ollama es **opcional**: sin él, Estudio sigue funcionando con outline/cards heurísticos.
 
 ## CLI de clases (curso)
 
@@ -110,13 +117,14 @@ Salida: `Transcripciones/Clase N/`
 
 | Método | Ruta | Uso |
 |--------|------|-----|
-| GET | `/api/health` | entorno: ffmpeg, CUDA, warnings |
+| GET | `/api/health` | entorno: ffmpeg, CUDA, Ollama, warnings |
 | GET | `/api/meta` | modelos, idiomas, prompts |
 | GET | `/api/jobs` | historial |
 | POST | `/api/jobs` | multipart upload (`file` o `files` × N) |
 | GET/PUT | `/api/jobs/{id}/segments` | leer / editar segmentos (regenera MD+SRT) |
+| POST/GET | `/api/jobs/{id}/study` | generar / leer outline + Open Cards |
 | WS | `/ws/jobs/{id}` | progreso |
-| GET | `/api/jobs/{id}/files/{md\|json\|srt}` | descargas |
+| GET | `/api/jobs/{id}/files/{md\|json\|srt\|outline\|outline_md\|opencards}` | descargas |
 
 ## Arquitectura
 
@@ -129,6 +137,7 @@ UI (static) → FastAPI → cola (thread) → ffmpeg (si video) → faster-whisp
 - [`app/worker.py`](app/worker.py) — cola
 - [`transcribe/engine.py`](transcribe/engine.py) — ASR
 - [`transcribe/export.py`](transcribe/export.py) — MD/JSON/SRT + rewrite al editar
+- [`transcribe/study.py`](transcribe/study.py) — outline + Open Cards (heurística / Ollama)
 - [`run.ps1`](run.ps1) / [`run.bat`](run.bat) — launcher Windows
 
 ## Roadmap
@@ -139,8 +148,7 @@ Resumen:
 
 | Versión | Foco |
 |---------|------|
-| **Hecho (≤0.3)** | Batch + UI Cynta + editor + merge multi-archivo (clase) |
-| **v0.4** | Outline / flashcards **locales** (Ollama; sin API paga) |
+| **Hecho (≤0.4)** | Batch + UI + editor + merge clase + estudio local (Open Cards) |
 | **v0.5** | Realtime (mic / loopback WASAPI) |
 | **v1.0** | `.exe` + modo LAN |
 | **Después** | Slides/OCR, multi-usuario, LLM cloud opt-in |
