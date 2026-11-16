@@ -30,7 +30,7 @@ from transcribe.media import AUDIO_EXTENSIONS, VIDEO_EXTENSIONS
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 
-app = FastAPI(title="Cynta", version="0.2.0")
+app = FastAPI(title="Cynta", version="0.3.0")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
@@ -206,9 +206,40 @@ def api_get_job(job_id: str) -> dict[str, Any]:
     return job
 
 
+async def _save_upload(upload: UploadFile, dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with dest.open("wb") as out:
+        while True:
+            chunk = await upload.read(1024 * 1024)
+            if not chunk:
+                break
+            out.write(chunk)
+
+
+def _validate_media_name(filename: str | None) -> str:
+    if not filename:
+        raise HTTPException(400, "Falta nombre de archivo")
+    suffix = Path(filename).suffix.lower()
+    if suffix not in AUDIO_EXTENSIONS | VIDEO_EXTENSIONS:
+        raise HTTPException(
+            400,
+            f"Formato no soportado: {suffix}. "
+            f"Audio {sorted(AUDIO_EXTENSIONS)} / Video {sorted(VIDEO_EXTENSIONS)}",
+        )
+    return filename
+
+
+def _resolve_prompt(prompt_template: str, custom_prompt: str | None) -> str | None:
+    if prompt_template == "custom":
+        return (custom_prompt or "").strip() or None
+    tmpl = PROMPT_TEMPLATES.get(prompt_template) or PROMPT_TEMPLATES["general"]
+    return tmpl["prompt"].strip() or None
+
+
 @app.post("/api/jobs")
 async def api_create_job(
-    file: UploadFile = File(...),
+    files: list[UploadFile] | None = File(None),
+    file: UploadFile | None = File(None),
     title: str | None = Form(None),
     language: str = Form("es"),
     model: str = Form(config.DEFAULT_MODEL),
@@ -216,47 +247,70 @@ async def api_create_job(
     prompt_template: str = Form("lenguajes"),
     custom_prompt: str | None = Form(None),
 ) -> dict[str, Any]:
-    if not file.filename:
-        raise HTTPException(400, "Falta nombre de archivo")
+    uploads: list[UploadFile] = []
+    if files:
+        uploads.extend(files)
+    if file is not None:
+        uploads.append(file)
+    # Deduplicate if client sent both (same object unlikely); keep order
+    if not uploads:
+        raise HTTPException(400, "Falta archivo (file o files)")
 
-    suffix = Path(file.filename).suffix.lower()
-    if suffix not in AUDIO_EXTENSIONS | VIDEO_EXTENSIONS:
-        raise HTTPException(
-            400,
-            f"Formato no soportado: {suffix}. "
-            f"Audio {sorted(AUDIO_EXTENSIONS)} / Video {sorted(VIDEO_EXTENSIONS)}",
-        )
+    for upload in uploads:
+        _validate_media_name(upload.filename)
 
+    prompt = _resolve_prompt(prompt_template, custom_prompt)
     job_id = uuid.uuid4().hex[:12]
     folder = job_dir(job_id)
-    upload_dir = folder / "upload"
-    upload_dir.mkdir(parents=True, exist_ok=True)
-    dest = upload_dir / Path(file.filename).name
 
-    with dest.open("wb") as out:
-        while True:
-            chunk = await file.read(1024 * 1024)
-            if not chunk:
-                break
-            out.write(chunk)
-
-    if prompt_template == "custom":
-        prompt = (custom_prompt or "").strip() or None
+    if len(uploads) == 1:
+        upload = uploads[0]
+        assert upload.filename
+        dest = folder / "upload" / Path(upload.filename).name
+        await _save_upload(upload, dest)
+        job_title = (title or Path(upload.filename).stem).strip() or job_id
+        job = create_job(
+            job_id,
+            title=job_title,
+            source_name=upload.filename,
+            source_path=str(dest),
+            language=language,
+            model=model,
+            device=device,
+            initial_prompt=prompt,
+            kind="file",
+        )
     else:
-        tmpl = PROMPT_TEMPLATES.get(prompt_template) or PROMPT_TEMPLATES["general"]
-        prompt = tmpl["prompt"].strip() or None
+        parts: list[dict[str, Any]] = []
+        names: list[str] = []
+        for index, upload in enumerate(uploads):
+            assert upload.filename
+            dest = folder / "parts" / str(index) / "upload" / Path(upload.filename).name
+            await _save_upload(upload, dest)
+            names.append(upload.filename)
+            parts.append(
+                {
+                    "index": index,
+                    "source_name": upload.filename,
+                    "source_path": str(dest),
+                    "status": "queued",
+                }
+            )
+        job_title = (title or Path(names[0]).stem).strip() or job_id
+        source_label = " + ".join(names)
+        job = create_job(
+            job_id,
+            title=job_title,
+            source_name=source_label,
+            source_path=str(folder / "parts"),
+            language=language,
+            model=model,
+            device=device,
+            initial_prompt=prompt,
+            kind="class",
+            parts=parts,
+        )
 
-    job_title = (title or Path(file.filename).stem).strip() or job_id
-    job = create_job(
-        job_id,
-        title=job_title,
-        source_name=file.filename,
-        source_path=str(dest),
-        language=language,
-        model=model,
-        device=device,
-        initial_prompt=prompt,
-    )
     WORKER.enqueue(job_id)
     return job
 
@@ -283,7 +337,27 @@ def api_retry(job_id: str) -> dict[str, Any]:
         raise HTTPException(404, "Job no encontrado")
     if job["status"] not in {"error", "cancelled", "done"}:
         raise HTTPException(400, "Solo se puede reintentar jobs terminados/error/cancelados")
-    update_job(job_id, status="queued", error=None, progress_json=None, result_json=None)
+
+    fields: dict[str, Any] = {
+        "status": "queued",
+        "error": None,
+        "progress_json": None,
+        "result_json": None,
+    }
+    if job.get("kind") == "class" and isinstance(job.get("parts"), list):
+        # Keep done parts (and their on-disk JSON); reset the rest for fail-fast resume.
+        reset_parts: list[dict[str, Any]] = []
+        for part in job["parts"]:
+            p = dict(part)
+            if p.get("status") == "done":
+                reset_parts.append(p)
+            else:
+                p["status"] = "queued"
+                p["error"] = None
+                reset_parts.append(p)
+        fields["parts_json"] = reset_parts
+
+    update_job(job_id, **fields)
     WORKER.enqueue(job_id)
     return get_job(job_id)  # type: ignore[return-value]
 
@@ -336,6 +410,7 @@ def api_get_segments(job_id: str) -> dict[str, Any]:
         "model": data.get("model"),
         "language": data.get("language"),
         "duration_sec": data.get("duration_sec"),
+        "parts": data.get("parts") if isinstance(data.get("parts"), list) else None,
         "segments": segments,
     }
 

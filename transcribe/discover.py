@@ -8,19 +8,39 @@ from .config import CLASSES_DIR
 
 _CLASS_RE = re.compile(r"^Clase\s+(\d+)$", re.IGNORECASE)
 
+AUDIO_SUFFIXES = {".m4a", ".wav", ".mp3", ".flac", ".ogg"}
+
 
 @dataclass(frozen=True)
 class ClassAudio:
+    """One class folder with one or more audio files (sorted)."""
+
     class_name: str
     class_number: int
-    audio_path: Path
+    audio_paths: tuple[Path, ...]
+
+    @property
+    def audio_path(self) -> Path:
+        """First audio (back-compat for single-file callers)."""
+        return self.audio_paths[0]
+
+
+def _list_audios(folder: Path) -> list[Path]:
+    audios = sorted(folder.glob("audio*.m4a"))
+    if not audios:
+        audios = sorted(
+            p
+            for p in folder.iterdir()
+            if p.is_file() and p.suffix.lower() in AUDIO_SUFFIXES
+        )
+    return audios
 
 
 def discover_class_audios(
     classes_dir: Path | None = None,
     class_number: int | None = None,
 ) -> list[ClassAudio]:
-    """Find audio*.m4a files under Clases/Clase N/."""
+    """Find audio files under Clases/Clase N/ (all parts, sorted by name)."""
     root = classes_dir or CLASSES_DIR
     if not root.is_dir():
         raise FileNotFoundError(f"No existe la carpeta de clases: {root}")
@@ -36,14 +56,7 @@ def discover_class_audios(
         if class_number is not None and number != class_number:
             continue
 
-        audios = sorted(folder.glob("audio*.m4a"))
-        if not audios:
-            # Fallback: any m4a / wav / mp3 in the class folder
-            audios = sorted(
-                p
-                for p in folder.iterdir()
-                if p.is_file() and p.suffix.lower() in {".m4a", ".wav", ".mp3", ".flac"}
-            )
+        audios = _list_audios(folder)
         if not audios:
             continue
 
@@ -51,7 +64,7 @@ def discover_class_audios(
             ClassAudio(
                 class_name=folder.name,
                 class_number=number,
-                audio_path=audios[0],
+                audio_paths=tuple(audios),
             )
         )
 

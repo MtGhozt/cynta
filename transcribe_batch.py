@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import time
 from pathlib import Path
@@ -31,14 +32,21 @@ from transcribe.config import (
     VAD_FILTER,
 )
 from transcribe.discover import ClassAudio, discover_class_audios
-from transcribe.export import filter_segments, write_json, write_markdown, write_srt
+from transcribe.export import (
+    filter_segments,
+    merge_timelines,
+    write_json,
+    write_markdown,
+    write_merged_artifacts,
+    write_srt,
+)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Transcribe audios de Clases/ a Markdown + JSON "
-            "(faster-whisper, español)."
+            "(faster-whisper, español). Varios audio* por clase se unen con offsets."
         )
     )
     parser.add_argument(
@@ -132,6 +140,7 @@ def output_paths(out_root: Path, item: ClassAudio) -> dict[str, Path]:
         "md": folder / "transcripcion.md",
         "json": folder / "segmentos.json",
         "srt": folder / "subtitulos.srt",
+        "parts": folder / "parts",
     }
 
 
@@ -139,24 +148,15 @@ def already_done(paths: dict[str, Path], force: bool) -> bool:
     return (not force) and paths["json"].is_file() and paths["md"].is_file()
 
 
-def transcribe_one(
+def _transcribe_audio(
     model,
-    item: ClassAudio,
+    audio_path: Path,
     *,
-    model_name: str,
     language: str,
-    write_subs: bool,
-    out_root: Path,
-) -> dict[str, Any]:
-    paths = output_paths(out_root, item)
-    paths["dir"].mkdir(parents=True, exist_ok=True)
-
-    print(f"\n=== {item.class_name} ===")
-    print(f"Audio: {item.audio_path}")
-
+) -> tuple[list[dict[str, Any]], float, float]:
     started = time.perf_counter()
     segments_iter, info = model.transcribe(
-        str(item.audio_path),
+        str(audio_path),
         language=language,
         beam_size=BEAM_SIZE,
         vad_filter=VAD_FILTER,
@@ -190,51 +190,142 @@ def transcribe_one(
             last_report = now
 
     segments = filter_segments(raw_segments)
-    dropped = len(raw_segments) - len(segments)
-
     elapsed = time.perf_counter() - started
     duration = float(getattr(info, "duration", 0.0) or 0.0)
-    rtf = (elapsed / duration) if duration > 0 else None
+    return segments, duration, elapsed
 
-    write_json(
-        paths["json"],
+
+def transcribe_one(
+    model,
+    item: ClassAudio,
+    *,
+    model_name: str,
+    language: str,
+    write_subs: bool,
+    out_root: Path,
+) -> dict[str, Any]:
+    paths = output_paths(out_root, item)
+    paths["dir"].mkdir(parents=True, exist_ok=True)
+    audio_paths = list(item.audio_paths)
+
+    print(f"\n=== {item.class_name} ===")
+    if len(audio_paths) == 1:
+        print(f"Audio: {audio_paths[0]}")
+    else:
+        print(f"Audios ({len(audio_paths)} partes):")
+        for i, p in enumerate(audio_paths):
+            print(f"  [{i + 1}] {p.name}")
+
+    if len(audio_paths) == 1:
+        segments, duration, elapsed = _transcribe_audio(
+            model, audio_paths[0], language=language
+        )
+        write_json(
+            paths["json"],
+            clase=item.class_name,
+            source=audio_paths[0].name,
+            model=model_name,
+            language=language,
+            duration=duration or None,
+            segments=segments,
+            curso=COURSE_NAME,
+            temas=list(COURSE_TOPICS),
+        )
+        write_markdown(
+            paths["md"],
+            clase=item.class_name,
+            source=audio_paths[0].name,
+            model=model_name,
+            language=language,
+            duration=duration or None,
+            segments=segments,
+            curso=COURSE_NAME,
+            temas=list(COURSE_TOPICS),
+        )
+        if write_subs:
+            write_srt(paths["srt"], segments)
+
+        print(
+            f"Listo: {len(segments)} segmentos"
+            f" | audio {duration/60:.1f} min | "
+            f"wall {elapsed/60:.1f} min"
+        )
+        print(f"MD:   {paths['md']}")
+        print(f"JSON: {paths['json']}")
+        return {
+            "clase": item.class_name,
+            "segments": len(segments),
+            "duration": duration,
+            "elapsed": elapsed,
+            "parts": 1,
+        }
+
+    # Multi-part: stage each under parts/{i}/ then merge to class folder root
+    parts_dir = paths["parts"]
+    parts_dir.mkdir(parents=True, exist_ok=True)
+    part_payloads: list[dict[str, Any]] = []
+    total_elapsed = 0.0
+    total_duration = 0.0
+
+    for index, audio_path in enumerate(audio_paths):
+        print(f"\n--- Parte {index + 1}/{len(audio_paths)}: {audio_path.name} ---")
+        part_dir = parts_dir / str(index)
+        part_dir.mkdir(parents=True, exist_ok=True)
+        part_json = part_dir / "segmentos.json"
+
+        segments, duration, elapsed = _transcribe_audio(
+            model, audio_path, language=language
+        )
+        total_elapsed += elapsed
+        total_duration += duration
+
+        write_json(
+            part_json,
+            clase=f"{item.class_name} — parte {index + 1}",
+            source=audio_path.name,
+            model=model_name,
+            language=language,
+            duration=duration or None,
+            segments=segments,
+            curso=COURSE_NAME,
+            temas=list(COURSE_TOPICS),
+        )
+        payload = json.loads(part_json.read_text(encoding="utf-8"))
+        part_payloads.append(payload)
+        print(
+            f"  Parte lista: {len(segments)} segs | "
+            f"{duration/60:.1f} min audio | {elapsed/60:.1f} min wall"
+        )
+
+    merged = merge_timelines(
+        part_payloads,
         clase=item.class_name,
-        source=item.audio_path.name,
         model=model_name,
         language=language,
-        duration=duration or None,
-        segments=segments,
         curso=COURSE_NAME,
         temas=list(COURSE_TOPICS),
     )
-    write_markdown(
-        paths["md"],
-        clase=item.class_name,
-        source=item.audio_path.name,
-        model=model_name,
-        language=language,
-        duration=duration or None,
-        segments=segments,
-        curso=COURSE_NAME,
-        temas=list(COURSE_TOPICS),
+    write_merged_artifacts(
+        paths["dir"],
+        merged,
+        write_subs=write_subs,
+        clean=False,
     )
-    if write_subs:
-        write_srt(paths["srt"], segments)
 
+    n_segs = len(merged.get("segments") or [])
     print(
-        f"Listo: {len(segments)} segmentos"
-        + (f" (filtrados {dropped})" if dropped else "")
-        + f" | audio {duration/60:.1f} min | "
-        f"wall {elapsed/60:.1f} min"
-        + (f" | RTF {rtf:.2f}x" if rtf is not None else "")
+        f"\nMerge listo: {n_segs} segmentos | "
+        f"{len(audio_paths)} partes | "
+        f"audio {total_duration/60:.1f} min | wall {total_elapsed/60:.1f} min"
     )
     print(f"MD:   {paths['md']}")
     print(f"JSON: {paths['json']}")
     return {
         "clase": item.class_name,
-        "segments": len(segments),
-        "duration": duration,
-        "elapsed": elapsed,
+        "segments": n_segs,
+        "duration": total_duration,
+        "elapsed": total_elapsed,
+        "parts": len(audio_paths),
     }
 
 
@@ -255,7 +346,13 @@ def main() -> int:
         print(f"No se encontraron audios para {where}", file=sys.stderr)
         return 1
 
-    print(f"Clases a procesar: {[i.class_name for i in items]}")
+    print(
+        "Clases a procesar: "
+        + ", ".join(
+            f"{i.class_name} ({len(i.audio_paths)} audio{'s' if len(i.audio_paths) != 1 else ''})"
+            for i in items
+        )
+    )
     model, model_name, device, compute_type = load_model(
         args.model, args.device, args.compute_type
     )
@@ -286,8 +383,9 @@ def main() -> int:
     total_wall = sum(r["elapsed"] for r in results)
     print("\n=== Resumen ===")
     for r in results:
+        parts_bit = f", {r['parts']} partes" if r.get("parts", 1) > 1 else ""
         print(
-            f"- {r['clase']}: {r['segments']} segs, "
+            f"- {r['clase']}: {r['segments']} segs{parts_bit}, "
             f"{r['duration']/60:.1f} min audio, {r['elapsed']/60:.1f} min wall"
         )
     print(f"Total audio: {total_audio/60:.1f} min | Total wall: {total_wall/60:.1f} min")

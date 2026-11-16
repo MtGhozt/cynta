@@ -72,9 +72,10 @@ GET /api/health → ffmpeg, cuda.gpu, cublas_wheels, recommended_device, warning
 
 ## Uso rápido
 
-1. Soltá un `.m4a` / `.mp3` / `.wav` o `.mp4` / `.mkv` / `.webm`
+1. Soltá uno o varios `.m4a` / `.mp3` / `.wav` o `.mp4` / `.mkv` / `.webm`  
+   (varios archivos bajo el mismo nombre = una **clase** con timeline continuo)
 2. Elegí idioma / modelo / device / dominio
-3. **Transcribir** → mirá la cola a la derecha
+3. **Transcribir** → mirá la cola a la derecha (en clases: progreso Parte k/n)
 4. **Guardar en** → carpeta de salida (picker nativo en Windows)
 
 ### Cola: Ver / Editar / descargas
@@ -102,7 +103,7 @@ py -3.11 transcribe_batch.py --clase 1
 py -3.11 transcribe_batch.py          # todas; salta las ya hechas
 ```
 
-Entrada: `Clases/Clase N/audio*.m4a`  
+Entrada: `Clases/Clase N/audio*.m4a` (varios audios se unen con offsets)  
 Salida: `Transcripciones/Clase N/`
 
 ## API local
@@ -112,7 +113,7 @@ Salida: `Transcripciones/Clase N/`
 | GET | `/api/health` | entorno: ffmpeg, CUDA, warnings |
 | GET | `/api/meta` | modelos, idiomas, prompts |
 | GET | `/api/jobs` | historial |
-| POST | `/api/jobs` | multipart upload |
+| POST | `/api/jobs` | multipart upload (`file` o `files` × N) |
 | GET/PUT | `/api/jobs/{id}/segments` | leer / editar segmentos (regenera MD+SRT) |
 | WS | `/ws/jobs/{id}` | progreso |
 | GET | `/api/jobs/{id}/files/{md\|json\|srt}` | descargas |
@@ -138,8 +139,7 @@ Resumen:
 
 | Versión | Foco |
 |---------|------|
-| **Hecho (≤0.2)** | Batch + UI Cynta + editor Ver/Editar + launcher/health |
-| **v0.3** | Merge de varios archivos en una “clase” |
+| **Hecho (≤0.3)** | Batch + UI Cynta + editor + merge multi-archivo (clase) |
 | **v0.4** | Outline / flashcards **locales** (Ollama; sin API paga) |
 | **v0.5** | Realtime (mic / loopback WASAPI) |
 | **v1.0** | `.exe` + modo LAN |

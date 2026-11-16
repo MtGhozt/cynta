@@ -39,15 +39,15 @@
           id="dropzone"
           tabindex="0"
           role="button"
-          aria-label="Elegir o soltar archivo de audio o video"
+          aria-label="Elegir o soltar uno o varios archivos de audio o video"
         >
           <span class="rail" aria-hidden="true">IN</span>
           <div class="platter-copy">
-            <p class="platter-main">Soltá el archivo</p>
-            <p class="platter-sub">m4a / mp3 / wav / mp4 / mkv / webm</p>
+            <p class="platter-main">Soltá uno o varios archivos</p>
+            <p class="platter-sub">m4a / mp3 / wav / mp4 / mkv / webm — varios = una clase</p>
           </div>
         </div>
-        <input id="fileInput" type="file" hidden accept="audio/*,video/*,.m4a,.mp3,.wav,.flac,.ogg,.mp4,.mkv,.webm,.mov,.avi" />
+        <input id="fileInput" type="file" multiple hidden accept="audio/*,video/*,.m4a,.mp3,.wav,.flac,.ogg,.mp4,.mkv,.webm,.mov,.avi" />
         <p class="loaded" id="fileChip" hidden></p>
 
         <form id="jobForm">

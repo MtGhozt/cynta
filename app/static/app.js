@@ -1,5 +1,5 @@
 const state = {
-  file: null,
+  files: [],
   meta: null,
   health: null,
   jobs: [],
@@ -31,12 +31,39 @@ function progressPct(job) {
   if (job.status === "done") return 100;
   if (job.status === "queued") return 2;
   if (job.status === "preparing") return 8;
+
+  const partCount = p.part_count || job.parts?.length || job.result?.parts;
+  const partIndex =
+    typeof p.part_index === "number" ? p.part_index : null;
+  if (partCount && partIndex != null && job.status === "running") {
+    const base = (partIndex / partCount) * 100;
+    const within = p.audio_sec ? Math.min(20, p.audio_sec / 30) : 5;
+    return Math.min(95, Math.max(10, base + within));
+  }
+
   if (p.audio_sec && job.result?.duration_sec) {
     return Math.min(95, Math.max(10, (p.audio_sec / job.result.duration_sec) * 100));
   }
   if (p.audio_sec) return Math.min(90, 10 + p.audio_sec / 60);
   if (job.status === "running") return 15;
   return 0;
+}
+
+function partProgressLabel(job) {
+  const p = job.progress || {};
+  const parts = job.parts;
+  const count = p.part_count || parts?.length || job.result?.parts;
+  if (!count || count < 2) return null;
+  let index = typeof p.part_index === "number" ? p.part_index : null;
+  if (index == null && Array.isArray(parts)) {
+    const running = parts.findIndex((x) => x.status === "running");
+    const done = parts.filter((x) => x.status === "done").length;
+    index = running >= 0 ? running : Math.min(done, count - 1);
+  }
+  if (index == null) return `${count} partes`;
+  const name = p.part_name || parts?.[index]?.source_name || "";
+  const label = `Parte ${index + 1}/${count}`;
+  return name ? `${label} — ${name}` : label;
 }
 
 function setHealth(kind, text, title) {
@@ -93,20 +120,27 @@ function applyHealth(info) {
   }
 }
 
-function setFile(file) {
-  state.file = file;
+function setFiles(fileList) {
+  const files = fileList ? [...fileList].filter(Boolean) : [];
+  state.files = files;
   const chip = $("fileChip");
-  if (!file) {
+  if (!files.length) {
     chip.hidden = true;
     chip.textContent = "";
     $("submitBtn").disabled = true;
     return;
   }
   chip.hidden = false;
-  chip.textContent = `${file.name}  ${fmtBytes(file.size)}`;
+  if (files.length === 1) {
+    chip.textContent = `${files[0].name}  ${fmtBytes(files[0].size)}`;
+  } else {
+    const total = files.reduce((sum, f) => sum + (f.size || 0), 0);
+    const names = files.map((f) => f.name).join(", ");
+    chip.textContent = `${files.length} archivos (${fmtBytes(total)}): ${names}`;
+  }
   $("submitBtn").disabled = false;
   if (!$("title").value) {
-    $("title").value = file.name.replace(/\.[^.]+$/, "");
+    $("title").value = files[0].name.replace(/\.[^.]+$/, "");
   }
 }
 
@@ -159,7 +193,7 @@ async function refreshJobs() {
 function renderJobs() {
   const root = $("jobs");
   if (!state.jobs.length) {
-    root.innerHTML = `<p class="empty">Nada en cola. Soltá un archivo a la izquierda.</p>`;
+    root.innerHTML = `<p class="empty">Nada en cola. Soltá uno o varios archivos a la izquierda.</p>`;
     return;
   }
   root.innerHTML = state.jobs
@@ -171,7 +205,9 @@ function renderJobs() {
         : job.result?.duration_sec
           ? (job.result.duration_sec / 60).toFixed(1)
           : null;
+      const partLabel = partProgressLabel(job);
       const metaBits = [
+        partLabel,
         job.source_name,
         job.model,
         job.device,
@@ -260,16 +296,43 @@ function watchJob(jobId) {
     }
     const job = state.jobs.find((j) => j.id === jobId);
     if (!job) return;
-    if (msg.event === "progress" || msg.event === "model_ready" || msg.event === "audio_ready") {
+    if (
+      msg.event === "progress" ||
+      msg.event === "model_ready" ||
+      msg.event === "audio_ready" ||
+      msg.event === "part_start" ||
+      msg.event === "part_done" ||
+      msg.event === "part_skip" ||
+      msg.event === "preparing"
+    ) {
       job.progress = msg;
-      if (msg.event !== "progress") job.status = job.status === "queued" ? "running" : job.status;
+      if (msg.event !== "progress") {
+        job.status =
+          job.status === "queued"
+            ? msg.event === "preparing"
+              ? "preparing"
+              : "running"
+            : job.status === "preparing" && msg.event !== "preparing"
+              ? "running"
+              : job.status;
+      }
+      if (Array.isArray(job.parts) && typeof msg.part_index === "number") {
+        const part = job.parts[msg.part_index];
+        if (part) {
+          if (msg.event === "part_start") part.status = "running";
+          if (msg.event === "part_done" || msg.event === "part_skip") {
+            part.status = "done";
+            if (msg.duration_sec != null) part.duration_sec = msg.duration_sec;
+          }
+        }
+      }
       renderJobs();
       setHealth("ok", "local");
     }
     if (msg.event === "done") {
       job.status = "done";
       job.result = msg.result || msg;
-      job.progress = { event: "done" };
+      job.progress = { event: "done", part_count: msg.result?.parts || job.parts?.length };
       renderJobs();
       setHealth("ok", "local");
       ws.close();
@@ -278,6 +341,13 @@ function watchJob(jobId) {
     if (msg.event === "error" || msg.event === "cancelled") {
       job.status = msg.event === "error" ? "error" : "cancelled";
       job.error = msg.error || job.error;
+      if (Array.isArray(job.parts) && typeof msg.part_index === "number") {
+        const part = job.parts[msg.part_index];
+        if (part && msg.event === "error") {
+          part.status = "error";
+          part.error = msg.error;
+        }
+      }
       renderJobs();
       setHealth("ok", "local");
       ws.close();
@@ -298,11 +368,13 @@ function upsertJob(job) {
 
 async function submitJob(e) {
   e.preventDefault();
-  if (!state.file) return;
+  if (!state.files.length) return;
   $("submitBtn").disabled = true;
   const fd = new FormData();
-  fd.append("file", state.file);
-  fd.append("title", $("title").value || state.file.name);
+  for (const f of state.files) {
+    fd.append("files", f);
+  }
+  fd.append("title", $("title").value || state.files[0].name);
   fd.append("language", $("language").value);
   fd.append("model", $("model").value);
   fd.append("device", $("device").value);
@@ -321,11 +393,12 @@ async function submitJob(e) {
     state.jobs.unshift(job);
     renderJobs();
     watchJob(job.id);
-    setFile(null);
+    setFiles([]);
+    $("fileInput").value = "";
     $("title").value = "";
     setHealth("ok", "local");
   } finally {
-    $("submitBtn").disabled = !state.file;
+    $("submitBtn").disabled = !state.files.length;
   }
 }
 
@@ -620,7 +693,7 @@ function wireDrop() {
       input.click();
     }
   });
-  input.addEventListener("change", () => setFile(input.files?.[0] || null));
+  input.addEventListener("change", () => setFiles(input.files || []));
   ["dragenter", "dragover"].forEach((ev) => {
     drop.addEventListener(ev, (e) => {
       e.preventDefault();
@@ -634,8 +707,8 @@ function wireDrop() {
     });
   });
   drop.addEventListener("drop", (e) => {
-    const f = e.dataTransfer?.files?.[0];
-    if (f) setFile(f);
+    const list = e.dataTransfer?.files;
+    if (list?.length) setFiles(list);
   });
 }
 

@@ -4,7 +4,6 @@ import json
 import sqlite3
 import threading
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
 from app.settings import DEFAULT_DATA_DIR
@@ -23,6 +22,12 @@ def connect() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def _ensure_column(conn: sqlite3.Connection, table: str, column: str, decl: str) -> None:
+    cols = {row[1] for row in conn.execute(f"PRAGMA table_info({table})").fetchall()}
+    if column not in cols:
+        conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {decl}")
 
 
 def init_db() -> None:
@@ -49,6 +54,11 @@ def init_db() -> None:
                 )
                 """
             )
+            _ensure_column(conn, "jobs", "kind", "TEXT DEFAULT 'file'")
+            _ensure_column(conn, "jobs", "parts_json", "TEXT")
+            conn.execute(
+                "UPDATE jobs SET kind = 'file' WHERE kind IS NULL OR kind = ''"
+            )
             conn.commit()
         finally:
             conn.close()
@@ -64,8 +74,13 @@ def create_job(
     model: str,
     device: str,
     initial_prompt: str | None,
+    kind: str = "file",
+    parts: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     now = _utc_now()
+    parts_raw = (
+        json.dumps(parts, ensure_ascii=False) if parts is not None else None
+    )
     with _LOCK:
         conn = connect()
         try:
@@ -73,8 +88,9 @@ def create_job(
                 """
                 INSERT INTO jobs (
                     id, title, status, source_name, source_path, language, model, device,
-                    initial_prompt, error, progress_json, result_json, created_at, updated_at
-                ) VALUES (?, ?, 'queued', ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, ?, ?)
+                    initial_prompt, error, progress_json, result_json, created_at, updated_at,
+                    kind, parts_json
+                ) VALUES (?, ?, 'queued', ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, ?, ?, ?, ?)
                 """,
                 (
                     job_id,
@@ -87,6 +103,8 @@ def create_job(
                     initial_prompt,
                     now,
                     now,
+                    kind or "file",
+                    parts_raw,
                 ),
             )
             conn.commit()
@@ -102,7 +120,7 @@ def update_job(job_id: str, **fields: Any) -> None:
     cols = []
     vals: list[Any] = []
     for key, value in fields.items():
-        if key in {"progress_json", "result_json"} and value is not None and not isinstance(value, str):
+        if key in {"progress_json", "result_json", "parts_json"} and value is not None and not isinstance(value, str):
             value = json.dumps(value, ensure_ascii=False)
         cols.append(f"{key} = ?")
         vals.append(value)
@@ -178,14 +196,17 @@ def delete_jobs(statuses: list[str] | None = None, delete_files: bool = True) ->
 
 def _row_to_dict(row: sqlite3.Row) -> dict[str, Any]:
     data = dict(row)
-    for key in ("progress_json", "result_json"):
+    for key in ("progress_json", "result_json", "parts_json"):
         raw = data.get(key)
+        short = key.replace("_json", "")
         if isinstance(raw, str) and raw:
             try:
-                data[key.replace("_json", "")] = json.loads(raw)
+                data[short] = json.loads(raw)
             except json.JSONDecodeError:
-                data[key.replace("_json", "")] = None
+                data[short] = None
         else:
-            data[key.replace("_json", "")] = None
+            data[short] = None
         data.pop(key, None)
+    if not data.get("kind"):
+        data["kind"] = "file"
     return data

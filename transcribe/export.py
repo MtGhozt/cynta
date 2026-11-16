@@ -84,6 +84,136 @@ def _prepare_segments(
     return filter_segments(segments) if clean else list(segments)
 
 
+def merge_timelines(
+    part_payloads: list[dict[str, Any]],
+    *,
+    clase: str | None = None,
+    model: str | None = None,
+    language: str | None = None,
+    curso: str | None = None,
+    temas: list[str] | None = None,
+) -> dict[str, Any]:
+    """Concatenate part segmentos.json payloads into one continuous timeline.
+
+    Each part keeps a local 0-based timeline; offsets are the sum of prior
+    part durations (from duration_sec, else max segment end).
+    """
+    if not part_payloads:
+        raise ValueError("merge_timelines requiere al menos una parte")
+
+    first = part_payloads[0]
+    merged_segments: list[dict[str, Any]] = []
+    parts_meta: list[dict[str, Any]] = []
+    offset = 0.0
+    source_names: list[str] = []
+
+    for index, payload in enumerate(part_payloads):
+        source = str(payload.get("source") or f"part-{index}")
+        source_names.append(source)
+        raw_duration = payload.get("duration_sec")
+        try:
+            duration = float(raw_duration) if raw_duration is not None else 0.0
+        except (TypeError, ValueError):
+            duration = 0.0
+
+        segs = payload.get("segments") or []
+        if not isinstance(segs, list):
+            segs = []
+
+        if duration <= 0 and segs:
+            try:
+                duration = max(float(s.get("end") or 0) for s in segs)
+            except (TypeError, ValueError):
+                duration = 0.0
+
+        for seg in segs:
+            text = str(seg.get("text") or "")
+            try:
+                start = float(seg["start"]) + offset
+                end = float(seg["end"]) + offset
+            except (KeyError, TypeError, ValueError):
+                continue
+            merged_segments.append(
+                {
+                    "start": round(start, 3),
+                    "end": round(end, 3),
+                    "text": text,
+                }
+            )
+
+        parts_meta.append(
+            {
+                "index": index,
+                "source": source,
+                "offset_sec": round(offset, 3),
+                "duration_sec": round(duration, 3) if duration else 0.0,
+            }
+        )
+        offset += duration
+
+    total_duration = round(offset, 3) if offset else None
+    source_label = " + ".join(source_names)
+
+    result: dict[str, Any] = {
+        "clase": clase if clase is not None else first.get("clase"),
+        "curso": curso if curso is not None else first.get("curso"),
+        "temas": temas if temas is not None else (first.get("temas") or []),
+        "source": source_label,
+        "model": model if model is not None else first.get("model"),
+        "language": language if language is not None else first.get("language"),
+        "duration_sec": total_duration,
+        "parts": parts_meta,
+        "segments": merged_segments,
+    }
+    return result
+
+
+def write_merged_artifacts(
+    out_dir: Path,
+    merged: dict[str, Any],
+    *,
+    write_subs: bool = True,
+    clean: bool = False,
+) -> dict[str, Path]:
+    """Write MD/JSON/SRT from a merge_timelines() result into out_dir."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    json_path = out_dir / "segmentos.json"
+    md_path = out_dir / "transcripcion.md"
+    srt_path = out_dir / "subtitulos.srt"
+    segments = list(merged.get("segments") or [])
+    parts = merged.get("parts") if isinstance(merged.get("parts"), list) else None
+    write_json(
+        json_path,
+        clase=str(merged.get("clase") or "Sin título"),
+        source=str(merged.get("source") or ""),
+        model=str(merged.get("model") or ""),
+        language=str(merged.get("language") or "es"),
+        duration=merged.get("duration_sec"),
+        segments=segments,
+        curso=str(merged["curso"]) if merged.get("curso") else None,
+        temas=[str(t) for t in (merged.get("temas") or [])],
+        parts=parts,
+        clean=clean,
+    )
+    write_markdown(
+        md_path,
+        clase=str(merged.get("clase") or "Sin título"),
+        source=str(merged.get("source") or ""),
+        model=str(merged.get("model") or ""),
+        language=str(merged.get("language") or "es"),
+        duration=merged.get("duration_sec"),
+        segments=segments,
+        curso=str(merged["curso"]) if merged.get("curso") else None,
+        temas=[str(t) for t in (merged.get("temas") or [])],
+        clean=clean,
+    )
+    paths: dict[str, Path] = {"json": json_path, "md": md_path}
+    if write_subs:
+        write_srt(srt_path, segments, clean=clean)
+        paths["srt"] = srt_path
+    return paths
+
+
 def write_json(
     path: Path,
     *,
@@ -95,10 +225,11 @@ def write_json(
     segments: list[dict[str, Any]],
     curso: str | None = None,
     temas: list[str] | None = None,
+    parts: list[dict[str, Any]] | None = None,
     clean: bool = True,
 ) -> None:
     prepared = _prepare_segments(segments, clean=clean)
-    payload = {
+    payload: dict[str, Any] = {
         "clase": clase,
         "curso": curso,
         "temas": temas or [],
@@ -108,6 +239,8 @@ def write_json(
         "duration_sec": duration,
         "segments": prepared,
     }
+    if parts is not None:
+        payload["parts"] = parts
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
@@ -212,6 +345,9 @@ def rewrite_job_artifacts(
     temas = meta.get("temas")
     if not isinstance(temas, list):
         temas = []
+    parts = meta.get("parts")
+    if not isinstance(parts, list):
+        parts = None
 
     normalized = [
         {
@@ -232,6 +368,7 @@ def rewrite_job_artifacts(
         segments=normalized,
         curso=curso,
         temas=[str(t) for t in temas],
+        parts=parts,
         clean=False,
     )
     write_markdown(
@@ -247,7 +384,7 @@ def rewrite_job_artifacts(
         clean=False,
     )
     write_srt(srt_path, normalized, clean=False)
-    return {
+    out: dict[str, Any] = {
         "clase": clase,
         "source": source,
         "model": model,
@@ -257,6 +394,9 @@ def rewrite_job_artifacts(
         "temas": [str(t) for t in temas],
         "segments": normalized,
     }
+    if parts is not None:
+        out["parts"] = parts
+    return out
 
 
 def _srt_ts(seconds: float) -> str:

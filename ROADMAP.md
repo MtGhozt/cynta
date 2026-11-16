@@ -28,20 +28,18 @@ Actualizalo al cerrar una versión (mover ítems a **Hecho** y ajustar la siguie
 - Launcher `run.bat` / `run.ps1` + health CUDA/ffmpeg
 - Viewer + editor de segmentos (`Ver` / `Editar` → Guardar regenera MD/JSON/SRT)
 
+### v0.3 — Clase = varios archivos
+
+- Upload multi-file → un job `kind=class` con `parts[]` internos
+- Transcripción secuencial por parte + merge con offsets de tiempo
+- Un MD/JSON/SRT unificado; progreso “Parte k/n” en la cola
+- Retry resume: salta partes ya `done`
+- CLI `Clases/Clase N/`: todos los `audio*` ordenados → mismo merge
+- Reordenar clips en UI: diferido (orden = drop / nombre)
+
 ---
 
 ## Próximo
-
-### v0.3 — Clase = varios archivos
-
-**Objetivo:** juntar varios audios/videos en una sola “clase” con timeline continuo.
-
-- Upload / cola de **varios** archivos bajo un mismo título/clase
-- Merge de `segmentos.json` con offsets de tiempo
-- Un MD/SRT unificado + jobs parciales visibles en la cola
-- (Opcional) reordenar clips antes de merge
-
-**Listo cuando:** podés soltar 2+ archivos, obtener una sola transcripción ordenada y editarla como hoy.
 
 ### v0.4 — Estudio local (sin API paga)
 
@@ -115,4 +113,4 @@ Actualizalo al cerrar una versión (mover ítems a **Hecho** y ajustar la siguie
 2. ¿Rompe local-first o mete vendor lock? → diferir.
 3. ¿Desbloquea estudio (merge clase / outline) o distribución (exe)? → subir prioridad.
 
-**Orden sugerido actual:** `v0.3 merge clase` → `v0.4 estudio local` → `v0.5 realtime` → `v1.0 exe/LAN`.
+**Orden sugerido actual:** `v0.4 estudio local` → `v0.5 realtime` → `v1.0 exe/LAN`.
