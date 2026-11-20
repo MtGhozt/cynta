@@ -80,6 +80,61 @@ textarea {
   display: none !important;
 }
 
+.dialog-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--ink) 45%, transparent);
+}
+
+.dialog-card {
+  position: relative;
+  z-index: 1;
+  width: min(26rem, 100%);
+  padding: 1.25rem 1.35rem 1.15rem;
+  border: 1.5px solid var(--ink);
+  background: var(--platter);
+  box-shadow: 0 18px 40px color-mix(in srgb, var(--ink) 28%, transparent);
+}
+
+.dialog-mark {
+  margin: 0 0 0.55rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.dialog-msg {
+  margin: 0 0 1.15rem;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.dialog-actions .btn,
+.dialog-actions .btn-secondary {
+  width: auto;
+  min-width: 6.5rem;
+  height: 2.4rem;
+  padding: 0 1rem;
+}
+
 .shell {
   max-width: 1180px;
   margin: 0 auto;

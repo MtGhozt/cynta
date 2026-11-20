@@ -15,6 +15,64 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 
+let _dialogResolver = null;
+
+function _closeDialog(result) {
+  const root = $("cyntaDialog");
+  if (!root || root.hidden) return;
+  root.hidden = true;
+  const resolve = _dialogResolver;
+  _dialogResolver = null;
+  if (resolve) resolve(result);
+}
+
+function showDialog({ message, confirm = false, okLabel = "Aceptar", cancelLabel = "Cancelar" }) {
+  return new Promise((resolve) => {
+    if (_dialogResolver) _closeDialog(false);
+    _dialogResolver = resolve;
+    const root = $("cyntaDialog");
+    const msg = $("cyntaDialogMsg");
+    const ok = $("cyntaDialogOk");
+    const cancel = $("cyntaDialogCancel");
+    msg.textContent = message;
+    ok.textContent = okLabel;
+    cancel.textContent = cancelLabel;
+    cancel.hidden = !confirm;
+    root.hidden = false;
+    ok.focus();
+  });
+}
+
+function cyntaAlert(message) {
+  return showDialog({ message, confirm: false, okLabel: "Entendido" });
+}
+
+function cyntaConfirm(message, { okLabel = "Aceptar", cancelLabel = "Cancelar" } = {}) {
+  return showDialog({ message, confirm: true, okLabel, cancelLabel });
+}
+
+function wireDialog() {
+  const root = $("cyntaDialog");
+  if (!root) return;
+  $("cyntaDialogOk").addEventListener("click", () => _closeDialog(true));
+  $("cyntaDialogCancel").addEventListener("click", () => _closeDialog(false));
+  root.querySelector("[data-dialog-dismiss]")?.addEventListener("click", () => {
+    const cancel = $("cyntaDialogCancel");
+    _closeDialog(!cancel.hidden ? false : true);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (root.hidden) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      const cancel = $("cyntaDialogCancel");
+      _closeDialog(!cancel.hidden ? false : true);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      _closeDialog(true);
+    }
+  });
+}
+
 function fmtBytes(n) {
   if (!n && n !== 0) return "";
   const u = ["B", "KB", "MB", "GB"];
@@ -396,7 +454,7 @@ async function submitJob(e) {
     const res = await fetch("/api/jobs", { method: "POST", body: fd });
     if (!res.ok) {
       const err = await res.json().catch(() => ({ detail: res.statusText }));
-      alert(typeof err.detail === "string" ? err.detail : "No se pudo crear el job");
+      await cyntaAlert(typeof err.detail === "string" ? err.detail : "No se pudo crear el job");
       return;
     }
     const job = await res.json();
@@ -434,7 +492,7 @@ async function onJobAction(e) {
       !$("previewWrap").hidden &&
       state.editorMode === "study"
     ) {
-      closeEditor();
+      await closeEditor();
       return;
     }
     await openStudy(id);
@@ -444,7 +502,7 @@ async function onJobAction(e) {
       !$("previewWrap").hidden &&
       state.editorMode === "view"
     ) {
-      closeEditor();
+      await closeEditor();
       return;
     }
     await openViewer(id);
@@ -454,18 +512,17 @@ async function onJobAction(e) {
       !$("previewWrap").hidden &&
       state.editorMode === "edit"
     ) {
-      closeEditor();
+      await closeEditor();
       return;
     }
     await openEditor(id);
   }
 }
 
-function closeEditor() {
+async function closeEditor() {
   if (state.dirty) {
-    if (!confirm("Hay cambios sin guardar. ¿Cerrar igual?")) {
-      return;
-    }
+    const ok = await cyntaConfirm("Hay cambios sin guardar. ¿Cerrar igual?");
+    if (!ok) return;
   }
   state.activePreview = null;
   state.editorMode = null;
@@ -662,7 +719,7 @@ function renderStudyCards() {
 
 async function openStudy(id) {
   if (state.dirty && state.activePreview && state.activePreview !== id) {
-    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y abrir estudio?")) {
+    if (!(await cyntaConfirm("Hay cambios sin guardar. ¿Descartarlos y abrir estudio?"))) {
       return;
     }
   }
@@ -684,7 +741,7 @@ async function openStudy(id) {
       });
       data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        alert(errDetail(data) || "No se pudo generar el estudio");
+        await cyntaAlert(errDetail(data) || "No se pudo generar el estudio");
         return;
       }
     }
@@ -721,19 +778,19 @@ async function openStudy(id) {
 
 async function openViewer(id) {
   if (state.dirty && state.activePreview && state.activePreview !== id) {
-    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y abrir otro job?")) {
+    if (!(await cyntaConfirm("Hay cambios sin guardar. ¿Descartarlos y abrir otro job?"))) {
       return;
     }
   }
   if (state.dirty && state.activePreview === id && state.editorMode === "edit") {
-    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y solo ver?")) {
+    if (!(await cyntaConfirm("Hay cambios sin guardar. ¿Descartarlos y solo ver?"))) {
       return;
     }
   }
   const res = await fetch(`/api/jobs/${id}/transcript`);
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    alert(errDetail(data) || "No se pudo cargar la transcripción");
+    await cyntaAlert(errDetail(data) || "No se pudo cargar la transcripción");
     return;
   }
   state.activePreview = id;
@@ -751,14 +808,14 @@ async function openViewer(id) {
 
 async function openEditor(id) {
   if (state.dirty && state.activePreview && state.activePreview !== id) {
-    if (!confirm("Hay cambios sin guardar. ¿Descartarlos y abrir otro job?")) {
+    if (!(await cyntaConfirm("Hay cambios sin guardar. ¿Descartarlos y abrir otro job?"))) {
       return;
     }
   }
   const res = await fetch(`/api/jobs/${id}/segments`);
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    alert(errDetail(data) || "No se pudieron cargar los segmentos");
+    await cyntaAlert(errDetail(data) || "No se pudieron cargar los segmentos");
     return;
   }
   state.activePreview = id;
@@ -803,7 +860,7 @@ async function saveSegments() {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      alert(errDetail(data) || `No se pudo guardar (${res.status})`);
+      await cyntaAlert(errDetail(data) || `No se pudo guardar (${res.status})`);
       return;
     }
     setDirty(false);
@@ -814,7 +871,7 @@ async function saveSegments() {
       if (state.editorTab === "markdown") applyMarkdownPreview();
     }
   } catch (e) {
-    alert(`No se pudo guardar: ${e}`);
+    await cyntaAlert(`No se pudo guardar: ${e}`);
   } finally {
     btn.textContent = "Guardar";
     btn.disabled = !state.dirty;
@@ -931,16 +988,16 @@ async function pickOutputDir() {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      alert(errDetail(data) || `No se pudo elegir la carpeta (${res.status})`);
+      await cyntaAlert(errDetail(data) || `No se pudo elegir la carpeta (${res.status})`);
       return;
     }
     if (data.output_dir) $("outputDir").value = data.output_dir;
     if (data.jobs_dir) $("outPath").textContent = data.jobs_dir;
   } catch (e) {
     if (e && e.name === "AbortError") {
-      alert("El selector de carpeta tardó demasiado. Probá de nuevo.");
+      await cyntaAlert("El selector de carpeta tardó demasiado. Probá de nuevo.");
     } else {
-      alert(`No se pudo elegir la carpeta: ${e}`);
+      await cyntaAlert(`No se pudo elegir la carpeta: ${e}`);
     }
   } finally {
     clearTimeout(timer);
@@ -950,19 +1007,21 @@ async function pickOutputDir() {
 }
 
 async function clearQueue() {
-  if (!confirm("¿Limpiar jobs terminados (done/error/cancelados) de la lista y del disco?")) {
-    return;
-  }
+  const ok = await cyntaConfirm(
+    "¿Limpiar jobs terminados (done/error/cancelados) de la lista y del disco?"
+  );
+  if (!ok) return;
   const res = await fetch("/api/jobs/clear", { method: "POST" });
   const data = await res.json();
   await refreshJobs();
   if (data.removed === 0) {
-    alert("No había jobs terminados para limpiar.");
+    await cyntaAlert("No había jobs terminados para limpiar.");
   }
 }
 
 async function boot() {
   wireTheme();
+  wireDialog();
   wireDrop();
   $("jobForm").addEventListener("submit", submitJob);
   $("refreshBtn").addEventListener("click", refreshJobs);
