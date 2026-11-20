@@ -64,19 +64,34 @@ def _cuda_runtime_probe() -> dict[str, Any]:
     """Cheap probe: GPU visible + cublas wheels present (not a full Whisper load)."""
     from transcribe.cuda_path import ensure_cuda_dll_path
 
-    ensure_cuda_dll_path()
+    dll_ok = True
+    dll_error: str | None = None
+    try:
+        ensure_cuda_dll_path()
+    except Exception as exc:  # noqa: BLE001
+        dll_ok = False
+        dll_error = str(exc)
+
     gpu = _nvidia_smi()
     wheels = _cublas_wheels()
-    ok = bool(gpu.get("ok") and wheels)
+    ok = bool(gpu.get("ok") and wheels and dll_ok)
     hint = None
     if not gpu.get("ok"):
         hint = "No se ve GPU NVIDIA (nvidia-smi). Usá device=cpu o instalá drivers."
     elif not wheels:
         hint = "Faltan wheels CUDA de pip (cublas/cudnn). Corré: py -3.11 -m pip install -r requirements.txt"
+    elif not dll_ok:
+        hint = (
+            "CUDA DLL path falló (ruta larga del Python Store / WinError 206). "
+            "Reintentá; si sigue, usá device=cpu o Python de python.org."
+        )
+        if dll_error:
+            hint = f"{hint} Detalle: {dll_error}"
     return {
         "ok": ok,
         "gpu": gpu,
         "cublas_wheels": wheels,
+        "dll_path_ok": dll_ok,
         "hint": hint,
     }
 
@@ -96,8 +111,26 @@ def _ollama() -> dict[str, Any]:
 
 def collect_health() -> dict[str, Any]:
     ffmpeg = _ffmpeg()
-    cuda = _cuda_runtime_probe()
-    ollama = _ollama()
+    try:
+        cuda = _cuda_runtime_probe()
+    except Exception as exc:  # noqa: BLE001
+        cuda = {
+            "ok": False,
+            "gpu": {"ok": False, "name": None, "driver": None},
+            "cublas_wheels": False,
+            "dll_path_ok": False,
+            "hint": f"No se pudo chequear CUDA: {exc}",
+        }
+    try:
+        ollama = _ollama()
+    except Exception as exc:  # noqa: BLE001
+        ollama = {
+            "ok": False,
+            "url": "http://127.0.0.1:11434",
+            "models": [],
+            "recommended_model": None,
+            "error": str(exc),
+        }
     warnings: list[str] = []
     if not ffmpeg["ok"]:
         warnings.append("ffmpeg no está en PATH — los videos van a fallar.")
